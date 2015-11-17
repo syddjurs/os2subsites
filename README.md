@@ -1,1 +1,1 @@
-# subsites.svendborg.dk
+# OS2sub - Subsites ondemand
