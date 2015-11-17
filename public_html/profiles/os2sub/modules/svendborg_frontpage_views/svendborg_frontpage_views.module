@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Svendborg Frontpage Views feature.
+ */
+
+include_once 'svendborg_frontpage_views.features.inc';

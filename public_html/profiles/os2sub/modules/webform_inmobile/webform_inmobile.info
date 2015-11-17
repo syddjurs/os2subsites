@@ -1,0 +1,3 @@
+name = Webform Inmobile
+description = Send webform responses to Inmobile sms gateway
+core = 7.x

@@ -1,0 +1,52 @@
+<?php
+
+/**
+ * @file os2web_old_nodes.module
+ *
+ * Adds a tab to a user account to show users old nodes.
+ */
+
+include_once('os2web_old_nodes.features.inc');
+
+/**
+ * Implements hook_menu();
+ */
+function os2web_old_nodes_menu() {
+  $items = array();
+  $items['user/%user/old-nodes'] = array(
+    'title'            => t('Dine gamle sider'),
+    'page callback'    => '_os2web_old_nodes_old_nodes_page',
+    'access callback'  => '_os2web_old_nodes_menu_access',
+    'access arguments' => array(1),
+    'type' => MENU_LOCAL_TASK,
+  );
+
+  return $items;
+}
+
+/**
+ * Access callback to access a user to the page.
+ */
+function _os2web_old_nodes_menu_access($account) {
+  global $user;
+  return $user->uid == $account->uid && user_access('access old nodes page');
+}
+
+/**
+ * Implements hook_permission().
+ */
+function os2web_old_nodes_permission() {
+  return array(
+    'access old nodes page' => array(
+      'title' => t('Access OS2web Old Nodes page'),
+    ),
+  );
+}
+
+/**
+ * Page callback to menu.
+ */
+function _os2web_old_nodes_old_nodes_page() {
+  global $user;
+  return views_embed_view('os2web_users_old_nodes', 'block_1', $user->uid);
+}

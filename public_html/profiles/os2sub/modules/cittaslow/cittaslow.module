@@ -1,0 +1,25 @@
+<?php
+/**
+ * Implements hook_page_build().
+ */
+function cittaslow_page_build(&$page) {
+  if (!path_is_admin(current_path())) {
+    $page['page_bottom']['cittaslow'] = array(
+      '#theme' => 'cittaslow_block_display',
+      '#title' => t('Cittaslow'),
+      '#content' => '',
+    );
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function cittaslow_theme() {
+  return array(
+    'cittaslow_block_display' => array(
+      'template' => 'cittaslow',
+      'variables' => array('title' => NULL, 'content' => NULL),
+    ),
+  );
+}

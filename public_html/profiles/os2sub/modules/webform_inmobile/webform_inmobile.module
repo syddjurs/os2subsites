@@ -1,0 +1,213 @@
+<?php
+/**
+ * @file
+ * Webform Inmobile module.
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function webform_inmobile_menu() {
+  $items['node/%webform_menu/webform/inmobile_sms'] = array(
+    'title' => 'SMS',
+    'description' => 'SMS',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('webform_inmobile_form', 1),
+    'type' => MENU_LOCAL_TASK,
+    'access callback' => 'node_access',
+    'access arguments' => array('update', 1),
+  );
+
+  $items['admin/config/services/webform_inmobile'] = array(
+    'title' => 'Webform Inmobile',
+    'description' => 'Configure inmobile for webform',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('webform_inmobile_settings_form', 1),
+    'type' => MENU_NORMAL_ITEM,
+    'access arguments' => array('configure webform inmobile'),
+  );
+  return $items;
+}
+
+/**
+ * Implements hook_permission().
+ */
+function webform_inmobile_permission() {
+  return array(
+    'configure webform inmobile' => array(
+      'title' => t('Configure Webform Inmobile settings'),
+      'description' => t('Allow the user to change API key etc.'),
+    ),
+  );
+}
+
+/**
+ * Settings form.
+ */
+function webform_inmobile_settings_form() {
+  $form = array();
+
+  $form['api_key'] = array(
+    '#title' => t('API key'),
+    '#type' => 'textfield',
+    '#default_value' => variable_get('webform_inmobile_api_key', ''),
+    '#description' => t('Inmobile sms gateway api key, this value is shared for all webforms'),
+  );
+
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Submit'),
+  );
+
+  $form['number'] = array(
+    '#title' => t('Phonenumber'),
+    '#description' => t('Must contains country code prefix: +45'),
+    '#type' => 'textfield',
+  );
+
+  $form['test_send'] = array(
+    '#type' => 'submit',
+    '#value' => t('Test send message'),
+    '#submit' => array('webform_inmobile_test_send'),
+  );
+
+  return $form;
+}
+
+/**
+ * Implements hook_FORM_ID_submit().
+ */
+function webform_inmobile_settings_form_submit(&$form, &$form_state) {
+  variable_set('webform_inmobile_api_key', $form_state['values']['api_key']);
+
+  drupal_set_message(t('The settings have been saved'));
+}
+
+/**
+ * Implements hook_webform_submission_insert().
+ */
+function webform_inmobile_webform_submission_insert($node, $submission) {
+  $nid = $node->nid;
+
+  if (variable_get('webform_inmobile_' . $nid, FALSE)) {
+    $submissions = '';
+
+    foreach ($node->webform['components'] as $delta => $component) {
+      if (!empty($submission->data[$delta][0])) {
+        $value = $submission->data[$delta][0];
+
+        // Handle selects and options.
+        if ($component['type'] == 'select') {
+          $options = _webform_select_options($component, FALSE);
+
+          $value = '"' . $options[$value] . '"';
+        }
+
+        $submissions .= $component['name'] . ': ' . $value . '; ';
+      }
+    }
+
+    $number = variable_get('webform_inmobile_' . $nid . '_number', '');
+    $message = variable_get('webform_inmobile_' . $nid . '_message', '');
+
+    $message = str_replace('[submission:values]', $submissions, $message);
+    $sender_name = variable_get('webform_inmobile_' . $nid . '_sender_name', '');
+
+    $status = webform_inmobile_send_message($message, $number, $sender_name);
+  }
+}
+
+/**
+ * Form callback for webform inmobile tab.
+ */
+function webform_inmobile_form() {
+  $args = func_get_args();
+  $nid = isset($args[2]) ? $args[2]->nid : 0;
+
+  $form = array();
+
+  $form['activate'] = array(
+    '#title' => t('Activate SMS on this webform'),
+    '#type' => 'checkbox',
+    '#default_value' => variable_get('webform_inmobile_' . $nid, FALSE),
+    '#nid' => $nid,
+  );
+
+  $form['number'] = array(
+    '#title' => t('Phonenumber'),
+    '#description' => t('Must contains country code prefix: +45'),
+    '#type' => 'textfield',
+    '#default_value' => variable_get('webform_inmobile_' . $nid . '_number', ''),
+  );
+
+  $form['sender_name'] = array(
+    '#title' => t('Sender name'),
+    '#type' => 'textfield',
+    '#maxlength' => 11,
+    '#default_value' => variable_get('webform_inmobile_' . $nid . '_sender_name', ''),
+    '#description' => t('Sender name shown on message. Maximum allowed character count: 11'),
+  );
+
+  $form['message'] = array(
+    '#title' => t('Message'),
+    '#type' => 'textarea',
+    '#description' => t('The message that will be sent, [submission:values] will be replaced with the input in the form.'),
+    '#default_value' => variable_get('webform_inmobile_' . $nid . '_message', ''),
+  );
+
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Submit'),
+  );
+
+  return $form;
+}
+
+/**
+ * Implements hook_FORM_ID_submit().
+ */
+function webform_inmobile_form_submit(&$form, &$form_state) {
+  $nid = $form['activate']['#nid'];
+
+  variable_set('webform_inmobile_' . $nid, $form_state['values']['activate']);
+  variable_set('webform_inmobile_' . $nid . '_number', $form_state['values']['number']);
+  variable_set('webform_inmobile_' . $nid . '_sender_name', $form_state['values']['sender_name']);
+  variable_set('webform_inmobile_' . $nid . '_message', $form_state['values']['message']);
+
+  drupal_set_message(t('The settings have been saved'));
+}
+
+/**
+ * Test send sms submit handler.
+ */
+function webform_inmobile_test_send(&$form, &$form_state) {
+  drupal_set_message(t('Test message has been sent'));
+
+  global $base_url;
+  $message = 'Test message from ' . $base_url;
+
+  $status = webform_inmobile_send_message($message, $form_state['values']['number']);
+
+  drupal_set_message($status);
+}
+
+/**
+ * Send message.
+ */
+function webform_inmobile_send_message($message, $number, $sender_name = 'Test') {
+  $api_key = variable_get('webform_inmobile_api_key', '');
+
+  module_load_include('inc', 'webform_inmobile', 'includes/inmobile');
+
+  try {
+    $inmobile = new Inmobile($api_key);
+
+    $inmobile->setData($sender_name, array($number), $message);
+    $status = $inmobile->send();
+  }
+  catch (Exception $e) {
+    $status = $e->getMessage();
+  }
+
+  return $status;
+}

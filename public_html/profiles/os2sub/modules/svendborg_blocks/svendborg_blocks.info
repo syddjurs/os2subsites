@@ -1,0 +1,15 @@
+name = Svendborg blocks
+core = 7.x
+package = Svendborg
+version = 7.x-1.0-alpha
+project = svendborg_blocks
+dependencies[] = fe_block
+dependencies[] = locale
+features[fe_block_boxes][] = login_sitemap_links
+features[fe_block_boxes][] = svendborg_footer_text
+features[fe_block_boxes][] = svendborg_subscribe_block
+features[fe_block_settings][] = block-login_sitemap_links
+features[fe_block_settings][] = block-svendborg_footer_text
+features[fe_block_settings][] = block-svendborg_subscribe_block
+features[fe_block_settings][] = locale-language
+features[features_api][] = api:2

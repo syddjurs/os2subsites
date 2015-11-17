@@ -1,0 +1,102 @@
+name = Svendborg Subsite Theme
+description = Kopi af Svendborg theme til subsites
+core = 7.x
+base theme = os2web_bootstrap_theme
+php = 5.3.0
+
+
+;;;;;;;;;;;;;;;;;;;;;
+;; Regions
+;;;;;;;;;;;;;;;;;;;;;
+
+regions[navigation]     = 'Navigation'
+regions[header]         = 'Top Bar'
+regions[highlighted]    = 'Highlighted'
+regions[help]           = 'Help'
+regions[content]        = 'Content'
+regions[sidebar_first]  = 'Primary'
+regions[sidebar_second] = 'Secondary'
+regions[footer]         = 'Footer'
+regions[page_top]       = 'Page top'
+regions[page_bottom]    = 'Page bottom'
+regions[content_bottom] = 'Content bottom'
+
+
+;;;;;;;;;;;;;;;;;;;;;
+;; Stylesheets
+;;;;;;;;;;;;;;;;;;;;;
+
+stylesheets[all][] = css/style.css
+stylesheets[all][] = less/style.less
+//stylesheets[all][] = less/variables.less
+stylesheets[print][] = css/print.css
+
+;;;;;;;;;;;;;;;;;;;;;
+;; Scripts
+;;;;;;;;;;;;;;;;;;;;;
+
+scripts[] = 'bootstrap/js/affix.js'
+scripts[] = 'bootstrap/js/alert.js'
+scripts[] = 'bootstrap/js/button.js'
+scripts[] = 'bootstrap/js/carousel.js'
+scripts[] = 'bootstrap/js/collapse.js'
+scripts[] = 'bootstrap/js/dropdown.js'
+scripts[] = 'bootstrap/js/modal.js'
+scripts[] = 'bootstrap/js/tooltip.js'
+scripts[] = 'bootstrap/js/popover.js'
+scripts[] = 'bootstrap/js/scrollspy.js'
+scripts[] = 'bootstrap/js/tab.js'
+scripts[] = 'bootstrap/js/transition.js'
+
+scripts[] = 'js/masonry.pkgd.min.js'
+scripts[] = 'js/isotope.pkgd.min.js'
+scripts[] = 'js/script.js'
+
+scripts[] = 'js/jquery.infinitescroll.min.js'
+scripts[] = 'js/os2web_spotbox_adjust.js'
+
+
+; Disable BootstrapCDN so the compiled LESS source files can be used.
+settings[bootstrap_cdn] = ''
+
+// Files we want to copy along with the CSS files, let's define these later.
+$info['copy'] = array();
+ 
+// Gradients
+$info['gradients'] = array();
+ 
+// Color areas to fill (x, y, width, height).
+$info['fill'] = array();
+ 
+// Coordinates of all the theme slices (x, y, width, height)
+// with their filename as used in the stylesheet.
+$info['slices'] = array();
+ 
+// Base file for image generation.
+$info['base_image'] = 'color/base.png';
+
+
+
+; Sheets with .less extension will automatically receive variables below.
+; stylesheets[all][] = styles/demo.info.css.less
+
+; Variables defined here will automatically be available inside sheets
+; registered to this module.
+; Variables are lazy evaluated, so they don't have to be defined in order.
+;less[vars][@gradient_end]   = darken(@gradient_start, 10%);
+;less[vars][@gradient_start] = #0779bf;
+;less[vars][@swapbrandlightgreen] = #fff;
+
+; Register non-global sheets to automatically receive variables associated with
+; this module.
+: less[sheets][] = less/variables.less
+
+settings[slider_paths] = '<front>'
+
+; Grid
+; --------------
+settings[bootstrap_region_grid-sidebar_first] = 2
+
+; Region Wells
+; --------------
+settings[bootstrap_region_well-sidebar_first] = ''

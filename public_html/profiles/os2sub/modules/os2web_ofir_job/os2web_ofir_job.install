@@ -1,0 +1,16 @@
+<?php
+/**
+ * @file os2web_ofir_job.install
+ */
+
+/**
+ * Implements hook_taxonomies_enable().
+ */
+function os2web_ofir_job_enable() {
+  //Set default Ofir feed url
+  $source = feeds_source('ofir_job_import');
+  $config = $source->getConfig();
+  $config['FeedsHTTPFetcher']['source'] = 'http://job.ofir.dk/Templates/XMLliste_7DAE0E45-E8C0-43EF-9D3C-350F69BE5C9B.asp';
+  $source->setConfig($config);
+  $source->save();
+}

@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Svendborg Gallery feature.
+ */
+
+include_once 'svendborg_gallery.features.inc';

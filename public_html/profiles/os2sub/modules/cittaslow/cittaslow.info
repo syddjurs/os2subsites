@@ -1,0 +1,10 @@
+name = Cittaslow
+description = Just a block like feedback slide out from site.
+
+core = 7.x
+configure = admin/config/user-interface/cittaslow
+
+; Information added by Drupal.org packaging script on 2014-01-01
+version = "7.x-2.x-dev"
+core = "7.x"
+project = "cittaslow"

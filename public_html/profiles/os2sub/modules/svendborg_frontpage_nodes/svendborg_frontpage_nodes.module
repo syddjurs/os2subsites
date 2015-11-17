@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Svendborg Frontpage nodes feature.
+ */
+
+include_once 'svendborg_frontpage_nodes.features.inc';

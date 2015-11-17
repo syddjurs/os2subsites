@@ -1,0 +1,31 @@
+<?php
+/**
+ * @file
+ * Code for the Ofir job index integration feature.
+ */
+
+include_once('os2web_ofir_job.features.inc');
+
+/**
+ * Implements hook_os2web_help().
+ */
+function os2web_ofir_job_os2web_help($sections) {
+
+  $sections['list_of_content'] = t('<a href="#os2web_ofir_job">Ofir Job Importer</a><br />');
+
+  // General about OS2web Service.
+  $sections['os2web_ofir_job'] = t('<h2 id="os2web_ofir_job">Ofir Job Importer</h2>');
+
+  // Module specific.
+  $sections['os2web_ofir_job'] .= t('<p>Jobs are automatically imported from Ofir.dk/job.');
+
+  // Importers.
+  $sections['os2web_ofir_job'] .= t('<p><b id=="os2web_ofir_job">Job Importer:</b> Initialize the importer for Ofir Jobs at <a href="@url">the import page.</a></p>', array('@url' => 'import/os2web_ofir_job_feeds_import'));
+
+  // Add content to the genneral listings
+  $sections['contenttype'] = t('<p><b>Ofir Job:</b> Jobs are automatically imported from Ofir.dk/job. See an overview over all current jobs at <a href="@url" target="_blank">/job</a>. See more about the <a href="#os2web_ofir_job">Job Importer</a></p>', array('@url' => url('job')));
+  $sections['import'] = t('<p><b id=="os2web_ofir_job">Job Importer:</b> Initialize the importer for Ofir Jobs at <a href="@url">the import page.</a></p>', array('@url' => 'import/os2web_ofir_job_feeds_import'));
+  
+
+  return $sections;
+}
