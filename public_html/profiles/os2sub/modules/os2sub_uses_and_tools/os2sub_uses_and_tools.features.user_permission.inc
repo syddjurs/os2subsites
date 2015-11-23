@@ -137,16 +137,6 @@ function os2sub_uses_and_tools_user_default_permissions() {
     'module' => 'workbench',
   );
 
-  // Exported permission: 'add event_calendar node registration'.
-  $permissions['add event_calendar node registration'] = array(
-    'name' => 'add event_calendar node registration',
-    'roles' => array(
-      'Editor' => 'Editor',
-      'subsiteadmin' => 'subsiteadmin',
-    ),
-    'module' => 'node_registration',
-  );
-
   // Exported permission: 'add media from remote sources'.
   $permissions['add media from remote sources'] = array(
     'name' => 'add media from remote sources',
@@ -250,15 +240,6 @@ function os2sub_uses_and_tools_user_default_permissions() {
     'module' => 'locale',
   );
 
-  // Exported permission: 'administer less'.
-  $permissions['administer less'] = array(
-    'name' => 'administer less',
-    'roles' => array(
-      'subsiteadmin' => 'subsiteadmin',
-    ),
-    'module' => 'less',
-  );
-
   // Exported permission: 'administer linkit'.
   $permissions['administer linkit'] = array(
     'name' => 'administer linkit',
@@ -317,20 +298,8 @@ function os2sub_uses_and_tools_user_default_permissions() {
   // Exported permission: 'administer news type-4'.
   $permissions['administer news type-4'] = array(
     'name' => 'administer news type-4',
-    'roles' => array(
-      'Editor' => 'Editor',
-    ),
+    'roles' => array(),
     'module' => 'os2web_news_page',
-  );
-
-  // Exported permission: 'administer node registration'.
-  $permissions['administer node registration'] = array(
-    'name' => 'administer node registration',
-    'roles' => array(
-      'Editor' => 'Editor',
-      'subsiteadmin' => 'subsiteadmin',
-    ),
-    'module' => 'node_registration',
   );
 
   // Exported permission: 'administer nodes'.
@@ -515,16 +484,6 @@ function os2sub_uses_and_tools_user_default_permissions() {
     'module' => 'user',
   );
 
-  // Exported permission: 'cancel own event_calendar node registration'.
-  $permissions['cancel own event_calendar node registration'] = array(
-    'name' => 'cancel own event_calendar node registration',
-    'roles' => array(
-      'Editor' => 'Editor',
-      'subsiteadmin' => 'subsiteadmin',
-    ),
-    'module' => 'node_registration',
-  );
-
   // Exported permission: 'change own username'.
   $permissions['change own username'] = array(
     'name' => 'change own username',
@@ -534,28 +493,9 @@ function os2sub_uses_and_tools_user_default_permissions() {
     'module' => 'user',
   );
 
-  // Exported permission: 'configure webform inmobile'.
-  $permissions['configure webform inmobile'] = array(
-    'name' => 'configure webform inmobile',
-    'roles' => array(
-      'subsiteadmin' => 'subsiteadmin',
-    ),
-    'module' => 'webform_inmobile',
-  );
-
   // Exported permission: 'create banner content'.
   $permissions['create banner content'] = array(
     'name' => 'create banner content',
-    'roles' => array(
-      'Editor' => 'Editor',
-      'subsiteadmin' => 'subsiteadmin',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'create event_calendar content'.
-  $permissions['create event_calendar content'] = array(
-    'name' => 'create event_calendar content',
     'roles' => array(
       'Editor' => 'Editor',
       'subsiteadmin' => 'subsiteadmin',
@@ -641,16 +581,6 @@ function os2sub_uses_and_tools_user_default_permissions() {
     'module' => 'path',
   );
 
-  // Exported permission: 'create velkomst content'.
-  $permissions['create velkomst content'] = array(
-    'name' => 'create velkomst content',
-    'roles' => array(
-      'Editor' => 'Editor',
-      'subsiteadmin' => 'subsiteadmin',
-    ),
-    'module' => 'node',
-  );
-
   // Exported permission: 'create webform content'.
   $permissions['create webform content'] = array(
     'name' => 'create webform content',
@@ -705,16 +635,6 @@ function os2sub_uses_and_tools_user_default_permissions() {
       'subsiteadmin' => 'subsiteadmin',
     ),
     'module' => 'file_entity',
-  );
-
-  // Exported permission: 'delete any event_calendar content'.
-  $permissions['delete any event_calendar content'] = array(
-    'name' => 'delete any event_calendar content',
-    'roles' => array(
-      'Editor' => 'Editor',
-      'subsiteadmin' => 'subsiteadmin',
-    ),
-    'module' => 'node',
   );
 
   // Exported permission: 'delete any image files'.
@@ -776,16 +696,6 @@ function os2sub_uses_and_tools_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'delete any velkomst content'.
-  $permissions['delete any velkomst content'] = array(
-    'name' => 'delete any velkomst content',
-    'roles' => array(
-      'Editor' => 'Editor',
-      'subsiteadmin' => 'subsiteadmin',
-    ),
-    'module' => 'node',
-  );
-
   // Exported permission: 'delete any video files'.
   $permissions['delete any video files'] = array(
     'name' => 'delete any video files',
@@ -831,26 +741,6 @@ function os2sub_uses_and_tools_user_default_permissions() {
       'subsiteadmin' => 'subsiteadmin',
     ),
     'module' => 'file_entity',
-  );
-
-  // Exported permission: 'delete own event_calendar content'.
-  $permissions['delete own event_calendar content'] = array(
-    'name' => 'delete own event_calendar content',
-    'roles' => array(
-      'Editor' => 'Editor',
-      'subsiteadmin' => 'subsiteadmin',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'delete own event_calendar node registration'.
-  $permissions['delete own event_calendar node registration'] = array(
-    'name' => 'delete own event_calendar node registration',
-    'roles' => array(
-      'Editor' => 'Editor',
-      'subsiteadmin' => 'subsiteadmin',
-    ),
-    'module' => 'node_registration',
   );
 
   // Exported permission: 'delete own image files'.
@@ -905,16 +795,6 @@ function os2sub_uses_and_tools_user_default_permissions() {
   // Exported permission: 'delete own os2web_base_selfservice_link content'.
   $permissions['delete own os2web_base_selfservice_link content'] = array(
     'name' => 'delete own os2web_base_selfservice_link content',
-    'roles' => array(
-      'Editor' => 'Editor',
-      'subsiteadmin' => 'subsiteadmin',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'delete own velkomst content'.
-  $permissions['delete own velkomst content'] = array(
-    'name' => 'delete own velkomst content',
     'roles' => array(
       'Editor' => 'Editor',
       'subsiteadmin' => 'subsiteadmin',
@@ -1196,16 +1076,6 @@ function os2sub_uses_and_tools_user_default_permissions() {
     'module' => 'file_entity',
   );
 
-  // Exported permission: 'edit any event_calendar content'.
-  $permissions['edit any event_calendar content'] = array(
-    'name' => 'edit any event_calendar content',
-    'roles' => array(
-      'Editor' => 'Editor',
-      'subsiteadmin' => 'subsiteadmin',
-    ),
-    'module' => 'node',
-  );
-
   // Exported permission: 'edit any image files'.
   $permissions['edit any image files'] = array(
     'name' => 'edit any image files',
@@ -1258,16 +1128,6 @@ function os2sub_uses_and_tools_user_default_permissions() {
   // Exported permission: 'edit any os2web_base_selfservice_link content'.
   $permissions['edit any os2web_base_selfservice_link content'] = array(
     'name' => 'edit any os2web_base_selfservice_link content',
-    'roles' => array(
-      'Editor' => 'Editor',
-      'subsiteadmin' => 'subsiteadmin',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'edit any velkomst content'.
-  $permissions['edit any velkomst content'] = array(
-    'name' => 'edit any velkomst content',
     'roles' => array(
       'Editor' => 'Editor',
       'subsiteadmin' => 'subsiteadmin',
@@ -1332,26 +1192,6 @@ function os2sub_uses_and_tools_user_default_permissions() {
     'module' => 'file_entity',
   );
 
-  // Exported permission: 'edit own event_calendar content'.
-  $permissions['edit own event_calendar content'] = array(
-    'name' => 'edit own event_calendar content',
-    'roles' => array(
-      'Editor' => 'Editor',
-      'subsiteadmin' => 'subsiteadmin',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'edit own event_calendar node registration'.
-  $permissions['edit own event_calendar node registration'] = array(
-    'name' => 'edit own event_calendar node registration',
-    'roles' => array(
-      'Editor' => 'Editor',
-      'subsiteadmin' => 'subsiteadmin',
-    ),
-    'module' => 'node_registration',
-  );
-
   // Exported permission: 'edit own image files'.
   $permissions['edit own image files'] = array(
     'name' => 'edit own image files',
@@ -1404,16 +1244,6 @@ function os2sub_uses_and_tools_user_default_permissions() {
   // Exported permission: 'edit own os2web_base_selfservice_link content'.
   $permissions['edit own os2web_base_selfservice_link content'] = array(
     'name' => 'edit own os2web_base_selfservice_link content',
-    'roles' => array(
-      'Editor' => 'Editor',
-      'subsiteadmin' => 'subsiteadmin',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'edit own velkomst content'.
-  $permissions['edit own velkomst content'] = array(
-    'name' => 'edit own velkomst content',
     'roles' => array(
       'Editor' => 'Editor',
       'subsiteadmin' => 'subsiteadmin',
@@ -1625,16 +1455,6 @@ function os2sub_uses_and_tools_user_default_permissions() {
     'module' => 'pathauto',
   );
 
-  // Exported permission: 'other node registration'.
-  $permissions['other node registration'] = array(
-    'name' => 'other node registration',
-    'roles' => array(
-      'Editor' => 'Editor',
-      'subsiteadmin' => 'subsiteadmin',
-    ),
-    'module' => 'node_registration',
-  );
-
   // Exported permission: 'promote to all the place'.
   $permissions['promote to all the place'] = array(
     'name' => 'promote to all the place',
@@ -1710,16 +1530,6 @@ function os2sub_uses_and_tools_user_default_permissions() {
     'module' => 'filter',
   );
 
-  // Exported permission: 'view event_calendar node registration'.
-  $permissions['view event_calendar node registration'] = array(
-    'name' => 'view event_calendar node registration',
-    'roles' => array(
-      'Editor' => 'Editor',
-      'subsiteadmin' => 'subsiteadmin',
-    ),
-    'module' => 'node_registration',
-  );
-
   // Exported permission: 'view files'.
   $permissions['view files'] = array(
     'name' => 'view files',
@@ -1730,16 +1540,6 @@ function os2sub_uses_and_tools_user_default_permissions() {
       'subsiteadmin' => 'subsiteadmin',
     ),
     'module' => 'file_entity',
-  );
-
-  // Exported permission: 'view own event_calendar node registration'.
-  $permissions['view own event_calendar node registration'] = array(
-    'name' => 'view own event_calendar node registration',
-    'roles' => array(
-      'Editor' => 'Editor',
-      'subsiteadmin' => 'subsiteadmin',
-    ),
-    'module' => 'node_registration',
   );
 
   // Exported permission: 'view own files'.

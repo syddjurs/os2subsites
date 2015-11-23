@@ -196,7 +196,6 @@ function os2sub_banner_views_default_views() {
     t('sidste »'),
     t('field_banner_vis_paa_sider'),
     t('Page'),
-    t('more'),
     t('Billede'),
     t('Redigér'),
     t('Vis på sider'),
