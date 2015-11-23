@@ -31,6 +31,10 @@ stylesheets[all][] = less/style.less
 //stylesheets[all][] = less/variables.less
 stylesheets[print][] = css/print.css
 
+
+plugins[panels][layouts] = 'layouts'
+
+
 ;;;;;;;;;;;;;;;;;;;;;
 ;; Scripts
 ;;;;;;;;;;;;;;;;;;;;;
@@ -100,3 +104,6 @@ settings[bootstrap_region_grid-sidebar_first] = 2
 ; Region Wells
 ; --------------
 settings[bootstrap_region_well-sidebar_first] = ''
+
+
+
