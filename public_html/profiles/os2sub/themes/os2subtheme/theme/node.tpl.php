@@ -128,7 +128,7 @@
   </header>
   <?php endif; ?>
 
-  <div class="wrap">
+  <div class="wrap">a
     <?php
       // Hide comments, tags, and links now so that we can render them later.
       hide($content['comments']);

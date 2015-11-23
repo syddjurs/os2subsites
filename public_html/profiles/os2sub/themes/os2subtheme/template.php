@@ -186,15 +186,6 @@ function os2subtheme_preprocess_page(&$variables) {
     //$variables['page']['back_button'] = TRUE;
   }
 
-  if ($node && $node->type == "os2web_base_contentpage") {
-    $block = block_load('views', 'aktiviteter-block_2');
-    if (($block->visibility == '1' && drupal_match_path(drupal_get_path_alias(current_path()), $block->pages))
-      || ($block->visibility == '0' && !drupal_match_path(drupal_get_path_alias(current_path()), $block->pages))
-    ) {
-      $variables['page']['activities'] = TRUE;
-    }
-
-  }
   // When a node's menu link is deaktivated and has no siblings, menu_block is
   // empty, and then sidebar_first are hidden. We want to force the
   // sidebar_first to still be shown.
@@ -211,45 +202,7 @@ function os2subtheme_preprocess_page(&$variables) {
       ),
     );
   }
-  if ($node && ($node->type != "os2web_base_news")) {
-    $variables['page']['sidebar_first'] = array(
-      '#theme_wrappers' => array('region'),
-      '#region'         => 'sidebar_first',
-      'content'         => array(
-        '#markup'  => drupal_render(menu_tree('main-menu')),
-        '#classes' => array('indholdsmenu')
-      ),
-    );
-
-  }
-
-  // Hack to force the sidebar_second to be rendered if we have anything to put
-  // in it.
-  if (!$sidebar_second_hidden && empty($variables['page']['sidebar_second']) && (!empty($variables['page']['prev_news_block']) || !empty($variables['page']['contact']) || $variables['page']['activities'] || !empty($variables['page']['os2web_selfservicelinks']))) {
-    $variables['page']['sidebar_second'] = array(
-      '#theme_wrappers' => array('region'),
-      '#region'         => 'sidebar_second',
-      'dummy_content'   => array(
-        '#markup' => ' ',
-      ),
-    );
-  }
-  if (empty($variables['page']['content_bottom']) && !empty($variables['page']['related_links'])) {
-    $variables['page']['content_bottom'] = array(
-      '#theme_wrappers' => array('region'),
-      '#region'         => 'content_bottom',
-      'dummy_content'   => array(
-        '#markup' => ' ',
-      ),
-    );
-    if ($node && ($node->type == "os2web_base_news")) {
-      $variables['page']['related_pages_type'] = "boxes";
-    }
-    if ($node && ($node->type == "os2web_base_contentpage")) {
-      $variables['page']['related_pages_type'] = "links";
-    }
-
-  }
+  
   $view = views_get_page_view();
   if (!empty($view) && $view->name == 'svendborg_news_view' && $view->current_display == 'page_3') {
     if (!$sidebar_second_hidden && empty($variables['page']['sidebar_second'])) {
@@ -303,31 +256,6 @@ function os2subtheme_preprocess_page(&$variables) {
     }
   }
 
-
-  // Spotbox handling. Find all spotboxes for this node, and add them to
-  // content_bottom.
-  if (($node && $spotboxes = field_get_items('node', $node, 'field_os2web_base_field_spotbox')) ||
-    ($term && !$term_is_top && $spotboxes = field_get_items('taxonomy_term', $term, 'field_os2web_base_field_spotbox'))
-  ) {
-
-    if (empty($variables['page']['sidebar_second'])) {
-      $spotbox_render = drupal_render(_os2subtheme_get_spotboxes($spotboxes));
-    }
-    else {
-      $spotbox_render = drupal_render(_os2subtheme_get_spotboxes($spotboxes, 'col-xs-6 col-sm-6 col-md-6 col-lg-6'));
-    }
-
-    $variables['page']['content']['os2web_spotbox'] = array(
-      'os2web_spotbox'  => array(
-        '#markup' => $spotbox_render,
-      ),
-      '#theme_wrappers' => array('container'),
-      '#attributes'     => array(
-        'class' => array('row', 'spotboxes'),
-      ),
-    );
-  }
-
   // If node has hidden the sidebar, set content to null.
   if (($node && $hide_sidebar_field = field_get_items('node', $node, 'field_svendborg_hide_sidebar')) ||
     ($term && $hide_sidebar_field = field_get_items('taxonomy_term', $term, 'field_svendborg_hide_sidebar'))
@@ -342,7 +270,7 @@ function os2subtheme_preprocess_page(&$variables) {
   drupal_add_html_head(array(
     '#tag'        => 'link',
     '#attributes' => array(
-      'href' => 'http://fonts.googleapis.com/css?family=Titillium+Web:400,600,700|Open+Sans:400,700',
+      'href' => 'https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic|Open+Sans+Condensed:300,300italic',
       'rel'  => 'stylesheet',
       'type' => 'text/css',
     ),
@@ -350,52 +278,8 @@ function os2subtheme_preprocess_page(&$variables) {
 
   // Pass the theme path to js.
   drupal_add_js('jQuery.extend(Drupal.settings, { "pathToTheme": "' . path_to_theme() . '" });', 'inline');
-
-  if (drupal_is_front_page()) {
-    // Frontpage big menu.
-
-    // Frontpage large carousel.
-    $variables['page']['front_large_carousel'] = _os2subtheme_get_large_carousel();
-
-    // Frontpage small carousel.
-    $variables['page']['front_small_carousel'] = _os2subtheme_get_front_small_carousel();
-  }
-
 }
 
-/**
- * Implements template_preprocess_taxonomy_term().
- */
-function os2subtheme_preprocess_taxonomy_term(&$variables) {
-
-  $term = taxonomy_term_load($variables['tid']);
-  $variables['term_display_alternative'] = FALSE;
-  // Get wether this is a top term, and provide a variable for the templates.
-  $term_is_top = _os2subtheme_term_is_top($term->tid);
-  $variables['term_is_top'] = $term_is_top;
-
-  // Provide the spotboxes to Nyheder page or top terms. These pages does not
-  // use the right sidebar so we need them in taxonomy-term.tpl
-  if (isset($term->tid) && ($term->tid == 6819 || $term_is_top)) {
-    $spotboxes = field_get_items('taxonomy_term', $term, 'field_os2web_base_field_spotbox');
-    if ($term->tid == 6819) {
-      $variables['theme_hook_suggestions'][] = 'taxonomy_term__' . $term->tid;
-      $variables['news_term_branding'] = _os2subtheme_get_large_carousel();
-      $variables['news_term_content'] = _os2subtheme_get_term_news_content();
-      $variables['news_term_right_sidebar'] = _os2subtheme_get_term_news_filer_and_quicktabs();
-      $variables['os2web_spotboxes'] = ($spotboxes) ? _os2subtheme_get_spotboxes($spotboxes, 'col-xs-6 col-sm-6 col-md-6 col-lg-6') : '';
-    }
-    else {
-      $variables['os2web_spotboxes'] = ($spotboxes) ? _os2subtheme_get_spotboxes($spotboxes, 'col-xs-6 col-sm-4 col-md-4 col-lg-4') : '';
-    }
-  }
-  if (isset($term->field_alternative_display['und'][0]['value']) &&
-    $term->field_alternative_display['und'][0]['value'] == 1
-  ) {
-    $variables['term_display_alternative'] = TRUE;
-  }
-
-}
 
 function os2subtheme_process_html(&$variables) {
   if (module_exists('color')) {
@@ -450,34 +334,8 @@ function os2subtheme_preprocess_node(&$vars) {
   // Add css class "node--NODETYPE--VIEWMODE" to nodes.
   $vars['classes_array'][] = 'node--' . $vars['type'] . '--' . $vars['view_mode'];
 
-  $term_class = get_the_classes($vars['nid']);
-  if ($term_class != '') {
-    $vars['classes_array'][] = $vars['top_parent_term'] = $term_class;
-  }
   // Make "node--NODETYPE--VIEWMODE.tpl.php" templates available for nodes.
   $vars['theme_hook_suggestions'][] = 'node__' . $vars['type'] . '__' . $vars['view_mode'];
-}
-
-/**
- * Retrieve the top term tid for node class array.
- */
-function get_the_classes($nid) {
-  $top_parent_term = '';
-  $node = node_load($nid);
-  if ($portalkategori = field_get_items('node', $node, 'field_os2web_base_field_struct')) {
-
-    // This will be your top parent term if any was found.
-    $parent_terms = taxonomy_get_parents_all($portalkategori[0]['tid']);
-
-    foreach ($parent_terms as $parent) {
-      $parent_parents = taxonomy_get_parents_all($parent->tid);
-      if ($parent_parents != FALSE) {
-        // This is top parent term.
-        $top_parent_term = $parent->tid;
-      }
-    }
-  }
-  return $top_parent_term;
 }
 
 /**
@@ -569,57 +427,6 @@ function os2subtheme_form_element(&$variables) {
   return bootstrap_form_element($variables);
 }
 
-/**
- * Helper function to get a rendeable array of spotboxes.
- *
- * @param array $spotboxes
- *   Array of spotboxe nodes with nids.
- *
- * @return array
- *   The renderable array.
- */
-function _os2subtheme_get_spotboxes($spotboxes, $classes = 'col-xs-6 col-sm-6 col-md-4 col-lg-4') {
-  $spotbox_nids = array();
-  foreach ($spotboxes as $spotbox) {
-    $spotbox_nids[$spotbox['nid']] = $spotbox['nid'];
-  }
-  $spotbox_array = os2web_spotbox_render_spotboxes($spotbox_nids, NULL, NULL, NULL, 'svendborg_spotbox');
-
-  foreach ($spotbox_array['node'] as &$spotbox) {
-    if (is_array($spotbox)) {
-      $spotbox['#prefix'] = '<div class="' . $classes . '">';
-      $spotbox['#suffix'] = '</div>';
-    }
-  }
-  return $spotbox_array;
-}
-
-/**
- * Helper function to retrieve the correct array to display selfservicelinks.
- *
- * @param array $links
- *   Associated array of links with indexes 'nid'.
- *
- * @return array
- *   Array of links with URL and Title.
- */
-function _os2subtheme_get_selfservicelinks($links) {
-  $selfservicelinks = array();
-  foreach ($links as $link) {
-    $selfservicelink = node_load($link['nid']);
-    if ($selfservicelink) {
-      $link_fields = field_get_items('node', $selfservicelink, 'field_spot_link');
-      if (!empty($link_fields)) {
-        $link_field = array_shift($link_fields);
-        $selfservicelinks[$link['nid']] = array(
-          'url'   => $link_field['url'],
-          'title' => $link_field['title'],
-        );
-      }
-    }
-  }
-  return $selfservicelinks;
-}
 
 /**
  * Helper function to return wether a term is a top term.
@@ -697,249 +504,7 @@ function os2subtheme_file_formatter_table($variables) {
 /**
  * Retrieve large carousel.
  */
-function _os2subtheme_get_large_carousel() {
-  $large_carousel = '';
-  // Branding news view.
-  $view = views_get_view('svendborg_news_view');
-  $view->set_arguments(array('branding'));
-  if (!drupal_is_front_page()) {
-    $filter = $view->get_item('front', 'filter', 'promote');
-    $filter['value'] = 1;
-    $view->set_item('front', 'filter', 'promote', $filter);
-  }
-  else {
-    $view->set_display('front');
-  }
-  $view->set_items_per_page(3);
-  $view->pre_execute();
-  $view->execute();
 
-  $results = $view->result;
-
-  $large_carousel .= '<ol class="carousel-indicators col-md-12 col-sm-12 col-xs-12">';
-  foreach ($results as $key => $item) {
-    $large_carousel .= '<li data-target="';
-    if (drupal_is_front_page()) {
-      $large_carousel .= '#front-news-branding" data-slide-to="' . $key . '"';
-    }
-    else {
-      $large_carousel .= '#nyheder-carousel-large" data-slide-to="' . $key . '"';
-    }
-    if ($key == 0) {
-      $large_carousel .= 'class="active"></li>';
-    }
-    else {
-      $large_carousel .= '></li>';
-    }
-  }
-  $large_carousel .= '</ol>';
-  $large_carousel .= '<div class="carousel-inner" id="front-carousel-large" >';
-
-  foreach ($results as $key => $item) {
-    if ($key == 0) {
-      $large_carousel .= '<div class="item active">';
-    }
-    else {
-      $large_carousel .= '<div class="item">';
-    }
-    $node = node_load($item->nid);
-    $img = field_get_items('node', $node, 'field_os2web_base_field_lead_img');
-    $image = $img[0];
-    image_get_info($image["filename"]);
-
-    $style = 'svendborg_content_image';
-    $public_filename = image_style_url($style, $image["uri"]);
-    $path = drupal_get_path_alias('node/' . $node->nid);
-    $large_carousel .= '<a href="' . $path . '" title="' . $node->title . '">';
-    if (drupal_is_front_page()) {
-      $classes = 'col-md-7 col-sm-8 col-xs-12';
-    }
-    else {
-      $classes = 'col-md-8 col-sm-12 col-xs-12';
-    }
-    $large_carousel .= '<div class="row-no-padding ' . $classes;
-    if (drupal_is_front_page()) {
-      $large_carousel .= ' front-branding-img';
-    }
-    $large_carousel .= '">';
-    $large_carousel .= '<img title = "' . $image["title"] . '" src="' . $public_filename . '"/>';
-    $large_carousel .= '</div>';
-    if (drupal_is_front_page()) {
-      $classes = 'col-md-5 col-sm-4 col-xs-12';
-    }
-    else {
-      $classes = 'col-md-4 col-sm-12 col-xs-12';
-    }
-    $large_carousel .= '<div class="carousel-title ' . $classes . '">';
-
-    $large_carousel .= '<div class="title col-md-12">';
-    $large_carousel .= $node->title;
-    $large_carousel .= '</div>';
-
-    $large_carousel .= '<div class="col-md-12">';
-    $large_carousel .= '<a href="' . $path . '" title="' . $node->title . '" class="btn btn-primary">L&aelig;s mere</a>';
-    $large_carousel .= '</div></div>';
-    $large_carousel .= '</a>';
-    $large_carousel .= '</div>';
-  }
-  $large_carousel .= '</div>';
-  return $large_carousel;
-}
-
-/**
- * Retrieve small carousel.
- */
-function _os2subtheme_get_front_small_carousel() {
-  $front_small_carousel = '';
-  $view = views_get_view('svendborg_news_view');
-  $view->set_arguments(array('all'));
-  $view->set_display('block_3');
-  $view->set_items_per_page(9);
-  $view->pre_execute();
-  $view->execute();
-
-  $results = $view->result;
-
-  $front_small_carousel .= '<div id="front-carousel-small" class="carousel slide" data-ride="carousel">
-                           <ol class="carousel-indicators col-md-12 col-sm-12 col-xs-12">';
-  if (count($results) > 0) {
-    $front_small_carousel .= '<li data-target="#front-carousel-small" data-slide-to="0" class="active"></li>';
-  }
-  if (count($results) > 3) {
-    $front_small_carousel .= '<li data-target="#front-carousel-small" data-slide-to="1"></li>';
-  }
-  if (count($results) > 6) {
-    $front_small_carousel .= '<li data-target="#front-carousel-small" data-slide-to="2"></li>';
-  }
-
-  $front_small_carousel .= '</ol>';
-
-  $front_small_carousel .= '<div class="carousel-inner">';
-
-  $small_news_carousel = array();
-  foreach ($results as $key => $item) {
-    if ($key < 3) {
-      $small_news_carousel[0][] = $item;
-    }
-    elseif ($key >= 3 && $key <= 5) {
-      $small_news_carousel[1][] = $item;
-    }
-    elseif ($key >= 6) {
-      $small_news_carousel[2][] = $item;
-    }
-  }
-  foreach ($small_news_carousel as $key => $items) {
-    if ($key == 0) {
-      $front_small_carousel .= '<div class="item active">';
-    }
-    else {
-      $front_small_carousel .= '<div class="item">';
-    }
-    foreach ($items as $i => $item) {
-      $node = node_load($item->nid);
-      $img = field_get_items('node', $node, 'field_os2web_base_field_lead_img');
-      $image = $img[0];
-      image_get_info($image["filename"]);
-
-      $style = 'svendborg_content_image';
-      $public_filename = image_style_url($style, $image["uri"]);
-
-      $path = drupal_get_path_alias('node/' . $node->nid);
-      $front_small_carousel .= '<a href="' . $path . '">';
-      $front_small_carousel .= '<div class="col-md-4 col-sm-4 col-xs-12">';
-      $front_small_carousel .= '<div class="front-s-news-item front-s-news-item-' . $i . '">';
-
-      $front_small_carousel .= '<div class="front-s-news-item-img">';
-      $front_small_carousel .= '<img title = "' . $image["title"] . '" src="' . $public_filename . '"/>';
-      $front_small_carousel .= '</div>';
-
-      $front_small_carousel .= '<div class="front-s-news-item-text">';
-      $front_small_carousel .= '<div class="bubble"><span>' . $node->title . '</span></div>';
-      $front_small_carousel .= '</div>';
-
-      $front_small_carousel .= '</div>';
-      $front_small_carousel .= '</div>';
-      $front_small_carousel .= '</a>';
-    }
-    $front_small_carousel .= '</div>';
-  }
-
-  $front_small_carousel .= '</div></div>';
-
-  $front_small_carousel .= '<div class="front-seperator"></div>';
-  return $front_small_carousel;
-}
-
-/**
- * Retrieve the news term filter and quicktabs.
- */
-function _os2subtheme_get_term_news_filer_and_quicktabs() {
-  $news_term_right_sidebar = '';
-  // Filter.
-  $block = block_load('views', 'news_filter-block');
-  $output = _block_get_renderable_array(_block_render_blocks(array($block)));
-  $news_term_right_sidebar .= drupal_render($output);
-
-  // Menu block.
-  $block = block_load('menu_block', '4');
-  $output = _block_get_renderable_array(_block_render_blocks(array($block)));
-  $news_term_right_sidebar .= drupal_render($output);
-
-  $news_term_right_sidebar .= '<div class="nyheder-seperator"></div>';
-
-  // Quick tabs.
-  $news_term_right_sidebar .= ' <div id="svendborg_tabs">';
-  $block_tab = block_load('quicktabs', 'nyhed_quicktabs');
-  $output = _block_get_renderable_array(_block_render_blocks(array($block_tab)));
-  $news_term_right_sidebar .= drupal_render($output);
-  $news_term_right_sidebar .= '</div>';
-
-  $news_term_right_sidebar .= '<div class="nyheder-seperator"></div>';
-
-  return $news_term_right_sidebar;
-
-}
-
-/**
- * Retrieve news term content view.
- */
-function _os2subtheme_get_term_news_content() {
-  $content = '';
-  $view = views_get_view('svendborg_news_view');
-  $view->set_display('block');
-  $view->set_arguments(array('nyhed', 'all'));
-  $view->pre_execute();
-  $view->execute();
-  $content .= $view->render('block');
-  return $content;
-}
-
-/**
- * =======
- * >>>>>>> Stashed changes
- * Helper. Returns almost the same as render(node_view()) for a webform.
- *
- * Instead of a fully loaded render array, though, it returns markup, without
- * too many wrappers and such.
- */
-function _os2subtheme_get_webform($nid) {
-  $webform_node = node_load($nid);
-
-  $submission = (object) array();
-  $enabled = TRUE;
-  $preview = FALSE;
-  $webform_id = 'webform_client_form_' . $nid;
-
-  $form = drupal_get_form($webform_id, $webform_node, $submission, $enabled, $preview);
-
-  $text = '<h3>' . $webform_node->title . '</h3>';
-
-  if ($body = field_get_items('node', $webform_node, 'body')) {
-    $text .= $body[0]['safe_value'];
-  }
-
-  return $text . drupal_render($form);
-}
 
 function _os2subtheme_block_render($module, $block_id) {
   $block = block_load($module, $block_id);
@@ -963,95 +528,6 @@ function _os2subtheme_get_contact() {
 
   }
   return FALSE;
-}
-
-function os2subtheme_preprocess_views_view_unformatted(&$var) {
-  // Determine if this view's content should render in columns.
-  // @see: _YOUR_THEME_views_columns();
-  // var_dump('here');
-  _os2subtheme_views_columns($var, array(
-    'svendborg_news_view|svendborg_latest_news_two_col'   => 2,
-    'svendborg_news_view|svendborg_latest_news_three_col' => 3,
-  ));
-
-
-}
-
-/**
- * Separate the view content into columns.
- *
- * @param (array) $variables
- *   An associative array referencing the variables currently being preprocessed.
- * @param (array) $view
- *   An associative array containing the following syntax ($view_id => $columns):
- *     (string) $view_id: The view name in the format of: name|display_id.
- *                        Optional: |display_id. If omitted, all displays in the
- *                        view will be processed.
- *        (int) $columns: The number of columns to separate rows into. Value must
- *                        be larger than 1, obviously.
- * @param (bool) $render_empty
- *   A boolean switch determining whether to render empty columns, this typically
- *   happens when the view row count is smaller than the specified column count.
- *   Default: FALSE.
- */
-function _os2subtheme_views_columns(array &$var, array $views = array(), $render_all = FALSE) {
-  // Initial value.
-  $var['columns'] = FALSE;
-  // Do not process if there are no results.
-  if (!$count = count($var['view']->result)) {
-    return;
-  }
-  // Check if this is a valid view to process.
-  $view_id = $var['view']->name . '|' . $var['view']->current_display;
-  if (!in_array($view_id, array_keys($views))) {
-    if (!in_array($var['view']->name, array_keys($views))) {
-      return;
-    }
-    $view_id = $var['view']->name;
-  }
-  // Get the number of columns and ensure it's an integer and greater than 1.
-  if (!isset($views[$view_id]) || (is_int($views[$view_id]) && $views[$view_id] < 2)) {
-    return;
-  }
-  // Create the columns.
-  $columns = $views[$view_id];
-
-  $limit = ($count % $columns == 0) ? $count / $columns : ceil($count / $columns);
-  $current_column = 0;
-  $current_row = 1;
-  foreach ($var['rows'] as $id => $row) {
-    if ($current_row > $limit) {
-      $current_column++;
-      $current_row = 1;
-    }
-    $var['columns'][$current_column][$id] = $row;
-    $current_row++;
-  }
-  if ($render_all && $current_column < ($columns - 1)) {
-    $diff = ($columns - 1) - $current_column;
-    for ($i = 0; $i < $diff; $i++) {
-      $current_column++;
-      $var['columns'][$current_column] = array();
-    }
-  }
-  // Generate column classes.
-  $var['columns_classes'] = array();
-  $var['columns_classes_array'] = array();
-  foreach (array_keys($var['columns']) as $id) {
-    $html_id = $id + 1;
-    $var['columns_classes_array'][$id][] = 'views-column';
-    $var['columns_classes_array'][$id][] = 'col-sm-' . 12 / $columns;
-    $var['columns_classes_array'][$id][] = 'views-column-' . $html_id;
-    $var['columns_classes_array'][$id][] = 'views-column-' . ($html_id % 2 ? 'odd' : 'even');
-    if ($id == 0) {
-      $var['columns_classes_array'][$id][] = 'views-column-first';
-    }
-    if ($id == $current_column) {
-      $var['columns_classes_array'][$id][] = 'views-column-last';
-    }
-    $var['columns_classes'][$id] = implode(' ', $var['columns_classes_array'][$id]);
-  }
-
 }
 
 function os2subtheme_less_variables_alter(&$less_variables, $system_name) {

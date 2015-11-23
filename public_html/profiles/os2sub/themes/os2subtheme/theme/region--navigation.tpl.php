@@ -28,16 +28,6 @@
 <?php if ($page['logo'] || $page['site_name'] || $page['primary_nav'] || $page['secondary_nav'] || $content): ?>
 <section class="outer header_svendborg">
   <div id="top_menu">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-6">
-        <?php print _os2subtheme_block_render('menu', 'menu-top-left'); ?>
-      </div>
-      <div class="col-xs-6">
-        <?php print _os2subtheme_block_render('menu', 'menu-top-right');//login block ?>
-      </div>
-    </div>
-  </div>
   </div>
   <header class="region region-navigation header_fixed"<?php //print $attributes; ?>>
     <div class="container">
@@ -69,7 +59,6 @@
           <ul class="menu nav navbar-nav"><li><a href="/search" class="searchicon"></a></li></ul>        
           <?php print render($page['primary_nav']); ?>  
         </div>
-        <?php //print render($page['secondary_nav']); ?>
       </nav>
     </div>
 
@@ -80,98 +69,8 @@
     </div>
     </div>
   </header>
-  <?php  if(drupal_match_path(drupal_get_path_alias($_GET['q']), theme_get_setting('slider_paths','os2subtheme'))):?>
-    <?php if (theme_get_setting('slider_active','os2subtheme')) :?>
-        <section class="outer">
-        <?php 
-            $view = views_get_view('svendborg_slider');
-            $view->set_display('multi');            
-            $view->pre_execute();
-             $view->execute();
-             $views_result_cnt= count($view->result);
-            if ($views_result_cnt>1)         
-                  print _os2subtheme_block_render('views', 'svendborg_slider-multi'); 
-            else
-                 print _os2subtheme_block_render('views', 'svendborg_slider-single');
-            ?>
-        </section>
-    <?php endif;?>
-  <?php endif;?>
-  <?php if(drupal_get_path_alias($_GET['q']) == 'calendar/upcoming' || drupal_get_path_alias($_GET['q']) == 'calendar/all'):?>
-    <div class='front-main-container-wrapper'>
-    <?php if (theme_get_setting('slider_active','os2subtheme')) :?>
-        <section class="outer">
-         <?php 
-            $view = views_get_view('svendborg_event_calendar');
-            $view->set_display('page_calendar_all');
-            $pager = $view->display_handler->get_option('pager');
-            $pager['type'] = 'none';
-            $view->display_handler->set_option('pager', $pager);
-            $view->pre_execute();
-             $view->execute();
-             $views_result_cnt= count($view->result);
-         
-          $image_uri= file_create_url(file_load(theme_get_setting('calendar_page_slider_image','os2subtheme'))->uri);
-         
-        $overlay_class = '';    
-	$background = "background-image: url('" . $image_uri . "')";
-
-		if (theme_get_setting('calendar_slider_overlay') == '1' ) {
-
-	    $background .= "background-image: -moz-linear-gradient(left, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.75) 100%), url('" . $image_uri . "');"
-	    . "background-image: -webkit-gradient(left top, right top, color-stop(0%, rgba(0,0,0,0.75)), color-stop(100%, rgba(0,0,0,0.75))), url('" . $image_uri . "');"
-	    . "background-image: -webkit-linear-gradient(left, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.75) 100%), url('" . $image_uri . "');"
-	    . "background-image: -o-linear-gradient(left, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.75) 100%), url('" . $image_uri . "');"
-	    . "background-image: -ms-linear-gradient(left, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.75) 100%), url('" . $image_uri . "');"
-	    . "background-image: linear-gradient(to right, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.75) 100%), url('" . $image_uri . "');"
-	    . "filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=1 );";
-
-			$overlay_classcal = 'overlay';
-		} else {
-
-			$overlay_classcal = 'no-overlay';
-		}
-	
 
 
-
-        $html = '<div class="page-calendar-slider "><div class="slider-cover single ' . $overlay_classcal . '" style="' . $background .'">';
-	$html .= '<div class="container">';
-	    $html .= '<div class="row">';
-		$html .= '<div class="col-sm-7 col-xs-12">';
-		    $html .= '<div class="title">' . theme_get_setting('calendar_page_slider_text','os2subtheme');
-                    $link_class = "btn gradient-deepdarkgreen";
-		    $html .= '</div>';
-		    $html .= '<div class="link"> ';
-                    if(drupal_get_path_alias($_GET['q'])=='calendar/upcoming'){
-                        $classes_upcoming_link = $link_class;
-                        $classes_all_link = $link_class . ' not-here';
-                    }
-                    else {
-                        $classes_all_link = $link_class ;
-                        $classes_upcoming_link = $link_class .' not-here';
-                    }
-                    
-                      $html .='<a href="'. url('calendar/upcoming').'" class="'. $classes_upcoming_link .'">' .t('Future events');
-                  
-                    $html .= '</div></a>';
-                    
-                    $html .= '<div class="link"> <a href="'. url('calendar/all').'" class="' . $classes_all_link .'">' .t('Show all') .' ( ' .$views_result_cnt .' ) ';
-                    
-		    $html .= '</div></a>';
-		$html .= '</div>';//class="col-xs-8"		
-		
-	    $html .= '</div>';//class="row"
-	$html .= '</div>';//class="conteiner"
-    $html .= '</div>';//class="slider-cover"
-   $html .= '</div>';//class="view-svendborg-slider"
-    print $html;
-         
-         ?>
-
-    <?php endif;?>
-    </div>
-  <?php endif;?>
   <?php print render($page['breadcrumb'])?>
 </section>
 
