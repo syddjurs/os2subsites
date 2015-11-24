@@ -90,9 +90,6 @@ class FeedsHTTPFetcher extends FeedsFetcher {
     if ($this->config['use_pubsubhubbub'] && ($raw = $this->subscriber($source->feed_nid)->receive())) {
       return new FeedsFetcherResult($raw);
     }
-    if (!$source_config['source']) {
-      throw new Exception(t('Source URL is empty.'));
-    }
     $fetcher_result = new FeedsHTTPFetcherResult($source_config['source']);
     // When request_timeout is empty, the global value is used.
     $fetcher_result->setTimeout($this->config['request_timeout']);
@@ -221,7 +218,7 @@ class FeedsHTTPFetcher extends FeedsFetcher {
       '#description' => t('Enter a feed URL.'),
       '#default_value' => isset($source_config['source']) ? $source_config['source'] : '',
       '#maxlength' => NULL,
-      '#required' => $this->config['source_required'],
+      '#required' => TRUE,
     );
     return $form;
   }
@@ -231,10 +228,6 @@ class FeedsHTTPFetcher extends FeedsFetcher {
    */
   public function sourceFormValidate(&$values) {
     $values['source'] = trim($values['source']);
-    // Skip validating empty source if not required.
-    if (!$values['source'] && !$this->config['source_required']) {
-      return;
-    }
 
     // Keep a copy for error messages.
     $original_url = $values['source'];
@@ -250,7 +243,10 @@ class FeedsHTTPFetcher extends FeedsFetcher {
     }
     elseif ($this->config['auto_detect_feeds']) {
       feeds_include_library('http_request.inc', 'http_request');
-      if ($url = http_request_get_common_syndication($values['source'])) {
+      $url = http_request_get_common_syndication($values['source'], array(
+        'accept_invalid_cert' => $this->config['accept_invalid_cert'],
+      ));
+      if ($url) {
         $values['source'] = $url;
       }
     }

@@ -177,21 +177,13 @@ class FeedsTermProcessor extends FeedsProcessor {
       'description' => array(
         'name' => t('Term description'),
         'description' => t('Description of the taxonomy term.'),
-        'summary_callback' => 'text_feeds_summary_callback',
-        'form_callback' => 'text_feeds_form_callback',
+        'summary_callbacks' => array('text_feeds_summary_callback'),
+        'form_callbacks' => array('text_feeds_form_callback'),
       ),
     );
 
-    // Let implementers of hook_feeds_term_processor_targets() add their targets.
-    try {
-      self::loadMappers();
-      $entity_type = $this->entityType();
-      $bundle = $this->bundle();
-      drupal_alter('feeds_processor_targets', $targets, $entity_type, $bundle);
-    }
-    catch (Exception $e) {
-      // Do nothing.
-    }
+    $this->getHookTargets($targets);
+
     return $targets;
   }
 
@@ -224,4 +216,14 @@ class FeedsTermProcessor extends FeedsProcessor {
     }
     throw new Exception(t('No vocabulary defined for Taxonomy Term processor.'));
   }
+
+  /**
+   * Overrides FeedsProcessor::dependencies().
+   */
+  public function dependencies() {
+    $dependencies = parent::dependencies();
+    $dependencies['taxonomy'] = 'taxonomy';
+    return $dependencies;
+  }
+
 }

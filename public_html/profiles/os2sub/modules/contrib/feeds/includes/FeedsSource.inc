@@ -88,6 +88,7 @@ class FeedsState {
   public $updated;
   public $deleted;
   public $unpublished;
+  public $blocked;
   public $skipped;
   public $failed;
 
@@ -106,6 +107,7 @@ class FeedsState {
     $this->updated =
     $this->deleted =
     $this->unpublished =
+    $this->blocked =
     $this->skipped =
     $this->failed = 0;
   }
@@ -303,7 +305,7 @@ class FeedsSource extends FeedsConfigurable {
       'period' => $period,
       'periodic' => TRUE,
     );
-    if (!$this->hasFetcherSource() || $period == FEEDS_SCHEDULE_NEVER && $this->progressImporting() === FEEDS_BATCH_COMPLETE) {
+    if ($period == FEEDS_SCHEDULE_NEVER && $this->progressImporting() === FEEDS_BATCH_COMPLETE) {
       JobScheduler::get('feeds_source_import')->remove($job);
     }
     elseif ($this->progressImporting() === FEEDS_BATCH_COMPLETE) {
@@ -800,11 +802,11 @@ class FeedsSource extends FeedsConfigurable {
   }
 
   /**
-   * Checks if the fetch source is empty.
+   * Implements FeedsConfigurable::dependencies().
    */
-  public function hasFetcherSource() {
-    $fetcher_source_config = $this->getConfigFor($this->importer->fetcher);
-    return !empty($fetcher_source_config['source']);
+  public function dependencies() {
+    $dependencies = parent::dependencies();
+    return array_merge($dependencies, $this->importer()->dependencies());
   }
 
 }

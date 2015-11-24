@@ -17,8 +17,18 @@
 
         // Set the editor object.
         Drupal.settings.linkit.currentInstance.editor = editor;
-        // Set profile.
-        Drupal.settings.linkit.currentInstance.profile = Drupal.settings.linkit.fields[editor.id].profile;
+
+        // Find the current input format of the field we're looking at. Note that we get it in the form
+        // "format<formatname" instead of just "<formatname>" so we use .substring() to remove the "format".
+        if (Drupal.wysiwyg && Drupal.wysiwyg.instances[editor.id].format) {
+          var format = Drupal.wysiwyg.instances[editor.id].format.substring(6);
+        } else {
+          alert(Drupal.t('Could not find the Linkit profile.'));
+          return;
+        }
+
+        // Set profile based on the current text format of this field.
+        Drupal.settings.linkit.currentInstance.profile = Drupal.settings.linkit.formats[format].profile;
 
         // Set the name of the source field..
         Drupal.settings.linkit.currentInstance.source = editor.id;
@@ -37,7 +47,7 @@
 
       // Register buttons
       editor.addButton('linkit', {
-        title : 'Linkit',
+        title : Drupal.t('Link to content'),
         cmd : 'mceLinkit',
         image : url + '/images/linkit.png'
       });
@@ -51,7 +61,7 @@
             // Remove all options from standard contextmenu.
             m.removeAll();
             th._menu.add({
-              title : 'Linkit',
+              title : Drupal.t('Link to content'),
               cmd : 'mceLinkit',
               icon : 'linkit'
             });

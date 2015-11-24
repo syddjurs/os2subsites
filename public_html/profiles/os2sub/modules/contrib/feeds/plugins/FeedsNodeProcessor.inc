@@ -339,11 +339,7 @@ class FeedsNodeProcessor extends FeedsProcessor {
       );
     }
 
-    // Let other modules expose mapping targets.
-    self::loadMappers();
-    $entity_type = $this->entityType();
-    $bundle = $this->bundle();
-    drupal_alter('feeds_processor_targets', $targets, $entity_type, $bundle);
+    $this->getHookTargets($targets);
 
     return $targets;
   }
@@ -398,9 +394,10 @@ class FeedsNodeProcessor extends FeedsProcessor {
     if ($total) {
       $nodes = node_load_multiple($state->removeList);
       foreach ($nodes as &$node) {
-        if ($node->status == 0) {
-          continue;
-        }
+        $this->loadItemInfo($node);
+        // Update the hash value of the feed item to ensure that the item gets
+        // updated in case it reappears in the feed.
+        $node->feeds_item->hash = $this->config['update_non_existent'];
         node_unpublish_action($node);
         node_save($node);
         $state->unpublished++;

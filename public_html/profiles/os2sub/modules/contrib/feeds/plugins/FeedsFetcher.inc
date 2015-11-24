@@ -222,28 +222,4 @@ abstract class FeedsFetcher extends FeedsPlugin {
    *   $source, NULL otherwise.
    */
   public function importPeriod(FeedsSource $source) {}
-
-  /**
-   * Override parent::configDefaults().
-   */
-  public function configDefaults() {
-    return array(
-      'source_required' => TRUE,
-    );
-  }
-
-  /**
-   * Override parent::configForm().
-   */
-  public function configForm(&$form_state) {
-    $form = array();
-    // @todo Disable this option on stand-alone importers importer.
-    $form['source_required'] = array(
-      '#type' => 'checkbox',
-      '#title' => t('Require feed'),
-      '#description' => t('Ensure a feed source is provided during form submission.'),
-      '#default_value' => $this->config['source_required'],
-    );
-    return $form;
-  }
 }
