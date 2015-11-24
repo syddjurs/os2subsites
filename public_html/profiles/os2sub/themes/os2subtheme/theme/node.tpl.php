@@ -101,10 +101,10 @@
      <?php if ($type == 'os2web_base_news') : ?>    
     
       <?php if(isset($content['field_os2web_base_field_video'])) : ?>
-        <?php hide($content['field_os2web_base_field_lead_img']); ?>
+        <?php hide($content['field_os2web_base_field_image']); ?>
         <?php print render($content['field_os2web_base_field_video']); ?>
       <?php else: ?>
-        <?php print render($content['field_os2web_base_field_lead_img']); ?>
+        <?php print render($content['field_os2web_base_field_image']); ?>
       <?php endif; ?>
     <?php else : ?>
       <?php print render($content['field_os2web_base_field_image']); ?>
@@ -128,12 +128,13 @@
   </header>
   <?php endif; ?>
 
-  <div class="wrap">a
+  <div class="wrap">
     <?php
       // Hide comments, tags, and links now so that we can render them later.
       hide($content['comments']);
       hide($content['links']);
       hide($content['field_tags']);
+      hide($content['field_os2web_base_field_image']);
       hide($content['field_svendborg_hide_sidebar']);
       hide($content['field_svendborg_hide_contact']);
       hide($content['field_os2web_base_field_hidlinks']);
