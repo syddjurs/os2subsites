@@ -10,7 +10,7 @@
 function os2web_taxonomies_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'field_os2web_taxonomies_agenda'
+  // Exported field_base: 'field_os2web_taxonomies_agenda'.
   $field_bases['field_os2web_taxonomies_agenda'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -25,7 +25,7 @@ function os2web_taxonomies_field_default_field_bases() {
     'type' => 'number_integer',
   );
 
-  // Exported field_base: 'field_os2web_taxonomies_city'
+  // Exported field_base: 'field_os2web_taxonomies_city'.
   $field_bases['field_os2web_taxonomies_city'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -46,7 +46,7 @@ function os2web_taxonomies_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_os2web_taxonomies_comittee'
+  // Exported field_base: 'field_os2web_taxonomies_comittee'.
   $field_bases['field_os2web_taxonomies_comittee'] = array(
     'active' => 1,
     'cardinality' => -1,
@@ -73,7 +73,7 @@ function os2web_taxonomies_field_default_field_bases() {
     'type' => 'taxonomy_term_reference',
   );
 
-  // Exported field_base: 'field_os2web_taxonomies_cue_word'
+  // Exported field_base: 'field_os2web_taxonomies_cue_word'.
   $field_bases['field_os2web_taxonomies_cue_word'] = array(
     'active' => 1,
     'cardinality' => -1,
@@ -94,7 +94,7 @@ function os2web_taxonomies_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_os2web_taxonomies_dep_id'
+  // Exported field_base: 'field_os2web_taxonomies_dep_id'.
   $field_bases['field_os2web_taxonomies_dep_id'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -109,7 +109,7 @@ function os2web_taxonomies_field_default_field_bases() {
     'type' => 'number_integer',
   );
 
-  // Exported field_base: 'field_os2web_taxonomies_dep_name'
+  // Exported field_base: 'field_os2web_taxonomies_dep_name'.
   $field_bases['field_os2web_taxonomies_dep_name'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -130,7 +130,7 @@ function os2web_taxonomies_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_os2web_taxonomies_dis_con'
+  // Exported field_base: 'field_os2web_taxonomies_dis_con'.
   $field_bases['field_os2web_taxonomies_dis_con'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -145,7 +145,7 @@ function os2web_taxonomies_field_default_field_bases() {
     'type' => 'number_integer',
   );
 
-  // Exported field_base: 'field_os2web_taxonomies_dis_cont'
+  // Exported field_base: 'field_os2web_taxonomies_dis_cont'.
   $field_bases['field_os2web_taxonomies_dis_cont'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -160,7 +160,7 @@ function os2web_taxonomies_field_default_field_bases() {
     'type' => 'number_integer',
   );
 
-  // Exported field_base: 'field_os2web_taxonomies_legi_ref'
+  // Exported field_base: 'field_os2web_taxonomies_legi_ref'.
   $field_bases['field_os2web_taxonomies_legi_ref'] = array(
     'active' => 1,
     'cardinality' => -1,
@@ -189,7 +189,7 @@ function os2web_taxonomies_field_default_field_bases() {
     'type' => 'link_field',
   );
 
-  // Exported field_base: 'field_os2web_taxonomies_name'
+  // Exported field_base: 'field_os2web_taxonomies_name'.
   $field_bases['field_os2web_taxonomies_name'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -210,7 +210,7 @@ function os2web_taxonomies_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_os2web_taxonomies_priority'
+  // Exported field_base: 'field_os2web_taxonomies_priority'.
   $field_bases['field_os2web_taxonomies_priority'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -225,7 +225,7 @@ function os2web_taxonomies_field_default_field_bases() {
     'type' => 'number_integer',
   );
 
-  // Exported field_base: 'field_os2web_taxonomies_search'
+  // Exported field_base: 'field_os2web_taxonomies_search'.
   $field_bases['field_os2web_taxonomies_search'] = array(
     'active' => 1,
     'cardinality' => -1,
@@ -246,7 +246,7 @@ function os2web_taxonomies_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_os2web_taxonomies_sys_id'
+  // Exported field_base: 'field_os2web_taxonomies_sys_id'.
   $field_bases['field_os2web_taxonomies_sys_id'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -261,7 +261,7 @@ function os2web_taxonomies_field_default_field_bases() {
     'type' => 'number_integer',
   );
 
-  // Exported field_base: 'field_os2web_taxonomies_type'
+  // Exported field_base: 'field_os2web_taxonomies_type'.
   $field_bases['field_os2web_taxonomies_type'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -282,7 +282,7 @@ function os2web_taxonomies_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_termtekst'
+  // Exported field_base: 'field_termtekst'.
   $field_bases['field_termtekst'] = array(
     'active' => 1,
     'cardinality' => 1,

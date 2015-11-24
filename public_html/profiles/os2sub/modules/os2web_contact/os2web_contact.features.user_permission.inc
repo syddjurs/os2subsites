@@ -15,7 +15,6 @@ function os2web_contact_user_default_permissions() {
     'name' => 'create os2web_contact_contact content',
     'roles' => array(
       'Administrator' => 'Administrator',
-      'Kommunikation' => 'Kommunikation',
       'Webmaster' => 'Webmaster',
       'subsiteadmin' => 'subsiteadmin',
     ),
@@ -37,7 +36,6 @@ function os2web_contact_user_default_permissions() {
     'name' => 'delete own os2web_contact_contact content',
     'roles' => array(
       'Administrator' => 'Administrator',
-      'Kommunikation' => 'Kommunikation',
       'Webmaster' => 'Webmaster',
       'subsiteadmin' => 'subsiteadmin',
     ),
@@ -49,7 +47,6 @@ function os2web_contact_user_default_permissions() {
     'name' => 'edit any os2web_contact_contact content',
     'roles' => array(
       'Administrator' => 'Administrator',
-      'Kommunikation' => 'Kommunikation',
       'Webmaster' => 'Webmaster',
       'subsiteadmin' => 'subsiteadmin',
     ),
@@ -61,7 +58,6 @@ function os2web_contact_user_default_permissions() {
     'name' => 'edit own os2web_contact_contact content',
     'roles' => array(
       'Administrator' => 'Administrator',
-      'Kommunikation' => 'Kommunikation',
       'Webmaster' => 'Webmaster',
       'subsiteadmin' => 'subsiteadmin',
     ),

@@ -10,7 +10,7 @@
 function os2sub_banner_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'field_banner_billede'
+  // Exported field_base: 'field_banner_billede'.
   $field_bases['field_banner_billede'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -32,7 +32,7 @@ function os2sub_banner_field_default_field_bases() {
     'type' => 'image',
   );
 
-  // Exported field_base: 'field_banner_text'
+  // Exported field_base: 'field_banner_text'.
   $field_bases['field_banner_text'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -53,7 +53,7 @@ function os2sub_banner_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_banner_vis_paa_sider'
+  // Exported field_base: 'field_banner_vis_paa_sider'.
   $field_bases['field_banner_vis_paa_sider'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -92,7 +92,7 @@ function os2sub_banner_field_default_field_bases() {
     'type' => 'node_reference',
   );
 
-  // Exported field_base: 'field_hvid_tekst'
+  // Exported field_base: 'field_hvid_tekst'.
   $field_bases['field_hvid_tekst'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -117,7 +117,7 @@ function os2sub_banner_field_default_field_bases() {
     'type' => 'list_boolean',
   );
 
-  // Exported field_base: 'field_knap_link'
+  // Exported field_base: 'field_knap_link'.
   $field_bases['field_knap_link'] = array(
     'active' => 1,
     'cardinality' => 1,

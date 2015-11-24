@@ -39,6 +39,7 @@ dependencies[] = references
 dependencies[] = search
 dependencies[] = site_map
 dependencies[] = strongarm
+dependencies[] = subsites_urls
 dependencies[] = svendborg_hide_sidebar
 dependencies[] = taxonomy
 dependencies[] = text

@@ -10,7 +10,8 @@
 function os2web_taxonomies_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'taxonomy_term-os2web_taxonomies_tax_comittee-field_os2web_taxonomies_dep_id'
+  // Exported field_instance:
+  // 'taxonomy_term-os2web_taxonomies_tax_comittee-field_os2web_taxonomies_dep_id'.
   $field_instances['taxonomy_term-os2web_taxonomies_tax_comittee-field_os2web_taxonomies_dep_id'] = array(
     'bundle' => 'os2web_taxonomies_tax_comittee',
     'default_value' => NULL,
@@ -44,7 +45,8 @@ function os2web_taxonomies_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-os2web_taxonomies_tax_comittee-field_os2web_taxonomies_dep_name'
+  // Exported field_instance:
+  // 'taxonomy_term-os2web_taxonomies_tax_comittee-field_os2web_taxonomies_dep_name'.
   $field_instances['taxonomy_term-os2web_taxonomies_tax_comittee-field_os2web_taxonomies_dep_name'] = array(
     'bundle' => 'os2web_taxonomies_tax_comittee',
     'default_value' => NULL,
@@ -78,7 +80,8 @@ function os2web_taxonomies_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-os2web_taxonomies_tax_comittee-field_os2web_taxonomies_sys_id'
+  // Exported field_instance:
+  // 'taxonomy_term-os2web_taxonomies_tax_comittee-field_os2web_taxonomies_sys_id'.
   $field_instances['taxonomy_term-os2web_taxonomies_tax_comittee-field_os2web_taxonomies_sys_id'] = array(
     'bundle' => 'os2web_taxonomies_tax_comittee',
     'default_value' => NULL,
@@ -112,7 +115,8 @@ function os2web_taxonomies_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-os2web_taxonomies_tax_kle-field_os2web_taxonomies_cue_word'
+  // Exported field_instance:
+  // 'taxonomy_term-os2web_taxonomies_tax_kle-field_os2web_taxonomies_cue_word'.
   $field_instances['taxonomy_term-os2web_taxonomies_tax_kle-field_os2web_taxonomies_cue_word'] = array(
     'bundle' => 'os2web_taxonomies_tax_kle',
     'default_value' => NULL,
@@ -146,7 +150,8 @@ function os2web_taxonomies_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-os2web_taxonomies_tax_kle-field_os2web_taxonomies_dis_con'
+  // Exported field_instance:
+  // 'taxonomy_term-os2web_taxonomies_tax_kle-field_os2web_taxonomies_dis_con'.
   $field_instances['taxonomy_term-os2web_taxonomies_tax_kle-field_os2web_taxonomies_dis_con'] = array(
     'bundle' => 'os2web_taxonomies_tax_kle',
     'default_value' => NULL,
@@ -186,7 +191,8 @@ function os2web_taxonomies_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-os2web_taxonomies_tax_kle-field_os2web_taxonomies_dis_cont'
+  // Exported field_instance:
+  // 'taxonomy_term-os2web_taxonomies_tax_kle-field_os2web_taxonomies_dis_cont'.
   $field_instances['taxonomy_term-os2web_taxonomies_tax_kle-field_os2web_taxonomies_dis_cont'] = array(
     'bundle' => 'os2web_taxonomies_tax_kle',
     'default_value' => array(
@@ -224,7 +230,8 @@ function os2web_taxonomies_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-os2web_taxonomies_tax_kle-field_os2web_taxonomies_legi_ref'
+  // Exported field_instance:
+  // 'taxonomy_term-os2web_taxonomies_tax_kle-field_os2web_taxonomies_legi_ref'.
   $field_instances['taxonomy_term-os2web_taxonomies_tax_kle-field_os2web_taxonomies_legi_ref'] = array(
     'bundle' => 'os2web_taxonomies_tax_kle',
     'default_value' => NULL,
@@ -244,6 +251,7 @@ function os2web_taxonomies_field_default_field_instances() {
     'label' => 'Lovhenvisninger',
     'required' => 0,
     'settings' => array(
+      'absolute_url' => 1,
       'attributes' => array(
         'class' => '',
         'configurable_title' => 0,
@@ -256,6 +264,7 @@ function os2web_taxonomies_field_default_field_instances() {
       ),
       'enable_tokens' => 1,
       'title' => 'optional',
+      'title_label_use_field_label' => FALSE,
       'title_maxlength' => 128,
       'title_value' => '',
       'url' => 0,
@@ -271,7 +280,8 @@ function os2web_taxonomies_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-os2web_taxonomies_tax_kle-field_os2web_taxonomies_search'
+  // Exported field_instance:
+  // 'taxonomy_term-os2web_taxonomies_tax_kle-field_os2web_taxonomies_search'.
   $field_instances['taxonomy_term-os2web_taxonomies_tax_kle-field_os2web_taxonomies_search'] = array(
     'bundle' => 'os2web_taxonomies_tax_kle',
     'default_value' => NULL,
@@ -304,7 +314,8 @@ function os2web_taxonomies_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-os2web_taxonomies_tax_org-field_os2web_taxonomies_dis_cont'
+  // Exported field_instance:
+  // 'taxonomy_term-os2web_taxonomies_tax_org-field_os2web_taxonomies_dis_cont'.
   $field_instances['taxonomy_term-os2web_taxonomies_tax_org-field_os2web_taxonomies_dis_cont'] = array(
     'bundle' => 'os2web_taxonomies_tax_org',
     'default_value' => array(
@@ -342,7 +353,8 @@ function os2web_taxonomies_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-os2web_taxonomies_tax_org-field_os2web_taxonomies_search'
+  // Exported field_instance:
+  // 'taxonomy_term-os2web_taxonomies_tax_org-field_os2web_taxonomies_search'.
   $field_instances['taxonomy_term-os2web_taxonomies_tax_org-field_os2web_taxonomies_search'] = array(
     'bundle' => 'os2web_taxonomies_tax_org',
     'default_value' => NULL,
@@ -375,7 +387,8 @@ function os2web_taxonomies_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-os2web_taxonomies_tax_places-field_os2web_taxonomies_city'
+  // Exported field_instance:
+  // 'taxonomy_term-os2web_taxonomies_tax_places-field_os2web_taxonomies_city'.
   $field_instances['taxonomy_term-os2web_taxonomies_tax_places-field_os2web_taxonomies_city'] = array(
     'bundle' => 'os2web_taxonomies_tax_places',
     'default_value' => NULL,
@@ -408,7 +421,8 @@ function os2web_taxonomies_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-os2web_taxonomies_tax_places-field_os2web_taxonomies_name'
+  // Exported field_instance:
+  // 'taxonomy_term-os2web_taxonomies_tax_places-field_os2web_taxonomies_name'.
   $field_instances['taxonomy_term-os2web_taxonomies_tax_places-field_os2web_taxonomies_name'] = array(
     'bundle' => 'os2web_taxonomies_tax_places',
     'default_value' => NULL,
@@ -441,7 +455,8 @@ function os2web_taxonomies_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-os2web_taxonomies_tax_places-field_os2web_taxonomies_sys_id'
+  // Exported field_instance:
+  // 'taxonomy_term-os2web_taxonomies_tax_places-field_os2web_taxonomies_sys_id'.
   $field_instances['taxonomy_term-os2web_taxonomies_tax_places-field_os2web_taxonomies_sys_id'] = array(
     'bundle' => 'os2web_taxonomies_tax_places',
     'default_value' => NULL,
@@ -475,7 +490,8 @@ function os2web_taxonomies_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-os2web_taxonomies_tax_places-field_os2web_taxonomies_type'
+  // Exported field_instance:
+  // 'taxonomy_term-os2web_taxonomies_tax_places-field_os2web_taxonomies_type'.
   $field_instances['taxonomy_term-os2web_taxonomies_tax_places-field_os2web_taxonomies_type'] = array(
     'bundle' => 'os2web_taxonomies_tax_places',
     'default_value' => NULL,
@@ -508,7 +524,8 @@ function os2web_taxonomies_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-os2web_taxonomies_tax_politics-field_os2web_taxonomies_agenda'
+  // Exported field_instance:
+  // 'taxonomy_term-os2web_taxonomies_tax_politics-field_os2web_taxonomies_agenda'.
   $field_instances['taxonomy_term-os2web_taxonomies_tax_politics-field_os2web_taxonomies_agenda'] = array(
     'bundle' => 'os2web_taxonomies_tax_politics',
     'default_value' => array(
@@ -546,7 +563,8 @@ function os2web_taxonomies_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-os2web_taxonomies_tax_politics-field_os2web_taxonomies_comittee'
+  // Exported field_instance:
+  // 'taxonomy_term-os2web_taxonomies_tax_politics-field_os2web_taxonomies_comittee'.
   $field_instances['taxonomy_term-os2web_taxonomies_tax_politics-field_os2web_taxonomies_comittee'] = array(
     'bundle' => 'os2web_taxonomies_tax_politics',
     'default_value' => NULL,
@@ -580,7 +598,8 @@ function os2web_taxonomies_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-os2web_taxonomies_tax_politics-field_os2web_taxonomies_dis_cont'
+  // Exported field_instance:
+  // 'taxonomy_term-os2web_taxonomies_tax_politics-field_os2web_taxonomies_dis_cont'.
   $field_instances['taxonomy_term-os2web_taxonomies_tax_politics-field_os2web_taxonomies_dis_cont'] = array(
     'bundle' => 'os2web_taxonomies_tax_politics',
     'default_value' => array(
@@ -618,7 +637,8 @@ function os2web_taxonomies_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-os2web_taxonomies_tax_politics-field_os2web_taxonomies_search'
+  // Exported field_instance:
+  // 'taxonomy_term-os2web_taxonomies_tax_politics-field_os2web_taxonomies_search'.
   $field_instances['taxonomy_term-os2web_taxonomies_tax_politics-field_os2web_taxonomies_search'] = array(
     'bundle' => 'os2web_taxonomies_tax_politics',
     'default_value' => NULL,
@@ -651,7 +671,8 @@ function os2web_taxonomies_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-os2web_taxonomies_tax_portal_cat-field_termtekst'
+  // Exported field_instance:
+  // 'taxonomy_term-os2web_taxonomies_tax_portal_cat-field_termtekst'.
   $field_instances['taxonomy_term-os2web_taxonomies_tax_portal_cat-field_termtekst'] = array(
     'bundle' => 'os2web_taxonomies_tax_portal_cat',
     'default_value' => NULL,
@@ -704,7 +725,8 @@ function os2web_taxonomies_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-os2web_taxonomies_tax_user_pos-field_os2web_taxonomies_priority'
+  // Exported field_instance:
+  // 'taxonomy_term-os2web_taxonomies_tax_user_pos-field_os2web_taxonomies_priority'.
   $field_instances['taxonomy_term-os2web_taxonomies_tax_user_pos-field_os2web_taxonomies_priority'] = array(
     'bundle' => 'os2web_taxonomies_tax_user_pos',
     'default_value' => NULL,

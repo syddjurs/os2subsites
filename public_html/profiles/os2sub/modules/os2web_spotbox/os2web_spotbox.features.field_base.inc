@@ -10,7 +10,7 @@
 function os2web_spotbox_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'field_os2web_spotbox_big_image'
+  // Exported field_base: 'field_os2web_spotbox_big_image'.
   $field_bases['field_os2web_spotbox_big_image'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -32,7 +32,7 @@ function os2web_spotbox_field_default_field_bases() {
     'type' => 'image',
   );
 
-  // Exported field_base: 'field_os2web_spotbox_text'
+  // Exported field_base: 'field_os2web_spotbox_text'.
   $field_bases['field_os2web_spotbox_text'] = array(
     'active' => 1,
     'cardinality' => 1,

@@ -10,7 +10,8 @@
 function os2web_news_page_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-os2web_base_news-field_os2web_news_page_type'
+  // Exported field_instance:
+  // 'node-os2web_base_news-field_os2web_news_page_type'.
   $field_instances['node-os2web_base_news-field_os2web_news_page_type'] = array(
     'bundle' => 'os2web_base_news',
     'default_value' => NULL,

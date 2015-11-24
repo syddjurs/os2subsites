@@ -12,6 +12,7 @@ dependencies[] = media
 dependencies[] = node
 dependencies[] = os2web_base
 dependencies[] = strongarm
+dependencies[] = subsites_urls
 dependencies[] = text
 dependencies[] = views
 features[ctools][] = strongarm:strongarm:1

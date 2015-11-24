@@ -15,6 +15,7 @@ dependencies[] = options
 dependencies[] = os2web_base
 dependencies[] = panels_mini
 dependencies[] = strongarm
+dependencies[] = subsites_urls
 dependencies[] = text
 dependencies[] = views
 dependencies[] = views_content

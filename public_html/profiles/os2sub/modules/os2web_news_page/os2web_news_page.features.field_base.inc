@@ -10,7 +10,7 @@
 function os2web_news_page_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'field_os2web_news_page_type'
+  // Exported field_base: 'field_os2web_news_page_type'.
   $field_bases['field_os2web_news_page_type'] = array(
     'active' => 1,
     'cardinality' => 1,

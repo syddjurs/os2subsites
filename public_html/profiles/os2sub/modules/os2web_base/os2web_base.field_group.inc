@@ -147,7 +147,7 @@ function os2web_base_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Hentet fra kommunens sagssystem',
-    'weight' => '5',
+    'weight' => '6',
     'children' => array(),
     'format_type' => 'hidden',
     'format_settings' => array(
@@ -322,7 +322,7 @@ function os2web_base_field_group_info() {
       'label' => 'Skjult',
       'instance_settings' => array(
         'required_fields' => 1,
-        'id' => '',
+        'id' => 'node_os2web_base_news_form_group_os2web_base_group_hidden',
         'classes' => '',
         'description' => '',
         'show_label' => '1',

@@ -10,13 +10,24 @@
 function os2web_spotbox_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-os2web_spotbox_box-field_os2web_spotbox_big_image'
+  // Exported field_instance:
+  // 'node-os2web_spotbox_box-field_os2web_spotbox_big_image'.
   $field_instances['node-os2web_spotbox_box-field_os2web_spotbox_big_image'] = array(
     'bundle' => 'os2web_spotbox_box',
     'deleted' => 0,
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'above',
+        'module' => 'photoswipe',
+        'settings' => array(
+          'photoswipe_image_style' => '',
+          'photoswipe_node_style' => 'os2web_spotbox_image',
+        ),
+        'type' => 'photoswipe',
+        'weight' => 2,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'image',
         'settings' => array(
@@ -46,13 +57,17 @@ function os2web_spotbox_field_default_field_instances() {
           'image_style' => 'os2web_spotbox_image',
         ),
         'type' => 'image',
-        'weight' => 2,
+        'weight' => 1,
       ),
       'teaser' => array(
         'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
+        'module' => 'photoswipe',
+        'settings' => array(
+          'photoswipe_image_style' => '',
+          'photoswipe_node_style' => 'os2web_spotbox_image',
+        ),
+        'type' => 'photoswipe',
+        'weight' => 2,
       ),
     ),
     'entity_type' => 'node',
@@ -106,7 +121,8 @@ function os2web_spotbox_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-os2web_spotbox_box-field_os2web_spotbox_text'
+  // Exported field_instance:
+  // 'node-os2web_spotbox_box-field_os2web_spotbox_text'.
   $field_instances['node-os2web_spotbox_box-field_os2web_spotbox_text'] = array(
     'bundle' => 'os2web_spotbox_box',
     'default_value' => NULL,
@@ -114,6 +130,13 @@ function os2web_spotbox_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 1,
+      ),
+      'full' => array(
         'label' => 'inline',
         'module' => 'text',
         'settings' => array(),
@@ -137,13 +160,14 @@ function os2web_spotbox_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 0,
+        'weight' => 2,
       ),
       'teaser' => array(
-        'label' => 'above',
+        'label' => 'inline',
+        'module' => 'text',
         'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
+        'type' => 'text_default',
+        'weight' => 1,
       ),
     ),
     'entity_type' => 'node',
@@ -188,7 +212,7 @@ function os2web_spotbox_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-os2web_spotbox_box-field_spot_link'
+  // Exported field_instance: 'node-os2web_spotbox_box-field_spot_link'.
   $field_instances['node-os2web_spotbox_box-field_spot_link'] = array(
     'bundle' => 'os2web_spotbox_box',
     'default_value' => NULL,
@@ -202,16 +226,25 @@ function os2web_spotbox_field_default_field_instances() {
         'type' => 'link_separate',
         'weight' => 0,
       ),
-      'spotbox' => array(
-        'label' => 'above',
+      'full' => array(
+        'label' => 'inline',
+        'module' => 'link',
         'settings' => array(),
-        'type' => 'hidden',
+        'type' => 'link_separate',
+        'weight' => 0,
+      ),
+      'spotbox' => array(
+        'label' => 'hidden',
+        'module' => 'link',
+        'settings' => array(),
+        'type' => 'link_default',
         'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
+        'module' => 'link',
         'settings' => array(),
-        'type' => 'hidden',
+        'type' => 'link_separate',
         'weight' => 0,
       ),
     ),
@@ -220,6 +253,7 @@ function os2web_spotbox_field_default_field_instances() {
     'label' => 'Link',
     'required' => 0,
     'settings' => array(
+      'absolute_url' => 1,
       'attributes' => array(
         'class' => '',
         'configurable_title' => 0,
@@ -238,6 +272,7 @@ function os2web_spotbox_field_default_field_instances() {
       ),
       'rel_remove' => 'default',
       'title' => 'optional',
+      'title_label_use_field_label' => FALSE,
       'title_maxlength' => 128,
       'title_value' => '',
       'url' => 0,
