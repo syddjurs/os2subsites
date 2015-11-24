@@ -88,6 +88,59 @@ function os2web_base_image_default_styles() {
     ),
   );
 
+  // Exported image style: os2sub_normal_imagesize.
+  $styles['os2sub_normal_imagesize'] = array(
+    'label' => 'Normal billede',
+    'effects' => array(
+      1 => array(
+        'name' => 'epsacrop_crop',
+        'data' => array(
+          'width' => 728,
+          'height' => 450,
+          'anchor' => 'center-center',
+          'disable_scale' => 0,
+          'jcrop_settings' => array(
+            'aspect_ratio' => '',
+            'bgcolor' => 'black',
+            'bgopacity' => 0.6,
+            'fallback' => 1,
+          ),
+        ),
+        'weight' => 1,
+      ),
+      2 => array(
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 728,
+          'height' => 450,
+        ),
+        'weight' => 2,
+      ),
+    ),
+  );
+
+  // Exported image style: os2sub_small_imagesize.
+  $styles['os2sub_small_imagesize'] = array(
+    'label' => 'Lille billede',
+    'effects' => array(
+      3 => array(
+        'name' => 'epsacrop_crop_reuse',
+        'data' => array(
+          'jcrop_reuse' => 'os2sub_normal_imagesize',
+        ),
+        'weight' => 1,
+      ),
+      5 => array(
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 220,
+          'height' => 150,
+        ),
+        'weight' => 2,
+      ),
+    ),
+  );
+
   // Exported image style: os2web_base_style_content.
   $styles['os2web_base_style_content'] = array(
     'effects' => array(
@@ -265,7 +318,7 @@ function os2web_base_node_info() {
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',
-      'title_label' => t('Overskrift'),
+      'title_label' => t('Kaldenavn'),
       'help' => '',
     ),
     'webform' => array(

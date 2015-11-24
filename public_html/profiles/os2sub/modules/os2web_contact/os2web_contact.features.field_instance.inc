@@ -19,7 +19,7 @@ function os2web_contact_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
@@ -59,63 +59,7 @@ function os2web_contact_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 4,
-    ),
-  );
-
-  // Exported field_instance:
-  // 'node-os2web_contact_contact-field_os2web_contact_field_callc'.
-  $field_instances['node-os2web_contact_contact-field_os2web_contact_field_callc'] = array(
-    'bundle' => 'os2web_contact_contact',
-    'default_value' => array(
-      0 => array(
-        'value' => 1,
-      ),
-    ),
-    'deleted' => 0,
-    'description' => 'Hvis dette felt markeres, vises Callcenterets telefonnummer og åbningstider.',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 6,
-      ),
-      'related_block' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'spotbox' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_os2web_contact_field_callc',
-    'label' => 'Vis Callcenter',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'display_label' => 1,
-      ),
-      'type' => 'options_onoff',
-      'weight' => 2,
+      'weight' => 5,
     ),
   );
 
@@ -132,7 +76,7 @@ function os2web_contact_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 23,
+        'weight' => 0,
       ),
       'related_block' => array(
         'label' => 'above',
@@ -187,60 +131,7 @@ function os2web_contact_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 1,
-    ),
-  );
-
-  // Exported field_instance:
-  // 'node-os2web_contact_contact-field_os2web_contact_field_email'.
-  $field_instances['node-os2web_contact_contact-field_os2web_contact_field_email'] = array(
-    'bundle' => 'os2web_contact_contact',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 4,
-      ),
-      'related_block' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'spotbox' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_os2web_contact_field_email',
-    'label' => 'Email',
-    'required' => 0,
-    'settings' => array(
-      'text_processing' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'size' => 60,
-      ),
-      'type' => 'text_textfield',
-      'weight' => 6,
+      'weight' => 2,
     ),
   );
 
@@ -262,7 +153,7 @@ function os2web_contact_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 7,
+        'weight' => 1,
       ),
       'related_block' => array(
         'label' => 'above',
@@ -307,30 +198,19 @@ function os2web_contact_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'node-os2web_contact_contact-field_os2web_contact_field_phone'.
-  $field_instances['node-os2web_contact_contact-field_os2web_contact_field_phone'] = array(
+  // 'node-os2web_contact_contact-field_os2web_contact_field_mail'.
+  $field_instances['node-os2web_contact_contact-field_os2web_contact_field_mail'] = array(
     'bundle' => 'os2web_contact_contact',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'hidden',
-        'module' => 'number',
-        'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => 0,
-          'scale' => 0,
-          'thousand_separator' => '',
-        ),
-        'type' => 'number_integer',
-        'weight' => 5,
-      ),
-      'related_block' => array(
         'label' => 'above',
+        'module' => 'email',
         'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
+        'type' => 'email_default',
+        'weight' => 7,
       ),
       'spotbox' => array(
         'label' => 'above',
@@ -346,22 +226,66 @@ function os2web_contact_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_os2web_contact_field_phone',
-    'label' => 'Telefon',
+    'field_name' => 'field_os2web_contact_field_mail',
+    'label' => 'E-mail',
     'required' => 0,
     'settings' => array(
-      'max' => '',
-      'min' => '',
-      'prefix' => '',
-      'suffix' => '',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
-      'active' => 0,
-      'module' => 'number',
-      'settings' => array(),
-      'type' => 'number',
+      'active' => 1,
+      'module' => 'email',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'email_textfield',
       'weight' => 7,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-os2web_contact_contact-field_os2web_contact_field_tel'.
+  $field_instances['node-os2web_contact_contact-field_os2web_contact_field_tel'] = array(
+    'bundle' => 'os2web_contact_contact',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_plain',
+        'weight' => 6,
+      ),
+      'spotbox' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_os2web_contact_field_tel',
+    'label' => 'Telefon',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'telephone',
+      'settings' => array(
+        'placeholder' => '',
+      ),
+      'type' => 'telephone_default',
+      'weight' => 6,
     ),
   );
 
@@ -375,16 +299,15 @@ function os2web_contact_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 1,
-      ),
-      'related_block' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 8,
       ),
       'spotbox' => array(
         'label' => 'above',
@@ -404,30 +327,29 @@ function os2web_contact_field_default_field_instances() {
     'label' => 'Postnummer',
     'required' => 0,
     'settings' => array(
-      'text_processing' => 0,
+      'max' => 9999,
+      'min' => 555,
+      'prefix' => '',
+      'suffix' => '',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'size' => 60,
-      ),
-      'type' => 'text_textfield',
-      'weight' => 5,
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 4,
     ),
   );
 
   // Translatables
   // Included for use with string extractors like potx.
   t('Adresse');
+  t('E-mail');
   t('Eget indhold');
-  t('Email');
-  t('Hvis dette felt markeres, vises Callcenterets telefonnummer og åbningstider.');
   t('Overskrift på kontaktblok');
   t('Postnummer');
   t('Telefon');
-  t('Vis Callcenter');
 
   return $field_instances;
 }

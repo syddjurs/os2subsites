@@ -40,20 +40,23 @@ function os2web_contact_strongarm() {
       'token' => array(
         'custom_settings' => FALSE,
       ),
+      'diff_standard' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
         'title' => array(
-          'weight' => '0',
+          'weight' => '1',
         ),
         'path' => array(
-          'weight' => '9',
+          'weight' => '7',
         ),
         'workbench_access' => array(
           'weight' => '8',
         ),
         'metatags' => array(
-          'weight' => '40',
+          'weight' => '8',
         ),
       ),
       'display' => array(),
@@ -65,7 +68,7 @@ function os2web_contact_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_os2web_contact_contact';
-  $strongarm->value = '1';
+  $strongarm->value = '0';
   $export['language_content_type_os2web_contact_contact'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -96,7 +99,7 @@ function os2web_contact_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'node_preview_os2web_contact_contact';
-  $strongarm->value = '1';
+  $strongarm->value = '0';
   $export['node_preview_os2web_contact_contact'] = $strongarm;
 
   $strongarm = new stdClass();

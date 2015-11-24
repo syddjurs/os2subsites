@@ -31,31 +31,6 @@ function os2web_contact_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_os2web_contact_field_callc'.
-  $field_bases['field_os2web_contact_field_callc'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_os2web_contact_field_callc',
-    'indexes' => array(
-      'value' => array(
-        0 => 'value',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'list',
-    'settings' => array(
-      'allowed_values' => array(
-        0 => 0,
-        1 => 1,
-      ),
-      'allowed_values_function' => '',
-    ),
-    'translatable' => 0,
-    'type' => 'list_boolean',
-  );
-
   // Exported field_base: 'field_os2web_contact_field_dept'.
   $field_bases['field_os2web_contact_field_dept'] = array(
     'active' => 1,
@@ -72,27 +47,6 @@ function os2web_contact_field_default_field_bases() {
     'module' => 'text',
     'settings' => array(
       'max_length' => 255,
-    ),
-    'translatable' => 0,
-    'type' => 'text',
-  );
-
-  // Exported field_base: 'field_os2web_contact_field_email'.
-  $field_bases['field_os2web_contact_field_email'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_os2web_contact_field_email',
-    'indexes' => array(
-      'format' => array(
-        0 => 'format',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'text',
-    'settings' => array(
-      'max_length' => 100,
     ),
     'translatable' => 0,
     'type' => 'text',
@@ -117,19 +71,34 @@ function os2web_contact_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_os2web_contact_field_phone'.
-  $field_bases['field_os2web_contact_field_phone'] = array(
+  // Exported field_base: 'field_os2web_contact_field_mail'.
+  $field_bases['field_os2web_contact_field_mail'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_os2web_contact_field_phone',
+    'field_name' => 'field_os2web_contact_field_mail',
     'indexes' => array(),
     'locked' => 0,
-    'module' => 'number',
+    'module' => 'email',
     'settings' => array(),
     'translatable' => 0,
-    'type' => 'number_integer',
+    'type' => 'email',
+  );
+
+  // Exported field_base: 'field_os2web_contact_field_tel'.
+  $field_bases['field_os2web_contact_field_tel'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_os2web_contact_field_tel',
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'telephone',
+    'settings' => array(),
+    'translatable' => 0,
+    'type' => 'telephone',
   );
 
   // Exported field_base: 'field_os2web_contact_field_zip'.
@@ -139,18 +108,12 @@ function os2web_contact_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_os2web_contact_field_zip',
-    'indexes' => array(
-      'format' => array(
-        0 => 'format',
-      ),
-    ),
+    'indexes' => array(),
     'locked' => 0,
-    'module' => 'text',
-    'settings' => array(
-      'max_length' => 255,
-    ),
+    'module' => 'number',
+    'settings' => array(),
     'translatable' => 0,
-    'type' => 'text',
+    'type' => 'number_integer',
   );
 
   return $field_bases;

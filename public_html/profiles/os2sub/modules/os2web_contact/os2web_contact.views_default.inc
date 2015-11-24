@@ -86,13 +86,13 @@ function os2web_contact_views_default_views() {
   $handler->display->display_options['fields']['field_os2web_contact_field_info']['field'] = 'field_os2web_contact_field_info';
   $handler->display->display_options['fields']['field_os2web_contact_field_info']['label'] = '';
   $handler->display->display_options['fields']['field_os2web_contact_field_info']['element_label_colon'] = FALSE;
-  /* Field: Content: Email */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['field_os2web_contact_field_email']['id'] = 'field_os2web_contact_field_email';
   $handler->display->display_options['fields']['field_os2web_contact_field_email']['table'] = 'field_data_field_os2web_contact_field_email';
   $handler->display->display_options['fields']['field_os2web_contact_field_email']['field'] = 'field_os2web_contact_field_email';
   $handler->display->display_options['fields']['field_os2web_contact_field_email']['label'] = '';
   $handler->display->display_options['fields']['field_os2web_contact_field_email']['element_label_colon'] = FALSE;
-  /* Field: Content: Telefon */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['field_os2web_contact_field_phone']['id'] = 'field_os2web_contact_field_phone';
   $handler->display->display_options['fields']['field_os2web_contact_field_phone']['table'] = 'field_data_field_os2web_contact_field_phone';
   $handler->display->display_options['fields']['field_os2web_contact_field_phone']['field'] = 'field_os2web_contact_field_phone';
@@ -103,11 +103,6 @@ function os2web_contact_views_default_views() {
   $handler->display->display_options['fields']['field_os2web_contact_field_phone']['element_class'] = 'telefonnummer, kontaktblok-indhold';
   $handler->display->display_options['fields']['field_os2web_contact_field_phone']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_os2web_contact_field_phone']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['field_os2web_contact_field_phone']['type'] = 'number_unformatted';
-  $handler->display->display_options['fields']['field_os2web_contact_field_phone']['settings'] = array(
-    'thousand_separator' => '',
-    'prefix_suffix' => 0,
-  );
   /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['field_os2web_contact_field_mowcl']['id'] = 'field_os2web_contact_field_mowcl';
   $handler->display->display_options['fields']['field_os2web_contact_field_mowcl']['table'] = 'field_data_field_os2web_contact_field_mowcl';
@@ -275,7 +270,7 @@ function os2web_contact_views_default_views() {
   $handler->display->display_options['fields']['field_os2web_contact_field_show']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_os2web_contact_field_show']['empty_zero'] = TRUE;
   $handler->display->display_options['fields']['field_os2web_contact_field_show']['hide_alter_empty'] = FALSE;
-  /* Field: Content: Vis Callcenter */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['field_os2web_contact_field_callc']['id'] = 'field_os2web_contact_field_callc';
   $handler->display->display_options['fields']['field_os2web_contact_field_callc']['table'] = 'field_data_field_os2web_contact_field_callc';
   $handler->display->display_options['fields']['field_os2web_contact_field_callc']['field'] = 'field_os2web_contact_field_callc';
@@ -412,7 +407,7 @@ return os2web_contact_get_block();
   $handler->display->display_options['fields']['field_os2web_contact_field_zip']['field'] = 'field_os2web_contact_field_zip';
   $handler->display->display_options['fields']['field_os2web_contact_field_zip']['label'] = '';
   $handler->display->display_options['fields']['field_os2web_contact_field_zip']['element_label_colon'] = FALSE;
-  /* Field: Content: Email */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['field_os2web_contact_field_email']['id'] = 'field_os2web_contact_field_email';
   $handler->display->display_options['fields']['field_os2web_contact_field_email']['table'] = 'field_data_field_os2web_contact_field_email';
   $handler->display->display_options['fields']['field_os2web_contact_field_email']['field'] = 'field_os2web_contact_field_email';
@@ -426,7 +421,7 @@ return os2web_contact_get_block();
   $handler->display->display_options['fields']['field_os2web_contact_field_info']['field'] = 'field_os2web_contact_field_info';
   $handler->display->display_options['fields']['field_os2web_contact_field_info']['label'] = '';
   $handler->display->display_options['fields']['field_os2web_contact_field_info']['element_label_colon'] = FALSE;
-  /* Field: Content: Telefon */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['field_os2web_contact_field_phone']['id'] = 'field_os2web_contact_field_phone';
   $handler->display->display_options['fields']['field_os2web_contact_field_phone']['table'] = 'field_data_field_os2web_contact_field_phone';
   $handler->display->display_options['fields']['field_os2web_contact_field_phone']['field'] = 'field_os2web_contact_field_phone';
@@ -438,11 +433,6 @@ return os2web_contact_get_block();
   $handler->display->display_options['fields']['field_os2web_contact_field_phone']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_os2web_contact_field_phone']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_os2web_contact_field_phone']['hide_empty'] = TRUE;
-  $handler->display->display_options['fields']['field_os2web_contact_field_phone']['type'] = 'number_unformatted';
-  $handler->display->display_options['fields']['field_os2web_contact_field_phone']['settings'] = array(
-    'thousand_separator' => '',
-    'prefix_suffix' => 0,
-  );
   /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['field_os2web_contact_field_mowcl']['id'] = 'field_os2web_contact_field_mowcl';
   $handler->display->display_options['fields']['field_os2web_contact_field_mowcl']['table'] = 'field_data_field_os2web_contact_field_mowcl';
@@ -608,7 +598,7 @@ return os2web_contact_get_block();
   $handler->display->display_options['fields']['field_os2web_contact_field_show_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_os2web_contact_field_show_1']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_os2web_contact_field_show_1']['empty_zero'] = TRUE;
-  /* Field: Content: Vis Callcenter */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['field_os2web_contact_field_callc']['id'] = 'field_os2web_contact_field_callc';
   $handler->display->display_options['fields']['field_os2web_contact_field_callc']['table'] = 'field_data_field_os2web_contact_field_callc';
   $handler->display->display_options['fields']['field_os2web_contact_field_callc']['field'] = 'field_os2web_contact_field_callc';

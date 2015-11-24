@@ -56,31 +56,6 @@ function os2web_base_field_default_field_bases() {
     'type' => 'list_boolean',
   );
 
-  // Exported field_base: 'field_list_as_selvservice'.
-  $field_bases['field_list_as_selvservice'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_list_as_selvservice',
-    'indexes' => array(
-      'value' => array(
-        0 => 'value',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'list',
-    'settings' => array(
-      'allowed_values' => array(
-        0 => 0,
-        1 => 1,
-      ),
-      'allowed_values_function' => '',
-    ),
-    'translatable' => 0,
-    'type' => 'list_boolean',
-  );
-
   // Exported field_base: 'field_list_as_spotboks'.
   $field_bases['field_list_as_spotboks'] = array(
     'active' => 1,
@@ -171,27 +146,6 @@ function os2web_base_field_default_field_bases() {
     'type' => 'node_reference',
   );
 
-  // Exported field_base: 'field_os2web_base_field_direct'.
-  $field_bases['field_os2web_base_field_direct'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_os2web_base_field_direct',
-    'indexes' => array(
-      'format' => array(
-        0 => 'format',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'text',
-    'settings' => array(
-      'max_length' => 254,
-    ),
-    'translatable' => 0,
-    'type' => 'text',
-  );
-
   // Exported field_base: 'field_os2web_base_field_edi_tags'.
   $field_bases['field_os2web_base_field_edi_tags'] = array(
     'active' => 1,
@@ -246,27 +200,6 @@ function os2web_base_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'link_field',
-  );
-
-  // Exported field_base: 'field_os2web_base_field_grp_id'.
-  $field_bases['field_os2web_base_field_grp_id'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_os2web_base_field_grp_id',
-    'indexes' => array(
-      'format' => array(
-        0 => 'format',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'text',
-    'settings' => array(
-      'max_length' => 255,
-    ),
-    'translatable' => 0,
-    'type' => 'text',
   );
 
   // Exported field_base: 'field_os2web_base_field_hidlinks'.
@@ -636,54 +569,6 @@ function os2web_base_field_default_field_bases() {
     'type' => 'taxonomy_term_reference',
   );
 
-  // Exported field_base: 'field_os2web_base_field_ref_node'.
-  $field_bases['field_os2web_base_field_ref_node'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_os2web_base_field_ref_node',
-    'indexes' => array(
-      'nid' => array(
-        0 => 'nid',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'node_reference',
-    'settings' => array(
-      'referenceable_types' => array(
-        'media' => 0,
-        'menu_page' => 0,
-        'os2web_base_contentpage' => 'os2web_base_contentpage',
-        'os2web_base_gallery' => 0,
-        'os2web_base_iframe' => 'os2web_base_iframe',
-        'os2web_base_news' => 0,
-        'os2web_base_rotating_image' => 0,
-        'os2web_base_selfservice_link' => 0,
-        'os2web_borger_dk_article' => 'os2web_borger_dk_article',
-        'os2web_citizenservices_service' => 0,
-        'os2web_contact_contact' => 0,
-        'os2web_frontend_background_img' => 0,
-        'os2web_hearings_hearing' => 0,
-        'os2web_kulturnaut_knactivity' => 0,
-        'os2web_meeting_search_status' => 0,
-        'os2web_meetings_bullet' => 0,
-        'os2web_meetings_bullet_attach' => 0,
-        'os2web_meetings_meeting' => 0,
-        'os2web_sections_page' => 0,
-        'os2web_spotbox_box' => 0,
-        'panel' => 0,
-      ),
-      'view' => array(
-        'args' => array(),
-        'display_name' => '',
-        'view_name' => '',
-      ),
-    ),
-    'translatable' => 0,
-    'type' => 'node_reference',
-  );
-
   // Exported field_base: 'field_os2web_base_field_related'.
   $field_bases['field_os2web_base_field_related'] = array(
     'active' => 1,
@@ -993,33 +878,6 @@ function os2web_base_field_default_field_bases() {
     'settings' => array(),
     'translatable' => 0,
     'type' => 'text_long',
-  );
-
-  // Exported field_base: 'field_os2web_base_field_type'.
-  $field_bases['field_os2web_base_field_type'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_os2web_base_field_type',
-    'indexes' => array(
-      'value' => array(
-        0 => 'value',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'list',
-    'settings' => array(
-      'allowed_values' => array(
-        'handling' => 'Hvis du skal',
-        'emne' => 'Emne',
-        'liste' => 'Liste',
-        'megamenu' => 'Megamenu',
-      ),
-      'allowed_values_function' => '',
-    ),
-    'translatable' => 0,
-    'type' => 'list_text',
   );
 
   // Exported field_base: 'field_os2web_base_field_video'.

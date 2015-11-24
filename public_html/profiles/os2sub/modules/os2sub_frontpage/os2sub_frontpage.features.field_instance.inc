@@ -10,16 +10,16 @@
 function os2sub_frontpage_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-velkomst-body'
+  // Exported field_instance: 'node-velkomst-body'.
   $field_instances['node-velkomst-body'] = array(
     'bundle' => 'velkomst',
-      'default_value' => array(
-          0 => array(
-              'summary' => '',
-              'value' => '',
-              'format' => 'full_html',
-          ),
+    'default_value' => array(
+      0 => array(
+        'summary' => '',
+        'value' => '',
+        'format' => 'full_html',
       ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
