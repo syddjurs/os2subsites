@@ -117,14 +117,12 @@
       <?php print $name;?>
     </div>
     <?php endif; ?>
-    <?php if ( $node->type != 'os2web_base_gallery'): ?>
        
     <?php print render($title_prefix); ?>
     <?php if (!empty($title)): ?>
     <h1<?php print $title_attributes; ?>><?php print $title; ?></h1>
     <?php endif; ?>
     <?php print render($title_suffix); ?>
-  <?php endif;?>  
   </header>
   <?php endif; ?>
 

@@ -192,69 +192,9 @@ function os2subtheme_preprocess_page(&$variables) {
   $active_trail = menu_get_active_trail();
   $current_trail = end($active_trail);
 
-  if ($node && ($node->type == "os2web_base_news")) {
-    $variables['page']['sidebar_first'] = array(
-      '#theme_wrappers' => array('region'),
-      '#region'         => 'sidebar_first',
-      'dummy_content'   => array(
-        '#markup' => '<a class ="btn-back gradient-lightgreen" href="/nyheder">Nyhedsoversigt</a>',
-
-      ),
-    );
-  }
   
   $view = views_get_page_view();
-  if (!empty($view) && $view->name == 'svendborg_news_view' && $view->current_display == 'page_3') {
-    if (!$sidebar_second_hidden && empty($variables['page']['sidebar_second'])) {
-      $variables['page']['sidebar_second'] = array(
-        '#theme_wrappers' => array('region'),
-        '#region'         => 'sidebar_second',
-        'dummy_content'   => array(
-          '#markup' => ' ',
-        ),
-      );
 
-    }
-    $variables['page']['prev_news_block'] = TRUE;
-    $variables['page']['activities'] = TRUE;
-  }
-  if ((!empty($view) && $view->name == 'svendborg_gallery' && $view->current_display == 'page') || ($node && $node->type == "os2web_base_gallery")) {
-    if (!$sidebar_second_hidden && empty($variables['page']['sidebar_first'])) {
-
-      $variables['page']['sidebar_first'] = array(
-        '#theme_wrappers' => array('region'),
-        '#region'         => 'sidebar_first',
-        'content'         => array(
-          '#markup' => drupal_render(menu_tree_output(menu_navigation_tree('main-menu', 0))),
-        ),
-      );
-
-    }
-
-  }
-
-  // On taxonomy pages, add a news list in second sidebar.
-  if ($term) {
-    $view = views_get_view('os2web_news_lists');
-    $view->set_display('panel_pane_2');
-    $view->set_arguments(array('all', 'Branding', $term->tid));
-    $view->set_items_per_page(3);
-    $view->pre_execute();
-    $view->execute();
-    if (!empty($view->result)) {
-      if (empty($variables['page']['sidebar_second'])) {
-        $variables['page']['sidebar_second'] = array(
-          '#theme_wrappers' => array('region'),
-          '#region'         => 'sidebar_second',
-
-        );
-      }
-      $variables['page']['sidebar_second']['os2web_news_lists'] = array('#markup' => $view->render());
-    }
-    if ($term_is_top && $term->vocabulary_machine_name == "os2web_base_tax_site_structure") {
-      $variables['page']['sidebar_first'] = array();
-    }
-  }
 
   // If node has hidden the sidebar, set content to null.
   if (($node && $hide_sidebar_field = field_get_items('node', $node, 'field_svendborg_hide_sidebar')) ||
