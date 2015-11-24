@@ -53,45 +53,6 @@ function os2sub_banner_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_banner_vis_paa_sider'.
-  $field_bases['field_banner_vis_paa_sider'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_banner_vis_paa_sider',
-    'indexes' => array(
-      'nid' => array(
-        0 => 'nid',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'node_reference',
-    'settings' => array(
-      'referenceable_types' => array(
-        'banner' => 0,
-        'event_calendar' => 'event_calendar',
-        'media' => 0,
-        'os2web_base_contentpage' => 'os2web_base_contentpage',
-        'os2web_base_gallery' => 'os2web_base_gallery',
-        'os2web_base_iframe' => 'os2web_base_iframe',
-        'os2web_base_news' => 'os2web_base_news',
-        'os2web_base_rotating_image' => 'os2web_base_rotating_image',
-        'os2web_base_selfservice_link' => 0,
-        'os2web_contact_contact' => 0,
-        'os2web_spotbox_box' => 0,
-        'webform' => 'webform',
-      ),
-      'view' => array(
-        'args' => array(),
-        'display_name' => '',
-        'view_name' => '',
-      ),
-    ),
-    'translatable' => 0,
-    'type' => 'node_reference',
-  );
-
   // Exported field_base: 'field_hvid_tekst'.
   $field_bases['field_hvid_tekst'] = array(
     'active' => 1,

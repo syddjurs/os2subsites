@@ -48,11 +48,10 @@ function os2sub_banner_views_default_views() {
   $handler->display->display_options['pager']['options']['tags']['last'] = 'sidste »';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'node';
-  /* Relationship: Content: Vis på sider (field_banner_vis_paa_sider) */
+  /* Relationship: Broken/missing handler */
   $handler->display->display_options['relationships']['field_banner_vis_paa_sider_nid']['id'] = 'field_banner_vis_paa_sider_nid';
   $handler->display->display_options['relationships']['field_banner_vis_paa_sider_nid']['table'] = 'field_data_field_banner_vis_paa_sider';
   $handler->display->display_options['relationships']['field_banner_vis_paa_sider_nid']['field'] = 'field_banner_vis_paa_sider_nid';
-  $handler->display->display_options['relationships']['field_banner_vis_paa_sider_nid']['delta'] = '-1';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -123,7 +122,7 @@ function os2sub_banner_views_default_views() {
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['label'] = 'Redigér';
-  /* Field: Content: Vis på sider */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['field_banner_vis_paa_sider']['id'] = 'field_banner_vis_paa_sider';
   $handler->display->display_options['fields']['field_banner_vis_paa_sider']['table'] = 'field_data_field_banner_vis_paa_sider';
   $handler->display->display_options['fields']['field_banner_vis_paa_sider']['field'] = 'field_banner_vis_paa_sider';
@@ -194,12 +193,12 @@ function os2sub_banner_views_default_views() {
     t('‹ forrige'),
     t('næste ›'),
     t('sidste »'),
-    t('field_banner_vis_paa_sider'),
+    t('field_banner_vis_paa_sider_nid'),
     t('Page'),
     t('more'),
     t('Billede'),
     t('Redigér'),
-    t('Vis på sider'),
+    t('Broken handler field_data_field_banner_vis_paa_sider.field_banner_vis_paa_sider'),
     t('Forsidebanner Block'),
     t('Indholdsside Banner Block'),
     t('Alle'),

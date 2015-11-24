@@ -44,10 +44,10 @@ function os2sub_banner_strongarm() {
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '1',
+          'weight' => '6',
         ),
         'metatags' => array(
-          'weight' => '2',
+          'weight' => '7',
         ),
       ),
       'display' => array(
