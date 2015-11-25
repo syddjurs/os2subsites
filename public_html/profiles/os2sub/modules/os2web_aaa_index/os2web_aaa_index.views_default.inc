@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * os2web_aaa_indekx.views_default.inc
+ * os2web_aaa_index.views_default.inc
  */
 
 /**
  * Implements hook_views_default_views().
  */
-function os2web_aaa_indekx_views_default_views() {
+function os2web_aaa_index_views_default_views() {
   $export = array();
 
   $view = new view();
@@ -94,7 +94,6 @@ function os2web_aaa_indekx_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'os2web_borger_dk_article' => 'os2web_borger_dk_article',
     'os2web_base_contentpage' => 'os2web_base_contentpage',
     'webform' => 'webform',
   );

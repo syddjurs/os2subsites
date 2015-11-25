@@ -10,7 +10,7 @@ include_once 'os2sub_banner.features.inc';
 function os2sub_banner_install() {
   $newnode = new stdClass();
   $newnode->title = 'Velkommen til den nye hjemmeside';
-  $newnode->body = 'Skift indholdet af denne side.';
+  $newnode->field-banner-text = 'Skift indholdet af denne side.';
 
   global $user;
 
