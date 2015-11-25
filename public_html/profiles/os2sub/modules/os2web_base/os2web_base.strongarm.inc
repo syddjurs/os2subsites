@@ -13,6 +13,13 @@ function os2web_base_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'admin_theme';
+  $strongarm->value = 'adminimal';
+  $export['admin_theme'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'comment_anonymous_media';
   $strongarm->value = 0;
   $export['comment_anonymous_media'] = $strongarm;
@@ -699,6 +706,13 @@ function os2web_base_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'file_temporary_path';
+  $strongarm->value = '../tmp';
+  $export['file_temporary_path'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_media';
   $strongarm->value = '0';
   $export['language_content_type_media'] = $strongarm;
@@ -890,6 +904,13 @@ function os2web_base_strongarm() {
   $strongarm->name = 'menu_parent_webform';
   $strongarm->value = 'main-menu:0';
   $export['menu_parent_webform'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'node_admin_theme';
+  $strongarm->value = 0;
+  $export['node_admin_theme'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -1105,6 +1126,27 @@ function os2web_base_strongarm() {
   $strongarm->name = 'page_manager_node_view_disabled';
   $strongarm->value = FALSE;
   $export['page_manager_node_view_disabled'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'site_default_country';
+  $strongarm->value = 'DK';
+  $export['site_default_country'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'transliteration_file_lowercase';
+  $strongarm->value = 1;
+  $export['transliteration_file_lowercase'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'transliteration_file_uploads';
+  $strongarm->value = 1;
+  $export['transliteration_file_uploads'] = $strongarm;
 
   return $export;
 }
