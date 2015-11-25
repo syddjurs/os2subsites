@@ -48,10 +48,6 @@ function os2sub_banner_views_default_views() {
   $handler->display->display_options['pager']['options']['tags']['last'] = 'sidste »';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'node';
-  /* Relationship: Broken/missing handler */
-  $handler->display->display_options['relationships']['field_banner_vis_paa_sider_nid']['id'] = 'field_banner_vis_paa_sider_nid';
-  $handler->display->display_options['relationships']['field_banner_vis_paa_sider_nid']['table'] = 'field_data_field_banner_vis_paa_sider';
-  $handler->display->display_options['relationships']['field_banner_vis_paa_sider_nid']['field'] = 'field_banner_vis_paa_sider_nid';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -122,10 +118,6 @@ function os2sub_banner_views_default_views() {
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['label'] = 'Redigér';
-  /* Field: Broken/missing handler */
-  $handler->display->display_options['fields']['field_banner_vis_paa_sider']['id'] = 'field_banner_vis_paa_sider';
-  $handler->display->display_options['fields']['field_banner_vis_paa_sider']['table'] = 'field_data_field_banner_vis_paa_sider';
-  $handler->display->display_options['fields']['field_banner_vis_paa_sider']['field'] = 'field_banner_vis_paa_sider';
   $handler->display->display_options['path'] = 'admin/content/os2sub-banner';
   $handler->display->display_options['menu']['type'] = 'tab';
   $handler->display->display_options['menu']['title'] = 'Bannere';
@@ -140,6 +132,13 @@ function os2sub_banner_views_default_views() {
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '5';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'owlcarousel';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'node';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
@@ -161,6 +160,11 @@ function os2sub_banner_views_default_views() {
   $handler->display->display_options['filters']['promote']['table'] = 'node';
   $handler->display->display_options['filters']['promote']['field'] = 'promote';
   $handler->display->display_options['filters']['promote']['value'] = '1';
+  /* Filter criterion: Content: Billede (field_banner_billede:fid) */
+  $handler->display->display_options['filters']['field_banner_billede_fid']['id'] = 'field_banner_billede_fid';
+  $handler->display->display_options['filters']['field_banner_billede_fid']['table'] = 'field_data_field_banner_billede';
+  $handler->display->display_options['filters']['field_banner_billede_fid']['field'] = 'field_banner_billede_fid';
+  $handler->display->display_options['filters']['field_banner_billede_fid']['operator'] = 'not empty';
 
   /* Display: Indholdsside Banner Block */
   $handler = $view->new_display('block', 'Indholdsside Banner Block', 'block_1');
@@ -193,12 +197,10 @@ function os2sub_banner_views_default_views() {
     t('‹ forrige'),
     t('næste ›'),
     t('sidste »'),
-    t('field_banner_vis_paa_sider_nid'),
     t('Page'),
     t('more'),
     t('Billede'),
     t('Redigér'),
-    t('Broken handler field_data_field_banner_vis_paa_sider.field_banner_vis_paa_sider'),
     t('Forsidebanner Block'),
     t('Indholdsside Banner Block'),
     t('Alle'),

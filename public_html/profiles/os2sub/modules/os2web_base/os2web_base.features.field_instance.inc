@@ -2534,7 +2534,7 @@ function os2web_base_field_default_field_instances() {
           'slideshow_controls_position' => 'after',
           'slideshow_field_collection_image' => '',
           'slideshow_fx' => 'fade',
-          'slideshow_image_style' => 'svendborg_content_image',
+          'slideshow_image_style' => 'os2sub_normal_imagesize',
           'slideshow_link' => '',
           'slideshow_order' => '',
           'slideshow_pager' => 'number',
@@ -3966,7 +3966,7 @@ function os2web_base_field_default_field_instances() {
         'module' => 'image',
         'settings' => array(
           'image_link' => '',
-          'image_style' => 'svendborg_content_image',
+          'image_style' => 'os2sub_normal_imagesize',
         ),
         'type' => 'image',
         'weight' => 0,
