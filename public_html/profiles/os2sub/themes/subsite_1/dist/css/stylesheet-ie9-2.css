@@ -6185,226 +6185,226 @@
 }
 
 @media screen and (max-width: 767px) {
-  .fki-breadcrumb-container {
+  .os2sub-breadcrumb-container {
     display: none;
   }
 }
 
 @media screen and (max-width: 767px) {
-  .fki-full .fki-full-heading .fki-full-heading-title {
+  .os2sub-full .os2sub-full-heading .os2sub-full-heading-title {
     font-size: 19px;
     line-height: 20px;
   }
 }
 
 @media screen and (min-width: 768px) and (max-width: 991px) {
-  .fki-full .fki-full-heading .fki-full-heading-title {
+  .os2sub-full .os2sub-full-heading .os2sub-full-heading-title {
     font-size: 20px;
     line-height: 22px;
   }
 }
 
 @media screen and (min-width: 992px) and (max-width: 1199px) {
-  .fki-full .fki-full-heading .fki-full-heading-title {
+  .os2sub-full .os2sub-full-heading .os2sub-full-heading-title {
     font-size: 21px;
     line-height: 23px;
   }
 }
 
 @media screen and (min-width: 1200px) {
-  .fki-full .fki-full-heading .fki-full-heading-title {
+  .os2sub-full .os2sub-full-heading .os2sub-full-heading-title {
     font-size: 24px;
     line-height: 26px;
   }
 }
 
 @media screen and (max-width: 767px) {
-  .fki-full .fki-full-intro {
+  .os2sub-full .os2sub-full-intro {
     font-size: 11px;
     line-height: 12px;
   }
 }
 
 @media screen and (min-width: 768px) and (max-width: 991px) {
-  .fki-full .fki-full-intro {
+  .os2sub-full .os2sub-full-intro {
     font-size: 11px;
     line-height: 12px;
   }
 }
 
 @media screen and (min-width: 992px) and (max-width: 1199px) {
-  .fki-full .fki-full-intro {
+  .os2sub-full .os2sub-full-intro {
     font-size: 12px;
     line-height: 13px;
   }
 }
 
 @media screen and (min-width: 1200px) {
-  .fki-full .fki-full-intro {
+  .os2sub-full .os2sub-full-intro {
     font-size: 14px;
     line-height: 15px;
   }
 }
 
 @media screen and (max-width: 767px) {
-  .fki-teaser .fki-teaser-heading .fki-teaser-heading-title {
+  .os2sub-teaser .os2sub-teaser-heading .os2sub-teaser-heading-title {
     font-size: 14px;
     line-height: 15px;
   }
 }
 
 @media screen and (min-width: 768px) and (max-width: 991px) {
-  .fki-teaser .fki-teaser-heading .fki-teaser-heading-title {
+  .os2sub-teaser .os2sub-teaser-heading .os2sub-teaser-heading-title {
     font-size: 15px;
     line-height: 16px;
   }
 }
 
 @media screen and (min-width: 992px) and (max-width: 1199px) {
-  .fki-teaser .fki-teaser-heading .fki-teaser-heading-title {
+  .os2sub-teaser .os2sub-teaser-heading .os2sub-teaser-heading-title {
     font-size: 16px;
     line-height: 17px;
   }
 }
 
 @media screen and (min-width: 1200px) {
-  .fki-teaser .fki-teaser-heading .fki-teaser-heading-title {
+  .os2sub-teaser .os2sub-teaser-heading .os2sub-teaser-heading-title {
     font-size: 18px;
     line-height: 19px;
   }
 }
 
 @media screen and (max-width: 767px) {
-  .fki-spotbox-teaser .fki-teaser-heading .fki-teaser-heading-title {
+  .os2sub-spotbox-teaser .os2sub-teaser-heading .os2sub-teaser-heading-title {
     font-size: 11px;
     line-height: 12px;
   }
 }
 
 @media screen and (min-width: 768px) and (max-width: 991px) {
-  .fki-spotbox-teaser .fki-teaser-heading .fki-teaser-heading-title {
+  .os2sub-spotbox-teaser .os2sub-teaser-heading .os2sub-teaser-heading-title {
     font-size: 11px;
     line-height: 12px;
   }
 }
 
 @media screen and (min-width: 992px) and (max-width: 1199px) {
-  .fki-spotbox-teaser .fki-teaser-heading .fki-teaser-heading-title {
+  .os2sub-spotbox-teaser .os2sub-teaser-heading .os2sub-teaser-heading-title {
     font-size: 12px;
     line-height: 13px;
   }
 }
 
 @media screen and (min-width: 1200px) {
-  .fki-spotbox-teaser .fki-teaser-heading .fki-teaser-heading-title {
+  .os2sub-spotbox-teaser .os2sub-teaser-heading .os2sub-teaser-heading-title {
     font-size: 14px;
     line-height: 15px;
   }
 }
 
 @media screen and (max-width: 767px) {
-  .fki-spotbox-teaser.fki-spotbox-teaser-variant-with-image .fki-teaser-heading .fki-teaser-heading-title {
+  .os2sub-spotbox-teaser.os2sub-spotbox-teaser-variant-with-image .os2sub-teaser-heading .os2sub-teaser-heading-title {
     font-size: 14px;
     line-height: 15px;
   }
 }
 
 @media screen and (min-width: 768px) and (max-width: 991px) {
-  .fki-spotbox-teaser.fki-spotbox-teaser-variant-with-image .fki-teaser-heading .fki-teaser-heading-title {
+  .os2sub-spotbox-teaser.os2sub-spotbox-teaser-variant-with-image .os2sub-teaser-heading .os2sub-teaser-heading-title {
     font-size: 15px;
     line-height: 16px;
   }
 }
 
 @media screen and (min-width: 992px) and (max-width: 1199px) {
-  .fki-spotbox-teaser.fki-spotbox-teaser-variant-with-image .fki-teaser-heading .fki-teaser-heading-title {
+  .os2sub-spotbox-teaser.os2sub-spotbox-teaser-variant-with-image .os2sub-teaser-heading .os2sub-teaser-heading-title {
     font-size: 16px;
     line-height: 17px;
   }
 }
 
 @media screen and (min-width: 1200px) {
-  .fki-spotbox-teaser.fki-spotbox-teaser-variant-with-image .fki-teaser-heading .fki-teaser-heading-title {
+  .os2sub-spotbox-teaser.os2sub-spotbox-teaser-variant-with-image .os2sub-teaser-heading .os2sub-teaser-heading-title {
     font-size: 18px;
     line-height: 19px;
   }
 }
 
 @media screen and (max-width: 767px) {
-  .fki-spotbox-teaser {
+  .os2sub-spotbox-teaser {
     margin-bottom: 10px !important;
   }
 }
 
 @media screen and (min-width: 768px) and (max-width: 991px) {
-  .fki-spotbox-teaser {
+  .os2sub-spotbox-teaser {
     margin-bottom: 10px !important;
   }
 }
 
 @media screen and (min-width: 992px) and (max-width: 1199px) {
-  .fki-spotbox-teaser {
+  .os2sub-spotbox-teaser {
     margin-bottom: 15px !important;
   }
 }
 
 @media screen and (min-width: 1200px) {
-  .fki-spotbox-teaser {
+  .os2sub-spotbox-teaser {
     margin-bottom: 15px !important;
   }
 }
 
 @media screen and (max-width: 767px) {
-  .fki-message-notification-teaser.fki-message-notification-teaser-variant-with-image .fki-teaser-heading .fki-teaser-heading-title {
+  .os2sub-message-notification-teaser.os2sub-message-notification-teaser-variant-with-image .os2sub-teaser-heading .os2sub-teaser-heading-title {
     font-size: 14px;
     line-height: 15px;
   }
 }
 
 @media screen and (min-width: 768px) and (max-width: 991px) {
-  .fki-message-notification-teaser.fki-message-notification-teaser-variant-with-image .fki-teaser-heading .fki-teaser-heading-title {
+  .os2sub-message-notification-teaser.os2sub-message-notification-teaser-variant-with-image .os2sub-teaser-heading .os2sub-teaser-heading-title {
     font-size: 15px;
     line-height: 16px;
   }
 }
 
 @media screen and (min-width: 992px) and (max-width: 1199px) {
-  .fki-message-notification-teaser.fki-message-notification-teaser-variant-with-image .fki-teaser-heading .fki-teaser-heading-title {
+  .os2sub-message-notification-teaser.os2sub-message-notification-teaser-variant-with-image .os2sub-teaser-heading .os2sub-teaser-heading-title {
     font-size: 16px;
     line-height: 17px;
   }
 }
 
 @media screen and (min-width: 1200px) {
-  .fki-message-notification-teaser.fki-message-notification-teaser-variant-with-image .fki-teaser-heading .fki-teaser-heading-title {
+  .os2sub-message-notification-teaser.os2sub-message-notification-teaser-variant-with-image .os2sub-teaser-heading .os2sub-teaser-heading-title {
     font-size: 18px;
     line-height: 19px;
   }
 }
 
 @media screen and (max-width: 767px) {
-  .fki-list .fki-list-heading .fki-list-heading-title {
+  .os2sub-list .os2sub-list-heading .os2sub-list-heading-title {
     font-size: 11px;
     line-height: 12px;
   }
 }
 
 @media screen and (min-width: 768px) and (max-width: 991px) {
-  .fki-list .fki-list-heading .fki-list-heading-title {
+  .os2sub-list .os2sub-list-heading .os2sub-list-heading-title {
     font-size: 11px;
     line-height: 12px;
   }
 }
 
 @media screen and (min-width: 992px) and (max-width: 1199px) {
-  .fki-list .fki-list-heading .fki-list-heading-title {
+  .os2sub-list .os2sub-list-heading .os2sub-list-heading-title {
     font-size: 12px;
     line-height: 13px;
   }
 }
 
 @media screen and (min-width: 1200px) {
-  .fki-list .fki-list-heading .fki-list-heading-title {
+  .os2sub-list .os2sub-list-heading .os2sub-list-heading-title {
     font-size: 14px;
     line-height: 15px;
   }
