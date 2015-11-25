@@ -4,7 +4,7 @@
  */
 $plugin = array(
   'title' => t('Content with left sidebar'),
-  'category' => t('fki'),
+  'category' => t('OS2Web'),
   'icon' => 'content-with-left-sidebar.png',
   'theme' => 'content-with-left-sidebar',
   'css' => 'content-with-left-sidebar.css',
