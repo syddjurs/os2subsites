@@ -1,6 +1,27 @@
 <!-- Begin - outer wrapper -->
 <div class="outer-wrapper">
 
+  <!-- Begin - sidebar left -->
+  <div class="sidebar sidebar-left">
+
+    <!-- Begin - logo - wide -->
+    <div class="sidebar-logo">
+      <a href="<?php print $front_page; ?>" class="sidebar-logo-link">
+        <img src="<?php print $path_img . '/logo-sidebar-wide.png'; ?>" class="sidebar-logo-image sidebar-logo-image-wide" alt="<?php print $site_name. t(' logo'); ?>" />
+        <img src="<?php print $path_img . '/logo-sidebar-narrow.png'; ?>" class="sidebar-logo-image sidebar-logo-image-narrow" alt="<?php print $site_name. t(' logo'); ?>" />
+      </a>
+    </div>
+    <!-- End - logo - wide -->
+
+    <?php if (isset($sidebar_primary_navigation)): ?>
+      <!-- Begin - navigation -->
+      <?php print render($sidebar_primary_navigation); ?>
+      <!-- End - navigation -->
+    <?php endif; ?>
+
+  </div>
+  <!-- End - sidebar left -->
+
   <!-- Begin - inner wrapper -->
   <div class="inner-wrapper" role="document">
 
@@ -32,7 +53,7 @@
 
     <!-- Begin - content -->
     <div class="content">
-      <div class="container container-fluid-lg-only container-fluid-md-only">
+      <div class="container">
 
         <?php print $messages; ?>
 
@@ -44,9 +65,11 @@
 
               <!-- Begin - content -->
               <div class="col-md-4">
-                <div class="main-navigation-form">
-                  <?php print render($main_navigation_search); ?>
-                </div>
+
+                <a href='#' class="main-navigation-logo-link">
+                  <img class="main-navigation-logo-image" src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
+                </a>
+
               </div>
               <!-- End - content -->
 
@@ -72,13 +95,17 @@
           <?php print render($page['help']); ?>
         <?php endif; ?>
 
+        <?php if (!empty($page['highlighted'])): ?>
+          <div class="highlighted"><?php print render($page['highlighted']); ?></div>
+        <?php endif; ?>
+
         <?php if (!empty($action_links)): ?>
           <ul class="action-links"><?php print render($action_links); ?></ul>
         <?php endif; ?>
 
         <?php if (!empty($breadcrumb)): ?>
           <!-- Begin - breadcrumb -->
-          <section class="fki-breadcrumb-container">
+          <section class="os2sub-breadcrumb-container">
             <div class="row">
               <div class="col-xs-12">
                 <?php print $breadcrumb; ?>
@@ -99,13 +126,13 @@
         <a id="main-content"></a>
 
         <?php if (!panels_get_current_page_display()): ?>
-          <div class="fki-box">
+          <div class="os2sub-box">
             <?php if ($title): ?>
-            <div class="fki-box-heading">
-              <h2 class="fki-box-heading-title"><?php print $title; ?></h2>
+            <div class="os2sub-box-heading">
+              <h2 class="os2sub-box-heading-title"><?php print $title; ?></h2>
             </div>
             <?php endif; ?>
-            <div class="fki-box-body">
+            <div class="os2sub-box-body">
               <?php print render($page['content']); ?>
             </div>
           </div>
@@ -117,6 +144,14 @@
       </div>
     </div>
     <!-- End - content -->
+
+    <?php if (!empty($page['footer'])): ?>
+      <!-- Begin - footer -->
+      <footer class="footer <?php print $container_class; ?>">
+        <?php print render($page['footer']); ?>
+      </footer>
+      <!-- End - footer -->
+    <?php endif; ?>
 
   </div>
   <!-- End - inner wrapper -->

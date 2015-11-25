@@ -1,6 +1,10 @@
 <!-- content-with-left-sidebar.tpl.php -->
 <div class="row" <?php if (!empty($css_id)) { print "id=\"$css_id\""; } ?>>
 
+    <top>
+
+    </top>
+
     <?php if ($content['sidebar']): ?>
 
         <!-- Begin - sidebar -->

@@ -3,7 +3,7 @@
 /**
  * Implements theme_preprocess_html().
  */
-function filmkongen_preprocess_html(&$variables) {
+function subsite_2_preprocess_html(&$variables) {
   $theme_path = path_to_theme();
 
   // Add conditional stylesheets for IE9 and lower.
@@ -37,7 +37,7 @@ function filmkongen_preprocess_html(&$variables) {
       'rel'  => 'stylesheet',
       'type' => 'text/css',
     ),
-  ), 'google_font_filmkongen');
+  ), 'google_font_subsite_2');
 
   // Body classes
   $variables['classes_array'][] = 'footer-attached';
@@ -54,7 +54,7 @@ function filmkongen_preprocess_html(&$variables) {
 /**
  * Implements template_preprocess_node.
  */
-function filmkongen_preprocess_node(&$variables) {
+function subsite_2_preprocess_node(&$variables) {
 
   // Optionally, run node-type-specific preprocess functions, like
   // foo_preprocess_node_page() or foo_preprocess_node_story().
@@ -66,59 +66,17 @@ function filmkongen_preprocess_node(&$variables) {
   if (function_exists($function_view_mode)) {
     $function_view_mode($variables);
   }
-
-  // Author
-  if ($author_information = bellcom_user_get_raw_information($variables['node']->uid)) {
-
-    if (isset($author_information['full_name'])) {
-      $variables['author_full_name'] = $author_information['full_name'];
-    }
-  }
-
-  // Number of comments
-  $variables['number_of_comments'] = t('@comment_count comments', array('@comment_count' => 0));
-  if ($number_of_comments = db_query("SELECT COUNT(cid) AS count FROM {comment} WHERE nid = :nid", array(":nid" => $variables['nid']))->fetchField()) {
-
-    // 1
-    if ($number_of_comments == 1) {
-      $variables['number_of_comments'] = t('@comment_count comment', array('@comment_count' => $number_of_comments));
-    }
-    else {
-      $variables['number_of_comments'] = t('@comment_count comments', array('@comment_count' => $number_of_comments));
-    }
-  }
-
-  // Number of hits
-  $variables['number_of_hits'] = t('Seen by @hits persons', array('@hits' => 0));
-  if ($statistics = statistics_get($variables['node']->nid)) {
-
-    // 1
-    if ($statistics['totalcount'] == 1) {
-      $variables['number_of_hits'] = t('Seen by @hits person', array('@hits' => $statistics['totalcount']));
-    }
-    else {
-      $variables['number_of_hits'] = t('Seen by @hits persons', array('@hits' => $statistics['totalcount']));
-    }
-  }
 }
 
 /*
  * Implements template_preprocess_comment().
  */
-function filmkongen_preprocess_comment(&$variables) {
-
-  // Author
-  if ($author_information = bellcom_user_get_raw_information($variables['comment']->uid)) {
-
-    if (isset($author_information['full_name'])) {
-      $variables['author_full_name'] = $author_information['full_name'];
-    }
-  }
+function subsite_2_preprocess_comment(&$variables) {
 }
 
 /*
  * Full node
  * Implements hook_preprocess_node().
  */
-function filmkongen_preprocess_node__full(&$variables) {
+function subsite_2_preprocess_node__full(&$variables) {
 }

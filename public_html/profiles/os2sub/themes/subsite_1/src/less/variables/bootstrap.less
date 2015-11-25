@@ -14,7 +14,7 @@
 @gray-light:             lighten(@gray-base, 46.7%); // #777
 @gray-lighter:           lighten(@gray-base, 93.5%); // #eee
 
-@brand-primary:         #00406f;
+@brand-primary:         darken(#428bca, 6.5%); // #337ab7
 @brand-success:         #5cb85c;
 @brand-info:            #5bc0de;
 @brand-warning:         #f0ad4e;
@@ -26,14 +26,14 @@
 //## Settings for some of the most global styles.
 
 //** Background color for `<body>`.
-@body-bg:               #eeeff4;
+@body-bg:               #eee;
 //** Global text color on `<body>`.
-@text-color:            #43698f;
+@text-color:            @gray-dark;
 
 //** Global textual link color.
 @link-color:            @brand-primary;
 //** Link hover color set via `darken()` function.
-@link-hover-color:      @link-color;
+@link-hover-color:      darken(@link-color, 15%);
 //** Link hover decoration.
 @link-hover-decoration: underline;
 
@@ -42,7 +42,7 @@
 //
 //## Font, line-height, and color for body text, headings, and more.
 
-@font-family-sans-serif:  "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif;
 @font-family-serif:       Georgia, "Times New Roman", Times, serif;
 //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
 @font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
@@ -50,14 +50,14 @@
 
 @font-size-base:          14px;
 @font-size-large:         ceil((@font-size-base * 1.25)); // ~18px
-@font-size-small:         ceil((@font-size-base * 0.75)); // ~12px
+@font-size-small:         ceil((@font-size-base * 0.85)); // ~12px
 
-@font-size-h1:            32px; // ~36px
-@font-size-h2:            26px; // ~30px
-@font-size-h3:            20px; // ~24px
-@font-size-h4:            18px; // ~18px
-@font-size-h5:            16px;
-@font-size-h6:            @font-size-base; // ~12px
+@font-size-h1:            floor((@font-size-base * 2.6)); // ~36px
+@font-size-h2:            floor((@font-size-base * 2.15)); // ~30px
+@font-size-h3:            ceil((@font-size-base * 1.7)); // ~24px
+@font-size-h4:            ceil((@font-size-base * 1.25)); // ~18px
+@font-size-h5:            @font-size-base;
+@font-size-h6:            ceil((@font-size-base * 0.85)); // ~12px
 
 //** Unit-less `line-height` for use in components like buttons.
 @line-height-base:        1.428571429; // 20/14
@@ -65,10 +65,10 @@
 @line-height-computed:    floor((@font-size-base * @line-height-base)); // ~20px
 
 //** By default, this inherits from the `<body>`.
-@headings-font-family:    Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
-@headings-font-weight:    700;
+@headings-font-family:    inherit;
+@headings-font-weight:    500;
 @headings-line-height:    1.1;
-@headings-color:          @brand-primary;
+@headings-color:          inherit;
 
 
 //== Iconography
@@ -103,7 +103,7 @@
 @line-height-small:         1.5;
 
 @border-radius-base:        4px;
-@border-radius-large:       5px;
+@border-radius-large:       6px;
 @border-radius-small:       3px;
 
 //** Global color for active items (e.g., navs or dropdowns).
@@ -144,13 +144,13 @@
 
 @btn-font-weight:                normal;
 
-@btn-default-color:              @brand-primary;
-@btn-default-bg:                 #d9d9d9;
-@btn-default-border:             @btn-default-bg;
+@btn-default-color:              #333;
+@btn-default-bg:                 #fff;
+@btn-default-border:             #ccc;
 
 @btn-primary-color:              #fff;
 @btn-primary-bg:                 @brand-primary;
-@btn-primary-border:             @btn-primary-bg;
+@btn-primary-border:             darken(@btn-primary-bg, 5%);
 
 @btn-success-color:              #fff;
 @btn-success-bg:                 @brand-success;
@@ -181,14 +181,14 @@
 //##
 
 //** `<input>` background color
-@input-bg:                       @body-bg;
+@input-bg:                       #fff;
 //** `<input disabled>` background color
 @input-bg-disabled:              @gray-lighter;
 
 //** Text color for `<input>`s
-@input-color:                    @brand-primary;
+@input-color:                    @gray;
 //** `<input>` border color
-@input-border:                   @input-bg;
+@input-border:                   #ccc;
 
 // TODO: Rename `@input-border-radius` to `@input-border-radius-base` in v4
 //** Default `.form-control` border radius
@@ -200,10 +200,10 @@
 @input-border-radius-small:      @border-radius-small;
 
 //** Border color for inputs on focus
-@input-border-focus:             darken(@input-border, 10%);
+@input-border-focus:             #66afe9;
 
 //** Placeholder text color
-@input-color-placeholder:        @brand-primary;
+@input-color-placeholder:        #999;
 
 //** Default `.form-control` height
 @input-height-base:              (@line-height-computed + (@padding-base-vertical * 2) + 2);
@@ -342,12 +342,12 @@
 @container-sm:                 @container-tablet;
 
 // Medium screen / desktop
-@container-desktop:            ((940px + @grid-gutter-width) - @sidebar-expanded-width - 36px); // 36px = popover button height
+@container-desktop:            (940px + @grid-gutter-width);
 //** For `@screen-md-min` and up.
 @container-md:                 @container-desktop;
 
 // Large screen / wide desktop
-@container-large-desktop:      ((1140px + @grid-gutter-width) - @sidebar-expanded-width - 36px); // 36px = popover button height
+@container-large-desktop:      (1140px + @grid-gutter-width);
 //** For `@screen-lg-min` and up.
 @container-lg:                 @container-large-desktop;
 
@@ -787,14 +787,14 @@
 //
 //##
 
-@breadcrumb-padding-vertical:   0;
-@breadcrumb-padding-horizontal: 0;
+@breadcrumb-padding-vertical:   8px;
+@breadcrumb-padding-horizontal: 15px;
 //** Breadcrumb background color
-@breadcrumb-bg:                 transparent;
+@breadcrumb-bg:                 #f5f5f5;
 //** Breadcrumb text color
-@breadcrumb-color:              #fff;
+@breadcrumb-color:              #ccc;
 //** Text color of current page in the breadcrumb
-@breadcrumb-active-color:       @brand-tertiary;
+@breadcrumb-active-color:       @gray-light;
 //** Textual separator for between breadcrumb elements
 @breadcrumb-separator:          "/";
 
@@ -848,7 +848,7 @@
 //** Horizontal offset for forms and lists.
 @component-offset-horizontal: 180px;
 //** Text muted color
-@text-muted:                  #838383;
+@text-muted:                  @gray-light;
 //** Abbreviations and acronyms border color
 @abbr-border-color:           @gray-light;
 //** Headings small color
@@ -863,5 +863,7 @@
 @page-header-border-color:    @gray-lighter;
 //** Width of horizontal description list titles
 @dl-horizontal-offset:        @component-offset-horizontal;
+//** Point at which .dl-horizontal becomes horizontal
+@dl-horizontal-breakpoint:    @grid-float-breakpoint;
 //** Horizontal line color.
 @hr-border:                   @gray-lighter;

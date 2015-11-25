@@ -1,5 +1,5 @@
 {
-  "name": "filmkongen.dk",
+  "name": "OS2subsite",
   "description": "Website",
   "version": "0.0.1",
   "dependencies": {
@@ -9,8 +9,7 @@
     "fastclick": "~1.*",
     "fontawesome": "~4.*",
     "html5shiv": "~3.*",
-    "respond": "~1.*",
-    "select2-bootstrap-css": "~1.*"
+    "respond": "~1.*"
   },
   "ignore": [
     "bower_components"

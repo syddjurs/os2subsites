@@ -21,7 +21,6 @@
     "jsApp": [
       "src/vendor/bootstrap/dist/js/bootstrap.js",
       "src/vendor/bs3-designer/js/bs3-designer.js",
-      "src/vendor/bs3-sidebar/js/bs3-sidebar.js",
       "src/vendor/jquery-placeholder/jquery.placeholder.js",
       "src/vendor/jquery.cookie/jquery.cookie.js",
       "src/vendor/fastclick/lib/fastclick.js",

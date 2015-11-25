@@ -3,7 +3,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 name        = 'Subsite theme 2'
-description = 'Beautiful theme use with subsites.'
+description = 'Beautiful theme for use with subsites.'
 core        = '7.x'
 screenshot  = 'dist/img/screenshot.png'
 base theme  = 'bellcom'
