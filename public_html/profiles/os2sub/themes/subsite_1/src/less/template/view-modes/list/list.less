@@ -1,0 +1,216 @@
+// |--------------------------------------------------------------------------
+// | List
+// |--------------------------------------------------------------------------
+// |
+// | This file contains styles for the following:
+// | - .fki-list
+// |
+
+// --------------------------------------------------
+// Variables
+// --------------------------------------------------
+
+@fki-list-stacked-spacing: 3px;
+@fki-list-border-color: @border-color;
+
+@fki-list-heading-font-color: @brand-primary;
+@fki-list-heading-top-bottom-spacing: 3px;
+@fki-list-heading-left-right-spacing: 0;
+
+@fki-list-body-top-bottom-spacing: 0;
+@fki-list-body-left-right-spacing: 0;
+
+// --------------------------------------------------
+// Styling
+// --------------------------------------------------
+
+// List
+.fki-list {
+	padding: @fki-list-stacked-spacing 0;
+	border-bottom: 1px solid @fki-list-border-color;
+
+	.fki-list-info {
+
+		span {
+			font-style: italic;
+		}
+	}
+
+	.fki-list-heading {
+		padding: @fki-list-heading-top-bottom-spacing @fki-list-heading-left-right-spacing;
+
+		.fki-list-heading-title {
+			margin: 0;
+			.heading-h5;
+
+			&,
+			a {
+				color: @fki-list-heading-font-color;
+			}
+		}
+
+		.fki-list-heading-time-ago {
+			font-style: italic;
+		}
+	}
+
+	.fki-list-body {
+		padding: @fki-list-body-top-bottom-spacing @fki-list-body-left-right-spacing;
+	}
+}
+
+// --------------------------------------------------
+// Variants
+// --------------------------------------------------
+
+.fki-box,
+.fki-box-primary {
+
+	.fki-list {
+		.fki-mixin-list-box-variant(@brand-primary);
+	}
+}
+
+.fki-box-secondary {
+
+	.fki-list {
+		.fki-mixin-list-box-variant(@brand-secondary);
+	}
+}
+
+.fki-box-tertiary {
+
+	.fki-list {
+		.fki-mixin-list-box-variant(@brand-tertiary);
+	}
+}
+
+.fki-box-quaternary {
+
+	.fki-list {
+		.fki-mixin-list-box-variant(@brand-quaternary);
+	}
+}
+
+.fki-box-quinary {
+
+	.fki-list {
+		.fki-mixin-list-box-variant(@brand-quinary);
+	}
+}
+
+.views-row {
+
+	&:last-child {
+
+		.fki-list {
+
+			&:last-child {
+				border-bottom: 0;
+			}
+		}
+	}
+}
+
+// --------------------------------------------------
+// Responsive
+// --------------------------------------------------
+
+// Mobile
+@media @media-query-mobile {
+
+	// List
+	.fki-list {}
+}
+
+// Mobile - only
+@media @media-query-mobile-only {
+
+	// List
+	.fki-list {}
+}
+
+// Tablet
+@media @media-query-tablet {
+
+	// List
+	.fki-list {}
+}
+
+// Tablet - only
+@media @media-query-tablet-only {
+
+	// List
+	.fki-list {}
+}
+
+// Desktop
+@media @media-query-desktop {
+
+	// List
+	.fki-list {}
+}
+
+// Desktop - only
+@media @media-query-desktop-only {
+
+	// List
+	.fki-list {}
+}
+
+// Large desktop
+@media @media-query-large-desktop {
+
+	// List
+	.fki-list {}
+}
+
+// Large desktop - only
+@media @media-query-large-desktop-only {
+
+	// List
+	.fki-list {}
+}
+
+// Print
+@media print {
+
+	// List
+	.fki-list {}
+}
+
+// Touch
+.touch {
+
+	// List
+	.fki-list {}
+}
+
+// No touch
+.no-touch {
+
+	// List
+	.fki-list {}
+}
+
+// --------------------------------------------------
+// Mixins
+// --------------------------------------------------
+
+// List mixin
+.fki-mixin-list() {}
+
+// Box variant mixin
+.fki-mixin-list-box-variant(@font-color) {
+
+	.fki-list-heading {
+
+		.fki-list-heading-calendar-date {
+			color: @font-color;
+		}
+
+		.fki-list-heading-time-ago {
+			color: @font-color;
+		}
+	}
+}

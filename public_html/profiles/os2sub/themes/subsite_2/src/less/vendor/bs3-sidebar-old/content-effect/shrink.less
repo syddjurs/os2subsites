@@ -1,0 +1,190 @@
+// |--------------------------------------------------------------------------
+// | Shrink content
+// |--------------------------------------------------------------------------
+// |
+// | This file contains styles for the following:
+// | - .sidebar-content-shrink-xs
+// | - .sidebar-content-shrink-sm
+// | - .sidebar-content-shrink-md
+// | - .sidebar-content-shrink-lg
+// |
+
+// --------------------------------------------------
+// Variables
+// --------------------------------------------------
+
+// --------------------------------------------------
+// Styling
+// --------------------------------------------------
+
+// Shrink content
+.sidebar-content-shrink {}
+
+// --------------------------------------------------
+// Responsive
+// --------------------------------------------------
+
+// Mobile
+@media @media-query-mobile {
+
+	// Shrink content
+	.sidebar-content-shrink {}
+}
+
+// Mobile - only
+@media @media-query-mobile-only {
+
+	// Shrink content
+	.bs3-sidebar-mixin-content-shrink-state-hidden(xs);
+	.bs3-sidebar-mixin-content-shrink-state-static(xs);
+}
+
+// Tablet
+@media @media-query-tablet {
+
+	// Shrink content
+	.sidebar-content-shrink {}
+}
+
+// Tablet - only
+@media @media-query-tablet-only {
+
+	// Shrink content
+	.bs3-sidebar-mixin-content-shrink-state-hidden(sm);
+	.bs3-sidebar-mixin-content-shrink-state-static(sm);
+}
+
+// Desktop
+@media @media-query-desktop {
+
+	// Shrink content
+	.sidebar-content-shrink {}
+}
+
+// Desktop - only
+@media @media-query-desktop-only {
+
+	// Shrink content
+	.bs3-sidebar-mixin-content-shrink-state-hidden(md);
+	.bs3-sidebar-mixin-content-shrink-state-static(md);
+}
+
+// Large desktop
+@media @media-query-large-desktop {
+
+	// Shrink content
+	.sidebar-content-shrink {}
+}
+
+// Large desktop - only
+@media @media-query-large-desktop-only {
+
+	// Shrink content
+	.bs3-sidebar-mixin-content-shrink-state-hidden(lg);
+	.bs3-sidebar-mixin-content-shrink-state-static(lg);
+}
+
+// Print
+@media print {
+
+	// Shrink content
+	.sidebar-content-shrink {}
+}
+
+// Touch
+.touch {
+
+	// Shrink content
+	.sidebar-content-shrink {}
+}
+
+// No touch
+.no-touch {
+
+	// Shrink content
+	.sidebar-content-shrink {}
+}
+
+// --------------------------------------------------
+// Mixins
+// --------------------------------------------------
+
+// Shrink content - state hidden - mixin
+.bs3-sidebar-mixin-content-shrink-state-hidden(@size) {
+
+	// Shrink content
+	.csstransforms3d {
+
+		.sidebar-content-shrink-@{size} {
+
+			&.sidebar-left-enabled-@{size} {
+
+				&.sidebar-left-hidden-@{size} {
+
+					&.sidebar-left-open {
+
+						.inner-wrapper {
+							margin-right: @bs3-sidebar-left-width;
+						}
+					}
+				}
+			}
+
+			.sidebar-right-enabled-@{size} {
+
+				&.sidebar-right-hidden-@{size} {
+
+					&.sidebar-right-open {
+
+						.inner-wrapper {
+							margin-left: @bs3-sidebar-right-width;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	// Shrink content
+	.no-csstransforms3d {
+
+		.sidebar-left-enabled-@{size} {
+
+			&.sidebar-content-shrink-@{size} {
+
+				&.sidebar-left-hidden-@{size} {
+
+					&.sidebar-left-open {
+
+						.inner-wrapper {
+							margin-right: @bs3-sidebar-left-width;
+						}
+					}
+				}
+			}
+		}
+
+		.sidebar-right-enabled-@{size} {
+
+			&.sidebar-content-shrink-@{size} {
+
+				&.sidebar-right-hidden-@{size} {
+
+					&.sidebar-right-open {
+
+						.inner-wrapper {
+							margin-left: @bs3-sidebar-right-width;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+// Shrink content - state static - mixin
+.bs3-sidebar-mixin-content-shrink-state-static(@size) {
+
+	.csstransforms3d,
+	.no-csstransforms3d {}
+}

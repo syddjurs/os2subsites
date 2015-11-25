@@ -1,0 +1,174 @@
+// |--------------------------------------------------------------------------
+// | Off-canvas content
+// |--------------------------------------------------------------------------
+// |
+// | This file contains styles for the following:
+// | - .sidebar-content-off-canvas-xs
+// | - .sidebar-content-off-canvas-sm
+// | - .sidebar-content-off-canvas-md
+// | - .sidebar-content-off-canvas-lg
+// |
+
+// --------------------------------------------------
+// Variables
+// --------------------------------------------------
+
+// --------------------------------------------------
+// Styling
+// --------------------------------------------------
+
+// --------------------------------------------------
+// Responsive
+// --------------------------------------------------
+
+// Mobile
+@media @media-query-mobile {
+
+	// Off-canvas content
+	.sidebar-content-off-canvas {}
+}
+
+// Mobile - only
+@media @media-query-mobile-only {
+
+	// Off-canvas content
+	.bs3-sidebar-mixin-content-off-canvas-state-hidden(xs);
+	.bs3-sidebar-mixin-content-off-canvas-state-static(xs);
+}
+
+// Tablet
+@media @media-query-tablet {
+
+	// Off-canvas content
+	.sidebar-content-off-canvas {}
+}
+
+// Tablet - only
+@media @media-query-tablet-only {
+
+	// Off-canvas content
+	.bs3-sidebar-mixin-content-off-canvas-state-hidden(sm);
+	.bs3-sidebar-mixin-content-off-canvas-state-static(sm);
+}
+
+// Desktop
+@media @media-query-desktop {
+
+	// Off-canvas content
+	.sidebar-content-off-canvas {}
+}
+
+// Desktop - only
+@media @media-query-desktop-only {
+
+	// Off-canvas content
+	.bs3-sidebar-mixin-content-off-canvas-state-hidden(md);
+	.bs3-sidebar-mixin-content-off-canvas-state-static(md);
+}
+
+// Large desktop
+@media @media-query-large-desktop {
+
+	// Off-canvas content
+	.sidebar-content-off-canvas {}
+}
+
+// Large desktop - only
+@media @media-query-large-desktop-only {
+
+	// Off-canvas content
+	.bs3-sidebar-mixin-content-off-canvas-state-hidden(lg);
+	.bs3-sidebar-mixin-content-off-canvas-state-static(lg);
+}
+
+// Print
+@media print {
+
+	// Off-canvas content
+	.sidebar-content-off-canvas {}
+}
+
+// Touch
+.touch {
+
+	// Off-canvas content
+	.sidebar-content-off-canvas {}
+}
+
+// No touch
+.no-touch {
+
+	// Off-canvas content
+	.sidebar-content-off-canvas {}
+}
+
+// --------------------------------------------------
+// Mixins
+// --------------------------------------------------
+
+// Off-canvas content - state hidden - mixin
+.bs3-sidebar-mixin-content-off-canvas-state-hidden(@size) {
+
+	// Off-canvas content
+	.no-csstransforms3d {
+
+		.sidebar-content-off-canvas-@{size} {
+
+			&.sidebar-left-hidden-@{size} {
+
+				&.sidebar-left-open {
+
+					.inner-wrapper {
+						margin-right: floor((0 - @bs3-sidebar-left-width));
+					}
+				}
+			}
+
+			&.sidebar-right-hidden-@{size} {
+
+				&.sidebar-right-open {
+
+					.inner-wrapper {
+						margin-left: floor((0 - @bs3-sidebar-right-width));
+						margin-right: auto;
+					}
+				}
+			}
+		}
+	}
+}
+
+// Off-canvas content - state static - mixin
+.bs3-sidebar-mixin-content-off-canvas-state-static(@size) {
+
+	// Off-canvas content
+	.csstransforms3d,
+	.no-csstransforms3d {
+
+		.sidebar-content-off-canvas-@{size} {
+
+			&.sidebar-left-static-@{size} {
+
+				&,
+				&.sidebar-left-open {
+
+					.inner-wrapper {
+						margin-right: floor((0 - @bs3-sidebar-left-width));
+					}
+				}
+			}
+
+			&.sidebar-right-static-@{size} {
+
+				&,
+				&.sidebar-right-open {
+
+					.inner-wrapper {
+						margin-left: floor((0 - @bs3-sidebar-right-width));
+						margin-right: auto;
+					}
+				}
+			}
+		}
+	}
+}

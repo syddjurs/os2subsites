@@ -1,0 +1,224 @@
+// |--------------------------------------------------------------------------
+// | Homebox
+// |--------------------------------------------------------------------------
+// |
+// | This file contains styles for the following:
+// | - .fki-box-homebox
+// |
+
+// --------------------------------------------------
+// Variables
+// --------------------------------------------------
+
+// --------------------------------------------------
+// Styling
+// --------------------------------------------------
+
+// Homebox
+#homebox {
+
+	#homebox-add {
+
+		li {
+			margin: 0;
+
+			a {
+				margin-right: 10px;
+			}
+
+			a {
+
+				&:not('.used') {
+					.btn;
+					.btn-default;
+				}
+			}
+		}
+
+		.used {
+			display: none;
+			margin: 0;
+		}
+	}
+
+	// Column
+	.homebox-column {
+		margin: 0;
+		padding: 0;
+		background: none;
+	}
+
+	.homebox-portlet {
+		background-color: transparent;
+		padding: 0;
+		border: 0;
+		background: none;
+		margin-top: 0;
+
+		&.fki-box {
+			.fki-box;
+		}
+
+		// Icons
+		.portlet-icon {
+			background: none;
+
+			&:before {
+				display: inline-block;
+				font-family: FontAwesome;
+				font-size: @font-size-base;
+				color: #fff;
+			}
+
+			&.portlet-plus {
+
+				&:before {
+					content: @fa-var-plus;
+				}
+			}
+
+			&.portlet-minus {
+
+				&:before {
+					content: @fa-var-minus;
+				}
+			}
+
+			&.portlet-maximize {}
+
+			&.portlet-settings {
+
+				&:before {
+					content: @fa-var-cog;
+				}
+			}
+
+			&.portlet-close {
+
+				&:before {
+					content: @fa-var-times;
+				}
+			}
+		}
+	}
+}
+
+// --------------------------------------------------
+// Variants
+// --------------------------------------------------
+
+// Watermark
+#homebox {
+
+	.fki-box {
+
+		&.fki-box-homebox {
+
+			&.fki-box-homebox-fællesnyt,
+			&.fki-box-homebox-kommmende-aktiviteter,
+			&.fki-box-homebox-markedspladsen {
+				.fki-box-watermarked;
+			}
+		}
+
+		&.fki-box-homebox-fællesnyt {
+			.fki-box-quinary;
+		}
+
+		&.fki-box-homebox-kommmende-aktiviteter {
+			.fki-box-tertiary;
+		}
+
+		&.fki-box-homebox-markedspladsen {
+			.fki-box-quaternary;
+		}
+	}
+}
+
+// --------------------------------------------------
+// Responsive
+// --------------------------------------------------
+
+// Mobile
+@media @media-query-mobile {
+
+	// Homebox
+	.fki-box-homebox {}
+}
+
+// Mobile - only
+@media @media-query-mobile-only {
+
+	// Homebox
+	.fki-box-homebox {}
+}
+
+// Tablet
+@media @media-query-tablet {
+
+	// Homebox
+	.fki-box-homebox {}
+}
+
+// Tablet - only
+@media @media-query-tablet-only {
+
+	// Homebox
+	.fki-box-homebox {}
+}
+
+// Desktop
+@media @media-query-desktop {
+
+	// Homebox
+	.fki-box-homebox {}
+}
+
+// Desktop - only
+@media @media-query-desktop-only {
+
+	// Homebox
+	.fki-box-homebox {}
+}
+
+// Large desktop
+@media @media-query-large-desktop {
+
+	// Homebox
+	.fki-box-homebox {}
+}
+
+// Large desktop - only
+@media @media-query-large-desktop-only {
+
+	// Homebox
+	.fki-box-homebox {}
+}
+
+// Print
+@media print {
+
+	// Homebox
+	.fki-box-homebox {}
+}
+
+// Touch
+.touch {
+
+	// Homebox
+	.fki-box-homebox {}
+}
+
+// No touch
+.no-touch {
+
+	// Homebox
+	.fki-box-homebox {}
+}
+
+// --------------------------------------------------
+// Mixins
+// --------------------------------------------------
+
+// Homebox mixin
+.fki-mixin-box-homebox() {}

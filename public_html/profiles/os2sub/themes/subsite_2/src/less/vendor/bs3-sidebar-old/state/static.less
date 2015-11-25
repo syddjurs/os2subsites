@@ -1,0 +1,133 @@
+// |--------------------------------------------------------------------------
+// | Static
+// |--------------------------------------------------------------------------
+// |
+// | This file contains styles for the following:
+// | - .sidebar-state-static
+// |
+
+// --------------------------------------------------
+// Variables
+// --------------------------------------------------
+
+// --------------------------------------------------
+// Styling
+// --------------------------------------------------
+
+// Static
+.sidebar-state-static {}
+
+// --------------------------------------------------
+// Responsive
+// --------------------------------------------------
+
+// Mobile
+@media @media-query-mobile {
+
+	// Static
+	.sidebar-state-static {}
+}
+
+// Mobile - only
+@media @media-query-mobile-only {
+
+	// Static
+	.bs3-sidebar-mixin-state-static(xs);
+}
+
+// Tablet
+@media @media-query-tablet {
+
+	// Static
+	.sidebar-state-static {}
+}
+
+// Tablet - only
+@media @media-query-tablet-only {
+
+	// Static
+	.bs3-sidebar-mixin-state-static(sm);
+}
+
+// Desktop
+@media @media-query-desktop {
+
+	// Static
+	.sidebar-state-static {}
+}
+
+// Desktop - only
+@media @media-query-desktop-only {
+
+	// Static
+	.bs3-sidebar-mixin-state-static(md);
+}
+
+// Large desktop
+@media @media-query-large-desktop {
+
+	// Static
+	.sidebar-state-static {}
+}
+
+// Large desktop - only
+@media @media-query-large-desktop-only {
+
+	// Static
+	.bs3-sidebar-mixin-state-static(lg);
+}
+
+// Print
+@media print {
+
+	// Static
+	.sidebar-state-static {}
+}
+
+// Touch
+.touch {
+
+	// Static
+	.sidebar-state-static {}
+}
+
+// No touch
+.no-touch {
+
+	// Static
+	.sidebar-state-static {}
+}
+
+// --------------------------------------------------
+// Mixins
+// --------------------------------------------------
+
+// Static mixin
+.bs3-sidebar-mixin-state-static(@size) {
+
+	.csstransforms3d,
+	.no-csstransforms3d {
+
+		.sidebar-left-static-@{size} {
+
+			&,
+			&.sidebar-left-open {
+
+				.inner-wrapper {
+					left: @bs3-sidebar-left-width;
+				}
+			}
+		}
+
+		.sidebar-right-static-@{size} {
+
+			&,
+			&.sidebar-right-open {
+
+				.inner-wrapper {
+					right: @bs3-sidebar-right-width;
+				}
+			}
+		}
+	}
+}

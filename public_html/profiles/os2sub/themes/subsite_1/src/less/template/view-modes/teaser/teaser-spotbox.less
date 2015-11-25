@@ -1,0 +1,194 @@
+// |--------------------------------------------------------------------------
+// | Spotbox
+// |--------------------------------------------------------------------------
+// |
+// | This file contains styles for the following:
+// | - .fki-spotbox-teaser
+// |
+
+// --------------------------------------------------
+// Variables
+// --------------------------------------------------
+
+@fki-spotbox-background-color: @state-primary-bg;
+@fki-spotbox-heading-color: @state-primary-text;
+@fki-spotbox-border-radius: @border-radius-base;
+
+// With image
+@fki-spotbox-with-image-background-color: @content-bg;
+@fki-spotbox-with-image-heading-color: @brand-primary;
+
+// Responsive
+@fki-spotbox-xs-stacked-spacing: floor( (@grid-gutter-width / 3) );
+@fki-spotbox-sm-stacked-spacing: floor( (@grid-gutter-width / 3) );
+@fki-spotbox-md-stacked-spacing: floor( (@grid-gutter-width / 2) );
+@fki-spotbox-lg-stacked-spacing: floor( (@grid-gutter-width / 2) );
+
+// --------------------------------------------------
+// Styling
+// --------------------------------------------------
+
+// Spotbox
+.fki-spotbox-teaser {
+	background-color: @fki-spotbox-background-color;
+	border-radius: @fki-spotbox-border-radius;
+
+	.fki-teaser-heading {
+
+		.fki-teaser-heading-title {
+			.heading-h5;
+
+			&,
+			a {
+				color: @fki-spotbox-heading-color;
+			}
+		}
+	}
+
+	.fki-teaser-body {
+
+		.fki-teaser-body-text {
+			color: #8c9eb6;
+		}
+	}
+
+	.fki-teaser-image {
+		display: none;
+	}
+}
+
+// --------------------------------------------------
+// Variants
+// --------------------------------------------------
+
+// With image
+.fki-spotbox-teaser {
+
+	&.fki-spotbox-teaser-variant-with-image {
+		padding: 0;
+		background-color: @fki-spotbox-with-image-background-color;
+
+		.fki-teaser-heading {
+
+			.fki-teaser-heading-title {
+				.heading-h4;
+
+				&,
+				a {
+					color: @fki-spotbox-with-image-heading-color;
+				}
+			}
+		}
+
+		.fki-teaser-image {
+			display: block;
+			.border-top-radius(@fki-spotbox-border-radius);
+			overflow: hidden;
+			padding: 0;
+
+			img {
+				width: 100%;
+			}
+		}
+
+		.fki-teaser-body {
+			display: none;
+		}
+	}
+}
+
+// --------------------------------------------------
+// Responsive
+// --------------------------------------------------
+
+// Mobile
+@media @media-query-mobile {
+
+	// Spotbox
+	.fki-spotbox-teaser {}
+}
+
+// Mobile - only
+@media @media-query-mobile-only {
+
+	// Spotbox
+	.fki-spotbox-teaser {
+		margin-bottom: @fki-spotbox-xs-stacked-spacing !important;
+	}
+}
+
+// Tablet
+@media @media-query-tablet {
+
+	// Spotbox
+	.fki-spotbox-teaser {}
+}
+
+// Tablet - only
+@media @media-query-tablet-only {
+
+	// Spotbox
+	.fki-spotbox-teaser {
+		margin-bottom: @fki-spotbox-sm-stacked-spacing !important;
+	}
+}
+
+// Desktop
+@media @media-query-desktop {
+
+	// Spotbox
+	.fki-spotbox-teaser {}
+}
+
+// Desktop - only
+@media @media-query-desktop-only {
+
+	// Spotbox
+	.fki-spotbox-teaser {
+		margin-bottom: @fki-spotbox-md-stacked-spacing !important;
+	}
+}
+
+// Large desktop
+@media @media-query-large-desktop {
+
+	// Spotbox
+	.fki-spotbox-teaser {}
+}
+
+// Large desktop - only
+@media @media-query-large-desktop-only {
+
+	// Spotbox
+	.fki-spotbox-teaser {
+		margin-bottom: @fki-spotbox-lg-stacked-spacing !important;
+	}
+}
+
+// Print
+@media print {
+
+	// Spotbox
+	.fki-spotbox-teaser {}
+}
+
+// Touch
+.touch {
+
+	// Spotbox
+	.fki-spotbox-teaser {}
+}
+
+// No touch
+.no-touch {
+
+	// Spotbox
+	.fki-spotbox-teaser {}
+}
+
+// --------------------------------------------------
+// Mixins
+// --------------------------------------------------
+
+// Spotbox mixin
+.fki-mixin-spotbox-teaser() {}

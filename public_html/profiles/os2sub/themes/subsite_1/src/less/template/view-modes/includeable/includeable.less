@@ -1,0 +1,205 @@
+// |--------------------------------------------------------------------------
+// | Includeable
+// |--------------------------------------------------------------------------
+// |
+// | This file contains styles for the following:
+// | - .fki-includeable
+// |
+
+// --------------------------------------------------
+// Variables
+// --------------------------------------------------
+
+@fki-includeable-stacked-spacing: 3px;
+@fki-includeable-border-color: @border-color;
+
+@fki-includeable-heading-font-color: @brand-primary;
+@fki-includeable-heading-top-bottom-spacing: 3px;
+@fki-includeable-heading-left-right-spacing: 0;
+
+// --------------------------------------------------
+// Styling
+// --------------------------------------------------
+
+// Includeable
+.fki-includeable {
+	padding: @fki-includeable-stacked-spacing 0;
+	border-bottom: 1px solid @fki-includeable-border-color;
+
+	.fki-includeable-heading {
+		padding: @fki-includeable-heading-top-bottom-spacing @fki-includeable-heading-left-right-spacing;
+
+		.fki-includeable-heading-title {
+			margin: 0;
+			font-weight: bold;
+
+			&,
+			a {
+				color: @fki-includeable-heading-font-color;
+			}
+		}
+
+		.fki-includeable-heading-author {
+			font-size: @font-size-small;
+			font-style: italic;
+
+			.fki-includeable-heading-author-intro {}
+			.fki-includeable-heading-author-link {}
+		}
+	}
+}
+
+// --------------------------------------------------
+// Variants
+// --------------------------------------------------
+
+.fki-box,
+.fki-box-primary {
+
+	.fki-includeable {
+		.fki-mixin-includeable-box-variant(@brand-primary);
+	}
+}
+
+.fki-box-secondary {
+
+	.fki-includeable {
+		.fki-mixin-includeable-box-variant(@brand-secondary);
+	}
+}
+
+.fki-box-tertiary {
+
+	.fki-includeable {
+		.fki-mixin-includeable-box-variant(@brand-tertiary);
+	}
+}
+
+.fki-box-quaternary {
+
+	.fki-includeable {
+		.fki-mixin-includeable-box-variant(@brand-quaternary);
+	}
+}
+
+.fki-box-quinary {
+
+	.fki-includeable {
+		.fki-mixin-includeable-box-variant(@brand-quinary);
+	}
+}
+
+.field-items {
+
+	.field-item {
+
+		&:last-child {
+
+			.fki-includeable {
+
+				&:last-child {
+					border-bottom: 0;
+				}
+			}
+		}
+	}
+}
+
+// --------------------------------------------------
+// Responsive
+// --------------------------------------------------
+
+// Mobile
+@media @media-query-mobile {
+
+	// Includeable
+	.fki-includeable {}
+}
+
+// Mobile - only
+@media @media-query-mobile-only {
+
+	// Includeable
+	.fki-includeable {}
+}
+
+// Tablet
+@media @media-query-tablet {
+
+	// Includeable
+	.fki-includeable {}
+}
+
+// Tablet - only
+@media @media-query-tablet-only {
+
+	// Includeable
+	.fki-includeable {}
+}
+
+// Desktop
+@media @media-query-desktop {
+
+	// Includeable
+	.fki-includeable {}
+}
+
+// Desktop - only
+@media @media-query-desktop-only {
+
+	// Includeable
+	.fki-includeable {}
+}
+
+// Large desktop
+@media @media-query-large-desktop {
+
+	// Includeable
+	.fki-includeable {}
+}
+
+// Large desktop - only
+@media @media-query-large-desktop-only {
+
+	// Includeable
+	.fki-includeable {}
+}
+
+// Print
+@media print {
+
+	// Includeable
+	.fki-includeable {}
+}
+
+// Touch
+.touch {
+
+	// Includeable
+	.fki-includeable {}
+}
+
+// No touch
+.no-touch {
+
+	// Includeable
+	.fki-includeable {}
+}
+
+// --------------------------------------------------
+// Mixins
+// --------------------------------------------------
+
+// Includeable mixin
+.fki-mixin-includeable() {}
+
+// Box variant mixin
+.fki-mixin-includeable-box-variant(@font-color) {
+
+	.fki-includeable-heading {
+
+		.fki-includeable-heading-title {
+			color: @font-color;
+		}
+	}
+}

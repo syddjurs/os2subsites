@@ -1,0 +1,146 @@
+// |--------------------------------------------------------------------------
+// | Footer elements
+// |--------------------------------------------------------------------------
+// |
+// | This file contains styles for the following:
+// | - .fki-footer-elements
+// |
+
+// --------------------------------------------------
+// Variables
+// --------------------------------------------------
+
+@fki-footer-elements-element-font-size: @font-size-small;
+@fki-footer-elements-element-font-weight: @font-weight;
+
+@fki-footer-elements-element-text-color: @text-color;
+@fki-footer-elements-element-hover-text-color: @fki-footer-elements-element-text-color;
+
+@fki-footer-elements-element-icon-font-size: @font-size-base;
+@fki-footer-elements-element-icon-color: @text-color;
+@fki-footer-elements-element-icon-hover-color: @brand-secondary;
+
+
+// --------------------------------------------------
+// Styling
+// --------------------------------------------------
+
+// Footer elements
+.fki-footer-elements {
+
+	.fki-footer-element {
+		font-size: @fki-footer-elements-element-font-size;
+		font-weight: @fki-footer-elements-element-font-weight;
+		color: @fki-footer-elements-element-text-color;
+		.line-height(@fki-footer-elements-element-font-size);
+
+		.icon {
+			font-size: @fki-footer-elements-element-icon-font-size;
+			color: @fki-footer-elements-element-icon-color;
+			margin-right: 3px;
+			.line-height(@fki-footer-elements-element-icon-font-size);
+		}
+
+		&:hover {
+			color: @fki-footer-elements-element-hover-text-color;
+
+			.icon {
+				color: @fki-footer-elements-element-icon-hover-color;
+			}
+		}
+
+		+ .fki-footer-element {
+			margin-left: 10px;
+		}
+	}
+
+	&:extend(.clearfix all);
+}
+
+// --------------------------------------------------
+// Responsive
+// --------------------------------------------------
+
+// Mobile
+@media @media-query-mobile {
+
+	// Footer elements
+	.fki-footer-elements {}
+}
+
+// Mobile - only
+@media @media-query-mobile-only {
+
+	// Footer elements
+	.fki-footer-elements {}
+}
+
+// Tablet
+@media @media-query-tablet {
+
+	// Footer elements
+	.fki-footer-elements {}
+}
+
+// Tablet - only
+@media @media-query-tablet-only {
+
+	// Footer elements
+	.fki-footer-elements {}
+}
+
+// Desktop
+@media @media-query-desktop {
+
+	// Footer elements
+	.fki-footer-elements {}
+}
+
+// Desktop - only
+@media @media-query-desktop-only {
+
+	// Footer elements
+	.fki-footer-elements {}
+}
+
+// Large desktop
+@media @media-query-large-desktop {
+
+	// Footer elements
+	.fki-footer-elements {}
+}
+
+// Large desktop - only
+@media @media-query-large-desktop-only {
+
+	// Footer elements
+	.fki-footer-elements {}
+}
+
+// Print
+@media print {
+
+	// Footer elements
+	.fki-footer-elements {}
+}
+
+// Touch
+.touch {
+
+	// Footer elements
+	.fki-footer-elements {}
+}
+
+// No touch
+.no-touch {
+
+	// Footer elements
+	.fki-footer-elements {}
+}
+
+// --------------------------------------------------
+// Mixins
+// --------------------------------------------------
+
+// Footer elements mixin
+.fki-mixin-footer-elements() {}

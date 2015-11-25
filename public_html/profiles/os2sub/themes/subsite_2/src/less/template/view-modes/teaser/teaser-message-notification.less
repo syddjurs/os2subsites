@@ -1,0 +1,169 @@
+// |--------------------------------------------------------------------------
+// | Message notification
+// |--------------------------------------------------------------------------
+// |
+// | This file contains styles for the following:
+// | - .fki-message-notification-teaser
+// |
+
+// --------------------------------------------------
+// Variables
+// --------------------------------------------------
+
+@fki-message-notification-teaser-background-color: @state-secondary-bg;
+@fki-message-notification-teaser-heading-color: @state-secondary-text;
+
+// --------------------------------------------------
+// Styling
+// --------------------------------------------------
+
+// Message notification
+.fki-message-notification-teaser {
+
+	&.fki-box {
+		background-color: @fki-message-notification-teaser-background-color;
+
+		.fki-teaser-heading {
+
+			.fki-teaser-heading-title {
+
+				&,
+				> a {
+
+					&,
+					&:hover,
+					&:focus,
+					&:active {
+						color: @fki-message-notification-teaser-heading-color;
+					}
+				}
+			}
+		}
+	}
+}
+
+// --------------------------------------------------
+// Variants
+// --------------------------------------------------
+
+// With image
+.fki-message-notification-teaser {
+
+	&.fki-message-notification-teaser-variant-with-image {
+		background-color: @fki-spotbox-with-image-background-color;
+
+		.fki-teaser-heading {
+
+			.fki-teaser-heading-title {
+				.heading-h4;
+
+				&,
+				a {
+					color: @fki-spotbox-with-image-heading-color;
+				}
+			}
+		}
+
+		.fki-teaser-image {
+			display: block;
+			.border-top-radius(@fki-spotbox-border-radius);
+			overflow: hidden;
+
+			img {
+				width: 100%;
+			}
+		}
+
+		.fki-teaser-body {
+			display: none;
+		}
+	}
+}
+
+// --------------------------------------------------
+// Responsive
+// --------------------------------------------------
+
+// Mobile
+@media @media-query-mobile {
+
+	// Message notification
+	.fki-message-notification-teaser {}
+}
+
+// Mobile - only
+@media @media-query-mobile-only {
+
+	// Message notification
+	.fki-message-notification-teaser {}
+}
+
+// Tablet
+@media @media-query-tablet {
+
+	// Message notification
+	.fki-message-notification-teaser {}
+}
+
+// Tablet - only
+@media @media-query-tablet-only {
+
+	// Message notification
+	.fki-message-notification-teaser {}
+}
+
+// Desktop
+@media @media-query-desktop {
+
+	// Message notification
+	.fki-message-notification-teaser {}
+}
+
+// Desktop - only
+@media @media-query-desktop-only {
+
+	// Message notification
+	.fki-message-notification-teaser {}
+}
+
+// Large desktop
+@media @media-query-large-desktop {
+
+	// Message notification
+	.fki-message-notification-teaser {}
+}
+
+// Large desktop - only
+@media @media-query-large-desktop-only {
+
+	// Message notification
+	.fki-message-notification-teaser {}
+}
+
+// Print
+@media print {
+
+	// Message notification
+	.fki-message-notification-teaser {}
+}
+
+// Touch
+.touch {
+
+	// Message notification
+	.fki-message-notification-teaser {}
+}
+
+// No touch
+.no-touch {
+
+	// Message notification
+	.fki-message-notification-teaser {}
+}
+
+// --------------------------------------------------
+// Mixins
+// --------------------------------------------------
+
+// Message notification mixin
+.fki-mixin-spotbox-teaser() {}
