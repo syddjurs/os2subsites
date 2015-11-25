@@ -64,5 +64,6 @@ dependencies[] = os2sub_uses_and_tools
 dependencies[] = subsites_urls
 dependencies[] = os2sub_frontpage
 dependencies[] = os2web_contact
+dependencies[] = publishcontent
 
 version = 1.0

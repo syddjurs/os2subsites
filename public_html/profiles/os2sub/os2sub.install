@@ -72,18 +72,19 @@ function os2sub_install() {
     ->fields(array('uid' => 1, 'rid' => $admin_role->rid))
     ->execute();
 
-  theme_enable(array('bootstrap', 'adminimal', 'os2subtheme'));
+  theme_enable(array('bootstrap', 'adminimal', 'bellcom', 'os2web_bootstrap_theme', 'subsite_1'));
   theme_disable(array('bartik', 'rubik', 'seven'));
-  variable_set('theme_default', 'os2subtheme');
+  variable_set('theme_default', 'subsite_1');
   variable_set('admin_theme', 'adminimal');
 
   // Set admin theme on node/edit and node/add
   variable_set('node_admin_theme', '1');
   module_disable(array('update'));
   // Set default TZ.
-  variable_set('date_default_timezone', "Europe/Berlin");
+  variable_set('date_default_timezone', "Europe/Copenhagen");
   variable_set('date_first_day', "1");
   variable_set('configurable_timezones', "0");
+  variable_set('site_default_country', "DK");
 
   // jQuery update module.
   variable_set('jquery_update_compression_type', 'min');
