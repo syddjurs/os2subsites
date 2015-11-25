@@ -65,5 +65,6 @@ dependencies[] = subsites_urls
 dependencies[] = os2sub_frontpage
 dependencies[] = os2web_contact
 dependencies[] = publishcontent
+dependencies[] = pps
 
 version = 1.0
