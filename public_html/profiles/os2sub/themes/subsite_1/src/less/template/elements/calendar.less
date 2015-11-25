@@ -3,7 +3,7 @@
 // |--------------------------------------------------------------------------
 // |
 // | This file contains styles for the following:
-// | - .fki-calendar
+// | - .os2sub-calendar
 // |
 
 // --------------------------------------------------
@@ -32,12 +32,12 @@
 // --------------------------------------------------
 
 // Calendar
-.fki-calendar {
+.os2sub-calendar {
 	width: @fki-calendar-width;
 	background-color: @fki-calendar-background-color;
 	border-radius: @fki-calendar-border-radius;
 
-	.fki-calendar-day {
+	.os2sub-calendar-day {
 		display: block;
 		font-family: @fki-calendar-day-font-family;
 		font-size: @fki-calendar-day-font-size;
@@ -48,7 +48,7 @@
 		padding: @fki-calendar-day-top-bottom-padding 0;
 	}
 
-	.fki-calendar-month {
+	.os2sub-calendar-month {
 		display: block;
 		font-family: @fki-calendar-month-font-family;
 		font-size: @fki-calendar-month-font-size;
@@ -67,25 +67,25 @@
 // Variants
 // --------------------------------------------------
 
-.fki-box,
-.fki-box-primary {
-	.fki-mixin-calendar(@state-primary-bg, @state-primary-text, @fki-calendar-day-font-color);
+.os2sub-box,
+.os2sub-box-primary {
+	.os2sub-mixin-calendar(@state-primary-bg, @state-primary-text, @fki-calendar-day-font-color);
 }
 
-.fki-box-secondary {
-	.fki-mixin-calendar(@state-secondary-bg, @state-secondary-text, @fki-calendar-day-font-color);
+.os2sub-box-secondary {
+	.os2sub-mixin-calendar(@state-secondary-bg, @state-secondary-text, @fki-calendar-day-font-color);
 }
 
-.fki-box-tertiary {
-	.fki-mixin-calendar(@state-tertiary-bg, @state-tertiary-text, @fki-calendar-day-font-color);
+.os2sub-box-tertiary {
+	.os2sub-mixin-calendar(@state-tertiary-bg, @state-tertiary-text, @fki-calendar-day-font-color);
 }
 
-.fki-box-quaternary {
-	.fki-mixin-calendar(@state-quaternary-bg, @state-quaternary-text, @fki-calendar-day-font-color);
+.os2sub-box-quaternary {
+	.os2sub-mixin-calendar(@state-quaternary-bg, @state-quaternary-text, @fki-calendar-day-font-color);
 }
 
-.fki-box-quinary {
-	.fki-mixin-calendar(@state-quinary-bg, @state-quinary-text, @fki-calendar-day-font-color);
+.os2sub-box-quinary {
+	.os2sub-mixin-calendar(@state-quinary-bg, @state-quinary-text, @fki-calendar-day-font-color);
 }
 
 // --------------------------------------------------
@@ -96,77 +96,77 @@
 @media @media-query-mobile {
 
 	// Calendar
-	.fki-calendar {}
+	.os2sub-calendar {}
 }
 
 // Mobile - only
 @media @media-query-mobile-only {
 
 	// Calendar
-	.fki-calendar {}
+	.os2sub-calendar {}
 }
 
 // Tablet
 @media @media-query-tablet {
 
 	// Calendar
-	.fki-calendar {}
+	.os2sub-calendar {}
 }
 
 // Tablet - only
 @media @media-query-tablet-only {
 
 	// Calendar
-	.fki-calendar {}
+	.os2sub-calendar {}
 }
 
 // Desktop
 @media @media-query-desktop {
 
 	// Calendar
-	.fki-calendar {}
+	.os2sub-calendar {}
 }
 
 // Desktop - only
 @media @media-query-desktop-only {
 
 	// Calendar
-	.fki-calendar {}
+	.os2sub-calendar {}
 }
 
 // Large desktop
 @media @media-query-large-desktop {
 
 	// Calendar
-	.fki-calendar {}
+	.os2sub-calendar {}
 }
 
 // Large desktop - only
 @media @media-query-large-desktop-only {
 
 	// Calendar
-	.fki-calendar {}
+	.os2sub-calendar {}
 }
 
 // Print
 @media print {
 
 	// Calendar
-	.fki-calendar {}
+	.os2sub-calendar {}
 }
 
 // Touch
 .touch {
 
 	// Calendar
-	.fki-calendar {}
+	.os2sub-calendar {}
 }
 
 // No touch
 .no-touch {
 
 	// Calendar
-	.fki-calendar {}
+	.os2sub-calendar {}
 }
 
 // --------------------------------------------------
@@ -174,16 +174,16 @@
 // --------------------------------------------------
 
 // Calendar mixin
-.fki-mixin-calendar(@month-background-color, @month-font-color, @day-font-color) {
+.os2sub-mixin-calendar(@month-background-color, @month-font-color, @day-font-color) {
 
-	&.fki-calendar,
-	.fki-calendar {
+	&.os2sub-calendar,
+	.os2sub-calendar {
 
-		.fki-calendar-day {
+		.os2sub-calendar-day {
 			color: @day-font-color;
 		}
 
-		.fki-calendar-month {
+		.os2sub-calendar-month {
 			color: @month-font-color;
 			background-color: @month-background-color;
 		}

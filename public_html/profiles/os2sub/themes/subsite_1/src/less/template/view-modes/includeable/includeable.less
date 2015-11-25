@@ -3,7 +3,7 @@
 // |--------------------------------------------------------------------------
 // |
 // | This file contains styles for the following:
-// | - .fki-includeable
+// | - .os2sub-includeable
 // |
 
 // --------------------------------------------------
@@ -22,14 +22,14 @@
 // --------------------------------------------------
 
 // Includeable
-.fki-includeable {
+.os2sub-includeable {
 	padding: @fki-includeable-stacked-spacing 0;
 	border-bottom: 1px solid @fki-includeable-border-color;
 
-	.fki-includeable-heading {
+	.os2sub-includeable-heading {
 		padding: @fki-includeable-heading-top-bottom-spacing @fki-includeable-heading-left-right-spacing;
 
-		.fki-includeable-heading-title {
+		.os2sub-includeable-heading-title {
 			margin: 0;
 			font-weight: bold;
 
@@ -39,12 +39,12 @@
 			}
 		}
 
-		.fki-includeable-heading-author {
+		.os2sub-includeable-heading-author {
 			font-size: @font-size-small;
 			font-style: italic;
 
-			.fki-includeable-heading-author-intro {}
-			.fki-includeable-heading-author-link {}
+			.os2sub-includeable-heading-author-intro {}
+			.os2sub-includeable-heading-author-link {}
 		}
 	}
 }
@@ -53,39 +53,39 @@
 // Variants
 // --------------------------------------------------
 
-.fki-box,
-.fki-box-primary {
+.os2sub-box,
+.os2sub-box-primary {
 
-	.fki-includeable {
-		.fki-mixin-includeable-box-variant(@brand-primary);
+	.os2sub-includeable {
+		.os2sub-mixin-includeable-box-variant(@brand-primary);
 	}
 }
 
-.fki-box-secondary {
+.os2sub-box-secondary {
 
-	.fki-includeable {
-		.fki-mixin-includeable-box-variant(@brand-secondary);
+	.os2sub-includeable {
+		.os2sub-mixin-includeable-box-variant(@brand-secondary);
 	}
 }
 
-.fki-box-tertiary {
+.os2sub-box-tertiary {
 
-	.fki-includeable {
-		.fki-mixin-includeable-box-variant(@brand-tertiary);
+	.os2sub-includeable {
+		.os2sub-mixin-includeable-box-variant(@brand-tertiary);
 	}
 }
 
-.fki-box-quaternary {
+.os2sub-box-quaternary {
 
-	.fki-includeable {
-		.fki-mixin-includeable-box-variant(@brand-quaternary);
+	.os2sub-includeable {
+		.os2sub-mixin-includeable-box-variant(@brand-quaternary);
 	}
 }
 
-.fki-box-quinary {
+.os2sub-box-quinary {
 
-	.fki-includeable {
-		.fki-mixin-includeable-box-variant(@brand-quinary);
+	.os2sub-includeable {
+		.os2sub-mixin-includeable-box-variant(@brand-quinary);
 	}
 }
 
@@ -95,7 +95,7 @@
 
 		&:last-child {
 
-			.fki-includeable {
+			.os2sub-includeable {
 
 				&:last-child {
 					border-bottom: 0;
@@ -113,77 +113,77 @@
 @media @media-query-mobile {
 
 	// Includeable
-	.fki-includeable {}
+	.os2sub-includeable {}
 }
 
 // Mobile - only
 @media @media-query-mobile-only {
 
 	// Includeable
-	.fki-includeable {}
+	.os2sub-includeable {}
 }
 
 // Tablet
 @media @media-query-tablet {
 
 	// Includeable
-	.fki-includeable {}
+	.os2sub-includeable {}
 }
 
 // Tablet - only
 @media @media-query-tablet-only {
 
 	// Includeable
-	.fki-includeable {}
+	.os2sub-includeable {}
 }
 
 // Desktop
 @media @media-query-desktop {
 
 	// Includeable
-	.fki-includeable {}
+	.os2sub-includeable {}
 }
 
 // Desktop - only
 @media @media-query-desktop-only {
 
 	// Includeable
-	.fki-includeable {}
+	.os2sub-includeable {}
 }
 
 // Large desktop
 @media @media-query-large-desktop {
 
 	// Includeable
-	.fki-includeable {}
+	.os2sub-includeable {}
 }
 
 // Large desktop - only
 @media @media-query-large-desktop-only {
 
 	// Includeable
-	.fki-includeable {}
+	.os2sub-includeable {}
 }
 
 // Print
 @media print {
 
 	// Includeable
-	.fki-includeable {}
+	.os2sub-includeable {}
 }
 
 // Touch
 .touch {
 
 	// Includeable
-	.fki-includeable {}
+	.os2sub-includeable {}
 }
 
 // No touch
 .no-touch {
 
 	// Includeable
-	.fki-includeable {}
+	.os2sub-includeable {}
 }
 
 // --------------------------------------------------
@@ -191,14 +191,14 @@
 // --------------------------------------------------
 
 // Includeable mixin
-.fki-mixin-includeable() {}
+.os2sub-mixin-includeable() {}
 
 // Box variant mixin
-.fki-mixin-includeable-box-variant(@font-color) {
+.os2sub-mixin-includeable-box-variant(@font-color) {
 
-	.fki-includeable-heading {
+	.os2sub-includeable-heading {
 
-		.fki-includeable-heading-title {
+		.os2sub-includeable-heading-title {
 			color: @font-color;
 		}
 	}
