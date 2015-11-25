@@ -57,24 +57,31 @@
 
         <?php print $messages; ?>
 
-        <?php if (user_is_logged_in()): ?>
         <!-- Begin - main navigation -->
         <nav class="main-navigation-wrapper">
           <section class="main-navigation-bar">
             <div class="row">
-
+	            
               <!-- Begin - content -->
-              <div class="col-md-4">
-
-                <a href='#' class="main-navigation-logo-link">
-                  <img class="main-navigation-logo-image" src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
-                </a>
+              <div class="col-md-8">
+		            
+			  	<?php if ($logo): ?>
+	                <a href='<?php print $front_page; ?>' class="main-navigation-logo-link">
+	                  <img class="main-navigation-logo-image" src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
+	                </a>
+				<?php endif; ?>
+                               
+                <?php if (isset($primary_navigation)): ?>
+                  <!-- Begin - navigation -->
+                  <?php print render($primary_navigation); ?>
+                  <!-- End - navigation -->
+                <?php endif; ?>
 
               </div>
               <!-- End - content -->
 
               <!-- Begin - content -->
-              <div class="col-md-8">
+              <div class="col-md-4">
 
                 <?php if (isset($secondary_navigation)): ?>
                   <!-- Begin - navigation -->
@@ -89,7 +96,6 @@
           </section>
         </nav>
         <!-- End - main navigation -->
-        <?php endif; ?>
 
         <?php if (!empty($page['help'])): ?>
           <?php print render($page['help']); ?>
