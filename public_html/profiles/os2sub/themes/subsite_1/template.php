@@ -33,12 +33,12 @@ function subsite_1_preprocess_html(&$variables) {
   drupal_add_html_head(array(
     '#tag'        => 'link',
     '#attributes' => array(
-      'href' => 'https://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:300,400,700',
+      'href' => 'https://fonts.googleapis.com/css?family=Alegreya+Sans:400,300,400italic,100,700,500,900,800',
       'rel'  => 'stylesheet',
       'type' => 'text/css',
     ),
   ), 'google_font_subsite_1');
-
+  
   // Body classes
   $variables['classes_array'][] = 'footer-attached';
 

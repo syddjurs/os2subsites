@@ -27,8 +27,8 @@
 		.os2web-teaser-heading-title {
 			display: block;
 			font-size: @font-size-h3 ;
-			background-color: #000;
-			color: #FFF;
+			background-color: @btn-primary-bg;
+			color: @btn-primary-color;
 			padding: @padding-base-horizontal;
 		}
 	}
@@ -57,8 +57,9 @@
 	.social-icon-list {
 		list-style: none;
 		padding: 0;
-		margin-bottom: 0;
-	
+		margin-bottom: 5px;
+		margin-top: 10px;
+		text-align: center;
 		li {
 			display: inline-block;
 			text-align: center;
@@ -69,6 +70,7 @@
 			font-family: "FontAwesome";
 			border-radius: 100%;
 			border: 0;
+			width: 32px;
 	
 			&:hover {
 				text-decoration: none;
@@ -164,3 +166,10 @@
 		}
 	}
 }
+
+@bs3-main-navigation-nav-link-font-weight: 400;
+@bs3-main-navigation-nav-link-font-size: 18px;
+.pane-os2sub-banner  { margin-bottom: 30px; margin-top: 0;}
+.pane-os2sub-nyheder { margin-bottom: 30px; margin-top: 30px;}
+.os2web-spotbox-spotbox { border-radius: 6px;}
+@radius: 3px;

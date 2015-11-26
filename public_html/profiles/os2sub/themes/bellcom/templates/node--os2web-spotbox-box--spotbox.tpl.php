@@ -9,11 +9,7 @@
 	  <a href="<?php print $node->field_spot_link['und']['0']['url']; ?>" title="<?php print $node->field_spot_link['und']['0']['title']; ?>">
 	<?php endif; ?>
 
-  		<span class="os2web-teaser-heading">
-  			<span class="os2web-teaser-heading-title">
-  				<?php print $node->field_spot_link['und']['0']['title']; ?>
-  			</span>
-  		</span>
+
 
 	    <?php if(!empty($content['field_os2web_spotbox_big_image'])) : ?>
 			<span class="os2web-teaser-image img-responsive">
@@ -30,8 +26,13 @@
 			    </span>
 	
 		    <?php endif; ?>
-   	    <?php endif; ?>
 
+   	    <?php endif; ?>
+  		<span class="os2web-teaser-heading">
+  			<span class="os2web-teaser-heading-title">
+  				<?php print $node->field_spot_link['und']['0']['title']; ?>
+  			</span>
+  		</span>
 	<?php if (isset($node->field_spot_link['und']['0']['url'])) : ?>
     	</a>
 	<?php endif; ?>
