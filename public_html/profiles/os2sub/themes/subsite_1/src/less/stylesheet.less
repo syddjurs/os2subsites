@@ -4,19 +4,163 @@
 
 
 .banner {
-	margin-bottom: 30px;
 	border-radius: 4px;
 	.banner-wrapper {
 		padding: 30px 50px;
 		.banner-headline 	{ font-size: 48px;}
 		.banner-text		{ font-size: 32px;}
 		&.color-1 { color: #FFF;}
-		a { .btn; 
-			.btn-default;}
+		a { .btn;
+			.btn-primary;			
+		}
 	}
 }
 
 .kontaktblok {
-		.kontaktblok-headline 	{ font-size: 24px;}	
-		.kontaktblok-text { font-size: 15px;}
+		.kontaktblok-headline 	{ font-size: @font-size-h3;}	
+		.kontaktblok-text { font-size: @font-size-large;}
+}
+
+.os2web-spotbox-spotbox a {
+	text-decoration: none;
+	.os2web-teaser-heading {
+		.os2web-teaser-heading-title {
+			display: block;
+			font-size: @font-size-h3 ;
+			background-color: #000;
+			color: #FFF;
+			padding: @padding-base-horizontal;
+		}
+	}
+	.os2web-teaser-image {
+		
+	}
+	.os2web-teaser-body {
+		.os2web-teaser-body-text {
+			font-size: @font-size-large ;
+			padding: @padding-base-horizontal ;
+		}
+	}
+}
+
+.footer {
+	background-color: #fff;
+	padding: @padding-base-horizontal;
+	color: #ccc;
+	.contact-information {
+		clear: both;
+		text-align: center;
+	}
+
+
+	// Social icon list
+	.social-icon-list {
+		list-style: none;
+		padding: 0;
+		margin-bottom: 0;
+	
+		li {
+			display: inline-block;
+			text-align: center;
+		}
+	
+		.social-icon {
+			display: block;
+			font-family: "FontAwesome";
+			border-radius: 100%;
+			border: 0;
+	
+			&:hover {
+				text-decoration: none;
+			}
+		}
+	}
+	
+	// --------------------------------------------------
+	// Variants
+	// --------------------------------------------------
+	
+	// Social icon
+	.social-icon {
+	
+		&,
+		&:hover,
+		&:focus,
+		&:active {
+			color: #fff;
+			text-decoration: none;
+		}
+	
+		// Facebook
+		&.social-icon-facebook {
+			background-color: @social-link-color-facebook;
+	
+			&:before {
+				content: @fa-var-facebook;
+			}
+		}
+	
+		// Instagram
+		&.social-icon-instagram {
+			background-color: @social-link-color-instagram;
+	
+			&:before {
+				content: @fa-var-instagram;
+			}
+		}
+	
+		// Twitter
+		&.social-icon-twitter {
+			background-color: @social-link-color-twitter;
+	
+			&:before {
+				content: @fa-var-twitter;
+			}
+		}
+	
+		// Pinterest
+		&.social-icon-pinterest {
+			background-color: @social-link-color-pinterest;
+	
+			&:before {
+				content: @fa-var-pinterest-p;
+			}
+		}
+	
+		// Google Plus
+		&.social-icon-google-plus {
+			background-color: @social-link-color-google-plus;
+	
+			&:before {
+				content: @fa-var-google-plus;
+			}
+		}
+	
+		// LinkedIn
+		&.social-icon-linkedin {
+			background-color: @social-link-color-linkedin;
+	
+			&:before {
+				content: @fa-var-linkedin;
+			}
+		}
+	
+		// Vimeo
+		&.social-icon-vimeo {
+			background-color: @social-link-color-vimeo;
+	
+			&:before {
+				content: @fa-var-vimeo;
+			}
+		}
+	
+		// Youtube
+		&.social-icon-youtube {
+			background-color: @social-link-color-youtube;
+	
+			&:before {
+				content: @fa-var-youtube;
+			}
+		}
+	}
 }

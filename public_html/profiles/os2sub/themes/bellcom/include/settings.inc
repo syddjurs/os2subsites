@@ -351,6 +351,71 @@ function _theme_settings_form(&$form, $form_state) {
 
   /*
   |--------------------------------------------------------------------------
+  | Footer logo
+  |--------------------------------------------------------------------------
+  |
+  | Sets all necessary options to save data.
+  |
+  */
+
+
+  // Check for a freshly uploaded header image, save it to the
+  // filesystem, and grab its full path for later use.
+  /*if ($file = file_save_upload('footer_logo',
+      array('file_validate_is_image' => array()))) {
+    $parts = pathinfo($file->filename);
+    $filename = 'bellcom_footer_logo.'. $parts['extension'];
+    if (file_copy($file, $filename, FILE_EXISTS_REPLACE)) {
+      $settings['options']['footer_logo']['footer_logo_path'] = $file->filepath;
+    }
+  }
+
+  // Fieldset
+  /*$form['options']['footer_logo'] = [
+    '#type'  => 'fieldset',
+    '#title' => t('Footer logo'),
+  ];
+
+
+/**
+ * Implementation of hook_settings() for themes.
+ */
+
+  // Check for a freshly uploaded header image, save it to the
+  // filesystem, and grab its full path for later use.
+  /*if ($file = file_save_upload('footer_logo',
+      array('file_validate_is_image' => array()))) {
+    $parts = pathinfo($file->filename);
+    $filename = 'bellcom_footer_logo.'. $parts['extension'];
+    if (file_copy($file, $filename, FILE_EXISTS_REPLACE)) {
+      $settings['options']['footer_logo']['footer_logo_path'] = $file->filepath;
+    }
+  }
+
+  // Define the settings-related FormAPI elements.
+
+  $form['options']['footer_logo']['footer_logo'] = array(
+    '#type' => 'file',
+    '#title' => t('Footer logo'),
+    '#maxlength' => 40,
+  );
+  $form['options']['footer_logo']['footer_logo_path'] = array(
+    '#type' => 'value',
+    '#value' => !empty($settings['footer_logo_path']) ?
+      $settings['options']['footer_logo']['footer_logo_path'] : '',
+  );
+  if (!empty($settings['options']['footer_logo']['footer_logo_path'])) {
+    $form['options']['footer_logo']['footer_logo_preview'] = array(
+      '#type' => 'markup',
+      '#value' => !empty($settings['options']['footer_logo']['footer_logo_path']) ? 
+		  theme('image', $settings['options']['footer_logo']['footer_logo_path']) : '',
+    );
+  }
+ 
+
+  
+    /*
+  |--------------------------------------------------------------------------
   | Social links
   |--------------------------------------------------------------------------
   |

@@ -80,3 +80,24 @@ function subsite_1_preprocess_comment(&$variables) {
  */
 function subsite_1_preprocess_node__full(&$variables) {
 }
+/*
+function subsite_1_menu_local_task($variables) {
+  $link = $variables['element']['#link'];
+  $link_text = $link['title'];
+  
+  $page_args = unserialize($link['page_arguments']); // Gets the view name and display type
+  // Could be useful if we want to restrict it to certain views and displays.
+
+  $view = views_get_view($page_args[0]);
+  $view->set_display($page_args[1]);
+  $output = $view->preview();
+/* If result is empty return here this hides the tab from showing up. However the page will still be visible when someone tries to visit the page directly. If we want to completely hide the view then the above solution is more appropriate. 
+*/
+/* if (empty($view->result)) {   
+    return;
+  }
+   // code to genrate your li or however the theme creates tab markup
+
+  return "<li>" . l($link_text, $link['href'], $link['localized_options']) . "</li>";
+}
+*/

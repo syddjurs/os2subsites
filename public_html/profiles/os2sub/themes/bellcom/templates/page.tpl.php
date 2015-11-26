@@ -150,11 +150,104 @@
       </div>
     </div>
     <!-- End - content -->
+        
 
-    <?php if (!empty($page['footer'])): ?>
+    <?php if (!empty($page['footer']) OR !empty($theme_settings['contact_information']) OR !empty($theme_settings['social_links']) ) : ?>
       <!-- Begin - footer -->
-      <footer class="footer <?php print $container_class; ?>">
-        <?php print render($page['footer']); ?>
+      <footer class="footer content">
+	      <div class="container">
+	        
+	        <?php print render($page['footer']); ?>
+	
+	        <?php if (!empty($theme_settings['contact_information'])): ?>
+	
+			<div class="contact-information">
+
+	        	<?php if (isset($theme_settings['contact_information']['facebook']) ) : ?>
+	        	<?php print $theme_settings['contact_information']['business_owner_name']; ?>
+	        	<?php endif; ?>
+	        	
+	        	<?php if (isset($theme_settings['contact_information']['business_startup_year']) ) : ?>
+	        	<?php print '| '.t('Siden').$theme_settings['contact_information']['business_startup_year']; ?>
+	        	<?php endif; ?>
+
+				<?php if (isset($theme_settings['contact_information']['address']) ) : ?>
+				<?php print '| '.$theme_settings['contact_information']['address']; ?>
+				<?php endif; ?>
+				
+				<?php if (isset($theme_settings['contact_information']['zipcode']) ) : ?>
+				<?php print ', '.$theme_settings['contact_information']['zipcode']; ?>
+				<?php endif; ?>
+				
+				<?php if (isset($theme_settings['contact_information']['city']) ) : ?>
+				<?php print ' '.$theme_settings['contact_information']['city']; ?>
+				<?php endif; ?>
+				
+				<?php if (isset($theme_settings['contact_information']['phone_system']) ) : ?>
+				<?php print '| <a title="Ring til '.$theme_settings['contact_information']['phone_readable'].'" href="tel:'.$theme_settings['contact_information']['phone_system'].'">'; ?>
+				<?php endif; ?>
+				
+				<?php if (isset($theme_settings['contact_information']['phone_readable']) ) : ?>
+				<?php print $theme_settings['contact_information']['phone_readable']; ?>
+				<?php endif; ?>
+				
+				<?php if (isset($theme_settings['contact_information']['phone_system']) ) : ?>
+				<?php print '</a>'; ?>
+				<?php endif; ?>
+
+				<?php if (isset($theme_settings['contact_information']['email']) ) : ?>
+				<?php print '| <a href="mailto:'.$theme_settings['contact_information']['email'].' Title="Send email">'.$theme_settings['contact_information']['email'].'</a>'; ?>
+				<?php endif; ?>
+				
+				<?php if (isset($theme_settings['contact_information']['working_hours']) ) : ?>
+				<?php print '| '.t('Åbent').': '.$theme_settings['contact_information']['working_hours']; ?>
+				<?php endif; ?>
+
+	        </div>
+	        	
+			<?php endif; ?>	        	
+	        	
+	        <?php if (!empty($theme_settings['social_links'])): ?>
+
+<ul class="social-icon-list">
+
+        <?php if ($theme_settings['social_links']['facebook']['active']): ?>
+          <li><a href="<?php print $theme_settings['social_links']['facebook']['url']; ?>" target="_blank" class="social-icon social-icon-facebook" data-toggle="tooltip" data-placement="top" title="<?php print $theme_settings['social_links']['facebook']['tooltip']; ?>"></a></li>
+        <?php endif; ?>
+
+        <?php if ($theme_settings['social_links']['twitter']['active']): ?>
+          <li><a href="<?php print $theme_settings['social_links']['twitter']['url']; ?>" target="_blank" class="social-icon social-icon-twitter" data-toggle="tooltip" data-placement="top" title="<?php print $theme_settings['social_links']['twitter']['tooltip']; ?>"></a></li>
+        <?php endif; ?>
+
+        <?php if ($theme_settings['social_links']['googleplus']['active']): ?>
+          <li><a href="<?php print $theme_settings['social_links']['googleplus']['url']; ?>" target="_blank" class="social-icon social-icon-google-plus" data-toggle="tooltip" data-placement="top" title="<?php print $theme_settings['social_links']['googleplus']['tooltip']; ?>"></a></li>
+        <?php endif; ?>
+
+        <?php if ($theme_settings['social_links']['linkedin']['active']): ?>
+          <li><a href="<?php print $theme_settings['social_links']['linkedin']['url']; ?>" target="_blank" class="social-icon social-icon-linkedin" data-toggle="tooltip" data-placement="top" title="<?php print $theme_settings['social_links']['linkedin']['tooltip']; ?>"></a></li>
+        <?php endif; ?>
+
+        <?php if ($theme_settings['social_links']['pinterest']['active']): ?>
+          <li><a href="<?php print $theme_settings['social_links']['pinterest']['url']; ?>" target="_blank" class="social-icon social-icon-pinterest" data-toggle="tooltip" data-placement="top" title="<?php print $theme_settings['social_links']['pinterest']['tooltip']; ?>"></a></li>
+        <?php endif; ?>
+
+        <?php if ($theme_settings['social_links']['instagram']['active']): ?>
+          <li><a href="<?php print $theme_settings['social_links']['instagram']['url']; ?>" target="_blank" class="social-icon social-icon-instagram" data-toggle="tooltip" data-placement="top" title="<?php print $theme_settings['social_links']['instagram']['tooltip']; ?>"></a></li>
+        <?php endif; ?>
+
+        <?php if ($theme_settings['social_links']['youtube']['active']): ?>
+          <li><a href="<?php print $theme_settings['social_links']['youtube']['url']; ?>" target="_blank" class="social-icon social-icon-youtube" data-toggle="tooltip" data-placement="top" title="<?php print $theme_settings['social_links']['youtube']['tooltip']; ?>"></a></li>
+        <?php endif; ?>
+
+        <?php if ($theme_settings['social_links']['vimeo']['active']): ?>
+          <li><a href="<?php print $theme_settings['social_links']['vimeo']['url']; ?>" target="_blank" class="social-icon social-icon-vimeo" data-toggle="tooltip" data-placement="top" title="<?php print $theme_settings['social_links']['vimeo']['tooltip']; ?>"></a></li>
+        <?php endif; ?>
+
+      </ul>
+	        
+	        <?php endif ?>        
+	        
+	      </div>        
       </footer>
       <!-- End - footer -->
     <?php endif; ?>

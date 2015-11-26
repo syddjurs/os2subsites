@@ -44,6 +44,15 @@ function bellcom_preprocess_page(&$variables) {
 
   // Theme settings
   $variables['theme_settings'] = _bellcom_collect_theme_settings();
+  
+  if (!empty($settings['options']['footer_logo']['footer_logo_path'])) {
+    $vars['options']['footer_logo']['footer_logo_path'] = $settings['options']['footer_logo']['footer_logo_path'];
+  }
+  else {
+    $variables['options']['footer_logo']['footer_logo_path'] = path_to_theme().'/small-logo.png';
+  }
+
+  
 }
 
 /**
@@ -337,3 +346,6 @@ function _bellcom_text_shortener($text_string, $max_length) {
 
   return $shortened_string;
 }
+
+
+
