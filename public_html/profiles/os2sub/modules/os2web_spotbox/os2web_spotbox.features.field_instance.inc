@@ -117,7 +117,7 @@ function os2web_spotbox_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'media_generic',
-      'weight' => 2,
+      'weight' => -3,
     ),
   );
 
@@ -284,7 +284,7 @@ function os2web_spotbox_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 1,
+      'weight' => -4,
     ),
   );
 

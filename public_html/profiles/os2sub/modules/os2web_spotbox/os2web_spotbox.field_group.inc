@@ -24,9 +24,8 @@ function os2web_spotbox_field_group_info() {
     'weight' => '1',
     'children' => array(
       0 => 'field_os2web_spotbox_big_image',
-      1 => 'field_os2web_spotbox_ref_kle',
-      2 => 'field_os2web_spotbox_sitestruct',
-      3 => 'title',
+      1 => 'field_spot_link',
+      2 => 'title',
     ),
     'format_type' => 'htab',
     'format_settings' => array(
@@ -83,9 +82,7 @@ function os2web_spotbox_field_group_info() {
     'weight' => '0',
     'children' => array(
       0 => 'group_billeder',
-      1 => 'group_links',
-      2 => 'group_taksonomi',
-      3 => 'group_tekst',
+      1 => 'group_tekst',
     ),
     'format_type' => 'htabs',
     'format_settings' => array(
@@ -138,17 +135,17 @@ function os2web_spotbox_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_spotbox';
   $field_group->data = array(
-    'label' => 'Tekst og video',
+    'label' => 'Tekst',
     'weight' => '2',
     'children' => array(
-      0 => 'body',
-      1 => 'field_os2web_spotbox_video',
+      0 => 'field_os2web_spotbox_text',
     ),
     'format_type' => 'htab',
     'format_settings' => array(
-      'label' => 'Tekst og video',
+      'label' => 'Tekst',
       'instance_settings' => array(
         'required_fields' => 1,
+        'id' => '',
         'classes' => '',
         'description' => '',
       ),

@@ -225,7 +225,7 @@ function os2web_base_default_page_manager_handlers() {
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = 0;
+  $handler->weight = -30;
   $handler->conf = array(
     'title' => 'Spotboks',
     'no_blocks' => 0,
@@ -254,7 +254,7 @@ function os2web_base_default_page_manager_handlers() {
     ),
   );
   $display = new panels_display();
-  $display->layout = '3-columns';
+  $display->layout = 'content-with-left-and-right-sidebar';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -274,7 +274,7 @@ function os2web_base_default_page_manager_handlers() {
   $display->panels = array();
     $pane = new stdClass();
     $pane->pid = 'new-eff9fcd5-e173-44df-a7db-4b47d9bda6b0';
-    $pane->panel = 'column-center';
+    $pane->panel = 'content';
     $pane->type = 'views_panes';
     $pane->subtype = 'node_adm-panel_pane_1';
     $pane->shown = TRUE;
@@ -294,10 +294,10 @@ function os2web_base_default_page_manager_handlers() {
     $pane->locks = array();
     $pane->uuid = 'eff9fcd5-e173-44df-a7db-4b47d9bda6b0';
     $display->content['new-eff9fcd5-e173-44df-a7db-4b47d9bda6b0'] = $pane;
-    $display->panels['column-center'][0] = 'new-eff9fcd5-e173-44df-a7db-4b47d9bda6b0';
+    $display->panels['content'][0] = 'new-eff9fcd5-e173-44df-a7db-4b47d9bda6b0';
     $pane = new stdClass();
     $pane->pid = 'new-073ddcdb-e3fc-4ad0-98b9-5c9f110de019';
-    $pane->panel = 'column-left';
+    $pane->panel = 'sidebar-left';
     $pane->type = 'node_title';
     $pane->subtype = 'node_title';
     $pane->shown = TRUE;
@@ -322,10 +322,10 @@ function os2web_base_default_page_manager_handlers() {
     $pane->locks = array();
     $pane->uuid = '073ddcdb-e3fc-4ad0-98b9-5c9f110de019';
     $display->content['new-073ddcdb-e3fc-4ad0-98b9-5c9f110de019'] = $pane;
-    $display->panels['column-left'][0] = 'new-073ddcdb-e3fc-4ad0-98b9-5c9f110de019';
+    $display->panels['sidebar-left'][0] = 'new-073ddcdb-e3fc-4ad0-98b9-5c9f110de019';
     $pane = new stdClass();
     $pane->pid = 'new-2380c0e8-d869-489e-b722-207c74b46d83';
-    $pane->panel = 'column-left';
+    $pane->panel = 'sidebar-left';
     $pane->type = 'entity_field';
     $pane->subtype = 'node:field_spot_link';
     $pane->shown = TRUE;
@@ -352,16 +352,25 @@ function os2web_base_default_page_manager_handlers() {
     $pane->locks = array();
     $pane->uuid = '2380c0e8-d869-489e-b722-207c74b46d83';
     $display->content['new-2380c0e8-d869-489e-b722-207c74b46d83'] = $pane;
-    $display->panels['column-left'][1] = 'new-2380c0e8-d869-489e-b722-207c74b46d83';
+    $display->panels['sidebar-left'][1] = 'new-2380c0e8-d869-489e-b722-207c74b46d83';
     $pane = new stdClass();
-    $pane->pid = 'new-e3892af6-41f2-4fac-9459-b3b790d6c6eb';
-    $pane->panel = 'column-right';
-    $pane->type = 'fieldable_panels_pane';
-    $pane->subtype = 'fpid:1';
+    $pane->pid = 'new-2ebf5413-3bee-4243-bf9b-1e1ba3d589b6';
+    $pane->panel = 'sidebar-left';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:field_os2web_spotbox_text';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'view_mode' => 'full',
+      'label' => 'title',
+      'formatter' => 'text_default',
+      'delta_limit' => 0,
+      'delta_offset' => '0',
+      'delta_reversed' => FALSE,
+      'formatter_settings' => array(),
+      'context' => 'argument_entity_id:node_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -369,14 +378,14 @@ function os2web_base_default_page_manager_handlers() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 0;
+    $pane->position = 2;
     $pane->locks = array();
-    $pane->uuid = 'e3892af6-41f2-4fac-9459-b3b790d6c6eb';
-    $display->content['new-e3892af6-41f2-4fac-9459-b3b790d6c6eb'] = $pane;
-    $display->panels['column-right'][0] = 'new-e3892af6-41f2-4fac-9459-b3b790d6c6eb';
+    $pane->uuid = '2ebf5413-3bee-4243-bf9b-1e1ba3d589b6';
+    $display->content['new-2ebf5413-3bee-4243-bf9b-1e1ba3d589b6'] = $pane;
+    $display->panels['sidebar-left'][2] = 'new-2ebf5413-3bee-4243-bf9b-1e1ba3d589b6';
     $pane = new stdClass();
     $pane->pid = 'new-e38a28b6-9c20-499e-9fdd-0c18d156c7da';
-    $pane->panel = 'column-right';
+    $pane->panel = 'sidebar-right';
     $pane->type = 'node_content';
     $pane->subtype = 'node_content';
     $pane->shown = TRUE;
@@ -384,7 +393,7 @@ function os2web_base_default_page_manager_handlers() {
     $pane->configuration = array(
       'links' => 0,
       'no_extras' => 0,
-      'override_title' => 0,
+      'override_title' => 1,
       'override_title_text' => 'Preview',
       'identifier' => '',
       'link' => 0,
@@ -399,11 +408,11 @@ function os2web_base_default_page_manager_handlers() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 1;
+    $pane->position = 0;
     $pane->locks = array();
     $pane->uuid = 'e38a28b6-9c20-499e-9fdd-0c18d156c7da';
     $display->content['new-e38a28b6-9c20-499e-9fdd-0c18d156c7da'] = $pane;
-    $display->panels['column-right'][1] = 'new-e38a28b6-9c20-499e-9fdd-0c18d156c7da';
+    $display->panels['sidebar-right'][0] = 'new-e38a28b6-9c20-499e-9fdd-0c18d156c7da';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
@@ -416,7 +425,7 @@ function os2web_base_default_page_manager_handlers() {
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = 1;
+  $handler->weight = -28;
   $handler->conf = array(
     'title' => 'Indhold',
     'no_blocks' => 1,
@@ -436,7 +445,6 @@ function os2web_base_default_page_manager_handlers() {
             'type' => array(
               'os2web_base_gallery' => 'os2web_base_gallery',
               'os2web_base_contentpage' => 'os2web_base_contentpage',
-              'os2web_base_news' => 'os2web_base_news',
             ),
           ),
           'context' => 'argument_entity_id:node_1',

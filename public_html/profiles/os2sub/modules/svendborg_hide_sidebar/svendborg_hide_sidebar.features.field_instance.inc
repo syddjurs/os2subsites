@@ -10,7 +10,8 @@
 function svendborg_hide_sidebar_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-os2web_base_contentpage-field_svendborg_hide_sidebar'
+  // Exported field_instance:
+  // 'node-os2web_base_contentpage-field_svendborg_hide_sidebar'.
   $field_instances['node-os2web_base_contentpage-field_svendborg_hide_sidebar'] = array(
     'bundle' => 'os2web_base_contentpage',
     'default_value' => array(
@@ -52,7 +53,8 @@ function svendborg_hide_sidebar_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-os2web_base_news-field_svendborg_hide_sidebar'
+  // Exported field_instance:
+  // 'node-os2web_base_news-field_svendborg_hide_sidebar'.
   $field_instances['node-os2web_base_news-field_svendborg_hide_sidebar'] = array(
     'bundle' => 'os2web_base_news',
     'default_value' => array(
@@ -67,7 +69,7 @@ function svendborg_hide_sidebar_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 6,
+        'weight' => 7,
       ),
       'search_index' => array(
         'label' => 'above',
@@ -85,7 +87,7 @@ function svendborg_hide_sidebar_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 11,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -112,7 +114,8 @@ function svendborg_hide_sidebar_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-os2web_borger_dk_article-field_svendborg_hide_sidebar'
+  // Exported field_instance:
+  // 'node-os2web_borger_dk_article-field_svendborg_hide_sidebar'.
   $field_instances['node-os2web_borger_dk_article-field_svendborg_hide_sidebar'] = array(
     'bundle' => 'os2web_borger_dk_article',
     'default_value' => array(

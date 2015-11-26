@@ -130,11 +130,11 @@ function os2web_base_image_default_styles() {
         ),
         'weight' => 1,
       ),
-      5 => array(
+      4 => array(
         'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => 220,
-          'height' => 150,
+          'width' => 285,
+          'height' => 194,
         ),
         'weight' => 2,
       ),

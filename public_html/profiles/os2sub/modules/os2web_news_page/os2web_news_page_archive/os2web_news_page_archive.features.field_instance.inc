@@ -10,7 +10,8 @@
 function os2web_news_page_archive_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-os2web_base_news-field_os2web_news_page_archive'
+  // Exported field_instance:
+  // 'node-os2web_base_news-field_os2web_news_page_archive'.
   $field_instances['node-os2web_base_news-field_os2web_news_page_archive'] = array(
     'bundle' => 'os2web_base_news',
     'deleted' => 0,
@@ -20,7 +21,7 @@ function os2web_news_page_archive_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 4,
+        'weight' => 5,
       ),
       'search_index' => array(
         'label' => 'above',
@@ -31,6 +32,7 @@ function os2web_news_page_archive_field_default_field_instances() {
           'multiple_from' => '',
           'multiple_number' => '',
           'multiple_to' => '',
+          'show_remaining_days' => FALSE,
         ),
         'type' => 'date_default',
         'weight' => 5,
@@ -44,6 +46,7 @@ function os2web_news_page_archive_field_default_field_instances() {
           'multiple_from' => '',
           'multiple_number' => '',
           'multiple_to' => '',
+          'show_remaining_days' => FALSE,
         ),
         'type' => 'date_default',
         'weight' => 5,
@@ -52,7 +55,7 @@ function os2web_news_page_archive_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 18,
       ),
       'teaser' => array(
         'label' => 'above',
