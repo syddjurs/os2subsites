@@ -371,10 +371,9 @@ function _theme_settings_form(&$form, $form_state) {
   }
 
   // Fieldset
-  /*$form['options']['footer_logo'] = [
-    '#type'  => 'fieldset',
+  /*$form['options']['footer_logo'] = array(    '#type'  => 'fieldset',
     '#title' => t('Footer logo'),
-  ];
+  );
 
 
 /**
@@ -424,274 +423,274 @@ function _theme_settings_form(&$form, $form_state) {
   */
 
   // Fieldset
-  $form['options']['social_links'] = [
+  $form['options']['social_links'] = array(
     '#type'  => 'fieldset',
     '#title' => t('Social links'),
-  ];
+  );
 
   // Facebook
-  $form['options']['social_links']['facebook'] = [
+  $form['options']['social_links']['facebook'] = array(
     '#type'          => 'checkbox',
     '#title'         => t('Facebook'),
     '#default_value' => theme_get_setting('facebook'),
-  ];
-  $form['options']['social_links']['facebook_url'] = [
+  );
+  $form['options']['social_links']['facebook_url'] = array(
     '#type'          => 'textfield',
     '#title'         => t('Facebook link'),
     '#default_value' => theme_get_setting('facebook_url'),
-    '#states'        => [
+    '#states'        => array(
       // Hide the options when the cancel notify checkbox is disabled.
-      'visible' => [
-        ':input[name="facebook"]' => [
+      'visible' => array(
+        ':input[name="facebook"]' => array(
           'checked' => TRUE
-        ],
-      ],
-    ],
-  ];
-  $form['options']['social_links']['facebook_tooltip'] = [
+        ),
+      ),
+    ),
+  );
+  $form['options']['social_links']['facebook_tooltip'] = array(
     '#type'          => 'textfield',
     '#title'         => t('Tooltip text'),
     '#default_value' => theme_get_setting('facebook_tooltip'),
-    '#states'        => [
+    '#states'        => array(
       // Hide the options when the cancel notify checkbox is disabled.
-      'visible' => [
-        ':input[name="facebook"]' => [
+      'visible' => array(
+        ':input[name="facebook"]' => array(
           'checked' => TRUE
-        ],
-      ],
-    ],
-  ];
+        ),
+      ),
+    ),
+  );
 
   // Twitter
-  $form['options']['social_links']['twitter'] = [
+  $form['options']['social_links']['twitter'] = array(
     '#type'          => 'checkbox',
     '#title'         => t('Twitter'),
     '#default_value' => theme_get_setting('twitter'),
-  ];
-  $form['options']['social_links']['twitter_url'] = [
+  );
+  $form['options']['social_links']['twitter_url'] = array(
     '#type'          => 'textfield',
     '#title'         => t('Twitter link'),
     '#default_value' => theme_get_setting('twitter_url'),
-    '#states'        => [
+    '#states'        => array(
       // Hide the options when the cancel notify checkbox is disabled.
-      'visible' => [
-        ':input[name="twitter"]' => [
+      'visible' => array(
+        ':input[name="twitter"]' => array(
           'checked' => TRUE
-        ],
-      ],
-    ],
-  ];
-  $form['options']['social_links']['twitter_tooltip'] = [
+        ),
+      ),
+    ),
+  );
+  $form['options']['social_links']['twitter_tooltip'] = array(
     '#type'          => 'textfield',
     '#title'         => t('Tooltip text'),
     '#default_value' => theme_get_setting('twitter_tooltip'),
-    '#states'        => [
+    '#states'        => array(
       // Hide the options when the cancel notify checkbox is disabled.
-      'visible' => [
-        ':input[name="twitter"]' => [
+      'visible' => array(
+        ':input[name="twitter"]' => array(
           'checked' => TRUE
-        ],
-      ],
-    ],
-  ];
+        ),
+      ),
+    ),
+  );
 
   // Google plus
-  $form['options']['social_links']['googleplus'] = [
+  $form['options']['social_links']['googleplus'] = array(
     '#type'          => 'checkbox',
     '#title'         => t('Google plus'),
     '#default_value' => theme_get_setting('googleplus'),
-  ];
-  $form['options']['social_links']['googleplus_url'] = [
+  );
+  $form['options']['social_links']['googleplus_url'] = array(
     '#type'          => 'textfield',
     '#title'         => t('Google plus link'),
     '#default_value' => theme_get_setting('googleplus_url'),
-    '#states'        => [
+    '#states'        => array(
       // Hide the options when the cancel notify checkbox is disabled.
-      'visible' => [
-        ':input[name="googleplus"]' => [
+      'visible' => array(
+        ':input[name="googleplus"]' => array(
           'checked' => TRUE
-        ],
-      ],
-    ],
-  ];
-  $form['options']['social_links']['googleplus_tooltip'] = [
+        ),
+      ),
+    ),
+  );
+  $form['options']['social_links']['googleplus_tooltip'] = array(
     '#type'          => 'textfield',
     '#title'         => t('Tooltip text'),
     '#default_value' => theme_get_setting('googleplus_tooltip'),
-    '#states'        => [
+    '#states'        => array(
       // Hide the options when the cancel notify checkbox is disabled.
-      'visible' => [
-        ':input[name="googleplus"]' => [
+      'visible' => array(
+        ':input[name="googleplus"]' => array(
           'checked' => TRUE
-        ],
-      ],
-    ],
-  ];
+        ),
+      ),
+    ),
+  );
 
   // Instagram
-  $form['options']['social_links']['instagram'] = [
+  $form['options']['social_links']['instagram'] = array(
     '#type'          => 'checkbox',
     '#title'         => t('Instagram'),
     '#default_value' => theme_get_setting('instagram'),
-  ];
-  $form['options']['social_links']['instagram_url'] = [
+  );
+  $form['options']['social_links']['instagram_url'] = array(
     '#type'          => 'textfield',
     '#title'         => t('Instagram link'),
     '#default_value' => theme_get_setting('instagram_url'),
-    '#states'        => [
+    '#states'        => array(
       // Hide the options when the cancel notify checkbox is disabled.
-      'visible' => [
-        ':input[name="instagram"]' => [
+      'visible' => array(
+        ':input[name="instagram"]' => array(
           'checked' => TRUE
-        ],
-      ],
-    ],
-  ];
-  $form['options']['social_links']['instagram_tooltip'] = [
+        ),
+      ),
+    ),
+  );
+  $form['options']['social_links']['instagram_tooltip'] = array(
     '#type'          => 'textfield',
     '#title'         => t('Tooltip text'),
     '#default_value' => theme_get_setting('instagram_tooltip'),
-    '#states'        => [
+    '#states'        => array(
       // Hide the options when the cancel notify checkbox is disabled.
-      'visible' => [
-        ':input[name="instagram"]' => [
+      'visible' => array(
+        ':input[name="instagram"]' => array(
           'checked' => TRUE
-        ],
-      ],
-    ],
-  ];
+        ),
+      ),
+    ),
+  );
 
   // LinkedIn
-  $form['options']['social_links']['linkedin'] = [
+  $form['options']['social_links']['linkedin'] = array(
     '#type'          => 'checkbox',
     '#title'         => t('LinkedIn'),
     '#default_value' => theme_get_setting('linkedin'),
-  ];
-  $form['options']['social_links']['linkedin_url'] = [
+  );
+  $form['options']['social_links']['linkedin_url'] = array(
     '#type'          => 'textfield',
     '#title'         => t('LinkedIn link'),
     '#default_value' => theme_get_setting('linkedin_url'),
-    '#states'        => [
+    '#states'        => array(
       // Hide the options when the cancel notify checkbox is disabled.
-      'visible' => [
-        ':input[name="linkedin"]' => [
+      'visible' => array(
+        ':input[name="linkedin"]' => array(
           'checked' => TRUE
-        ],
-      ],
-    ],
-  ];
-  $form['options']['social_links']['linkedin_tooltip'] = [
+        ),
+      ),
+    ),
+  );
+  $form['options']['social_links']['linkedin_tooltip'] = array(
     '#type'          => 'textfield',
     '#title'         => t('Tooltip text'),
     '#default_value' => theme_get_setting('linkedin_tooltip'),
-    '#states'        => [
+    '#states'        => array(
       // Hide the options when the cancel notify checkbox is disabled.
-      'visible' => [
-        ':input[name="linkedin"]' => [
+      'visible' => array(
+        ':input[name="linkedin"]' => array(
           'checked' => TRUE
-        ],
-      ],
-    ],
-  ];
+        ),
+      ),
+    ),
+  );
 
   // Pinterest
-  $form['options']['social_links']['pinterest'] = [
+  $form['options']['social_links']['pinterest'] = array(
     '#type'          => 'checkbox',
     '#title'         => t('Pinterest'),
     '#default_value' => theme_get_setting('pinterest'),
-  ];
-  $form['options']['social_links']['pinterest_url'] = [
+  );
+  $form['options']['social_links']['pinterest_url'] = array(
     '#type'          => 'textfield',
     '#title'         => t('Pinterest link'),
     '#default_value' => theme_get_setting('pinterest_url'),
-    '#states'        => [
+    '#states'        => array(
       // Hide the options when the cancel notify checkbox is disabled.
-      'visible' => [
-        ':input[name="pinterest"]' => [
+      'visible' => array(
+        ':input[name="pinterest"]' => array(
           'checked' => TRUE
-        ],
-      ],
-    ],
-  ];
-  $form['options']['social_links']['pinterest_tooltip'] = [
+        ),
+      ),
+    ),
+  );
+  $form['options']['social_links']['pinterest_tooltip'] = array(
     '#type'          => 'textfield',
     '#title'         => t('Tooltip text'),
     '#default_value' => theme_get_setting('pinterest_tooltip'),
-    '#states'        => [
+    '#states'        => array(
       // Hide the options when the cancel notify checkbox is disabled.
-      'visible' => [
-        ':input[name="pinterest"]' => [
+      'visible' => array(
+        ':input[name="pinterest"]' => array(
           'checked' => TRUE
-        ],
-      ],
-    ],
-  ];
+        ),
+      ),
+    ),
+  );
 
   // Vimeo
-  $form['options']['social_links']['vimeo'] = [
+  $form['options']['social_links']['vimeo'] = array(
     '#type'          => 'checkbox',
     '#title'         => t('Vimeo'),
     '#default_value' => theme_get_setting('vimeo'),
-  ];
-  $form['options']['social_links']['vimeo_url'] = [
+  );
+  $form['options']['social_links']['vimeo_url'] = array(
     '#type'          => 'textfield',
     '#title'         => t('Vimeo link'),
     '#default_value' => theme_get_setting('vimeo_url'),
-    '#states'        => [
+    '#states'        => array(
       // Hide the options when the cancel notify checkbox is disabled.
-      'visible' => [
-        ':input[name="vimeo"]' => [
+      'visible' => array(
+        ':input[name="vimeo"]' => array(
           'checked' => TRUE
-        ],
-      ],
-    ],
-  ];
-  $form['options']['social_links']['vimeo_tooltip'] = [
+        ),
+      ),
+    ),
+  );
+  $form['options']['social_links']['vimeo_tooltip'] = array(
     '#type'          => 'textfield',
     '#title'         => t('Tooltip text'),
     '#default_value' => theme_get_setting('vimeo_tooltip'),
-    '#states'        => [
+    '#states'        => array(
       // Hide the options when the cancel notify checkbox is disabled.
-      'visible' => [
-        ':input[name="vimeo"]' => [
+      'visible' => array(
+        ':input[name="vimeo"]' => array(
           'checked' => TRUE
-        ],
-      ],
-    ],
-  ];
+        ),
+      ),
+    ),
+  );
 
   // Youtube
-  $form['options']['social_links']['youtube'] = [
+  $form['options']['social_links']['youtube'] = array(
     '#type'          => 'checkbox',
     '#title'         => t('Youtube'),
     '#default_value' => theme_get_setting('youtube'),
-  ];
-  $form['options']['social_links']['youtube_url'] = [
+  );
+  $form['options']['social_links']['youtube_url'] = array(
     '#type'          => 'textfield',
     '#title'         => t('Youtube link'),
     '#default_value' => theme_get_setting('youtube_url'),
-    '#states'        => [
+    '#states'        => array(
       // Hide the options when the cancel notify checkbox is disabled.
-      'visible' => [
-        ':input[name="youtube"]' => [
+      'visible' => array(
+        ':input[name="youtube"]' => array(
           'checked' => TRUE
-        ],
-      ],
-    ],
-  ];
-  $form['options']['social_links']['youtube_tooltip'] = [
+        ),
+      ),
+    ),
+  );
+  $form['options']['social_links']['youtube_tooltip'] = array(
     '#type'          => 'textfield',
     '#title'         => t('Tooltip text'),
     '#default_value' => theme_get_setting('youtube_tooltip'),
-    '#states'        => [
+    '#states'        => array(
       // Hide the options when the cancel notify checkbox is disabled.
-      'visible' => [
-        ':input[name="youtube"]' => [
+      'visible' => array(
+        ':input[name="youtube"]' => array(
           'checked' => TRUE
-        ],
-      ],
-    ],
-  ];
+        ),
+      ),
+    ),
+  );
 }
 
 /**
