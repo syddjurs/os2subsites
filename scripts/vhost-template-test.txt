@@ -1,5 +1,5 @@
 # DO NOT EDIT THIS VHOST. IT WILL BE MODIFIED BY SCRIPTS. (The includes for access limits and ServerAliases)
-<VirtualHost *:8080>
+<VirtualHost *:80>
     <Directory /var/www/testsubsites.syddjurs.dk>
        AllowOverride All
        Options FollowSymLinks
