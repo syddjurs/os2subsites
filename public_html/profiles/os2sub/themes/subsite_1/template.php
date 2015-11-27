@@ -33,7 +33,7 @@ function subsite_1_preprocess_html(&$variables) {
   drupal_add_html_head(array(
     '#tag'        => 'link',
     '#attributes' => array(
-      'href' => 'https://fonts.googleapis.com/css?family=Alegreya+Sans:400,300,400italic,100,700,500,900,800',
+      'href' => 'https://fonts.googleapis.com/css?family=Arvo:400,400italic,700',
       'rel'  => 'stylesheet',
       'type' => 'text/css',
     ),

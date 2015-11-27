@@ -22,7 +22,7 @@ function os2web_news_page_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 8,
+        'weight' => 9,
       ),
       'search_index' => array(
         'label' => 'above',
