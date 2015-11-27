@@ -21,26 +21,37 @@
 		.kontaktblok-text { font-size: @font-size-large;}
 }
 
-.os2web-spotbox-spotbox a {
-	text-decoration: none;
-	.os2web-teaser-heading {
-		.os2web-teaser-heading-title {
-			display: block;
-			font-size: @font-size-h3 ;
-			background-color: @btn-primary-bg;
-			color: @btn-primary-color;
-			padding: @padding-base-horizontal;
+.os2web-spotbox-spotbox {
+		a { text-decoration: none;
 		}
-	}
-	.os2web-teaser-image {
-		
-	}
-	.os2web-teaser-body {
-		.os2web-teaser-body-text {
-			font-size: @font-size-large ;
-			padding: @padding-base-horizontal ;
+		&.imagespot {
+			position: relative;
+			width: 100%; /* for IE 6 */	
+			.os2web-teaser-heading {
+				position: absolute;
+				bottom: 20px;
+				left: 0;
+				width: 100%;
+			}					
 		}
-	}
+
+		.os2web-teaser-heading {
+				
+			.os2web-teaser-heading-title {
+				font-size: @font-size-h4 ;
+				background-color: @btn-primary-bg;
+				color: @btn-primary-color;
+				padding: @padding-base-horizontal;
+			}
+		}
+
+	
+		.os2web-teaser-body {
+			.os2web-teaser-body-text {
+				font-size: @font-size-large ;
+				padding: @padding-base-horizontal ;
+			}
+		}
 }
 
 .footer {
@@ -168,7 +179,9 @@
 }
 
 @bs3-main-navigation-nav-link-font-weight: 400;
-@bs3-main-navigation-nav-link-font-size: 18px;
+@bs3-main-navigation-nav-link-font-size: 15px;
+@bs3-main-navigation-nav-link-hover-font-color: @state-secondary-bg;
+@bs3-main-navigation-nav-link-hover-background-color: transparent ;
 .pane-os2sub-banner  { margin-bottom: 30px; margin-top: 0;}
 .pane-os2sub-nyheder { margin-bottom: 30px; margin-top: 30px;}
 .os2web-spotbox-spotbox { border-radius: 6px;}

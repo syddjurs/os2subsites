@@ -1,6 +1,6 @@
   <?php if (!$page) : ?>
 
-<article id="node-<?php print $node->nid; ?>" class="os2web-box <?php print $classes . " all"; ?> clearfix"<?php print $attributes; ?> date-filter="<?php if (isset($top_parent_term)) print $top_parent_term ?>">
+<article id="node-<?php print $node->nid; ?>" class="os2web-box os2sub-spotbox-teaser<?php print $classes . " all"; ?> clearfix"<?php print $attributes; ?> date-filter="<?php if (isset($top_parent_term)) print $top_parent_term ?>">
 
     <div class="teaser-wrapper">
       <?php if (isset($content['field_os2web_base_field_lead_img'])) : ?>
