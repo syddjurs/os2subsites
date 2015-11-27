@@ -49,14 +49,14 @@ function os2web_spotbox_theme_registry_alter(&$theme_registry) {
 
 /**
  * Implements template_preprocess_node().
- */
+
 function os2web_spotbox_preprocess_node(&$variables) {
   $node = $variables['node'];
 
   $spotbox_url_field = field_get_items('node', $node, 'field_os2web_spotbox_url');
   $variables['spotbox_url'] = !empty($spotbox_url_field) ? array_shift($spotbox_url_field)['value'] : null;
 }
-
+ */
 /**
  * Implements hook_ctools_plugin_directory().
  */
