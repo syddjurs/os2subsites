@@ -46,7 +46,6 @@ dependencies[] = field_sql_storage
 dependencies[] = field
 dependencies[] = fieldable_panels_panes
 dependencies[] = field_group
-dependencies[] = jquery_update
 dependencies[] = locale
 dependencies[] = mailsystem
 dependencies[] = media
