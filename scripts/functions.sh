@@ -11,9 +11,9 @@ validate_sitename() {
     echo "ERROR: Domain not valid"
     exit 10
   fi
-  # hardcoded what the domain must end in svendborg.bellcom.dk
-  if [[ ! "$SITENAME" =~ svendborg.bellcom.dk$ ]]; then
-    echo "ERROR: Domain not valid (doesn't end with svendborg.bellcom.dk)"
+  # hardcoded that the domain must end in subsites.syddjurs.dk
+  if [[ ! "$SITENAME" =~ subsites.syddjurs.dk.dk$ ]]; then
+    echo "ERROR: Domain not valid (doesn't end with subsites.syddjurs.dk)"
     exit 10
   fi
 }

@@ -1,4 +1,4 @@
-BASEDIR="/var/www/subsites.svendborg.dk"
+BASEDIR="/var/www/subsites.syddjurs.dk"
 SERVERIP="192.168.2.56"
 PROFILE="os2sub"
 EMAIL="drupal@bellcom.dk"
