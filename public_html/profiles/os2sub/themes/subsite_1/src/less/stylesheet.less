@@ -21,23 +21,40 @@
 		.kontaktblok-text { font-size: @font-size-large;}
 }
 
-.os2web-spotbox-spotbox {
+.view-mode-spotbox {
 		a { text-decoration: none;
 		}
 		&.imagespot {
 			position: relative;
 			width: 100%; /* for IE 6 */	
-			.os2web-teaser-heading {
+			.os2-node-teaser-heading {
 				position: absolute;
 				bottom: 20px;
 				left: 0;
 				width: 100%;
 			}					
 		}
+		&.node-os2web-base-news {
+			.thumbnail { 
+				background-color: #FFF; 
+				margin-left: -4px;
+				margin-right: -4px;
+				}
 
-		.os2web-teaser-heading {
+			.os2-node-teaser-heading {
+
+				.os2-node-teaser-heading-title {
+					padding: 0 15px;
+					background-color: transparent;
+					color: @btn-primary-color;
+					margin: 10px;
+				}
+			}
+		}
+
+		.os2-node-teaser-heading {
 				
-			.os2web-teaser-heading-title {
+			.os2-node-teaser-heading-title {
 				font-size: @font-size-h4 ;
 				background-color: @btn-primary-bg;
 				color: @btn-primary-color;
@@ -46,8 +63,8 @@
 		}
 
 	
-		.os2web-teaser-body {
-			.os2web-teaser-body-text {
+		.os2-node-teaser-body {
+			.os2-node-teaser-body-content {
 				font-size: @font-size-large ;
 				padding: @padding-base-horizontal ;
 			}

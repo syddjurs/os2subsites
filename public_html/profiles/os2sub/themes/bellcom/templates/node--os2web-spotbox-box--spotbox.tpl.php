@@ -1,8 +1,11 @@
 <?php if ($view_mode == 'spotbox'): ?>
   <!-- node--spotbox--teaser.tpl.php -->
   <!-- Begin - teaser -->
+
+
+
   <article id="node-<?php print $node->nid; ?>" 
-	  class="<?php print $classes; ?> <?php if(!empty($content['field_os2web_spotbox_big_image'])) : ?>imagespot<?php endif; ?> os2web-teaser os2web-spotbox-spotbox"<?php print $attributes; ?>> 
+	  class="<?php print $classes; ?> <?php if(!empty($content['field_os2web_spotbox_big_image'])) : ?>imagespot<?php endif; ?>  os2-node-teaser os2-box os2-box-small-spacing os2web-spotbox-spotbox"<?php print $attributes; ?>> 
 	  
 	<?php if (isset($node->field_spot_link['und']['0']['url'])) : ?>
 	
@@ -24,8 +27,8 @@
 
 		    <?php if(!empty($content['field_os2web_spotbox_text'])) : ?>
 		
-		    <span class="os2web-teaser-body">
-		      <span class="os2web-teaser-body-text">
+		    <span class="os2-node-teaser-body">
+		      <span class="os2-node-teaser-body-content">
 		          <?php print $node->field_os2web_spotbox_text['und']['0']['safe_value']; ?>
 		      </span>
 		    </span>
@@ -34,8 +37,8 @@
 
    	    <?php endif; ?>
   		
-  		<span class="os2web-teaser-heading">
-  			<span class="os2web-teaser-heading-title">
+  		<span class="os2-node-teaser-heading">
+  			<span class="os2-node-teaser-heading-title">
   				<?php print $node->field_spot_link['und']['0']['title']; ?>
   			</span>
   		</span>
@@ -45,3 +48,13 @@
    </article> <!-- /.node -->
 
 <?php endif; ?>
+
+
+
+
+
+
+
+
+
+
