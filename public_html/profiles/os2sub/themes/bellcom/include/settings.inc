@@ -7,8 +7,8 @@ function _theme_settings_form(&$form, $form_state) {
     '#type'        => 'vertical_tabs',
     '#default_tab' => 'main',
     '#weight'      => '-20',
-    '#prefix'      => '<h2><small>' . t('Bellcom settings') . '</small></h2>',
-    '#title'       => t('Bellcom settings'),
+    '#prefix'      => '<h2><small>' . t('Site indstillinger') . '</small></h2>',
+    '#title'       => t('Indstillinger'),
   );
 
   /*
@@ -23,7 +23,7 @@ function _theme_settings_form(&$form, $form_state) {
   // Fieldset
   $form['options']['layout'] = array(
     '#type'  => 'fieldset',
-    '#title' => t('Page layout'),
+    '#title' => t('Sideopsætning'),
   );
 
   // Top bar.
@@ -37,11 +37,11 @@ function _theme_settings_form(&$form, $form_state) {
   // Top bar - contact information
   $form['options']['layout']['top_bar']['contact_information'] = array(
     '#type'          => 'select',
-    '#title'         => t('Show contact information'),
+    '#title'         => t('Vis kontaktinformationer'),
     '#options'       => array(
-      1 => t('No, hide them.'),
-      2 => t('Left side'),
-      3 => t('Right side')
+      1 => t('Nej, skjul dem.'),
+      2 => t('Venstre side'),
+      3 => t('Højre side')
     ),
     '#default_value' => theme_get_setting('contact_information'),
   );
@@ -49,11 +49,11 @@ function _theme_settings_form(&$form, $form_state) {
   // Top bar - social links
   $form['options']['layout']['top_bar']['social_links'] = array(
     '#type'          => 'select',
-    '#title'         => t('Show social links'),
+    '#title'         => t('Vis links til sociale websites'),
     '#options'       => array(
-      1 => t('No, hide them.'),
-      2 => t('Left side'),
-      3 => t('Right side')
+      1 => t('Nej, skjul dem.'),
+      2 => t('Venstre side'),
+      3 => t('Højre side')
     ),
     '#default_value' => theme_get_setting('social_links'),
   );
@@ -61,15 +61,15 @@ function _theme_settings_form(&$form, $form_state) {
   // Navigation
   $form['options']['layout']['navigation'] = array(
     '#type'        => 'fieldset',
-    '#title'       => 'Navigation',
+    '#title'       => t('Navigation'),
     '#collapsible' => TRUE,
     '#collapsed'   => TRUE,
   );
   $form['options']['layout']['navigation']['login_account_links'] = array(
     '#type'          => 'checkbox',
-    '#title'         => t('Show login and user account links'),
+    '#title'         => t('Vis login og brugerlink'),
     '#default_value' => theme_get_setting('login_account_links'),
-    '#description'   => t("Links displayed in right side of navigation"),
+    '#description'   => t("Vises i højre side af navigationen"),
   );
 
   // Sidebar
@@ -83,29 +83,29 @@ function _theme_settings_form(&$form, $form_state) {
   // Sidebar left
   $form['options']['layout']['sidebar']['left'] = array(
     '#type'        => 'fieldset',
-    '#title'       => 'Sidebar left',
+    '#title'       => t('Sidebar venstre'),
     '#collapsible' => TRUE,
     '#collapsed'   => TRUE,
   );
   $form['options']['layout']['sidebar']['left']['xs'] = array(
     '#type'        => 'fieldset',
-    '#title'       => 'XS viewmode',
+    '#title'       => t('XS viewmode'),
     '#collapsible' => TRUE,
     '#collapsed'   => FALSE,
   );
   $form['options']['layout']['sidebar']['left']['xs']['sidebar_left_xs_enabled'] = array(
     '#type'          => 'checkbox',
-    '#title'         => t('Enabled'),
+    '#title'         => t('Aktiv'),
     '#default_value' => theme_get_setting('sidebar_left_xs_enabled'),
   );
   $form['options']['layout']['sidebar']['left']['xs']['sidebar_left_xs_state'] = array(
     '#type'          => 'radios',
-    '#title'         => t('State'),
+    '#title'         => t('Tilstand'),
     '#default_value' => theme_get_setting('sidebar_left_xs_state'),
     '#options'       => array(
-      'expanded'  => 'Expanded',
-      'collapsed' => 'Collapsed',
-      'hidden'    => 'Hidden',
+      'expanded'  => t('Åben'),
+      'collapsed' => t('Lukket'),
+      'hidden'    => t('Skjult'),
     ),
     '#states'        => array(
       'visible' => array(
@@ -131,23 +131,23 @@ function _theme_settings_form(&$form, $form_state) {
 
   $form['options']['layout']['sidebar']['left']['sm'] = array(
     '#type'        => 'fieldset',
-    '#title'       => 'SM viewmode',
+    '#title'       => t('SM viewmode'),
     '#collapsible' => TRUE,
     '#collapsed'   => FALSE,
   );
   $form['options']['layout']['sidebar']['left']['sm']['sidebar_left_sm_enabled'] = array(
     '#type'          => 'checkbox',
-    '#title'         => t('Enabled'),
+    '#title'         => t('Aktiv'),
     '#default_value' => theme_get_setting('sidebar_left_sm_enabled'),
   );
   $form['options']['layout']['sidebar']['left']['sm']['sidebar_left_sm_state'] = array(
     '#type'          => 'radios',
-    '#title'         => t('State'),
+    '#title'         => t('Tilstand'),
     '#default_value' => theme_get_setting('sidebar_left_sm_state'),
     '#options'       => array(
-      'expanded'  => 'Expanded',
-      'collapsed' => 'Collapsed',
-      'hidden'    => 'Hidden',
+      'expanded'  => t('Åben'),
+      'collapsed' => t('Lukket'),
+      'hidden'    => t('Skjult'),
     ),
     '#states'        => array(
       'visible' => array(
@@ -157,11 +157,11 @@ function _theme_settings_form(&$form, $form_state) {
   );
   $form['options']['layout']['sidebar']['left']['sm']['sidebar_left_sm_content_effect'] = array(
     '#type'          => 'radios',
-    '#title'         => t('Content effect'),
+    '#title'         => t('Visning af indhold'),
     '#default_value' => theme_get_setting('sidebar_left_sm_content_effect'),
     '#options'       => array(
-      'shrink' => 'Shrink content',
-      'push'   => 'Push content (off-canvas)',
+      'shrink' => t('Presset sammen'),
+      'push'   => t('Skubbet til siden (off-canvas)'),
     ),
     '#states'        => array(
       'visible' => array(
@@ -173,23 +173,23 @@ function _theme_settings_form(&$form, $form_state) {
 
   $form['options']['layout']['sidebar']['left']['md'] = array(
     '#type'        => 'fieldset',
-    '#title'       => 'MD viewmode',
+    '#title'       => t('MD viewmode'),
     '#collapsible' => TRUE,
     '#collapsed'   => FALSE,
   );
   $form['options']['layout']['sidebar']['left']['md']['sidebar_left_md_enabled'] = array(
     '#type'          => 'checkbox',
-    '#title'         => t('Enabled'),
+    '#title'         => t('Aktiv'),
     '#default_value' => theme_get_setting('sidebar_left_md_enabled'),
   );
   $form['options']['layout']['sidebar']['left']['md']['sidebar_left_md_state'] = array(
     '#type'          => 'radios',
-    '#title'         => t('State'),
+    '#title'         => t('Tilstand'),
     '#default_value' => theme_get_setting('sidebar_left_md_state'),
     '#options'       => array(
-      'expanded'  => 'Expanded',
-      'collapsed' => 'Collapsed',
-      'hidden'    => 'Hidden',
+      'expanded'  => t('Åben'),
+      'collapsed' => t('Lukket'),
+      'hidden'    => t('Skjult'),
     ),
     '#states'        => array(
       'visible' => array(
@@ -199,11 +199,11 @@ function _theme_settings_form(&$form, $form_state) {
   );
   $form['options']['layout']['sidebar']['left']['md']['sidebar_left_md_content_effect'] = array(
     '#type'          => 'radios',
-    '#title'         => t('Content effect'),
+    '#title'         => t('Visning af indhold'),
     '#default_value' => theme_get_setting('sidebar_left_md_content_effect'),
     '#options'       => array(
-      'shrink' => 'Shrink content',
-      'push'   => 'Push content (off-canvas)',
+      'shrink' => t('Presset sammen'),
+      'push'   => t('Skubbet til siden (off-canvas)'),
     ),
     '#states'        => array(
       'visible' => array(
@@ -221,17 +221,17 @@ function _theme_settings_form(&$form, $form_state) {
   );
   $form['options']['layout']['sidebar']['left']['lg']['sidebar_left_lg_enabled'] = array(
     '#type'          => 'checkbox',
-    '#title'         => t('Enabled'),
+    '#title'         => t('Aktiv'),
     '#default_value' => theme_get_setting('sidebar_left_lg_enabled'),
   );
   $form['options']['layout']['sidebar']['left']['lg']['sidebar_left_lg_state'] = array(
     '#type'          => 'radios',
-    '#title'         => t('State'),
+    '#title'         => t('Tilstand'),
     '#default_value' => theme_get_setting('sidebar_left_lg_state'),
     '#options'       => array(
-      'expanded'  => 'Expanded',
-      'collapsed' => 'Collapsed',
-      'hidden'    => 'Hidden',
+      'expanded'  => t('Åben'),
+      'collapsed' => t('Lukket'),
+      'hidden'    => t('Skjult'),
     ),
     '#states'        => array(
       'visible' => array(
@@ -241,11 +241,11 @@ function _theme_settings_form(&$form, $form_state) {
   );
   $form['options']['layout']['sidebar']['left']['lg']['sidebar_left_lg_content_effect'] = array(
     '#type'          => 'radios',
-    '#title'         => t('Content effect'),
+    '#title'         => t('Visning af indhold'),
     '#default_value' => theme_get_setting('sidebar_left_lg_content_effect'),
     '#options'       => array(
-      'shrink' => 'Shrink content',
-      'push'   => 'Push content (off-canvas)',
+      'shrink' => t('Presset sammen'),
+      'push'   => t('Skubbet til siden (off-canvas)'),
     ),
     '#states'        => array(
       'visible' => array(
@@ -258,15 +258,15 @@ function _theme_settings_form(&$form, $form_state) {
   // Footer
   $form['options']['layout']['footer'] = array(
     '#type'        => 'fieldset',
-    '#title'       => 'Footer',
+    '#title'       => t('Footer'),
     '#collapsible' => TRUE,
     '#collapsed'   => TRUE,
   );
   $form['options']['layout']['footer']['footer_show_social_links'] = array(
     '#type'          => 'checkbox',
-    '#title'         => t('Show social links'),
+    '#title'         => t('Vis links til sociale tjenester'),
     '#default_value' => theme_get_setting('footer_show_social_links'),
-    '#description'   => t("Should social links be displayed inside the footer?"),
+    '#description'   => t("Skal links til sociale tjenester vises i bunden af siden?"),
   );
 
   /*
@@ -281,137 +281,108 @@ function _theme_settings_form(&$form, $form_state) {
   // Fieldset
   $form['options']['contact_information'] = array(
     '#type'  => 'fieldset',
-    '#title' => t('Contact information'),
+    '#title' => t('Kontakt information'),
   );
 
   // Business owner name
   $form['options']['contact_information']['business_owner_name'] = array(
     '#type'          => 'textfield',
-    '#title'         => t('Business owner name'),
+    '#title'         => t('Navn'),
     '#default_value' => theme_get_setting('business_owner_name'),
   );
 
   // Business startup year
   $form['options']['contact_information']['business_startup_year'] = array(
     '#type'          => 'textfield',
-    '#title'         => t('Business startup year'),
+    '#title'         => t('Opstartsår'),
     '#default_value' => theme_get_setting('business_startup_year'),
   );
 
   // Address
   $form['options']['contact_information']['address'] = array(
     '#type'          => 'textfield',
-    '#title'         => t('Address'),
+    '#title'         => t('Adresse'),
     '#default_value' => theme_get_setting('address'),
   );
 
   // Zipcode
   $form['options']['contact_information']['zipcode'] = array(
     '#type'          => 'textfield',
-    '#title'         => t('Zipcode'),
+    '#title'         => t('Postnr'),
     '#default_value' => theme_get_setting('zipcode'),
   );
 
   // City
   $form['options']['contact_information']['city'] = array(
     '#type'          => 'textfield',
-    '#title'         => t('City'),
+    '#title'         => t('By'),
     '#default_value' => theme_get_setting('city'),
   );
 
   // Phone number
   $form['options']['contact_information']['phone_system'] = array(
     '#type'          => 'textfield',
-    '#title'         => t('Phone number'),
-    '#description'   => t('Remember: you need to use the correct format. Ex.: 004570260085'),
+    '#title'         => t('Telefon'),
+    '#description'   => t('HUSK: uden mellemrum og inkl. +45 f.eks.: +4570260085'),
     '#default_value' => theme_get_setting('phone_system'),
   );
 
   // Phone number - readable
   $form['options']['contact_information']['phone_readable'] = array(
     '#type'          => 'textfield',
-    '#title'         => t('Readable phone number'),
-    '#description'   => t('The textual representation of your phone number.'),
+    '#title'         => t('Vist telefon nummer'),
+    '#description'   => t('Telefonnummeret vist (brug evt. mellemrum så det er let læseligt)'),
     '#default_value' => theme_get_setting('phone_readable'),
   );
 
   // E-mail address
   $form['options']['contact_information']['email'] = array(
     '#type'          => 'textfield',
-    '#title'         => t('Email address'),
+    '#title'         => t('E-mail'),
     '#default_value' => theme_get_setting('email'),
   );
 
   // Working hours
   $form['options']['contact_information']['working_hours'] = array(
     '#type'          => 'textfield',
-    '#title'         => t('Opening hours'),
+    '#title'         => t('Åbningstid eller anden info'),
     '#default_value' => theme_get_setting('working_hours'),
   );
 
-  /*
-  |--------------------------------------------------------------------------
-  | Footer logo
-  |--------------------------------------------------------------------------
-  |
-  | Sets all necessary options to save data.
-  |
-  */
-
-
-  // Check for a freshly uploaded header image, save it to the
-  // filesystem, and grab its full path for later use.
-  /*if ($file = file_save_upload('footer_logo',
-      array('file_validate_is_image' => array()))) {
-    $parts = pathinfo($file->filename);
-    $filename = 'bellcom_footer_logo.'. $parts['extension'];
-    if (file_copy($file, $filename, FILE_EXISTS_REPLACE)) {
-      $settings['options']['footer_logo']['footer_logo_path'] = $file->filepath;
-    }
-  }
-
-  // Fieldset
-  /*$form['options']['footer_logo'] = array(    '#type'  => 'fieldset',
-    '#title' => t('Footer logo'),
+  
+  /**
+* Implementation of THEMEHOOK_settings() function.
+*
+* @param $saved_settings
+*   array An array of saved settings for this theme.
+* @return
+*   array A form array.
+*/
+/* Disabled
+  $form['options']['sublogo'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Secondary logo'),
+    '#description' => t("May be displayed in the footer or under a column.")
+  );
+  $form['options']['sublogo']['use_sublogo'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Use a sublogo.'),
+    '#default_value' => theme_get_setting('use_sublogo'),
+  );
+  $form['options']['sublogo']['sublogo_path'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Path to sublogo'),
+    '#default_value' => theme_get_setting('sublogo_path'),
   );
 
-
-/**
- * Implementation of hook_settings() for themes.
- */
-
-  // Check for a freshly uploaded header image, save it to the
-  // filesystem, and grab its full path for later use.
-  /*if ($file = file_save_upload('footer_logo',
-      array('file_validate_is_image' => array()))) {
-    $parts = pathinfo($file->filename);
-    $filename = 'bellcom_footer_logo.'. $parts['extension'];
-    if (file_copy($file, $filename, FILE_EXISTS_REPLACE)) {
-      $settings['options']['footer_logo']['footer_logo_path'] = $file->filepath;
-    }
-  }
-
-  // Define the settings-related FormAPI elements.
-
-  $form['options']['footer_logo']['footer_logo'] = array(
+  $form['options']['sublogo']['sublogo_upload'] = array(
     '#type' => 'file',
-    '#title' => t('Footer logo'),
-    '#maxlength' => 40,
+    '#title' => t('Upload sublogo image'),
   );
-  $form['options']['footer_logo']['footer_logo_path'] = array(
-    '#type' => 'value',
-    '#value' => !empty($settings['footer_logo_path']) ?
-      $settings['options']['footer_logo']['footer_logo_path'] : '',
-  );
-  if (!empty($settings['options']['footer_logo']['footer_logo_path'])) {
-    $form['options']['footer_logo']['footer_logo_preview'] = array(
-      '#type' => 'markup',
-      '#value' => !empty($settings['options']['footer_logo']['footer_logo_path']) ? 
-		  theme('image', $settings['options']['footer_logo']['footer_logo_path']) : '',
-    );
-  }
+  $form['#submit'][] = 'bellcom_settings_submit';
+  $form['options']['sublogo']['sublogo_upload']['#element_validate'][] = 'bellcom_settings_submit';
  
-
+  */
   
     /*
   |--------------------------------------------------------------------------
@@ -425,7 +396,7 @@ function _theme_settings_form(&$form, $form_state) {
   // Fieldset
   $form['options']['social_links'] = array(
     '#type'  => 'fieldset',
-    '#title' => t('Social links'),
+    '#title' => t('Sociale tjenester'),
   );
 
   // Facebook
@@ -436,7 +407,7 @@ function _theme_settings_form(&$form, $form_state) {
   );
   $form['options']['social_links']['facebook_url'] = array(
     '#type'          => 'textfield',
-    '#title'         => t('Facebook link'),
+    '#title'         => t('Facebook URL'),
     '#default_value' => theme_get_setting('facebook_url'),
     '#states'        => array(
       // Hide the options when the cancel notify checkbox is disabled.
@@ -449,7 +420,7 @@ function _theme_settings_form(&$form, $form_state) {
   );
   $form['options']['social_links']['facebook_tooltip'] = array(
     '#type'          => 'textfield',
-    '#title'         => t('Tooltip text'),
+    '#title'         => t('Tekst ved mouse-over'),
     '#default_value' => theme_get_setting('facebook_tooltip'),
     '#states'        => array(
       // Hide the options when the cancel notify checkbox is disabled.
@@ -469,7 +440,7 @@ function _theme_settings_form(&$form, $form_state) {
   );
   $form['options']['social_links']['twitter_url'] = array(
     '#type'          => 'textfield',
-    '#title'         => t('Twitter link'),
+    '#title'         => t('Twitter URL'),
     '#default_value' => theme_get_setting('twitter_url'),
     '#states'        => array(
       // Hide the options when the cancel notify checkbox is disabled.
@@ -482,7 +453,7 @@ function _theme_settings_form(&$form, $form_state) {
   );
   $form['options']['social_links']['twitter_tooltip'] = array(
     '#type'          => 'textfield',
-    '#title'         => t('Tooltip text'),
+    '#title'         => t('Tekst ved mouse-over'),
     '#default_value' => theme_get_setting('twitter_tooltip'),
     '#states'        => array(
       // Hide the options when the cancel notify checkbox is disabled.
@@ -502,7 +473,7 @@ function _theme_settings_form(&$form, $form_state) {
   );
   $form['options']['social_links']['googleplus_url'] = array(
     '#type'          => 'textfield',
-    '#title'         => t('Google plus link'),
+    '#title'         => t('Google plus URL'),
     '#default_value' => theme_get_setting('googleplus_url'),
     '#states'        => array(
       // Hide the options when the cancel notify checkbox is disabled.
@@ -515,7 +486,7 @@ function _theme_settings_form(&$form, $form_state) {
   );
   $form['options']['social_links']['googleplus_tooltip'] = array(
     '#type'          => 'textfield',
-    '#title'         => t('Tooltip text'),
+    '#title'         => t('Tekst ved mouse-over'),
     '#default_value' => theme_get_setting('googleplus_tooltip'),
     '#states'        => array(
       // Hide the options when the cancel notify checkbox is disabled.
@@ -535,7 +506,7 @@ function _theme_settings_form(&$form, $form_state) {
   );
   $form['options']['social_links']['instagram_url'] = array(
     '#type'          => 'textfield',
-    '#title'         => t('Instagram link'),
+    '#title'         => t('Instagram URL'),
     '#default_value' => theme_get_setting('instagram_url'),
     '#states'        => array(
       // Hide the options when the cancel notify checkbox is disabled.
@@ -548,7 +519,7 @@ function _theme_settings_form(&$form, $form_state) {
   );
   $form['options']['social_links']['instagram_tooltip'] = array(
     '#type'          => 'textfield',
-    '#title'         => t('Tooltip text'),
+    '#title'         => t('Tekst ved mouse-over'),
     '#default_value' => theme_get_setting('instagram_tooltip'),
     '#states'        => array(
       // Hide the options when the cancel notify checkbox is disabled.
@@ -568,7 +539,7 @@ function _theme_settings_form(&$form, $form_state) {
   );
   $form['options']['social_links']['linkedin_url'] = array(
     '#type'          => 'textfield',
-    '#title'         => t('LinkedIn link'),
+    '#title'         => t('LinkedIn URL'),
     '#default_value' => theme_get_setting('linkedin_url'),
     '#states'        => array(
       // Hide the options when the cancel notify checkbox is disabled.
@@ -581,7 +552,7 @@ function _theme_settings_form(&$form, $form_state) {
   );
   $form['options']['social_links']['linkedin_tooltip'] = array(
     '#type'          => 'textfield',
-    '#title'         => t('Tooltip text'),
+    '#title'         => t('Tekst ved mouse-over'),
     '#default_value' => theme_get_setting('linkedin_tooltip'),
     '#states'        => array(
       // Hide the options when the cancel notify checkbox is disabled.
@@ -601,7 +572,7 @@ function _theme_settings_form(&$form, $form_state) {
   );
   $form['options']['social_links']['pinterest_url'] = array(
     '#type'          => 'textfield',
-    '#title'         => t('Pinterest link'),
+    '#title'         => t('Pinterest URL'),
     '#default_value' => theme_get_setting('pinterest_url'),
     '#states'        => array(
       // Hide the options when the cancel notify checkbox is disabled.
@@ -614,7 +585,7 @@ function _theme_settings_form(&$form, $form_state) {
   );
   $form['options']['social_links']['pinterest_tooltip'] = array(
     '#type'          => 'textfield',
-    '#title'         => t('Tooltip text'),
+    '#title'         => t('Tekst ved mouse-over'),
     '#default_value' => theme_get_setting('pinterest_tooltip'),
     '#states'        => array(
       // Hide the options when the cancel notify checkbox is disabled.
@@ -634,7 +605,7 @@ function _theme_settings_form(&$form, $form_state) {
   );
   $form['options']['social_links']['vimeo_url'] = array(
     '#type'          => 'textfield',
-    '#title'         => t('Vimeo link'),
+    '#title'         => t('Vimeo URL'),
     '#default_value' => theme_get_setting('vimeo_url'),
     '#states'        => array(
       // Hide the options when the cancel notify checkbox is disabled.
@@ -647,7 +618,7 @@ function _theme_settings_form(&$form, $form_state) {
   );
   $form['options']['social_links']['vimeo_tooltip'] = array(
     '#type'          => 'textfield',
-    '#title'         => t('Tooltip text'),
+    '#title'         => t('Tekst ved mouse-over'),
     '#default_value' => theme_get_setting('vimeo_tooltip'),
     '#states'        => array(
       // Hide the options when the cancel notify checkbox is disabled.
@@ -667,7 +638,7 @@ function _theme_settings_form(&$form, $form_state) {
   );
   $form['options']['social_links']['youtube_url'] = array(
     '#type'          => 'textfield',
-    '#title'         => t('Youtube link'),
+    '#title'         => t('Youtube URL'),
     '#default_value' => theme_get_setting('youtube_url'),
     '#states'        => array(
       // Hide the options when the cancel notify checkbox is disabled.
@@ -680,7 +651,7 @@ function _theme_settings_form(&$form, $form_state) {
   );
   $form['options']['social_links']['youtube_tooltip'] = array(
     '#type'          => 'textfield',
-    '#title'         => t('Tooltip text'),
+    '#title'         => t('Tekst ved mouse-over'),
     '#default_value' => theme_get_setting('youtube_tooltip'),
     '#states'        => array(
       // Hide the options when the cancel notify checkbox is disabled.
@@ -736,6 +707,13 @@ function _bellcom_collect_theme_settings() {
   $settings['social_links']['youtube']['active'] = theme_get_setting('youtube');
   $settings['social_links']['youtube']['url'] = theme_get_setting('youtube_url');
   $settings['social_links']['youtube']['tooltip'] = t(theme_get_setting('youtube_tooltip'));
+  
+  // Logos
+/* Disabled 
+  $settings['sublogo']['use_sublogo'] = theme_get_setting('use_sublogo');
+  $settings['sublogo']['sublogo_path'] = theme_get_setting('sublogo_path');
+*/  
+  
 
   // Layout
   $settings['layout']['copyright'] = ($settings['contact_information']['business_startup_year'] < date('Y') AND $settings['contact_information']['business_startup_year'] !== NULL) ? $settings['contact_information']['business_startup_year'] . '-' . date('Y') : date('Y');
@@ -744,6 +722,29 @@ function _bellcom_collect_theme_settings() {
 
   return $settings;
 }
+
+/**
+ * Capture theme settings submissions and update uploaded image
+ */
+/* Disabled
+	
+	function bellcom_settings_submit($form, &$form_state) {
+  // Check for a new uploaded file, and use that if available.
+  if ($file = file_save_upload('sublogo_upload')) {
+    $parts = pathinfo($file->filename);
+    $filename = (! empty($key)) ? str_replace('/', '_', $key) .'_sublogo.'. $parts['extension'] : 'sublogo.'. $parts['extension'];
+
+    // The image was saved using file_save_upload() and was added to the
+    // files table as a temporary file. We'll make a copy and let the garbage
+    // collector delete the original upload.
+    if (file_copy($file, $filename)) {
+      $_POST['sublogo']['use_sublogo'] = $form_state['values']['sublogo']['use_sublogo'] = TRUE;
+      $_POST['sublogo']['sublogo_path'] = $form_state['values']['sublogo']['sublogo_path'] = $file->filepath;
+    }
+  }
+}
+
+
 
 /*
  * Sidebar classes

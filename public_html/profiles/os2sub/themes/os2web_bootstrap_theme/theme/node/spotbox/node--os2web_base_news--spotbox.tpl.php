@@ -1,10 +1,10 @@
   <?php if (!$page) : ?>
 
-<article id="node-<?php print $node->nid; ?>" class="s2-node-teaser os2-box os2-box-small-spacing <?php print $classes . " all"; ?> clearfix"<?php print $attributes; ?> date-filter="<?php if (isset($top_parent_term)) print $top_parent_term ?>">
+<article id="node-<?php print $node->nid; ?>" class="os2-node-teaser view-mode-spotbox os2-box os2-box-small-spacing <?php print $classes . " all"; ?> clearfix"<?php print $attributes; ?> date-filter="<?php if (isset($top_parent_term)) print $top_parent_term ?>">
 
     <div class="thumbnail">
       <?php if (isset($content['field_os2web_base_field_lead_img'])) : ?>
-            <div>
+            <div class="image">
               <?php
                 $img = field_get_items('node', $node, 'field_os2web_base_field_lead_img');
                 $image = $img[0];
@@ -15,18 +15,23 @@
                 print $html = '<img class="img-responsive img-rounded" title = "' . $image["title"] . '" src="' . $public_filename . '"/></a>';
               ?>
             </div>
-                     
+            <div class="os2-node-teaser-heading">
+              
               <h3 class="os2-node-teaser-heading-title">
                 <a class="news-title" href="<?php global $base_url; print $base_url . $node_url; ?>">
                     <?php print $node->title; ?></a>
               </h3>
+              
               <div class="news-text-date">
-               <span class="news-date-day"><?php print date('j', $created); ?></span>
+               <span class="news-date-day"><?php print date('j', $created); ?>.</span>
                <span class="news-date-month"><?php $m = date('M', $created); print t($m);?></span>
-             </div>
+			   <span class="news-date-year">- <?php print date('Y', $created);?></span>
+              </div>
+              
+            </div>
             
       <?php else: ?> 
-      	<div class=" os2-node-teaser-heading">  
+      	<div class="os2-node-teaser-heading">  
 	        <h3 class="os2-node-teaser-heading-title">
 	           <a class="news-title" href="<?php global $base_url; print $base_url . $node_url; ?>">
 		          <?php print $node->title; ?>
@@ -35,8 +40,9 @@
       	</div>
                      
          <div class="news-text-date">
-           <span class="news-date-day"><?php print date('j', $created); ?></span>
+           <span class="news-date-day"><?php print date('j', $created); ?>.</span>
            <span class="news-date-month"><?php $m = date('M', $created); print t($m);?></span>
+           <span class="news-date-year">- <?php print date('Y', $created);?></span>
          </div>
          
          <?php if (!empty($content['field_os2web_base_field_summary'])) : ?>

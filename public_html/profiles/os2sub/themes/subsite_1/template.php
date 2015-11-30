@@ -40,9 +40,10 @@ function subsite_1_preprocess_html(&$variables) {
   ), 'google_font_subsite_1');
   
   // Body classes
-  $variables['classes_array'][] = 'footer-attached';
+  // $variables['classes_array'][] = 'footer-attached';
 
   $variables['classes_array'][] = 'simple-navigation-enabled-xs';
+  $variables['classes_array'][] = 'simple-navigation-enabled-sm';
 
   $variables['classes_array'][] = 'main-navigation-enabled-md';
   $variables['classes_array'][] = 'main-navigation-enabled-lg';

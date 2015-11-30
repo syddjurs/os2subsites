@@ -53,7 +53,7 @@ function os2sub_frontpage_default_page_manager_pages() {
     'name' => '',
   );
   $display = new panels_display();
-  $display->layout = 'content-with-left-and-right-sidebar-top-footer';
+  $display->layout = 'os2web-frontpage';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -207,32 +207,6 @@ function os2sub_frontpage_default_page_manager_pages() {
     $display->content['new-a5cd909e-5ece-4038-b417-70138b51c711'] = $pane;
     $display->panels['sidebar-left'][0] = 'new-a5cd909e-5ece-4038-b417-70138b51c711';
     $pane = new stdClass();
-    $pane->pid = 'new-ea158aba-915b-4589-9b04-b71452a2eefa';
-    $pane->panel = 'sidebar-right';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'os2web_contact_view_contact-panel_pane_1';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'arguments' => array(
-        'nid' => '',
-      ),
-      'override_title' => 1,
-      'override_title_text' => '',
-      'override_title_heading' => 'h2',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = 'ea158aba-915b-4589-9b04-b71452a2eefa';
-    $display->content['new-ea158aba-915b-4589-9b04-b71452a2eefa'] = $pane;
-    $display->panels['sidebar-right'][0] = 'new-ea158aba-915b-4589-9b04-b71452a2eefa';
-    $pane = new stdClass();
     $pane->pid = 'new-0a309486-028f-4cc5-850a-360aa747f7d8';
     $pane->panel = 'sidebar-right';
     $pane->type = 'views';
@@ -262,11 +236,11 @@ function os2sub_frontpage_default_page_manager_pages() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 1;
+    $pane->position = 0;
     $pane->locks = array();
     $pane->uuid = '0a309486-028f-4cc5-850a-360aa747f7d8';
     $display->content['new-0a309486-028f-4cc5-850a-360aa747f7d8'] = $pane;
-    $display->panels['sidebar-right'][1] = 'new-0a309486-028f-4cc5-850a-360aa747f7d8';
+    $display->panels['sidebar-right'][0] = 'new-0a309486-028f-4cc5-850a-360aa747f7d8';
     $pane = new stdClass();
     $pane->pid = 'new-e1070e0a-b9df-4343-8e86-513d5a0a4cad';
     $pane->panel = 'top';

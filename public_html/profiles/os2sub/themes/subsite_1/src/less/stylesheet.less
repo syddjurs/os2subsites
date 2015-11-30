@@ -20,7 +20,7 @@
 		.kontaktblok-headline 	{ font-size: @font-size-h3;}	
 		.kontaktblok-text { font-size: @font-size-large;}
 }
-
+// os2-node-teaser node node-os2web-base-news view-mode-spotbox node--os2web_base_news--spotbox
 .view-mode-spotbox {
 		a { text-decoration: none;
 		}
@@ -34,20 +34,28 @@
 				width: 100%;
 			}					
 		}
+		
+// os2-node-teaser view-mode-spotbox os2-box os2-box-small-spacing node node-os2web-base-news contextual-links-region view-mode-spotbox node--os2web_base_news--spotbox
+		
 		&.node-os2web-base-news {
 			.thumbnail { 
 				background-color: #FFF; 
 				margin-left: -4px;
 				margin-right: -4px;
-				}
 
-			.os2-node-teaser-heading {
-
-				.os2-node-teaser-heading-title {
-					padding: 0 15px;
-					background-color: transparent;
-					color: @btn-primary-color;
-					margin: 10px;
+				.os2-node-teaser-heading {
+					padding: 5px 12px 12px;
+	
+					h3.os2-node-teaser-heading-title {
+						background-color: transparent;
+						color: @btn-primary-color;
+						margin: 10px 0 5px;
+						padding: 0;
+					}
+					.news-text-date {
+						font-style: italic;
+						font-size: @font-size-small;
+					}
 				}
 			}
 		}
@@ -194,12 +202,21 @@
 		}
 	}
 }
+@bs3-simple-navigation-background-color: #FFF;
+
+//== List
+@bs3-simple-navigation-list-button-color: #333;
+@bs3-simple-navigation-list-button-icon-color: #000;
 
 @bs3-main-navigation-nav-link-font-weight: 400;
 @bs3-main-navigation-nav-link-font-size: 15px;
 @bs3-main-navigation-nav-link-hover-font-color: @state-secondary-bg;
 @bs3-main-navigation-nav-link-hover-background-color: transparent ;
-.pane-os2sub-banner  { margin-bottom: 30px; margin-top: 0;}
-.pane-os2sub-nyheder { margin-bottom: 30px; margin-top: 30px;}
+.front .pane-os2sub-banner  { margin-bottom: 30px; margin-top: 0;}
+.front .pane-os2sub-nyheder { margin-bottom: 30px; margin-top: 30px;}
 .os2web-spotbox-spotbox { border-radius: 6px;}
 @radius: 3px;
+
+.simple-navigation-logo-link { color: #333; text-align: left; font-size: @font-size-large;
+	&:hover { color: #dedede}
+}

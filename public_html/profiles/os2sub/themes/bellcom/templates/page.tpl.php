@@ -7,8 +7,9 @@
     <!-- Begin - logo - wide -->
     <div class="sidebar-logo">
       <a href="<?php print $front_page; ?>" class="sidebar-logo-link">
-        <img src="<?php print $path_img . '/logo-sidebar-wide.png'; ?>" class="sidebar-logo-image sidebar-logo-image-wide" alt="<?php print $site_name. t(' logo'); ?>" />
-        <img src="<?php print $path_img . '/logo-sidebar-narrow.png'; ?>" class="sidebar-logo-image sidebar-logo-image-narrow" alt="<?php print $site_name. t(' logo'); ?>" />
+        
+        <img src="<?php print $logo; ?>" class="sidebar-logo-image sidebar-logo-image-wide" alt="<?php print $site_name. t(' logo'); ?>" />
+        <img src="<?php print $path_img . '/logo-xs.png'; ?>" class="sidebar-logo-image sidebar-logo-image-narrow" alt="<?php print $site_name. t(' logo'); ?>" />
       </a>
     </div>
     <!-- End - logo - wide -->
@@ -44,7 +45,7 @@
 
       <!-- Begin - logo -->
       <a href="<?php print $front_page; ?>" class="simple-navigation-logo-link">
-        <img src="<?php print $path_img . '/logo.png'; ?>" class="simple-navigation-logo-image" alt="<?php print $site_name . ' logo'; ?>" />
+        <?php print $site_name; ?>
       </a>
       <!-- End - logo -->
 
@@ -152,10 +153,11 @@
     <!-- End - content -->
         
 
-    <?php if (!empty($page['footer']) OR !empty($theme_settings['contact_information']) OR !empty($theme_settings['social_links']) ) : ?>
+    <?php if (!empty($page['footer']) OR !empty($theme_settings['contact_information']) OR !empty($theme_settings['social_links']) OR !empty($theme_settings['social_links']) ) : ?>
       <!-- Begin - footer -->
+      <div class="container">
       <footer class="footer content">
-	      <div class="container">
+
 	        
 	        <?php print render($page['footer']); ?>
 	
@@ -207,7 +209,7 @@
 	        	
 			<?php endif; ?>	        	
 	        	
-	        <?php if (!empty($theme_settings['social_links'])): ?>
+	        <?php if (isset($theme_settings['social_links'])): ?>
 
 <ul class="social-icon-list">
 
@@ -246,8 +248,8 @@
                 </ul>	        
 	        <?php endif ?>        
 	        
-	      </div>        
       </footer>
+  </div>
       <!-- End - footer -->
     <?php endif; ?>
 
