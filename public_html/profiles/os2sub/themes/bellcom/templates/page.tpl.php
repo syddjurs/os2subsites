@@ -153,7 +153,7 @@
     <!-- End - content -->
         
 
-    <?php if (!empty($page['footer']) OR !empty($theme_settings['contact_information']) OR !empty($theme_settings['social_links']) OR !empty($theme_settings['social_links']) ) : ?>
+    <?php if (!empty($page['footer']) OR !empty($theme_settings['contact_information']) OR $theme_settings['layout']['footer']['show_social_links'] ) : ?>
       <!-- Begin - footer -->
       <div class="container">
       <footer class="footer content">
@@ -209,7 +209,7 @@
 	        	
 			<?php endif; ?>	        	
 	        	
-	        <?php if (isset($theme_settings['social_links'])): ?>
+	        <?php if ($theme_settings['layout']['footer']['show_social_links']) : ?>
 
 <ul class="social-icon-list">
 
