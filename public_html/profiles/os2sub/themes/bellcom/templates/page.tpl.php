@@ -202,7 +202,7 @@
 				<?php endif; ?>
 				
 				<?php if (isset($theme_settings['contact_information']['working_hours']) ) : ?>
-				<?php print '| '.t('Åbent').': '.$theme_settings['contact_information']['working_hours']; ?>
+				<?php print '| '.$theme_settings['contact_information']['working_hours']; ?>
 				<?php endif; ?>
 
 	        </div>
