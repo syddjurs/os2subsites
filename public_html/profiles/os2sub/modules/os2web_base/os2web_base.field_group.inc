@@ -89,9 +89,9 @@ function os2web_base_field_group_info() {
     'label' => 'Indstillinger',
     'weight' => '9',
     'children' => array(
-      0 => 'field_os2web_base_field_contact',
-      1 => 'field_os2web_base_field_hidlinks',
-      2 => 'field_svendborg_hide_sidebar',
+      0 => 'field_svendborg_hide_sidebar',
+      1 => 'field_os2web_base_field_contact',
+      2 => 'field_os2web_base_field_hidlinks',
       3 => 'field_svendborg_hide_contact',
     ),
     'format_type' => 'htab',
@@ -253,16 +253,11 @@ function os2web_base_field_group_info() {
   $field_group->entity_type = 'node';
   $field_group->bundle = 'os2web_base_contentpage';
   $field_group->mode = 'form';
-  $field_group->parent_name = 'group_os2web_base_group_3';
+  $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Skjult',
     'weight' => '15',
-    'children' => array(
-      0 => 'field_os2web_base_field_case',
-      1 => 'field_os2web_base_field_doc',
-      2 => 'field_os2web_base_field_sourceid',
-      3 => 'field_os2web_base_field_struct',
-    ),
+    'children' => array(),
     'format_type' => 'fieldset',
     'format_settings' => array(
       'formatter' => 'collapsible',
@@ -409,6 +404,7 @@ function os2web_base_field_group_info() {
       2 => 'field_os2web_base_field_contact',
       3 => 'field_os2web_base_field_hidlinks',
       4 => 'field_os2web_base_field_promote',
+      5 => 'field_baggrund',
     ),
     'format_type' => 'htab',
     'format_settings' => array(
@@ -616,9 +612,9 @@ function os2web_base_field_group_info() {
     'label' => 'Relationer',
     'weight' => '8',
     'children' => array(
-      0 => 'field_os2web_base_field_selfserv',
+      0 => 'field_os2web_base_field_ext_link',
       1 => 'field_os2web_base_field_related',
-      2 => 'field_os2web_base_field_ext_link',
+      2 => 'field_os2web_base_field_selfserv',
     ),
     'format_type' => 'htab',
     'format_settings' => array(
@@ -704,8 +700,7 @@ function os2web_base_field_group_info() {
     'weight' => '7',
     'children' => array(
       0 => 'field_os2web_base_field_spotbox',
-      1 => 'field_webform',
-      2 => 'field_os2web_base_field_webform',
+      1 => 'field_os2web_base_field_webform',
     ),
     'format_type' => 'htab',
     'format_settings' => array(
