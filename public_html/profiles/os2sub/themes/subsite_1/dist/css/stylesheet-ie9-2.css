@@ -1247,19 +1247,19 @@
 
 @media (max-width: 767px) {
   .navbar-default .navbar-nav .open .dropdown-menu > li > a {
-    color: #777;
+    color: #191919;
   }
 
   .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
   .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
-    color: #333;
+    color: #8B0053;
     background-color: transparent;
   }
 
   .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
   .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
   .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
-    color: #555;
+    color: #8B0053;
     background-color: #e7e7e7;
   }
 
@@ -4571,7 +4571,7 @@
   }
 
   .sidebar-left-enabled-xs.sidebar-left-hidden-xs .sidebar-navigation > li > a {
-    font-family: 'Arvo', Helvetica, Arial, sans-serif;
+    font-family: 'PT Sans', sans-serif;
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
@@ -4640,7 +4640,7 @@
   }
 
   .sidebar-left-enabled-xs.sidebar-left-hidden-xs .sidebar-navigation .sidebar-navigation-dropdown-menu a {
-    font-family: 'Arvo', Helvetica, Arial, sans-serif;
+    font-family: 'PT Sans', sans-serif;
     font-weight: 400;
     font-size: 12px;
     line-height: 17px;
@@ -4731,7 +4731,7 @@
   }
 
   .sidebar-left-enabled-sm.sidebar-left-hidden-sm .sidebar-navigation > li > a {
-    font-family: 'Arvo', Helvetica, Arial, sans-serif;
+    font-family: 'PT Sans', sans-serif;
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
@@ -4800,7 +4800,7 @@
   }
 
   .sidebar-left-enabled-sm.sidebar-left-hidden-sm .sidebar-navigation .sidebar-navigation-dropdown-menu a {
-    font-family: 'Arvo', Helvetica, Arial, sans-serif;
+    font-family: 'PT Sans', sans-serif;
     font-weight: 400;
     font-size: 12px;
     line-height: 17px;
@@ -4891,7 +4891,7 @@
   }
 
   .sidebar-left-enabled-md.sidebar-left-hidden-md .sidebar-navigation > li > a {
-    font-family: 'Arvo', Helvetica, Arial, sans-serif;
+    font-family: 'PT Sans', sans-serif;
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
@@ -4960,7 +4960,7 @@
   }
 
   .sidebar-left-enabled-md.sidebar-left-hidden-md .sidebar-navigation .sidebar-navigation-dropdown-menu a {
-    font-family: 'Arvo', Helvetica, Arial, sans-serif;
+    font-family: 'PT Sans', sans-serif;
     font-weight: 400;
     font-size: 12px;
     line-height: 17px;
@@ -5051,7 +5051,7 @@
   }
 
   .sidebar-left-enabled-lg.sidebar-left-hidden-lg .sidebar-navigation > li > a {
-    font-family: 'Arvo', Helvetica, Arial, sans-serif;
+    font-family: 'PT Sans', sans-serif;
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
@@ -5120,7 +5120,7 @@
   }
 
   .sidebar-left-enabled-lg.sidebar-left-hidden-lg .sidebar-navigation .sidebar-navigation-dropdown-menu a {
-    font-family: 'Arvo', Helvetica, Arial, sans-serif;
+    font-family: 'PT Sans', sans-serif;
     font-weight: 400;
     font-size: 12px;
     line-height: 17px;
@@ -5188,7 +5188,7 @@
   }
 
   .sidebar-left-enabled-xs.sidebar-left-expanded-xs .sidebar-navigation > li > a {
-    font-family: 'Arvo', Helvetica, Arial, sans-serif;
+    font-family: 'PT Sans', sans-serif;
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
@@ -5257,7 +5257,7 @@
   }
 
   .sidebar-left-enabled-xs.sidebar-left-expanded-xs .sidebar-navigation .sidebar-navigation-dropdown-menu a {
-    font-family: 'Arvo', Helvetica, Arial, sans-serif;
+    font-family: 'PT Sans', sans-serif;
     font-weight: 400;
     font-size: 12px;
     line-height: 17px;
@@ -5325,7 +5325,7 @@
   }
 
   .sidebar-left-enabled-sm.sidebar-left-expanded-sm .sidebar-navigation > li > a {
-    font-family: 'Arvo', Helvetica, Arial, sans-serif;
+    font-family: 'PT Sans', sans-serif;
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
@@ -5394,7 +5394,7 @@
   }
 
   .sidebar-left-enabled-sm.sidebar-left-expanded-sm .sidebar-navigation .sidebar-navigation-dropdown-menu a {
-    font-family: 'Arvo', Helvetica, Arial, sans-serif;
+    font-family: 'PT Sans', sans-serif;
     font-weight: 400;
     font-size: 12px;
     line-height: 17px;
@@ -5462,7 +5462,7 @@
   }
 
   .sidebar-left-enabled-md.sidebar-left-expanded-md .sidebar-navigation > li > a {
-    font-family: 'Arvo', Helvetica, Arial, sans-serif;
+    font-family: 'PT Sans', sans-serif;
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
@@ -5531,7 +5531,7 @@
   }
 
   .sidebar-left-enabled-md.sidebar-left-expanded-md .sidebar-navigation .sidebar-navigation-dropdown-menu a {
-    font-family: 'Arvo', Helvetica, Arial, sans-serif;
+    font-family: 'PT Sans', sans-serif;
     font-weight: 400;
     font-size: 12px;
     line-height: 17px;
@@ -5599,7 +5599,7 @@
   }
 
   .sidebar-left-enabled-lg.sidebar-left-expanded-lg .sidebar-navigation > li > a {
-    font-family: 'Arvo', Helvetica, Arial, sans-serif;
+    font-family: 'PT Sans', sans-serif;
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
@@ -5668,7 +5668,7 @@
   }
 
   .sidebar-left-enabled-lg.sidebar-left-expanded-lg .sidebar-navigation .sidebar-navigation-dropdown-menu a {
-    font-family: 'Arvo', Helvetica, Arial, sans-serif;
+    font-family: 'PT Sans', sans-serif;
     font-weight: 400;
     font-size: 12px;
     line-height: 17px;

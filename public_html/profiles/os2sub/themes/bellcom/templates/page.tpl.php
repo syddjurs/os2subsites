@@ -64,7 +64,7 @@
             <div class="row">
 	            
               <!-- Begin - content -->
-              <div class="col-md-8">
+              <div class="col-md-9">
 		            
 			  	<?php if ($logo): ?>
 	                <a href='<?php print $front_page; ?>' class="main-navigation-logo-link">
@@ -82,7 +82,7 @@
               <!-- End - content -->
 
               <!-- Begin - content -->
-              <div class="col-md-4">
+              <div class="col-md-3">
 
                 <?php if (isset($secondary_navigation)): ?>
                   <!-- Begin - navigation -->
