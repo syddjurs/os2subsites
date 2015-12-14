@@ -24,6 +24,31 @@ function os2sub_frontpage_views_api($module = NULL, $api = NULL) {
 }
 
 /**
+ * Implements hook_image_default_styles().
+ */
+function os2sub_frontpage_image_default_styles() {
+  $styles = array();
+
+  // Exported image style: os2web_cover.
+  $styles['os2web_cover'] = array(
+    'label' => 'os2web cover',
+    'effects' => array(
+      5 => array(
+        'name' => 'image_scale',
+        'data' => array(
+          'width' => 1920,
+          'height' => '',
+          'upscale' => 0,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
+  return $styles;
+}
+
+/**
  * Implements hook_node_info().
  */
 function os2sub_frontpage_node_info() {
