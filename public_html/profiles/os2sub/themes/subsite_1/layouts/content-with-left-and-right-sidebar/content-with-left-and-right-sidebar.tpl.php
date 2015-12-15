@@ -44,7 +44,7 @@
 
     	<?php /* If right sidebar is present*/?>
 
-		<div class="col-md-9">
+		<div class="col-md-9 col-md-pull-3">
 	        <?php print $content['content']; ?>
 	    </div>
 
