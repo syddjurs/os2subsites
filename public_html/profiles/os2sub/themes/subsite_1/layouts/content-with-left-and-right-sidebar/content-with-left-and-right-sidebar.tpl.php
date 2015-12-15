@@ -36,7 +36,7 @@
 	        <?php print $content['content']; ?>
 	    </div>
 
-	<?php else : ?>
+	<?php elseif (!$content['sidebar-left'] && !$content['sidebar-right']) : ?>
 
     	<?php /* If no sidebars are present*/?>
 	
