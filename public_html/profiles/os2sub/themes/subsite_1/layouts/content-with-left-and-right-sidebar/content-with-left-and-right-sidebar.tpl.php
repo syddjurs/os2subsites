@@ -12,7 +12,11 @@
     <?php if ($content['sidebar-right']): ?>
     
 	    <!-- Begin - right sidebar -->
+	    <?php if ($content['sidebar-left']): ?>
 	    <div class="col-md-3 col-md-push-6">
+	<?php else : ?>
+	    <div class="col-md-3 col-md-push-9">
+	<?php endif ?>
 	        <?php print $content['sidebar-right']; ?>
 	    </div>
 	    <!-- End - right sidebar -->
