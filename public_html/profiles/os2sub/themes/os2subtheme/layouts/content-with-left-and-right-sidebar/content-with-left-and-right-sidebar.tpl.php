@@ -27,6 +27,11 @@
 	<div class="col-md-9">
         <?php print $content['content']; ?>
     </div>
+	<?php elseif ($content['sidebar-right']): ?>
+	<div class="col-md-9">
+        <?php print $content['content']; ?>
+    </div>
+
 	<?php else : ?>
 	<div class="col-sm-12">
         <?php print $content['content']; ?>
