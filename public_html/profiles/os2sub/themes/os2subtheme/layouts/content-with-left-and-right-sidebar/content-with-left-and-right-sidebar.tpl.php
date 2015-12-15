@@ -32,7 +32,7 @@
         <?php print $content['content']; ?>
     </div>
 
-	<?php else : ?>
+	<?php elseif (!$content['sidebar-left'] && !$content['sidebar-right']): ?>
 	<div class="col-sm-12">
         <?php print $content['content']; ?>
     </div>
