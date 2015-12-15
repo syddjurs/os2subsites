@@ -10,10 +10,10 @@
 function os2web_news_page_menu_default_menu_links() {
   $menu_links = array();
 
-  // Exported menu link: main-menu_nyheder-menu-position-rule:menu-position/1.
-  $menu_links['main-menu_nyheder-menu-position-rule:menu-position/1'] = array(
+  // Exported menu link: main-menu_nyheder-menu-position-rule:menu-position/2.
+  $menu_links['main-menu_nyheder-menu-position-rule:menu-position/2'] = array(
     'menu_name' => 'main-menu',
-    'link_path' => 'menu-position/1',
+    'link_path' => 'menu-position/2',
     'router_path' => 'menu-position/%',
     'link_title' => 'Nyheder (menu position rule)',
     'options' => array(
@@ -23,7 +23,7 @@ function os2web_news_page_menu_default_menu_links() {
           0 => 'menu-position-link',
         ),
       ),
-      'identifier' => 'main-menu_nyheder-menu-position-rule:menu-position/1',
+      'identifier' => 'main-menu_nyheder-menu-position-rule:menu-position/2',
     ),
     'module' => 'menu_position',
     'hidden' => 1,
