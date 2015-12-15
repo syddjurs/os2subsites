@@ -36,6 +36,14 @@
 	        <?php print $content['content']; ?>
 	    </div>
 
+	<?php elseif ($content['sidebar-right']): ?>
+
+    	<?php /* If right sidebar is present*/?>
+
+		<div class="col-md-9">
+	        <?php print $content['content']; ?>
+	    </div>
+
 	<?php elseif (!$content['sidebar-left'] && !$content['sidebar-right']) : ?>
 
     	<?php /* If no sidebars are present*/?>
