@@ -81,7 +81,7 @@ function os2sub_frontpage_field_default_field_instances() {
           'delta' => '',
           'duration' => 5000,
           'element' => 'other',
-          'element_other' => '.inner-wrapper',
+          'element_other' => '.content',
           'fade' => 0,
           'field' => '',
           'image_style' => 'os2web_cover',

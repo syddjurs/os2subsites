@@ -182,6 +182,7 @@ features[field_instance][] = node-os2web_base_rotating_image-field_os2web_base_f
 features[field_instance][] = node-os2web_base_selfservice_link-field_os2web_base_field_source
 features[field_instance][] = node-os2web_base_selfservice_link-field_spot_link
 features[field_instance][] = node-os2web_base_selfservice_link-field_vist_navn
+features[field_instance][] = node-webform-field_baggrund
 features[field_instance][] = node-webform-field_os2web_base_field_image
 features[field_instance][] = taxonomy_term-os2web_base_tax_site_structure-field_alternative_display
 features[field_instance][] = taxonomy_term-os2web_base_tax_site_structure-field_list_as_spotboks
