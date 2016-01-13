@@ -156,7 +156,7 @@
     <?php if (!empty($page['footer']) OR !empty($theme_settings['contact_information']) OR $theme_settings['layout']['footer']['show_social_links'] ) : ?>
       <!-- Begin - footer -->
       <div class="container">
-      <footer class="footer content">
+      <footer class="footer">
 
 	        
 	        <?php print render($page['footer']); ?>
