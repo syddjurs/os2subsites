@@ -51,9 +51,9 @@ function os2sub_galleri_field_group_info() {
     'label' => 'Form',
     'weight' => '1',
     'children' => array(
-      0 => 'group_os2web_base_group_taxono',
-      1 => 'group_billeder',
-      2 => 'group_tekst',
+      0 => 'group_billeder',
+      1 => 'group_tekst',
+      2 => 'group_os2web_base_group_taxono',
     ),
     'format_type' => 'htabs',
     'format_settings' => array(

@@ -577,7 +577,7 @@ function os2web_base_field_default_field_instances() {
           'random' => 0,
         ),
         'type' => 'backstretch',
-        'weight' => 19,
+        'weight' => 5,
       ),
       'spotbox' => array(
         'label' => 'above',
@@ -635,7 +635,48 @@ function os2web_base_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'media_generic',
-      'weight' => 48,
+      'weight' => 0,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-os2web_base_contentpage-field_os2web_base_banner'.
+  $field_instances['node-os2web_base_contentpage-field_os2web_base_banner'] = array(
+    'bundle' => 'os2web_base_contentpage',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 7,
+      ),
+      'spotbox' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_os2web_base_banner',
+    'label' => 'Banner',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'node_reference',
+      'settings' => array(
+        'autocomplete_match' => 'contains',
+        'autocomplete_path' => 'node_reference/autocomplete',
+        'size' => 60,
+      ),
+      'type' => 'node_reference_autocomplete',
+      'weight' => -1,
     ),
   );
 
@@ -651,7 +692,7 @@ function os2web_base_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 14,
+        'weight' => 16,
       ),
       'related_block' => array(
         'label' => 'above',
@@ -682,7 +723,7 @@ function os2web_base_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'node_reference_autocomplete',
-      'weight' => 11,
+      'weight' => 14,
     ),
   );
 
@@ -700,7 +741,7 @@ function os2web_base_field_default_field_instances() {
         'label' => 'inline',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 16,
+        'weight' => 18,
       ),
       'related_block' => array(
         'label' => 'above',
@@ -731,7 +772,7 @@ function os2web_base_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'taxonomy_autocomplete',
-      'weight' => 12,
+      'weight' => 13,
     ),
   );
 
@@ -747,7 +788,7 @@ function os2web_base_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 8,
+        'weight' => 10,
       ),
       'spotbox' => array(
         'label' => 'above',
@@ -812,7 +853,7 @@ function os2web_base_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 10,
+        'weight' => 12,
       ),
       'related_block' => array(
         'label' => 'above',
@@ -841,7 +882,7 @@ function os2web_base_field_default_field_instances() {
         'display_label' => 1,
       ),
       'type' => 'options_onoff',
-      'weight' => 9,
+      'weight' => 12,
     ),
   );
 
@@ -941,7 +982,7 @@ function os2web_base_field_default_field_instances() {
         'label' => 'inline',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 15,
+        'weight' => 17,
       ),
       'related_block' => array(
         'label' => 'above',
@@ -990,7 +1031,7 @@ function os2web_base_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 17,
+        'weight' => 19,
       ),
       'related_block' => array(
         'label' => 'above',
@@ -1094,7 +1135,7 @@ function os2web_base_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'media_generic',
-      'weight' => -1,
+      'weight' => -2,
     ),
   );
 
@@ -1112,7 +1153,7 @@ function os2web_base_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 18,
+        'weight' => 20,
       ),
       'related_block' => array(
         'label' => 'above',
@@ -1161,7 +1202,7 @@ function os2web_base_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 11,
+        'weight' => 13,
       ),
       'related_block' => array(
         'label' => 'above',
@@ -1208,7 +1249,7 @@ function os2web_base_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 9,
+        'weight' => 11,
       ),
       'spotbox' => array(
         'label' => 'above',
@@ -1249,7 +1290,7 @@ function os2web_base_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 12,
+        'weight' => 14,
       ),
       'related_block' => array(
         'label' => 'above',
@@ -1296,7 +1337,7 @@ function os2web_base_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 13,
+        'weight' => 15,
       ),
       'related_block' => array(
         'label' => 'above',
@@ -1398,7 +1439,7 @@ function os2web_base_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'node_reference',
         'settings' => array(
-          'node_reference_view_mode' => 'teaser',
+          'node_reference_view_mode' => 'full',
         ),
         'type' => 'node_reference_node',
         'weight' => 3,
@@ -1446,7 +1487,7 @@ function os2web_base_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 7,
+        'weight' => 9,
       ),
       'spotbox' => array(
         'label' => 'above',
@@ -1469,7 +1510,7 @@ function os2web_base_field_default_field_instances() {
         'display_label' => 1,
       ),
       'type' => 'options_onoff',
-      'weight' => 11,
+      'weight' => 13,
     ),
   );
 
@@ -4112,13 +4153,21 @@ function os2web_base_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
-        'module' => 'image',
+        'label' => 'hidden',
+        'module' => 'backstretch',
         'settings' => array(
-          'image_link' => '',
-          'image_style' => '',
+          'center_x' => 1,
+          'center_y' => 1,
+          'delta' => '',
+          'duration' => 5000,
+          'element' => 'other',
+          'element_other' => '.content',
+          'fade' => 0,
+          'field' => '',
+          'image_style' => 'os2web_cover',
+          'random' => 0,
         ),
-        'type' => 'image',
+        'type' => 'backstretch',
         'weight' => 1,
       ),
       'spotbox' => array(
@@ -4184,6 +4233,52 @@ function os2web_base_field_default_field_instances() {
       ),
       'type' => 'media_generic',
       'weight' => 44,
+    ),
+  );
+
+  // Exported field_instance: 'node-webform-field_os2web_base_banner'.
+  $field_instances['node-webform-field_os2web_base_banner'] = array(
+    'bundle' => 'webform',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 3,
+      ),
+      'spotbox' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_os2web_base_banner',
+    'label' => 'Banner',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'node_reference',
+      'settings' => array(
+        'autocomplete_match' => 'contains',
+        'autocomplete_path' => 'node_reference/autocomplete',
+        'size' => 60,
+      ),
+      'type' => 'node_reference_autocomplete',
+      'weight' => 46,
     ),
   );
 

@@ -64,13 +64,17 @@
             <div class="row">
 	            
               <!-- Begin - content -->
+                <?php if ($secondary_navigation): ?>
               <div class="col-md-9">
-		            
-			  	<?php if ($logo): ?>
-	                <a href='<?php print $front_page; ?>' class="main-navigation-logo-link">
-	                  <img class="main-navigation-logo-image" src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
-	                </a>
-				<?php endif; ?>
+		            <?php else : ?>
+                  <div class="col-md-12">  
+		            <?php endif; ?>
+
+      			  	<?php if ($logo): ?>
+  	                <a href='<?php print $front_page; ?>' class="main-navigation-logo-link">
+  	                  <img class="main-navigation-logo-image" src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
+  	                </a>
+      				<?php endif; ?>
                                
                 <?php if (isset($primary_navigation)): ?>
                   <!-- Begin - navigation -->
@@ -82,15 +86,12 @@
               <!-- End - content -->
 
               <!-- Begin - content -->
+                <?php if ($secondary_navigation): ?>
               <div class="col-md-3">
-
-                <?php if (isset($secondary_navigation)): ?>
-                  <!-- Begin - navigation -->
                   <?php print render($secondary_navigation); ?>
                   <!-- End - navigation -->
-                <?php endif; ?>
-
               </div>
+ 		            <?php endif; ?>
               <!-- End - content -->
 
             </div>
@@ -134,11 +135,13 @@
 
         <?php if (!panels_get_current_page_display()): ?>
           <div class="os2sub-box">
-            <?php if ($title): ?>
-            <div class="os2sub-box-heading">
-              <h2 class="os2sub-box-heading-title"><?php print $title; ?></h2>
-            </div>
-            <?php endif; ?>
+            <?php if (empty($node) ) { 
+                 if ($title): ?>
+                <div class="os2sub-box-heading">
+                  <h2 class="os2sub-box-heading-title"><?php print $title; ?></h2>
+                </div>
+                <?php endif;
+              } ?>
             <div class="os2sub-box-body">
               <?php print render($page['content']); ?>
             </div>

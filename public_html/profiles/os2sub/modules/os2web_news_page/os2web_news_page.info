@@ -5,6 +5,7 @@ package = OS2Web - Frontend
 version = 7.x-1.1
 project = os2web_news_page
 dependencies[] = date_views
+dependencies[] = features
 dependencies[] = menu
 dependencies[] = menu_position
 dependencies[] = os2web_news_page_archive

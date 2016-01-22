@@ -181,6 +181,52 @@ function os2sub_banner_views_default_views() {
   $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['arguments']['nid']['break_phrase'] = TRUE;
+
+  /* Display: Banner valgt på node */
+  $handler = $view->new_display('block', 'Banner valgt på node', 'block_2');
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'owlcarousel';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Banner */
+  $handler->display->display_options['fields']['field_os2web_base_banner']['id'] = 'field_os2web_base_banner';
+  $handler->display->display_options['fields']['field_os2web_base_banner']['table'] = 'field_data_field_os2web_base_banner';
+  $handler->display->display_options['fields']['field_os2web_base_banner']['field'] = 'field_os2web_base_banner';
+  $handler->display->display_options['fields']['field_os2web_base_banner']['label'] = '';
+  $handler->display->display_options['fields']['field_os2web_base_banner']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_base_banner']['type'] = 'node_reference_node';
+  $handler->display->display_options['fields']['field_os2web_base_banner']['settings'] = array(
+    'node_reference_view_mode' => 'teaser',
+  );
+  $handler->display->display_options['fields']['field_os2web_base_banner']['delta_offset'] = '0';
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Content: Nid */
+  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['table'] = 'node';
+  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['nid']['exception']['title'] = 'Alle';
+  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'node';
+  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['nid']['specify_validation'] = TRUE;
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
   $translatables['os2sub_banner'] = array(
     t('Master'),
     t('OS2sub Banner'),
@@ -204,6 +250,7 @@ function os2sub_banner_views_default_views() {
     t('Forsidebanner Block'),
     t('Indholdsside Banner Block'),
     t('Alle'),
+    t('Banner valgt på node'),
   );
   $export['os2sub_banner'] = $view;
 

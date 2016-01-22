@@ -804,7 +804,7 @@ function os2web_base_default_page_manager_handlers() {
     ),
   );
   $display = new panels_display();
-  $display->layout = 'content-with-left-and-right-sidebar';
+  $display->layout = 'content-with-left-and-right-sidebar-top-footer';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -813,6 +813,8 @@ function os2web_base_default_page_manager_handlers() {
       'content' => NULL,
       'sidebar-left' => NULL,
       'sidebar-right' => NULL,
+      'footer' => NULL,
+      'top' => NULL,
     ),
   );
   $display->cache = array();
@@ -1040,6 +1042,48 @@ function os2web_base_default_page_manager_handlers() {
     $pane->uuid = 'b398e1ac-858e-43e3-872f-2d6f3524454d';
     $display->content['new-b398e1ac-858e-43e3-872f-2d6f3524454d'] = $pane;
     $display->panels['sidebar-right'][4] = 'new-b398e1ac-858e-43e3-872f-2d6f3524454d';
+    $pane = new stdClass();
+    $pane->pid = 'new-f744655a-b546-4e29-967e-387f5146e226';
+    $pane->panel = 'top';
+    $pane->type = 'views';
+    $pane->subtype = 'os2sub_banner';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_pager_settings' => 0,
+      'use_pager' => 0,
+      'nodes_per_page' => '0',
+      'pager_id' => '0',
+      'offset' => '0',
+      'more_link' => 0,
+      'feed_icons' => 0,
+      'panel_args' => 0,
+      'link_to_view' => 0,
+      'args' => '',
+      'url' => '',
+      'display' => 'block_2',
+      'context' => array(
+        0 => 'argument_entity_id:node_1.field_emply_id',
+      ),
+      'override_title' => 1,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => '',
+      'template_suggestion' => 'plain',
+    );
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'f744655a-b546-4e29-967e-387f5146e226';
+    $display->content['new-f744655a-b546-4e29-967e-387f5146e226'] = $pane;
+    $display->panels['top'][0] = 'new-f744655a-b546-4e29-967e-387f5146e226';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-b398e1ac-858e-43e3-872f-2d6f3524454d';
   $handler->conf['display'] = $display;

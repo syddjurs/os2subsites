@@ -1,35 +1,17 @@
 <?php if ($view_mode == 'full'): ?>
   <!-- node.tpl.php -->
   <!-- Begin - full node -->
-
   <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> subsite-full"<?php print $attributes; ?>>
-   
+
     <div class="subsite-full-heading">
-
-      <?php if (isset($content['field_os2web_base_field_image'])): ?>
-        <?php
-          // $field_image_all = field_get_items('node',$node,'field_os2web_base_field_image');
-          // $img_rendered = field_view_value('node',$node,'field_os2web_base_field_image',$field_image_all[0],
-
-          // array('type' => '$img_rendered','settings'=>array('image_style' => 'os2sub_normal_imagesize')));
-          // print render($img_rendered);
-          
-          print render($content['field_os2web_base_field_image']);
-          ?>
-      <?php endif; ?>
-
       <?php print render($title_prefix); ?>
       <h2<?php print $title_attributes; ?> class="subsite-full-heading-title"><?php print $title; ?></h2>
       <?php print render($title_suffix); ?>
-      
-          <?php if (isset($content['field_os2web_base_field_summary'])): ?>
-            <div class="lead">
-              <?php print render($content['field_os2web_base_field_summary']); ?>
-            </div>
-          <?php endif; ?>
-
     </div>
-
+    <div class="news-text-date">
+       <span class="news-date-day"><?php print date('j', $created); ?></span>
+       <span class="news-date-month"><?php $m = date('M', $created); print t($m);?></span>
+    </div>
     <?php if (isset($content['field_os2web_base_field_intro'])): ?>
       <!-- Begin - intro -->
       <div class="subsite-full-intro">
@@ -41,11 +23,7 @@
     <?php if (isset($content)): ?>
       <!-- Begin - body -->
       <div class="subsite-full-body">
-        <?php 
-          hide($content['field_os2web_base_field_image']);
-          hide($content['field_os2web_base_field_summary']);
-                    
-          print render($content); ?>
+        <?php print render($content); ?>
       </div>
       <!-- End - body -->
     <?php endif; ?>

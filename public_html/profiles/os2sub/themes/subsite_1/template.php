@@ -30,10 +30,11 @@ function subsite_1_preprocess_html(&$variables) {
   ));
 
   // Add out fonts from Google Fonts API.
+
   drupal_add_html_head(array(
     '#tag'        => 'link',
     '#attributes' => array(
-      'href' => 'https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic|PT+Sans+Caption:400,700|PT+Serif:400,400italic,700,700italic|PT+Mono',
+      'href' => 'https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic|PT+Mono',
       'rel'  => 'stylesheet',
       'type' => 'text/css',
     ),

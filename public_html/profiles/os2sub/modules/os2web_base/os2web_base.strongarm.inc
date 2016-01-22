@@ -704,7 +704,7 @@ function os2web_base_strongarm() {
       'display' => array(
         'webform' => array(
           'default' => array(
-            'weight' => '10',
+            'weight' => '2',
             'visible' => TRUE,
           ),
         ),

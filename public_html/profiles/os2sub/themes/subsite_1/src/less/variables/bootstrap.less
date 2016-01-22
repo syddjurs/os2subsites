@@ -41,11 +41,11 @@
 //== Typography
 //
 //## Font, line-height, and color for body text, headings, and more.
-//  PT+Sans:400,400italic,700,700italic|PT+Sans+Caption:400,700|PT+Serif:400,400italic,700,700italic|PT+Mono,
+//  family=Open+Sans:400,700,400italic,700italic|PT+Mono,
 
 
-@font-family-sans-serif:  'PT Sans', sans-serif;
-@font-family-serif:       'PT Serif', Times, serif;
+@font-family-sans-serif:  'Open Sans', sans-serif;
+@font-family-serif:       @font-family-sans-serif;
 //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
 @font-family-monospace:   'PT Mono',Menlo, Monaco, Consolas, "Courier New", monospace;
 @font-family-base:        @font-family-sans-serif;
@@ -67,8 +67,8 @@
 @line-height-computed:    floor((@font-size-base * @line-height-base)); // ~20px
 
 //** By default, this inherits from the `<body>`.
-@headings-font-family:    'PT Sans Caption', sans-serif;
-@headings-font-weight:    400;
+@headings-font-family:    'Open Sans', sans-serif;
+@headings-font-weight:    700;
 @headings-line-height:    1.1;
 @headings-color:          inherit;
 
