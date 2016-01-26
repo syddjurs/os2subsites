@@ -26,7 +26,7 @@ fi
 
 SITENAME=$(echo "$1" | tr -d ' ')
 REMOVEDOMAIN=$(echo "$2" | tr -d ' ')
-VHOST="/etc/apache2/sites-available/$SITENAME"
+VHOST="/etc/apache2/sites-available/$SITENAME.conf"
 
 # only allow root to run this script - because of special sudo rights and permissions
 if [[ "$USER" != "root" ]]; then
