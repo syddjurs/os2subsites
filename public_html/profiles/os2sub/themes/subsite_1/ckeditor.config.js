@@ -13,6 +13,7 @@ CKEDITOR.editorConfig = function(config) {
   config.wsc_lang = "da_DK";
   config.scayt_defLan = 'da_DK';
   config.allowedContent = true;
+  config.extraPlugins = "lineutils,widget,leaflet";
 };
 
 // Remove all unneassecary inputs on table and image dialogs.
