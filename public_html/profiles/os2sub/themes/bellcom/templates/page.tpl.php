@@ -86,9 +86,77 @@
               <!-- End - content -->
 
               <!-- Begin - content -->
-                <?php if ($secondary_navigation): ?>
+            <?php if ($secondary_navigation): ?>
               <div class="col-md-3">
-                  <?php print render($secondary_navigation); ?>
+               <?php print render($secondary_navigation); ?>
+               
+               <ul class="main-navigation-list main-navigation-lang">
+                  <?php if ($theme_settings['languages']['lang_german']['active']): ?>
+                  <li class="main-navigation-list-link">
+                    <a href="<?php print $theme_settings['languages']['lang_german']['url']; ?>" 
+                      class="lang-link lang-link-de" 
+                      data-toggle="tooltip" 
+                      data-placement="bottom" 
+                      title="<?php print $theme_settings['languages']['lang_german']['tooltip']; ?>">DE        
+                    </a>
+                  </li>
+                  <?php endif; ?>
+
+                  <?php if ($theme_settings['languages']['lang_english']['active']): ?>
+                  <li class="main-navigation-list-link">
+                    <a href="<?php print $theme_settings['languages']['lang_english']['url']; ?>" 
+                      class="lang-link lang-link-en" 
+                      data-toggle="tooltip" 
+                      data-placement="bottom" 
+                      title="<?php print $theme_settings['languages']['lang_english']['tooltip']; ?>">EN        
+                    </a>
+                  </li>
+                  <?php endif; ?>
+
+                  <?php if ($theme_settings['languages']['lang_swedish']['active']): ?>
+                  <li class="main-navigation-list-link">
+                    <a href="<?php print $theme_settings['languages']['lang_swedish']['url']; ?>" 
+                      class="lang-link lang-link-se" 
+                      data-toggle="tooltip" 
+                      data-placement="bottom" 
+                      title="<?php print $theme_settings['languages']['lang_swedish']['tooltip']; ?>">SE        
+                    </a>
+                  </li>
+                  <?php endif; ?>
+
+                  <?php if ($theme_settings['languages']['lang_norwegian']['active']): ?>
+                  <li class="main-navigation-list-link">
+                    <a href="<?php print $theme_settings['languages']['lang_norwegian']['url']; ?>" 
+                      class="lang-link lang-link-no" 
+                      data-toggle="tooltip" 
+                      data-placement="bottom" 
+                      title="<?php print $theme_settings['languages']['lang_norwegian']['tooltip']; ?>">NO        
+                    </a>
+                  </li>
+                  <?php endif; ?>
+
+                  <?php if ($theme_settings['languages']['lang_arabic']['active']): ?>
+                  <li class="main-navigation-list-link">
+                    <a href="<?php print $theme_settings['languages']['lang_arabic']['url']; ?>" 
+                      class="lang-link lang-link-ar" 
+                      data-toggle="tooltip" 
+                      data-placement="bottom" 
+                      title="<?php print $theme_settings['languages']['lang_arabic']['tooltip']; ?>">AR        
+                    </a>
+                  </li>
+                  <?php endif; ?>
+                
+                  <?php if ($theme_settings['languages']['lang_danish']['active']): ?>
+                  <li class="main-navigation-list-link">
+                    <a href="<?php print $theme_settings['languages']['lang_danish']['url']; ?>" 
+                      class="lang-link lang-link-da" 
+                      data-toggle="tooltip" 
+                      data-placement="bottom" 
+                      title="<?php print $theme_settings['languages']['lang_danish']['tooltip']; ?>">DK        
+                    </a>
+                  </li>
+                  <?php endif; ?>
+                </ul>
                   <!-- End - navigation -->
               </div>
  		            <?php endif; ?>
@@ -173,7 +241,7 @@
 	        	<?php endif; ?>
 	        	
 	        	<?php if (isset($theme_settings['contact_information']['business_startup_year']) ) : ?>
-	        	<?php print '| '.t('Siden').$theme_settings['contact_information']['business_startup_year']; ?>
+	        	<?php print '| '.t('Siden ').$theme_settings['contact_information']['business_startup_year']; ?>
 	        	<?php endif; ?>
 
 				<?php if (isset($theme_settings['contact_information']['address']) ) : ?>

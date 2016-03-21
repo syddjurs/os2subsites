@@ -85,6 +85,20 @@ settings[vimeo_url]     = 'http://www.vimeo.com/'
 settings[youtube]       = 0
 settings[youtube_url]   = 'http://www.youtube.com/'
 
+; Languages
+settings[lang_german]    = 0
+settings[lang_english]   = 0
+settings[lang_swedish]   = 0
+settings[lang_norwegian] = 0
+settings[lang_arabic]    = 0
+settings[lang_danish]    = 0
+settings[lang_danish_tooltip] = 'DA'
+settings[lang_germnan_tooltip] = 'DE'
+settings[lang_english_tooltip] = 'EN'
+settings[lang_swedish_tooltip] = 'SE'
+settings[lang_norwegian_tooltip] = 'NO'
+settings[lang_arabic_tooltip] = 'AR'
+
 ; Layout
 settings[sidebar_show_social_links] = 0;
 settings[footer_show_social_links]  = 0;

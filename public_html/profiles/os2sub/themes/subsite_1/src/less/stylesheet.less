@@ -225,3 +225,37 @@
 .main-navigation-list-link a { text-transform: uppercase; }
 
 .page-node .view-os2sub-banner { margin-bottom: 20px;}
+
+.main-navigation-wrapper .main-navigation-list.main-navigation-lang {
+  float: right;
+  .main-navigation-list-link {
+    border-left: none;
+    .lang-link {
+      display: inline-block;
+      margin-right: 5px;
+      height: 11px;
+      width: 16px;
+      overflow: hidden;
+      padding: 0 0;
+      &.lang-link-da {
+        background-image: url(../../flag/flag-denmark.png)
+      }
+      &.lang-link-en {
+        background-image: url(../../flag/flag-united-kingdom.png)
+      }
+      &.lang-link-no {
+        background-image: url(../../flag/flag-norway.png)
+      }
+      &.lang-link-se {
+        background-image: url(../../flag/flag-sweden.png)
+      }
+      &.lang-link-de {
+        background-image: url(../../flag/flag-germany.png)
+      }
+      &.lang-link-ar {
+        background-image: url(../../flag/flag-arabiac.png)
+      }
+    }
+  &:last-child { margin-right: 20px;}
+  }  
+}

@@ -662,7 +662,236 @@ function _theme_settings_form(&$form, $form_state) {
       ),
     ),
   );
+
+    /*
+  |--------------------------------------------------------------------------
+  | Langua links
+  |--------------------------------------------------------------------------
+  |
+  | Sets all necessary options to save data.
+  |
+  */
+
+  // Fieldset
+  $form['options']['languages'] = array(
+    '#type'  => 'fieldset',
+    '#title' => t('Languages'),
+  );
+
+  // Tysk
+  $form['options']['languages']['lang_german'] = array(
+    '#type'          => 'checkbox',
+    '#title'         => t('Tysk'),
+    '#default_value' => theme_get_setting('lang_german'),
+  );
+  
+  $form['options']['languages']['lang_german_url'] = array(
+    '#type'          => 'textfield',
+    '#title'         => t('Tysk URL'),
+    '#default_value' => theme_get_setting('lang_german_url'),
+    '#states'        => array(
+      // Hide the options when the cancel notify checkbox is disabled.
+      'visible' => array(
+        ':input[name="lang_german"]' => array(
+          'checked' => TRUE
+        ),
+      ),
+    ),
+  );
+  
+  $form['options']['languages']['lang_german_tooltip'] = array(
+    '#type'          => 'textfield',
+    '#title'         => t('Tekst ved mouse-over'),
+    '#default_value' => theme_get_setting('lang_german_tooltip'),
+    '#states'        => array(
+      // Hide the options when the cancel notify checkbox is disabled.
+      'visible' => array(
+        ':input[name="lang_german"]' => array(
+          'checked' => TRUE
+        ),
+      ),
+    ),
+  );
+
+  // Dansk
+  $form['options']['languages']['lang_danish'] = array(
+    '#type'          => 'checkbox',
+    '#title'         => t('Dansk'),
+    '#default_value' => theme_get_setting('lang_danish'),
+  );
+  
+  $form['options']['languages']['lang_danish_url'] = array(
+    '#type'          => 'textfield',
+    '#title'         => t('Dansk URL'),
+    '#default_value' => theme_get_setting('lang_danish_url'),
+    '#states'        => array(
+      // Hide the options when the cancel notify checkbox is disabled.
+      'visible' => array(
+        ':input[name="lang_danish"]' => array(
+          'checked' => TRUE
+        ),
+      ),
+    ),
+  );
+  
+  $form['options']['languages']['lang_danish_tooltip'] = array(
+    '#type'          => 'textfield',
+    '#title'         => t('Tekst ved mouse-over'),
+    '#default_value' => theme_get_setting('lang_danish_tooltip'),
+    '#states'        => array(
+      // Hide the options when the cancel notify checkbox is disabled.
+      'visible' => array(
+        ':input[name="lang_danish"]' => array(
+          'checked' => TRUE
+        ),
+      ),
+    ),
+  );
+
+
+  // Engelsk
+  $form['options']['languages']['lang_english'] = array(
+    '#type'          => 'checkbox',
+    '#title'         => t('Engelsk'),
+    '#default_value' => theme_get_setting('lang_english'),
+  );
+  
+  $form['options']['languages']['lang_english_url'] = array(
+    '#type'          => 'textfield',
+    '#title'         => t('Engelsk URL'),
+    '#default_value' => theme_get_setting('lang_english_url'),
+    '#states'        => array(
+      // Hide the options when the cancel notify checkbox is disabled.
+      'visible' => array(
+        ':input[name="lang_english"]' => array(
+          'checked' => TRUE
+        ),
+      ),
+    ),
+  );
+  
+  $form['options']['languages']['lang_english_tooltip'] = array(
+    '#type'          => 'textfield',
+    '#title'         => t('Tekst ved mouse-over'),
+    '#default_value' => theme_get_setting('lang_english_tooltip'),
+    '#states'        => array(
+      // Hide the options when the cancel notify checkbox is disabled.
+      'visible' => array(
+        ':input[name="lang_english"]' => array(
+          'checked' => TRUE
+        ),
+      ),
+    ),
+  );
+
+  // Svensk
+  $form['options']['languages']['lang_swedish'] = array(
+    '#type'          => 'checkbox',
+    '#title'         => t('Svensk'),
+    '#default_value' => theme_get_setting('lang_swedish'),
+  );
+  
+  $form['options']['languages']['lang_swedish_url'] = array(
+    '#type'          => 'textfield',
+    '#title'         => t('Svensk URL'),
+    '#default_value' => theme_get_setting('lang_swedish_url'),
+    '#states'        => array(
+      // Hide the options when the cancel notify checkbox is disabled.
+      'visible' => array(
+        ':input[name="lang_swedish"]' => array(
+          'checked' => TRUE
+        ),
+      ),
+    ),
+  );
+  
+  $form['options']['languages']['lang_swedish_tooltip'] = array(
+    '#type'          => 'textfield',
+    '#title'         => t('Tekst ved mouse-over'),
+    '#default_value' => theme_get_setting('lang_swedish_tooltip'),
+    '#states'        => array(
+      // Hide the options when the cancel notify checkbox is disabled.
+      'visible' => array(
+        ':input[name="lang_swedish"]' => array(
+          'checked' => TRUE
+        ),
+      ),
+    ),
+  );
+  
+  
+    // Norsk
+  $form['options']['languages']['lang_norwegian'] = array(
+    '#type'          => 'checkbox',
+    '#title'         => t('Norsk'),
+    '#default_value' => theme_get_setting('lang_norwegian'),
+  );
+  
+  $form['options']['languages']['lang_norwegian_url'] = array(
+    '#type'          => 'textfield',
+    '#title'         => t('Norsk URL'),
+    '#default_value' => theme_get_setting('lang_norwegian_url'),
+    '#states'        => array(
+      // Hide the options when the cancel notify checkbox is disabled.
+      'visible' => array(
+        ':input[name="lang_norwegian"]' => array(
+          'checked' => TRUE
+        ),
+      ),
+    ),
+  );
+  
+  $form['options']['languages']['lang_norwegian_tooltip'] = array(
+    '#type'          => 'textfield',
+    '#title'         => t('Tekst ved mouse-over'),
+    '#default_value' => theme_get_setting('lang_norwegian_tooltip'),
+    '#states'        => array(
+      // Hide the options when the cancel notify checkbox is disabled.
+      'visible' => array(
+        ':input[name="lang_norwegian"]' => array(
+          'checked' => TRUE
+        ),
+      ),
+    ),
+  );
+  
+  // Arabisk
+  $form['options']['languages']['lang_arabic'] = array(
+    '#type'          => 'checkbox',
+    '#title'         => t('Arabisk'),
+    '#default_value' => theme_get_setting('lang_arabic'),
+  );
+  
+  $form['options']['languages']['lang_arabic_url'] = array(
+    '#type'          => 'textfield',
+    '#title'         => t('Arabisk URL'),
+    '#default_value' => theme_get_setting('lang_arabic_url'),
+    '#states'        => array(
+      // Hide the options when the cancel notify checkbox is disabled.
+      'visible' => array(
+        ':input[name="lang_arabic"]' => array(
+          'checked' => TRUE
+        ),
+      ),
+    ),
+  );
+  
+  $form['options']['languages']['lang_arabic_tooltip'] = array(
+    '#type'          => 'textfield',
+    '#title'         => t('Tekst ved mouse-over'),
+    '#default_value' => theme_get_setting('lang_arabic_tooltip'),
+    '#states'        => array(
+      // Hide the options when the cancel notify checkbox is disabled.
+      'visible' => array(
+        ':input[name="lang_arabic"]' => array(
+          'checked' => TRUE
+        ),
+      ),
+    ),
+  );
+
 }
+
 
 /**
  * Collect and assemble theme settings.
@@ -708,13 +937,26 @@ function _bellcom_collect_theme_settings() {
   $settings['social_links']['youtube']['url'] = theme_get_setting('youtube_url');
   $settings['social_links']['youtube']['tooltip'] = t(theme_get_setting('youtube_tooltip'));
   
-  // Logos
-/* Disabled 
-  $settings['sublogo']['use_sublogo'] = theme_get_setting('use_sublogo');
-  $settings['sublogo']['sublogo_path'] = theme_get_setting('sublogo_path');
-*/  
+  // Languages
+  $settings['languages']['lang_danish']['active'] = theme_get_setting('lang_danish');
+  $settings['languages']['lang_danish']['url'] = theme_get_setting('lang_danish_url');
+  $settings['languages']['lang_danish']['tooltip'] = t(theme_get_setting('lang_danish_tooltip'));
+  $settings['languages']['lang_german']['active'] = theme_get_setting('lang_german');
+  $settings['languages']['lang_german']['url'] = theme_get_setting('lang_german_url');
+  $settings['languages']['lang_german']['tooltip'] = t(theme_get_setting('lang_german_tooltip'));
+  $settings['languages']['lang_english']['active'] = theme_get_setting('lang_english');
+  $settings['languages']['lang_english']['url'] = theme_get_setting('lang_english_url');
+  $settings['languages']['lang_english']['tooltip'] = t(theme_get_setting('lang_english_tooltip'));
+  $settings['languages']['lang_swedish']['active'] = theme_get_setting('lang_swedish');
+  $settings['languages']['lang_swedish']['url'] = theme_get_setting('lang_swedish_url');
+  $settings['languages']['lang_swedish']['tooltip'] = t(theme_get_setting('lang_swedish_tooltip'));
+  $settings['languages']['lang_norwegian']['active'] = theme_get_setting('lang_norwegian');
+  $settings['languages']['lang_norwegian']['url'] = theme_get_setting('lang_norwegian_url');
+  $settings['languages']['lang_norwegian']['tooltip'] = t(theme_get_setting('lang_norwegian_tooltip'));
+  $settings['languages']['lang_arabic']['active'] = theme_get_setting('lang_arabic');
+  $settings['languages']['lang_arabic']['url'] = theme_get_setting('lang_arabic_url');
+  $settings['languages']['lang_arabic']['tooltip'] = t(theme_get_setting('lang_arabic_tooltip'));
   
-
   // Layout
   $settings['layout']['copyright'] = ($settings['contact_information']['business_startup_year'] < date('Y') AND $settings['contact_information']['business_startup_year'] !== NULL) ? $settings['contact_information']['business_startup_year'] . '-' . date('Y') : date('Y');
   $settings['layout']['footer']['show_social_links'] = theme_get_setting('footer_show_social_links');
