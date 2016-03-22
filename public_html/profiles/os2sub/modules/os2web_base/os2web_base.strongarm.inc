@@ -14,7 +14,7 @@ function os2web_base_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'admin_theme';
-  $strongarm->value = 'seven';
+  $strongarm->value = 'adminimal';
   $export['admin_theme'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -738,7 +738,7 @@ function os2web_base_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'jquery_update_jquery_cdn';
-  $strongarm->value = 'google';
+  $strongarm->value = 'none';
   $export['jquery_update_jquery_cdn'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -831,6 +831,28 @@ function os2web_base_strongarm() {
   $strongarm->name = 'language_content_type_webform';
   $strongarm->value = '0';
   $export['language_content_type_webform'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'language_negotiation_language_url';
+  $strongarm->value = array(
+    'locale-url' => array(
+      'callbacks' => array(
+        'language' => 'locale_language_from_url',
+        'switcher' => 'locale_language_switcher_url',
+        'url_rewrite' => 'locale_language_url_rewrite_url',
+      ),
+      'file' => 'includes/locale.inc',
+    ),
+    'locale-url-fallback' => array(
+      'callbacks' => array(
+        'language' => 'locale_language_url_fallback',
+      ),
+      'file' => 'includes/locale.inc',
+    ),
+  );
+  $export['language_negotiation_language_url'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -975,7 +997,7 @@ function os2web_base_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'node_admin_theme';
-  $strongarm->value = 1;
+  $strongarm->value = '1';
   $export['node_admin_theme'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -1192,6 +1214,27 @@ function os2web_base_strongarm() {
   $strongarm->name = 'page_manager_node_view_disabled';
   $strongarm->value = FALSE;
   $export['page_manager_node_view_disabled'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_punctuation_left_curly';
+  $strongarm->value = '0';
+  $export['pathauto_punctuation_left_curly'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_punctuation_right_curly';
+  $strongarm->value = '0';
+  $export['pathauto_punctuation_right_curly'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_transliterate';
+  $strongarm->value = 1;
+  $export['pathauto_transliterate'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
