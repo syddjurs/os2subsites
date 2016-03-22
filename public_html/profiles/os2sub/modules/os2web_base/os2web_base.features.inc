@@ -95,7 +95,7 @@ function os2web_base_image_default_styles() {
       6 => array(
         'name' => 'epsacrop_crop',
         'data' => array(
-          'width' => 820,
+          'width' => 848,
           'height' => 410,
           'anchor' => 'center-center',
           'disable_scale' => 0,
@@ -111,7 +111,7 @@ function os2web_base_image_default_styles() {
       7 => array(
         'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => 820,
+          'width' => 848,
           'height' => 410,
         ),
         'weight' => 2,
