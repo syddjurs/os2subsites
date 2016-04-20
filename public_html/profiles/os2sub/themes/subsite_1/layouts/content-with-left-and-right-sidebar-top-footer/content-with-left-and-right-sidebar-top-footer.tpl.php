@@ -23,6 +23,22 @@
     <?php if ($content['sidebar-right']): ?>
     
 	    <!-- Begin - right sidebar -->
+
+    	    <?php if ($content['sidebar-left']): ?>
+              <div class="col-md-3 col-md-push-6">
+          	<?php else : ?>
+    	    
+              <div class="col-md-3 col-md-push-9">
+            <?php endif ?>
+    	      
+    	     <?php print $content['sidebar-right']; ?>
+    	    </div>
+
+
+	    <!-- End - right sidebar -->
+	    
+	    <?php elseif ($content['sidebar-left'] && $content['sidebar-right']): ?>
+	    	    <!-- Begin - right sidebar -->
 	    <div class="col-md-3 col-md-push-6">
 	        <?php print $content['sidebar-right']; ?>
 	    </div>
@@ -44,6 +60,11 @@
     	<?php /* If left sidebar is present*/?>
 
 		<div class="col-md-9">
+	        <?php print $content['content']; ?>
+	    </div>
+	<?php elseif ($content['content'] && $content['sidebar-right']): ?>
+
+		<div class="col-md-9 col-sm-9 col-md-pull-3">
 	        <?php print $content['content']; ?>
 	    </div>
 
