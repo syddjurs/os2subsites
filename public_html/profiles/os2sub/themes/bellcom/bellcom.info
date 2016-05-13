@@ -40,13 +40,13 @@ regions[page_bottom]    = 'Page bottom'
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ; Sidebar
-settings[sidebar_left_xs_enabled]         = 0
+settings[sidebar_left_xs_enabled]         = 1
 settings[sidebar_left_xs_state]           = 'hidden'
 settings[sidebar_left_xs_content_effect]  = 'push'
 
-settings[sidebar_left_sm_enabled]         = 0
+settings[sidebar_left_sm_enabled]         = 1
 settings[sidebar_left_sm_state]           = 'collapsed'
-settings[sidebar_left_sm_content_effect]  = 'shrink'
+settings[sidebar_left_sm_content_effect]  = 'push'
 
 settings[sidebar_left_md_enabled]         = 0
 settings[sidebar_left_md_state]           = 'expanded'
