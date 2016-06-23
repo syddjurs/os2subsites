@@ -53,3 +53,9 @@
  * @see conf_path()
  * @see http://drupal.org/documentation/install/multi-site
  */
+ 
+$sites['www.ebeltofthavn.dk'] = 'ebeltofthavn.subsites.syddjurs.dk';
+$sites['ebeltofthavn.dk'] = 'ebeltofthavn.subsites.syddjurs.dk';
+
+$sites['www.smartsyddjurs.dk'] = 'smartsyddjurs.subsites.syddjurs.dk';
+$sites['smartsyddjurs.dk'] = 'smartsyddjurs.subsites.syddjurs.dk';
