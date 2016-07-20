@@ -74,6 +74,14 @@ function os2sub_gruppe_flag_default_flags() {
  */
 function os2sub_gruppe_node_info() {
   $items = array(
+    'os2sub_group_mail' => array(
+      'name' => t('Gruppe E-mail'),
+      'base' => 'node_content',
+      'description' => '',
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
     'os2web_group' => array(
       'name' => t('Gruppe'),
       'base' => 'node_content',
