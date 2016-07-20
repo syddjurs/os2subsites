@@ -83,7 +83,7 @@ function os2sub_gruppe_node_info() {
       'help' => '',
     ),
     'os2web_group_event' => array(
-      'name' => t('Møde'),
+      'name' => t('Gruppe Møde'),
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',

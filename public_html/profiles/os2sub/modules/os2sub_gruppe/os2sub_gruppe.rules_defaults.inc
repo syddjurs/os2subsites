@@ -13,9 +13,16 @@ function os2sub_gruppe_default_rules_configuration() {
       "LABEL" : "Nyt indhold i gruppe",
       "PLUGIN" : "reaction rule",
       "OWNER" : "rules",
-      "REQUIRES" : [ "og", "rules", "mimemail" ],
+      "REQUIRES" : [ "rules", "og", "mimemail" ],
       "ON" : { "node_insert" : [] },
-      "IF" : [ { "og_entity_is_group_content" : { "entity" : [ "node" ] } } ],
+      "IF" : [
+        { "node_is_of_type" : {
+            "node" : [ "node" ],
+            "type" : { "value" : { "os2sub_group_mail" : "os2sub_group_mail" } }
+          }
+        },
+        { "AND" : [ { "og_entity_is_group_content" : { "entity" : [ "node" ] } } ] }
+      ],
       "DO" : [
         { "og_get_members" : {
             "USING" : { "group_content" : [ "node" ] },
@@ -35,8 +42,8 @@ function os2sub_gruppe_default_rules_configuration() {
                   "reply_to" : "[site:mail]",
                   "list_unsubscribe" : "[site:mail]",
                   "subject" : "[site:name] - [node:group-group] - [node:content-type] - [node:title]",
-                  "body" : "\\u003Ch1\\u003E[node:title]\\u003C\\/h1\\u003E\\r\\n\\u003Ch2\\u003E[node:field-os2web-base-field-text]\\u003C\\/h2\\u003E\\r\\n\\u003Ch3\\u003ETidspunkt: \\u003Cspan class=\\u0022date\\u0022\\u003E[node:event-calendar-date:value]\\u003Cspan\\u003E\\u003C\\/h3\\u003E\\r\\n\\u003Cdiv\\u003E[node:body]\\u003C\\/div\\u003E\\r\\n\\u003Cdiv\\u003ESe online: [node:url]\\u003C\\/div\\u003E",
-                  "plaintext" : "[node:title]\\r\\n[node:field-os2web-base-field-text]\\r\\nTidspunkt: [node:event-calendar-date]\\r\\n[node:body]\\r\\nSe online: [node:url]",
+                  "body" : "\\u003Ch1\\u003E[node:title]\\u003C\\/h1\\u003E\\r\\n\\u003Cdiv\\u003E[node:body]\\u003C\\/div\\u003E\\r\\n\\u003Cdiv\\u003ESe online: [node:url]\\u003C\\/div\\u003E",
+                  "plaintext" : "[node:title]\\r\\n\\r\\n[node:body]\\r\\n\\r\\nSe online: [node:url]",
                   "attachments" : "[node:field_os2web_base_field_media]",
                   "language" : [ "site:current-page:language" ]
                 }
