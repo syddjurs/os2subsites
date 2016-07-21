@@ -88,6 +88,65 @@ function os2sub_gruppe_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-os2sub_group_mail-group_content_access'
+  $field_instances['node-os2sub_group_mail-group_content_access'] = array(
+    'bundle' => 'os2sub_group_mail',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 2,
+      ),
+      'spotbox' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'group_content_access',
+    'label' => 'Synlighed for indhold',
+    'required' => 1,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'view modes' => array(
+      'full' => array(
+        'label' => 'above',
+        'type' => 'list_default',
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'type' => 'list_default',
+      ),
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'content_taxonomy_opt_groups' => FALSE,
+      ),
+      'type' => 'options_select',
+      'weight' => 3,
+    ),
+    'widget_type' => 'options_select',
+  );
+
   // Exported field_instance: 'node-os2sub_group_mail-og_group_ref'
   $field_instances['node-os2sub_group_mail-og_group_ref'] = array(
     'bundle' => 'os2sub_group_mail',
@@ -179,7 +238,7 @@ function os2sub_gruppe_field_default_field_instances() {
         'module' => 'node_reference',
         'settings' => array(),
         'type' => 'node_reference_default',
-        'weight' => 2,
+        'weight' => 0,
       ),
       'spotbox' => array(
         'label' => 'above',
@@ -226,7 +285,7 @@ function os2sub_gruppe_field_default_field_instances() {
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_default',
-        'weight' => 6,
+        'weight' => 4,
       ),
       'spotbox' => array(
         'label' => 'above',
@@ -294,7 +353,7 @@ function os2sub_gruppe_field_default_field_instances() {
         'module' => 'node_reference',
         'settings' => array(),
         'type' => 'node_reference_default',
-        'weight' => 4,
+        'weight' => 2,
       ),
       'spotbox' => array(
         'label' => 'above',
@@ -341,7 +400,7 @@ function os2sub_gruppe_field_default_field_instances() {
         'module' => 'node_reference',
         'settings' => array(),
         'type' => 'node_reference_default',
-        'weight' => 5,
+        'weight' => 3,
       ),
       'spotbox' => array(
         'label' => 'above',
@@ -388,7 +447,7 @@ function os2sub_gruppe_field_default_field_instances() {
         'module' => 'node_reference',
         'settings' => array(),
         'type' => 'node_reference_default',
-        'weight' => 3,
+        'weight' => 1,
       ),
       'spotbox' => array(
         'label' => 'above',
@@ -435,7 +494,7 @@ function os2sub_gruppe_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 7,
+        'weight' => 5,
       ),
       'spotbox' => array(
         'label' => 'above',
@@ -492,6 +551,113 @@ function os2sub_gruppe_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-os2web_group-field_os2web_group_allmembers'
+  $field_instances['node-os2web_group-field_os2web_group_allmembers'] = array(
+    'bundle' => 'os2web_group',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 6,
+      ),
+      'spotbox' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_os2web_group_allmembers',
+    'label' => 'Fællesgruppe',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 1,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 10,
+    ),
+  );
+
+  // Exported field_instance: 'node-os2web_group-group_content_access'
+  $field_instances['node-os2web_group-group_content_access'] = array(
+    'bundle' => 'os2web_group',
+    'default_value' => array(
+      0 => array(
+        'value' => 2,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 8,
+      ),
+      'spotbox' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'group_content_access',
+    'label' => 'Synlighed for gruppeindhold',
+    'required' => 1,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'view modes' => array(
+      'full' => array(
+        'label' => 'above',
+        'type' => 'list_default',
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'type' => 'list_default',
+      ),
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'content_taxonomy_opt_groups' => FALSE,
+      ),
+      'type' => 'options_select',
+      'weight' => 11,
+    ),
+    'widget_type' => 'options_select',
+  );
+
   // Exported field_instance: 'node-os2web_group-group_group'
   $field_instances['node-os2web_group-group_group'] = array(
     'bundle' => 'os2web_group',
@@ -505,12 +671,9 @@ function os2sub_gruppe_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'og_ui',
-        'settings' => array(
-          'field_name' => FALSE,
-        ),
-        'type' => 'og_group_subscribe',
-        'weight' => 0,
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 7,
       ),
       'spotbox' => array(
         'label' => 'above',
@@ -1310,11 +1473,14 @@ function os2sub_gruppe_field_default_field_instances() {
   t('Determine if this is an OG group.');
   t('Efternavn');
   t('Fornavn');
+  t('Fællesgruppe');
   t('Gruppe');
   t('Intro');
   t('Kontaktblok');
   t('Selvbetjeningslinks');
   t('Spotboxe');
+  t('Synlighed for gruppeindhold');
+  t('Synlighed for indhold');
   t('Telefon');
   t('Unikke eksterne links	');
   t('Unikke relaterede links');
