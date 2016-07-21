@@ -69,11 +69,6 @@ function os2sub_gruppe_og_features_default_permissions() {
     'roles' => array(),
   );
 
-  // Exported og permission: 'node:os2web_group:email people'
-  $permissions['node:os2web_group:email people'] = array(
-    'roles' => array(),
-  );
-
   // Exported og permission: 'node:os2web_group:manage members'
   $permissions['node:os2web_group:manage members'] = array(
     'roles' => array(

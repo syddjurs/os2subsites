@@ -492,55 +492,6 @@ function os2sub_gruppe_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-os2web_group-field_os2web_group_allmembers'
-  $field_instances['node-os2web_group-field_os2web_group_allmembers'] = array(
-    'bundle' => 'os2web_group',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 8,
-      ),
-      'spotbox' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_os2web_group_allmembers',
-    'label' => 'Fællesgruppe',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'display_label' => 1,
-      ),
-      'type' => 'options_onoff',
-      'weight' => 10,
-    ),
-  );
-
   // Exported field_instance: 'node-os2web_group-group_group'
   $field_instances['node-os2web_group-group_group'] = array(
     'bundle' => 'os2web_group',
@@ -1293,45 +1244,6 @@ function os2sub_gruppe_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'user-user-message_subscribe_email'
-  $field_instances['user-user-message_subscribe_email'] = array(
-    'bundle' => 'user',
-    'default_value' => array(
-      0 => array(
-        'value' => 1,
-      ),
-    ),
-    'deleted' => 0,
-    'description' => 'Email option will be checked automatically when subscribing to something.',
-    'display' => array(
-      'default' => array(
-        'label' => 'inline',
-        'module' => 'og_ui',
-        'settings' => array(
-          'field_name' => 'og_user_node',
-        ),
-        'type' => 'og_group_subscribe',
-        'weight' => 0,
-      ),
-    ),
-    'display_label' => 1,
-    'entity_type' => 'user',
-    'field_name' => 'message_subscribe_email',
-    'label' => 'Email subscriptions',
-    'required' => FALSE,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'module' => 'options',
-      'settings' => array(
-        'display_label' => 0,
-      ),
-      'type' => 'options_onoff',
-      'weight' => 0,
-    ),
-  );
-
   // Exported field_instance: 'user-user-og_user_node'
   $field_instances['user-user-og_user_node'] = array(
     'bundle' => 'user',
@@ -1394,10 +1306,7 @@ function os2sub_gruppe_field_default_field_instances() {
   t('Dato');
   t('Determine if this is an OG group.');
   t('Efternavn');
-  t('Email option will be checked automatically when subscribing to something.');
-  t('Email subscriptions');
   t('Fornavn');
-  t('Fællesgruppe');
   t('Gruppe');
   t('Intro');
   t('Kontaktblok');

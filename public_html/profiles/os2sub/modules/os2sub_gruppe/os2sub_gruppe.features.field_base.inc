@@ -44,32 +44,6 @@ function os2sub_gruppe_field_default_field_bases() {
     'type' => 'datetime',
   );
 
-  // Exported field_base: 'field_os2web_group_allmembers'
-  $field_bases['field_os2web_group_allmembers'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_os2web_group_allmembers',
-    'foreign keys' => array(),
-    'indexes' => array(
-      'value' => array(
-        0 => 'value',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'list',
-    'settings' => array(
-      'allowed_values' => array(
-        0 => '',
-        1 => '',
-      ),
-      'allowed_values_function' => '',
-    ),
-    'translatable' => 0,
-    'type' => 'list_boolean',
-  );
-
   // Exported field_base: 'field_user_name'
   $field_bases['field_user_name'] = array(
     'active' => 1,
@@ -163,34 +137,6 @@ function os2sub_gruppe_field_default_field_bases() {
       'allowed_values' => array(
         0 => 'Not a group',
         1 => 'Group',
-      ),
-      'allowed_values_function' => '',
-    ),
-    'translatable' => 0,
-    'type' => 'list_boolean',
-  );
-
-  // Exported field_base: 'message_subscribe_email'
-  $field_bases['message_subscribe_email'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(
-      0 => 'user',
-    ),
-    'field_name' => 'message_subscribe_email',
-    'foreign keys' => array(),
-    'indexes' => array(
-      'value' => array(
-        0 => 'value',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'list',
-    'settings' => array(
-      'allowed_values' => array(
-        0 => 'Don\'t email',
-        1 => 'Email',
       ),
       'allowed_values_function' => '',
     ),
