@@ -492,6 +492,55 @@ function os2sub_gruppe_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-os2web_group-field_os2web_group_allmembers'
+  $field_instances['node-os2web_group-field_os2web_group_allmembers'] = array(
+    'bundle' => 'os2web_group',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 8,
+      ),
+      'spotbox' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_os2web_group_allmembers',
+    'label' => 'Fællesgruppe',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 1,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 10,
+    ),
+  );
+
   // Exported field_instance: 'node-os2web_group-group_group'
   $field_instances['node-os2web_group-group_group'] = array(
     'bundle' => 'os2web_group',
@@ -1348,6 +1397,7 @@ function os2sub_gruppe_field_default_field_instances() {
   t('Email option will be checked automatically when subscribing to something.');
   t('Email subscriptions');
   t('Fornavn');
+  t('Fællesgruppe');
   t('Gruppe');
   t('Intro');
   t('Kontaktblok');
