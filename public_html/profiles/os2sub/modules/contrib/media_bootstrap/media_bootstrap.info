@@ -1,0 +1,14 @@
+name = Media bootstrap
+description = Provides a bootstrap Media functionality
+package = Media
+core = 7.x
+
+dependencies[] = media
+
+
+
+; Information added by drush on 2014-02-18
+version = "master-dev"
+project = "media_bootstrap"
+;datestamp = ""
+

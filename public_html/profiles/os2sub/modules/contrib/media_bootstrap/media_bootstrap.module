@@ -1,0 +1,22 @@
+<?php
+/**
+ * Implements hook_element_info_alter().
+ */
+function media_bootstrap_element_info_alter(&$type) {
+  $type['media']['#process'][] = 'media_bootstrap_media_buttons_add_classes';
+}
+/**
+ * Extra #process callback which adds extra classes the media element buttons.
+ */
+function media_bootstrap_media_buttons_add_classes($element, $edit, &$form_state) {
+  $element['select']['#attributes']['class'][] = 'btn';
+  $element['select']['#attributes']['class'][] = 'btn-primary';
+  $element['edit']['#attributes']['class'][] = 'btn';
+  $element['edit']['#attributes']['class'][] = 'btn-success';
+  $element['remove']['#attributes']['class'][] = 'btn';
+  $element['remove']['#attributes']['class'][] = 'btn-danger';
+  $element['manage-crop']['#attributes']['class'][] = 'btn';
+  $element['manage-crop']['#attributes']['class'][] = 'btn-info';
+  return $element;
+}
+?>
