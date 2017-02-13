@@ -6,3 +6,4 @@ public_html/sites/sites.php
 scripts/.admin_password.txt
 scripts/config.sh
 public_html/sites/*.dd
+/public_html/sites/all/translations
