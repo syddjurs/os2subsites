@@ -1,0 +1,176 @@
+// |--------------------------------------------------------------------------
+// | Stacked responsive tables
+// |--------------------------------------------------------------------------
+// |
+// | This file contains styles for the following:
+// | - .table-responsive-stacked
+// |
+
+// --------------------------------------------------
+// Variables
+// --------------------------------------------------
+
+@table-responsive-stacked-border-color: #ddd;
+
+// --------------------------------------------------
+// Styling
+// --------------------------------------------------
+
+// Stacked responsive tables
+.table-responsive-stacked {}
+
+// --------------------------------------------------
+// Responsive
+// --------------------------------------------------
+
+// Mobile
+@media @media-query-mobile {
+
+  // Stacked responsive tables
+  .table-responsive-stacked {}
+}
+
+// Mobile - only
+@media @media-query-mobile-only {
+  .table-responsive-mixin-stacked();
+
+  // Stacked responsive tables
+  .table-responsive-stacked {}
+}
+
+// Tablet
+@media @media-query-tablet {
+
+  // Stacked responsive tables
+  .table-responsive-stacked {}
+}
+
+// Tablet - only
+@media @media-query-tablet-only {
+  .table-responsive-mixin-stacked();
+
+  // Stacked responsive tables
+  .table-responsive-stacked {}
+}
+
+// Desktop
+@media @media-query-desktop {
+
+  // Stacked responsive tables
+  .table-responsive-stacked {}
+}
+
+// Desktop - only
+@media @media-query-desktop-only {
+
+  // Stacked responsive tables
+  .table-responsive-stacked {}
+}
+
+// Large desktop
+@media @media-query-large-desktop {
+
+  // Stacked responsive tables
+  .table-responsive-stacked {}
+}
+
+// Large desktop - only
+@media @media-query-large-desktop-only {
+
+  // Stacked responsive tables
+  .table-responsive-stacked {}
+}
+
+// Print
+@media print {
+
+  // Stacked responsive tables
+  .table-responsive-stacked {}
+}
+
+// Touch
+.touchevents {
+
+  // Stacked responsive tables
+  .table-responsive-stacked {}
+}
+
+// No touch
+.no-touchevents {
+
+  // Stacked responsive tables
+  .table-responsive-stacked {}
+}
+
+// --------------------------------------------------
+// Mixins
+// --------------------------------------------------
+
+// Stacked responsive tables mixin
+.table-responsive-mixin-stacked() {
+
+  .table-responsive-stacked {
+
+    &,
+    .table,
+    &.table,
+    table,
+    &table {
+      border: 0;
+
+      > thead,
+      > tbody,
+      > tfoot {
+        display: block;
+
+        > tr {
+          display: block;
+
+          > th,
+          > td {
+            display: block;
+          }
+
+          > td {
+            position: relative;
+            border: none;
+            border-bottom: 1px solid #eee;
+            white-space: normal;
+            text-align: left;
+
+            &,
+            &:first-child,
+            &:last-child {
+              padding-left: 50% !important;
+            }
+
+            &:before {
+              position: absolute;
+              top: 6px;
+              left: 6px;
+              width: 45%;
+              padding-right: 10px;
+              white-space: nowrap;
+              text-align:left;
+              font-weight: bold;
+              content: attr(data-title);
+            }
+          }
+        }
+      }
+    }
+
+    thead {
+
+      tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+      }
+    }
+
+    tr {
+      padding: 6px 0;
+    }
+  }
+}

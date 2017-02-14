@@ -1,0 +1,203 @@
+// |--------------------------------------------------------------------------
+// | Popover button
+// |--------------------------------------------------------------------------
+// |
+// | This file contains styles for the following:
+// | - .popover-button
+// |
+
+// --------------------------------------------------
+// Variables
+// --------------------------------------------------
+
+@popover-button-top-spacing: 100px;
+@popover-button-stacked-spacing: @grid-gutter-width;
+@popover-button-width: 250px;
+@popover-button-min-height: 150px;
+@popover-button-toggle-width: @popover-button-min-height;
+
+// --------------------------------------------------
+// Styling
+// --------------------------------------------------
+
+html {
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+
+// Popover button
+.popover-button {
+	position: absolute;
+	right: floor( (0 - @popover-button-width) );
+	width: 250px;
+	background-color: @content-bg;
+	min-height: @popover-button-min-height;
+	.transition(all @bs3-designer-transition-time ease-in-out);
+
+	.popover-button-toggle {
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 100%;
+		.border-bottom-radius(@border-radius-base);
+		font-weight: bold;
+		padding: 5px 15px;
+		text-transform: uppercase;
+		text-decoration: none;
+		.transform-origin(left top);
+		.rotate(90deg);
+		width: @popover-button-toggle-width;
+		text-align: center;
+	}
+
+	.popover-button-content {
+		padding: @default-body-top-bottom-spacing @default-left-right-spacing;
+
+		.form-submit {
+
+			.btn-primary;
+		}
+	}
+
+	&.popover-button-open {
+		right: 0;
+	}
+
+	&:extend(.clearfix all);
+}
+
+// --------------------------------------------------
+// Variants
+// --------------------------------------------------
+
+.popover-button-feedback {
+	top: (@popover-button-top-spacing);
+	z-index: 2005;
+	.site-mixin-popover-button(@state-tertiary-bg, @state-tertiary-text);
+
+	.feedback-form {
+		display: block !important;
+	}
+
+	#feedback-status-message {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		color: @brand-success;
+		font-weight: bold;
+		padding: 4px @default-left-right-spacing;
+	}
+
+	.feedback-messages {
+		display: none;
+	}
+}
+
+// --------------------------------------------------
+// Responsive
+// --------------------------------------------------
+
+// Mobile
+@media @media-query-mobile {
+
+	// Popover button
+	.popover-button {}
+}
+
+// Mobile - only
+@media @media-query-mobile-only {
+
+	// Popover button
+	.popover-button {
+
+		.popover-button-toggle {
+			padding: 2px 8px;
+			width: 100px;
+		}
+	}
+
+	.popover-button-feedback {
+		top: 330px;
+	}
+}
+
+// Tablet
+@media @media-query-tablet {
+
+	// Popover button
+	.popover-button {}
+}
+
+// Tablet - only
+@media @media-query-tablet-only {
+
+	// Popover button
+	.popover-button {}
+}
+
+// Desktop
+@media @media-query-desktop {
+
+	// Popover button
+	.popover-button {}
+}
+
+// Desktop - only
+@media @media-query-desktop-only {
+
+	// Popover button
+	.popover-button {}
+}
+
+// Large desktop
+@media @media-query-large-desktop {
+
+	// Popover button
+	.popover-button {}
+}
+
+// Large desktop - only
+@media @media-query-large-desktop-only {
+
+	// Popover button
+	.popover-button {}
+}
+
+// Print
+@media print {
+
+	// Popover button
+	.popover-button {}
+}
+
+// Touch
+.touchevents {
+
+	// Popover button
+	.popover-button {}
+}
+
+// No touch
+.no-touchevents {
+
+	// Popover button
+	.popover-button {}
+}
+
+// --------------------------------------------------
+// Mixins
+// --------------------------------------------------
+
+// Popover button mixin
+.site-mixin-popover-button(@background-color, @font-color) {
+
+	&.popover-button {
+
+		.popover-button-toggle {
+			color: @font-color;
+			background-color: @background-color;
+		}
+	}
+}

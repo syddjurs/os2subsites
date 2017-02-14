@@ -1,0 +1,160 @@
+// |--------------------------------------------------------------------------
+// | News
+// |--------------------------------------------------------------------------
+// |
+// | This file contains styles for the following:
+// | - .os2-node-spotbox-news
+// |
+
+// --------------------------------------------------
+// Variables
+// --------------------------------------------------
+
+// --------------------------------------------------
+// Styling
+// --------------------------------------------------
+
+// News
+.os2-node-spotbox-news {
+
+  .table-cell {
+    vertical-align: middle !important;
+  }
+
+  .os2-node-spotbox-news-primary-image-wrapper {
+    padding: 0;
+    margin: 0;
+  }
+
+  .os2-node-spotbox-primary-image {
+
+    img {
+      margin: 0;
+    }
+  }
+
+  .os2-node-spotbox-news-content-wrapper {
+    padding: @os2-box-body-top-bottom-spacing @os2-box-body-left-right-spacing;
+  }
+
+  .os2-node-spotbox-body-heading-title {
+    margin-top: 0;
+    .heading-h2;
+  }
+}
+
+// --------------------------------------------------
+// Responsive
+// --------------------------------------------------
+
+// Mobile
+@media @media-query-mobile {
+
+  // News
+  .os2-node-spotbox-news {
+
+    .table-cell {
+      width: 100%;
+    }
+
+    .os2-node-spotbox-primary-image {
+
+      &,
+      img {
+        border-radius: 0;
+        .border-top-radius(@border-radius-base);
+      }
+    }
+  }
+}
+
+// Mobile - only
+@media @media-query-mobile-only {
+
+  // News
+  .os2-node-spotbox-news {}
+}
+
+// Tablet
+@media @media-query-tablet {
+
+  // News
+  .os2-node-spotbox-news {
+
+    .table-cell {
+      width: 50%;
+    }
+
+    .os2-node-spotbox-primary-image {
+
+      &,
+      img {
+        border-radius: 0;
+        .border-left-radius(@border-radius-base);
+      }
+    }
+  }
+}
+
+// Tablet - only
+@media @media-query-tablet-only {
+
+  // News
+  .os2-node-spotbox-news {}
+}
+
+// Desktop
+@media @media-query-desktop {
+
+  // News
+  .os2-node-spotbox-news {}
+}
+
+// Desktop - only
+@media @media-query-desktop-only {
+
+  // News
+  .os2-node-spotbox-news {}
+}
+
+// Large desktop
+@media @media-query-large-desktop {
+
+  // News
+  .os2-node-spotbox-news {}
+}
+
+// Large desktop - only
+@media @media-query-large-desktop-only {
+
+  // News
+  .os2-node-spotbox-news {}
+}
+
+// Print
+@media print {
+
+  // News
+  .os2-node-spotbox-news {}
+}
+
+// Touch
+.touchevents {
+
+  // News
+  .os2-node-spotbox-news {}
+}
+
+// No touch
+.no-touchevents {
+
+  // News
+  .os2-node-spotbox-news {}
+}
+
+// --------------------------------------------------
+// Mixins
+// --------------------------------------------------
+
+// News mixin
+.os2-node-spotbox-mixin-news() {}

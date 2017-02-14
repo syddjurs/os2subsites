@@ -1,0 +1,263 @@
+// |--------------------------------------------------------------------------
+// | Teaser (default)
+// |--------------------------------------------------------------------------
+// |
+// | This file contains styles for the following:
+// | - .os2-node-teaser
+// |
+
+// --------------------------------------------------
+// Variables
+// --------------------------------------------------
+
+// --------------------------------------------------
+// Styling
+// --------------------------------------------------
+
+// Teaser
+.os2-node-teaser {
+
+    // Date
+    .os2-node-teaser-date {
+        font-size: @font-size-small;
+        font-weight: @font-weight-bold;
+        color: @brand-secondary;
+    }
+
+    // Image
+    .os2-node-teaser-image {
+
+        &,
+        img {
+            .border-top-radius(@border-radius-base);
+        }
+    }
+
+    // Heading
+    .os2-node-teaser-heading {
+
+        .os2-node-teaser-heading-title {
+            .heading-h4;
+            margin: 0;
+        }
+
+        + .os2-node-teaser-body {
+            padding-top: 0;
+            margin-top: -8px;
+        }
+    }
+
+    // Body
+    .os2-node-teaser-body {
+
+        .os2-node-teaser-body-heading {
+            padding: 5px 0;
+
+            .os2-node-teaser-body-heading-title {
+                .heading-h4;
+                margin: 0;
+            }
+        }
+
+        + .os2-node-teaser-footer {
+            padding-top: 0;
+        }
+    }
+}
+
+.os2-section-light {
+
+    .os2-node-teaser {
+        background-color: @body-bg;
+    }
+}
+
+&,
+.os2-section-dark {
+
+    .os2-node-teaser {
+        background-color: #fff;
+    }
+}
+
+.os2-news-teaser {
+
+    .os2-node-teaser-image {
+
+        &,
+        img {
+            display: none;
+        }
+    }
+}
+
+.page-nyheder {
+
+    .os2-news-teaser {
+
+        .os2-node-teaser-image {
+
+            &,
+            img {
+                display: block;
+            }
+        }
+    }
+}
+
+// --------------------------------------------------
+// Responsive
+// --------------------------------------------------
+
+// Mobile
+@media @media-query-mobile {
+
+    // Teaser
+    .os2-node-teaser {}
+}
+
+// Mobile - only
+@media @media-query-mobile-only {
+
+    // Teaser
+    .os2-node-teaser {
+        margin-bottom: 15px;
+
+        .os2-node-teaser-action {
+            padding-top: 10px;
+        }
+
+        // Heading
+        .os2-node-teaser-heading {
+            padding: @content-xs-heading-top-bottom-spacing @content-xs-left-right-spacing;
+        }
+
+        // Body
+        .os2-node-teaser-body {
+            padding: @content-xs-body-top-bottom-spacing @content-xs-left-right-spacing;
+        }
+
+        // Footer
+        .os2-node-teaser-footer {
+            padding: @content-xs-footer-top-bottom-spacing @content-xs-left-right-spacing;
+        }
+    }
+}
+
+// Tablet
+@media @media-query-tablet {
+
+    // Teaser
+    .os2-node-teaser {}
+}
+
+// Tablet - only
+@media @media-query-tablet-only {
+
+    // Teaser
+    .os2-node-teaser {
+
+        // Heading
+        .os2-node-teaser-heading {
+            padding: @content-sm-heading-top-bottom-spacing @content-sm-left-right-spacing;
+        }
+
+        // Body
+        .os2-node-teaser-body {
+            padding: @content-sm-body-top-bottom-spacing @content-sm-left-right-spacing;
+        }
+
+        // Footer
+        .os2-node-teaser-footer {
+            padding: @content-sm-footer-top-bottom-spacing @content-sm-left-right-spacing;
+        }
+    }
+}
+
+// Desktop
+@media @media-query-desktop {
+
+    // Teaser
+    .os2-node-teaser {}
+}
+
+// Desktop - only
+@media @media-query-desktop-only {
+
+    // Teaser
+    .os2-node-teaser {
+
+        // Heading
+        .os2-node-teaser-heading {
+            padding: @content-md-heading-top-bottom-spacing @content-md-left-right-spacing;
+        }
+
+        // Body
+        .os2-node-teaser-body {
+            padding: @content-md-body-top-bottom-spacing @content-md-left-right-spacing;
+        }
+
+        // Footer
+        .os2-node-teaser-footer {
+            padding: @content-md-footer-top-bottom-spacing @content-md-left-right-spacing;
+        }
+    }
+}
+
+// Large desktop
+@media @media-query-large-desktop {
+
+    // Teaser
+    .os2-node-teaser {}
+}
+
+// Large desktop - only
+@media @media-query-large-desktop-only {
+
+    // Teaser
+    .os2-node-teaser {
+
+        // Heading
+        .os2-node-teaser-heading {
+            padding: @content-lg-heading-top-bottom-spacing @content-lg-left-right-spacing;
+        }
+
+        // Body
+        .os2-node-teaser-body {
+            padding: @content-lg-body-top-bottom-spacing @content-lg-left-right-spacing;
+        }
+
+        // Footer
+        .os2-node-teaser-footer {
+            padding: @content-lg-footer-top-bottom-spacing @content-lg-left-right-spacing;
+        }
+    }
+}
+
+// Print
+@media print {
+
+    // Teaser
+    .os2-node-teaser {}
+}
+
+// Touch
+.touchevents {
+
+    // Teaser
+    .os2-node-teaser {}
+}
+
+// No touch
+.no-touchevents {
+
+    // Teaser
+    .os2-node-teaser {}
+}
+
+// --------------------------------------------------
+// Mixins
+// --------------------------------------------------
+
+// Teaser mixin
+.os2-mixin-node-teaser() {}

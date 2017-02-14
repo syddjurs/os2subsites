@@ -1,0 +1,143 @@
+// |--------------------------------------------------------------------------
+// | Content
+// |--------------------------------------------------------------------------
+// |
+// | This file contains styles for the following:
+// | - .content
+// |
+
+// --------------------------------------------------
+// Variables
+// --------------------------------------------------
+
+// Responsive
+@content-xs-padding-bottom: 0;
+@content-sm-padding-bottom: 0;
+@content-md-padding-bottom: 0;
+@content-lg-padding-bottom: 0;
+
+// --------------------------------------------------
+// Styling
+// --------------------------------------------------
+
+// Content
+.content {
+  background-color: @content-bg;
+}
+
+body {
+
+  &.sidebar-left-open {
+    background-color: @brand-primary;
+  }
+}
+
+// Reset
+.not-logged-in {
+
+  &.front,
+  &.page-user-login,
+  &.page-user-register,
+  &.page-user-password {
+
+    .content {
+      padding-bottom: 0;
+    }
+  }
+}
+
+// --------------------------------------------------
+// Responsive
+// --------------------------------------------------
+
+// Mobile
+@media @media-query-mobile {
+
+  // Content
+  .content {}
+}
+
+// Mobile - only
+@media @media-query-mobile-only {
+
+  // Content
+  .content {
+    padding-bottom: @content-xs-padding-bottom;
+  }
+}
+
+// Tablet
+@media @media-query-tablet {
+
+  // Content
+  .content {}
+}
+
+// Tablet - only
+@media @media-query-tablet-only {
+
+  // Content
+  .content {
+    padding-bottom: @content-sm-padding-bottom;
+  }
+}
+
+// Desktop
+@media @media-query-desktop {
+
+  // Content
+  .content {}
+}
+
+// Desktop - only
+@media @media-query-desktop-only {
+
+  // Content
+  .content {
+    padding-bottom: @content-md-padding-bottom;
+  }
+}
+
+// Large desktop
+@media @media-query-large-desktop {
+
+  // Content
+  .content {}
+}
+
+// Large desktop - only
+@media @media-query-large-desktop-only {
+
+  // Content
+  .content {
+    padding-bottom: @content-lg-padding-bottom;
+  }
+}
+
+// Print
+@media print {
+
+  // Content
+  .content {}
+}
+
+// Touch
+.touchevents {
+
+  // Content
+  .content {}
+}
+
+// No touch
+.no-touchevents {
+
+  // Content
+  .content {}
+}
+
+// --------------------------------------------------
+// Mixins
+// --------------------------------------------------
+
+// Content mixin
+.content-mixin() {}

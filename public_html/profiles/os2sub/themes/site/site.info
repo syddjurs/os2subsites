@@ -1,0 +1,65 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Theme information
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+name = 'Syddjursdk Theme'
+description = 'Samme design som på Syddjurs.dk.'
+core = '7.x'
+screenshot = 'dist/img/screenshot.png'
+base theme = 'bellcom'
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Regions
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+regions[highlighted] = 'Highlighted'
+regions[help] = 'Help'
+regions[content] = 'Content'
+regions[footer] = 'Footer'
+
+;; Syddjurs specific regions
+regions[menu] = 'Menu'
+regions[search] = 'Search'
+regions[branding] = 'Branding'
+
+regions[user_first] = 'User Bar First'
+regions[user_second] = 'User Bar Second'
+
+regions[header_first] = 'Header First'
+regions[header_second] = 'Header Second'
+
+regions[sidebar_first] = 'Sidebar First'
+regions[sidebar_second] = 'Sidebar Second'
+
+regions[preface_first] = 'Preface First'
+regions[preface_second] = 'Preface Second'
+regions[preface_third] = 'Preface Third'
+
+regions[footer_first] = 'Footer First'
+regions[footer_second] = 'Footer Second'
+regions[footer_third] = 'Footer Third'
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Stylesheets
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+stylesheets[all][] = 'dist/css/stylesheet.css'
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Scripts
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+scripts[] = 'dist/js/modernizr.js'
+scripts[] = 'dist/js/app.js'
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Plugins
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Theme settings
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Settings
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

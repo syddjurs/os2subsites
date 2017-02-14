@@ -1,0 +1,233 @@
+// |--------------------------------------------------------------------------
+// | Spotbox (default)
+// |--------------------------------------------------------------------------
+// |
+// | This file contains styles for the following:
+// | - .os2-node-spotbox
+// |
+
+// --------------------------------------------------
+// Variables
+// --------------------------------------------------
+
+// --------------------------------------------------
+// Styling
+// --------------------------------------------------
+
+// Spotbox
+.os2-node-spotbox {
+    border-radius: @border-radius-base;
+
+    // Date
+    .os2-node-spotbox-date {
+        font-size: @font-size-small;
+        font-weight: @font-weight-bold;
+        color: @brand-secondary;
+    }
+
+    // Image
+    .os2-node-spotbox-image {
+
+        &,
+        img {
+            .border-top-radius(@border-radius-base);
+        }
+    }
+
+    // Heading
+    .os2-node-spotbox-heading {
+
+        .os2-node-spotbox-heading-title {
+            .heading-h4;
+            margin: 0;
+        }
+    }
+
+    // Body
+    .os2-node-spotbox-body {
+
+        .os2-node-spotbox-body-heading {
+            padding: 5px 0;
+
+            .os2-node-spotbox-body-heading-title {
+                .heading-h4;
+                margin: 0;
+            }
+        }
+
+        + .os2-node-spotbox-footer {
+            padding-top: 0;
+        }
+    }
+}
+
+.os2-section-light {
+
+    .os2-node-spotbox {
+        background-color: @body-bg;
+    }
+}
+
+&,
+.os2-section-dark {
+
+    .os2-node-spotbox {
+        background-color: #fff;
+    }
+}
+
+// --------------------------------------------------
+// Responsive
+// --------------------------------------------------
+
+// Mobile
+@media @media-query-mobile {
+
+    // Spotbox
+    .os2-node-spotbox {}
+}
+
+// Mobile - only
+@media @media-query-mobile-only {
+
+    // Spotbox
+    .os2-node-spotbox {
+
+        .os2-node-spotbox-action {
+            padding-top: 10px;
+        }
+
+        // Heading
+        .os2-node-spotbox-heading {
+            padding: @content-xs-heading-top-bottom-spacing @content-xs-left-right-spacing;
+        }
+
+        // Body
+        .os2-node-spotbox-body {
+            padding: @content-xs-body-top-bottom-spacing @content-xs-left-right-spacing;
+        }
+
+        // Footer
+        .os2-node-spotbox-footer {
+            padding: @content-xs-footer-top-bottom-spacing @content-xs-left-right-spacing;
+        }
+    }
+}
+
+// Tablet
+@media @media-query-tablet {
+
+    // Spotbox
+    .os2-node-spotbox {}
+}
+
+// Tablet - only
+@media @media-query-tablet-only {
+
+    // Spotbox
+    .os2-node-spotbox {
+
+        // Heading
+        .os2-node-spotbox-heading {
+            padding: @content-sm-heading-top-bottom-spacing @content-sm-left-right-spacing;
+        }
+
+        // Body
+        .os2-node-spotbox-body {
+            padding: @content-sm-body-top-bottom-spacing @content-sm-left-right-spacing;
+        }
+
+        // Footer
+        .os2-node-spotbox-footer {
+            padding: @content-sm-footer-top-bottom-spacing @content-sm-left-right-spacing;
+        }
+    }
+}
+
+// Desktop
+@media @media-query-desktop {
+
+    // Spotbox
+    .os2-node-spotbox {}
+}
+
+// Desktop - only
+@media @media-query-desktop-only {
+
+    // Spotbox
+    .os2-node-spotbox {
+
+        // Heading
+        .os2-node-spotbox-heading {
+            padding: @content-md-heading-top-bottom-spacing @content-md-left-right-spacing;
+        }
+
+        // Body
+        .os2-node-spotbox-body {
+            padding: @content-md-body-top-bottom-spacing @content-md-left-right-spacing;
+        }
+
+        // Footer
+        .os2-node-spotbox-footer {
+            padding: @content-md-footer-top-bottom-spacing @content-md-left-right-spacing;
+        }
+    }
+}
+
+// Large desktop
+@media @media-query-large-desktop {
+
+    // Spotbox
+    .os2-node-spotbox {}
+}
+
+// Large desktop - only
+@media @media-query-large-desktop-only {
+
+    // Spotbox
+    .os2-node-spotbox {
+
+        // Heading
+        .os2-node-spotbox-heading {
+            padding: @content-lg-heading-top-bottom-spacing @content-lg-left-right-spacing;
+        }
+
+        // Body
+        .os2-node-spotbox-body {
+            padding: @content-lg-body-top-bottom-spacing @content-lg-left-right-spacing;
+        }
+
+        // Footer
+        .os2-node-spotbox-footer {
+            padding: @content-lg-footer-top-bottom-spacing @content-lg-left-right-spacing;
+        }
+    }
+}
+
+// Print
+@media print {
+
+    // Spotbox
+    .os2-node-spotbox {}
+}
+
+// Touch
+.touchevents {
+
+    // Spotbox
+    .os2-node-spotbox {}
+}
+
+// No touch
+.no-touchevents {
+
+    // Spotbox
+    .os2-node-spotbox {}
+}
+
+// --------------------------------------------------
+// Mixins
+// --------------------------------------------------
+
+// Spotbox mixin
+.os2-mixin-node-spotbox() {}

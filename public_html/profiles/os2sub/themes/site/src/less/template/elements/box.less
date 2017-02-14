@@ -1,0 +1,297 @@
+// |--------------------------------------------------------------------------
+// | Box
+// |--------------------------------------------------------------------------
+// |
+// | This file contains styles for the following:
+// | - .os2-box
+// |
+
+// --------------------------------------------------
+// Variables
+// --------------------------------------------------
+
+@os2-box-background-color: 	#fff;
+@os2-box-border-radius: 	@border-radius-base;
+
+@os2-box-heading-top-bottom-spacing: 10px;
+@os2-box-heading-left-right-spacing: @content-md-left-right-spacing;
+
+@os2-box-body-top-bottom-spacing: 15px;
+@os2-box-body-left-right-spacing: @content-md-left-right-spacing;
+
+@os2-box-footer-top-bottom-spacing: 5px;
+@os2-box-footer-left-right-spacing: @content-md-left-right-spacing;
+
+// Responsive
+@os2-box-xs-stacked-spacing: floor( (@grid-gutter-width / 2) );
+@os2-box-sm-stacked-spacing: floor( (@grid-gutter-width / 2) );
+@os2-box-md-stacked-spacing: @grid-gutter-width;
+@os2-box-lg-stacked-spacing: @grid-gutter-width;
+
+// --------------------------------------------------
+// Styling
+// --------------------------------------------------
+
+// Box
+.os2-box {
+	background-color: @os2-box-background-color;
+	border-radius: @os2-box-border-radius;
+
+	.os2-box-heading {
+		padding: @os2-box-heading-top-bottom-spacing @os2-box-heading-left-right-spacing;
+		.border-top-radius(@os2-box-border-radius);
+
+		.pane-title,
+		.os2-box-heading-title {
+			margin: 0;
+			.heading-h4;
+		}
+	}
+
+	.os2-box-body {
+		padding: @os2-box-body-top-bottom-spacing @os2-box-body-left-right-spacing;
+
+		+ .os2-box-footer {
+			padding-top: 0;
+		}
+
+		&:extend(.clearfix all);
+	}
+
+	.os2-box-footer {
+		padding: @os2-box-footer-top-bottom-spacing @os2-box-footer-left-right-spacing;
+	}
+}
+
+// --------------------------------------------------
+// Variants
+// --------------------------------------------------
+
+.os2-box,
+.os2-box-primary {
+	.os2-mixin-box(@state-primary-bg, @state-primary-text);
+}
+
+.os2-box-secondary {
+	.os2-mixin-box(@state-secondary-bg, @state-secondary-text);
+}
+
+.os2-box-tertiary {
+	.os2-mixin-box(@state-tertiary-bg, @state-tertiary-text);
+}
+
+.os2-box-quaternary {
+	.os2-mixin-box(@state-quaternary-bg, @state-quaternary-text);
+}
+
+.os2-box-quinary {
+	.os2-mixin-box(@state-quinary-bg, @state-quinary-text);
+}
+
+// --------------------------------------------------
+// Responsive
+// --------------------------------------------------
+
+// Mobile
+@media @media-query-mobile {
+
+	// Box
+	.os2-box {}
+}
+
+// Mobile - only
+@media @media-query-mobile-only {
+
+	// Box
+	.os2-box {
+		margin: 15px 0;
+
+		.os2-box-heading {
+			padding: @content-xs-heading-top-bottom-spacing @content-xs-left-right-spacing;
+		}
+
+		.os2-box-body {
+			padding: @content-xs-body-top-bottom-spacing @content-xs-left-right-spacing;
+		}
+
+		.os2-box-footer {
+			padding: @content-xs-footer-top-bottom-spacing @content-xs-left-right-spacing;
+		}
+	}
+
+	.os2-box-small-spacing {
+
+		&.os2-box,
+		> .os2-box {
+			margin-bottom: floor( (@os2-box-xs-stacked-spacing / 3) ) !important;
+		}
+	}
+
+	.os2-box-large-spacing {
+
+		&.os2-box,
+		> .os2-box {
+			margin-bottom: floor( (@os2-box-xs-stacked-spacing * 2) ) !important;
+		}
+	}
+}
+
+// Tablet
+@media @media-query-tablet {
+
+	// Box
+	.os2-box {}
+}
+
+// Tablet - only
+@media @media-query-tablet-only {
+
+	// Box
+	.os2-box {
+		margin-bottom: @os2-box-sm-stacked-spacing !important;
+
+		.os2-box-heading {
+			padding: @content-sm-heading-top-bottom-spacing @content-sm-left-right-spacing;
+		}
+
+		.os2-box-body {
+			padding: @content-sm-body-top-bottom-spacing @content-sm-left-right-spacing;
+		}
+
+		.os2-box-footer {
+			padding: @content-sm-footer-top-bottom-spacing @content-sm-left-right-spacing;
+		}
+	}
+
+	.os2-box-small-spacing {
+
+		&.os2-box,
+		> .os2-box {
+			margin-bottom: floor( (@os2-box-sm-stacked-spacing / 3) ) !important;
+		}
+	}
+
+	.os2-box-large-spacing {
+
+		&.os2-box,
+		> .os2-box {
+			margin-bottom: floor( (@os2-box-sm-stacked-spacing * 2) ) !important;
+		}
+	}
+}
+
+// Desktop
+@media @media-query-desktop {
+
+	// Box
+	.os2-box {}
+}
+
+// Desktop - only
+@media @media-query-desktop-only {
+
+	// Box
+	.os2-box {
+		margin-bottom: @os2-box-md-stacked-spacing !important;
+	}
+
+	.os2-box-small-spacing {
+
+		&.os2-box,
+		> .os2-box {
+			margin-bottom: floor( (@os2-box-md-stacked-spacing / 3) ) !important;
+		}
+	}
+
+	.os2-box-large-spacing {
+
+		&.os2-box,
+		> .os2-box {
+			margin-bottom: floor( (@os2-box-md-stacked-spacing * 2) ) !important;
+		}
+	}
+}
+
+// Large desktop
+@media @media-query-large-desktop {
+
+	// Box
+	.os2-box {}
+}
+
+// Large desktop - only
+@media @media-query-large-desktop-only {
+
+	// Box
+	.os2-box {
+		margin-bottom: @os2-box-lg-stacked-spacing !important;
+	}
+
+	.os2-box-small-spacing {
+
+		&.os2-box,
+		> .os2-box {
+			margin-bottom: floor( (@os2-box-lg-stacked-spacing / 3) ) !important;
+		}
+	}
+
+	.os2-box-large-spacing {
+
+		&.os2-box,
+		> .os2-box {
+			margin-bottom: floor( (@os2-box-lg-stacked-spacing * 2) ) !important;
+		}
+	}
+}
+
+// Print
+@media print {
+
+	// Box
+	.os2-box {}
+}
+
+// Touch
+.touchevents {
+
+	// Box
+	.os2-box {}
+}
+
+// No touch
+.no-touchevents {
+
+	// Box
+	.os2-box {}
+}
+
+// --------------------------------------------------
+// Mixins
+// --------------------------------------------------
+
+// Box mixin
+.os2-mixin-box(@heading-background-color, @heading-font-color) {
+
+	&,
+	>	.os2-box {
+
+		.os2-box-heading {
+			background-color: @heading-background-color;
+
+			.pane-title,
+			.os2-box-heading-title {
+
+				&,
+				> a {
+
+					&,
+					&:hover,
+					&:focus,
+					&:active {
+						color: @heading-font-color;
+					}
+				}
+			}
+		}
+	}
+}

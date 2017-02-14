@@ -1,0 +1,247 @@
+// |--------------------------------------------------------------------------
+// | Accordion
+// |--------------------------------------------------------------------------
+// |
+// | This file contains styles for the following:
+// | - .os2-accordion
+// |
+
+// --------------------------------------------------
+// Variables
+// --------------------------------------------------
+
+@os2-accordion-stacked-spacing: 5px;
+@os2-accordion-heading-background-color: #e3e7ef;
+@os2-accordion-heading-border-radius: @border-radius-base;
+@os2-accordion-heading-inner-padding-top-bottom: 8px;
+@os2-accordion-heading-title-color: @text-color;
+@os2-accordion-heading-title-icon-color: @brand-quaternary;
+@os2-accordion-body-background-color: @os2-accordion-heading-background-color;
+
+// Active
+@os2-accordion-active-heading-background-color: #fff;
+@os2-accordion-active-heading-title-color: @os2-accordion-heading-title-color;
+@os2-accordion-active-heading-title-icon-color: @brand-quaternary;
+@os2-accordion-active-body-background-color: @os2-accordion-active-heading-background-color;
+
+// --------------------------------------------------
+// Styling
+// --------------------------------------------------
+
+// Accordion
+.os2-accordion {
+
+  &.entity-field-collection-item {
+    padding-bottom: @os2-accordion-stacked-spacing;
+  }
+
+  .os2-accordion-heading {
+    background-color: @os2-accordion-heading-background-color;
+    border-radius: @os2-accordion-heading-border-radius;
+    cursor: hand;
+    cursor: pointer;
+
+    .os2-accordion-heading-title {
+      .heading-h5;
+      font-weight: @headings-font-weight-bold;
+      color: @os2-accordion-heading-title-color;
+      padding: 0;
+      margin: 0;
+
+      &:before {
+        float: left;
+        font-family: FontAwesome;
+        content: @fa-var-plus;
+        color: @os2-accordion-heading-title-icon-color;
+        margin-right: 5px;
+      }
+    }
+  }
+
+  .os2-accordion-body {
+    display: none;
+    background-color: @os2-accordion-body-background-color;
+    .border-bottom-radius(@os2-accordion-heading-border-radius);
+
+    ul {
+      .lists-mixin;
+      margin-bottom: 15px;
+
+      li {
+
+        a {
+          font-weight: @font-weight-bold;
+        }
+      }
+    }
+
+    p {
+      margin-bottom: 15px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    ul.related-links {
+      -webkit-margin-before: 1em;
+      -webkit-margin-after: 1em;
+      -webkit-margin-start: 0px;
+      -webkit-margin-end: 0px;
+      -webkit-padding-start: 40px;
+      li {
+        padding: 0;
+        border-bottom: none;
+      }
+    }
+  }
+
+  &.active {
+
+    .os2-accordion-heading {
+      background-color: @os2-accordion-active-heading-background-color;
+      .border-bottom-radius(0);
+
+      .os2-accordion-heading-title {
+        color: @os2-accordion-active-heading-title-color;
+
+        &:before {
+          content: @fa-var-minus;
+          color: @os2-accordion-active-heading-title-icon-color;
+        }
+      }
+    }
+
+    .os2-accordion-body {
+      display: block;
+      background-color: @os2-accordion-active-body-background-color;
+    }
+  }
+
+  + .os2-accordion {
+    margin-top: @os2-accordion-stacked-spacing;
+  }
+}
+
+// --------------------------------------------------
+// Responsive
+// --------------------------------------------------
+
+// Mobile
+@media @media-query-mobile {
+
+  // Accordion
+  .os2-accordion {}
+}
+
+// Mobile - only
+@media @media-query-mobile-only {
+
+  // Accordion
+  .os2-accordion {
+
+    .os2-accordion-heading {
+      padding: @os2-accordion-heading-inner-padding-top-bottom @content-xs-left-right-spacing;
+    }
+
+    .os2-accordion-body {
+      padding: @content-xs-body-top-bottom-spacing @content-xs-left-right-spacing;
+    }
+  }
+}
+
+// Tablet
+@media @media-query-tablet {
+
+  // Accordion
+  .os2-accordion {}
+}
+
+// Tablet - only
+@media @media-query-tablet-only {
+
+  // Accordion
+  .os2-accordion {
+
+    .os2-accordion-heading {
+      padding: @os2-accordion-heading-inner-padding-top-bottom @content-sm-left-right-spacing;
+    }
+
+    .os2-accordion-body {
+      padding: @content-sm-body-top-bottom-spacing @content-sm-left-right-spacing;
+    }
+  }
+}
+
+// Desktop
+@media @media-query-desktop {
+
+  // Accordion
+  .os2-accordion {}
+}
+
+// Desktop - only
+@media @media-query-desktop-only {
+
+  // Accordion
+  .os2-accordion {
+
+    .os2-accordion-heading {
+      padding: @os2-accordion-heading-inner-padding-top-bottom @content-md-left-right-spacing;
+    }
+
+    .os2-accordion-body {
+      padding: @content-md-body-top-bottom-spacing @content-md-left-right-spacing;
+    }
+  }
+}
+
+// Large desktop
+@media @media-query-large-desktop {
+
+  // Accordion
+  .os2-accordion {}
+}
+
+// Large desktop - only
+@media @media-query-large-desktop-only {
+
+  // Accordion
+  .os2-accordion {
+
+    .os2-accordion-heading {
+      padding: @os2-accordion-heading-inner-padding-top-bottom @content-lg-left-right-spacing;
+    }
+
+    .os2-accordion-body {
+      padding: @content-lg-body-top-bottom-spacing @content-lg-left-right-spacing;
+    }
+  }
+}
+
+// Print
+@media print {
+
+  // Accordion
+  .os2-accordion {}
+}
+
+// Touch
+.touchevents {
+
+  // Accordion
+  .os2-accordion {}
+}
+
+// No touch
+.no-touchevents {
+
+  // Accordion
+  .os2-accordion {}
+}
+
+// --------------------------------------------------
+// Mixins
+// --------------------------------------------------
+
+// Accordion mixin
+.os2-mixin-accordion() {}

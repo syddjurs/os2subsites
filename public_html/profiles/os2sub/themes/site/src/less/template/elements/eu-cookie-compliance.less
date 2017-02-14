@@ -1,0 +1,204 @@
+// |--------------------------------------------------------------------------
+// | EU cookie compliance
+// |--------------------------------------------------------------------------
+// |
+// | This file contains styles for the following:
+// | - .os2-eu-cookie-compliance
+// |
+
+// --------------------------------------------------
+// Variables
+// --------------------------------------------------
+
+// --------------------------------------------------
+// Styling
+// --------------------------------------------------
+
+// EU cookie compliance
+.os2-eu-cookie-compliance {}
+
+//
+#sliding-popup {
+
+  .popup-content {
+    padding: 30px 0;
+  }
+
+  &.sliding-popup-bottom {
+    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.96);
+  }
+
+  .popup-content {
+    max-width: none;
+    .container;
+
+    #popup-text,
+    #popup-buttons {
+      display: block;
+    }
+
+    #popup-text {
+
+      h1, h2, h3, h4, h5, h6 {
+        .heading-h3;
+        font-weight: @headings-font-weight-bold;
+        color: @brand-quaternary !important;
+      }
+
+      &,
+      p {
+        font-weight: @font-weight;
+        font-size: @font-size-base;
+        color: @text-color !important;
+      }
+    }
+
+    #popup-buttons {
+
+      button,
+      .agree-button,
+      .find-more-button {
+
+        &,
+        &:hover,
+        &:focus,
+        &:active {
+          .btn;
+        }
+      }
+
+      .agree-button {
+
+        &,
+        &:hover,
+        &:focus,
+        &:active {
+          .btn-quaternary;
+        }
+      }
+
+      .find-more-button {
+
+        &,
+        &:hover,
+        &:focus,
+        &:active {
+          .btn-primary;
+        }
+      }
+    }
+  }
+}
+
+// Reset (remove existing styling)
+#sliding-popup {
+  z-index: 0;
+
+  .popup-content {
+
+    #popup-text {
+      max-width: none;
+      float: none;
+    }
+
+    #popup-buttons {
+      max-width: none;
+
+      button,
+      .agree-button,
+      .find-more-button {
+        text-shadow: none;
+        .box-shadow(none);
+      }
+    }
+  }
+}
+
+// --------------------------------------------------
+// Responsive
+// --------------------------------------------------
+
+// Mobile
+@media @media-query-mobile {
+
+  // EU cookie compliance
+  .os2-eu-cookie-compliance {}
+}
+
+// Mobile - only
+@media @media-query-mobile-only {
+
+  // EU cookie compliance
+  .os2-eu-cookie-compliance {}
+}
+
+// Tablet
+@media @media-query-tablet {
+
+  // EU cookie compliance
+  .os2-eu-cookie-compliance {}
+}
+
+// Tablet - only
+@media @media-query-tablet-only {
+
+  // EU cookie compliance
+  .os2-eu-cookie-compliance {}
+}
+
+// Desktop
+@media @media-query-desktop {
+
+  // EU cookie compliance
+  .os2-eu-cookie-compliance {}
+}
+
+// Desktop - only
+@media @media-query-desktop-only {
+
+  // EU cookie compliance
+  .os2-eu-cookie-compliance {}
+}
+
+// Large desktop
+@media @media-query-large-desktop {
+
+  // EU cookie compliance
+  .os2-eu-cookie-compliance {}
+}
+
+// Large desktop - only
+@media @media-query-large-desktop-only {
+
+  // EU cookie compliance
+  .os2-eu-cookie-compliance {}
+}
+
+// Print
+@media print {
+
+  // EU cookie compliance
+  .os2-eu-cookie-compliance {}
+}
+
+// Touch
+.touchevents {
+
+  // EU cookie compliance
+  .os2-eu-cookie-compliance {}
+}
+
+// No touch
+.no-touchevents {
+
+  // EU cookie compliance
+  .os2-eu-cookie-compliance {}
+}
+
+// --------------------------------------------------
+// Mixins
+// --------------------------------------------------
+
+// EU cookie compliance mixin
+.os2-mixin-eu-cookie-compliance() {}

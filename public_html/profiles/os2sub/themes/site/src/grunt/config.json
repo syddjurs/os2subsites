@@ -1,0 +1,47 @@
+{
+  "autoprefixer": {
+    "browsers": {
+      "other": [
+        "last 2 versions",
+        "Android 2.3",
+        "Android >= 4",
+        "Chrome >= 20",
+        "Firefox >= 24",
+        "iOS >= 6",
+        "Opera >= 12",
+        "Safari >= 6",
+        "> 2.5%"
+      ],
+      "ie9": [
+        "ie 9"
+      ]
+    }
+  },
+  "concat": {
+    "jsApp": [
+      "src/vendor/bootstrap/dist/js/bootstrap.js",
+      "src/vendor/bs3-designer/js/bs3-designer.js",
+      "src/vendor/appear/jquery.appear.js",
+      "src/vendor/bs3-sidebar/js/bs3-sidebar.js",
+      "src/vendor/jquery-placeholder/jquery.placeholder.js",
+      "src/vendor/jquery.cookie/jquery.cookie.js",
+      "src/vendor/fastclick/lib/fastclick.js",
+      "src/vendor/jqueryui-touch-punch/jquery.ui.touch-punch.js",
+      "src/js/os2-self-service-toggle.js",
+      "src/js/popover-button.js",
+      "src/js/accordion.js",
+      "src/js/jquery.imagesloaded.js",
+      "src/js/isotope.pkgd.min.js",
+      "src/js/masonry.pkgd.min.js",
+      "src/js/fredericia_news_isotoper.js",
+      "src/js/equal-height.js",
+      "src/js/accordion.js",
+      "src/js/init.js"
+    ],
+    "jsIe9": [
+      "src/vendor/html5shiv/dist/html5shiv.js",
+      "src/vendor/html5shiv/dist/html5shiv-printshiv.js",
+      "src/vendor/respond/dest/respond.src.js"
+    ]
+  }
+}

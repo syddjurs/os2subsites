@@ -1,0 +1,163 @@
+// |--------------------------------------------------------------------------
+// | Page layout
+// |--------------------------------------------------------------------------
+// |
+// | This file contains styles for the following:
+// | - .page-layout
+// |
+
+// --------------------------------------------------
+// Variables
+// --------------------------------------------------
+
+// --------------------------------------------------
+// Styling
+// --------------------------------------------------
+
+// Page layout
+html,
+body,
+.outer-wrapper {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  -webkit-overflow-scrolling: touch;
+  overflow-scrolling: touch;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  .outer-wrapper,
+  .inner-wrapper,
+  .content,
+  .footer {
+    position: relative;
+  }
+
+  .inner-wrapper {
+    min-height: 100%;
+    overflow: hidden;
+  }
+
+  .footer {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+// --------------------------------------------------
+// Responsive
+// --------------------------------------------------
+
+// Mobile
+@media @media-query-mobile {
+
+  // Page layout
+  .page-layout {}
+}
+
+// Mobile - only
+@media @media-query-mobile-only {
+
+  // Page layout
+  .page-layout {}
+}
+
+// Tablet
+@media @media-query-tablet {
+
+  // Page layout
+  .page-layout {}
+}
+
+// Tablet - only
+@media @media-query-tablet-only {
+
+  // Page layout
+  .page-layout {}
+}
+
+// Desktop
+@media @media-query-desktop {
+
+  // Page layout
+  .page-layout {}
+}
+
+// Desktop - only
+@media @media-query-desktop-only {
+
+  // Page layout
+  .page-layout {}
+}
+
+// Large desktop
+@media @media-query-large-desktop {
+
+  // Page layout
+  .page-layout {}
+}
+
+// Large desktop - only
+@media @media-query-large-desktop-only {
+
+  // Page layout
+  .page-layout {}
+}
+
+// Print
+@media print {
+
+  // Page layout
+  .page-layout {}
+}
+
+// Touch
+.touchevents {
+
+  // Page layout
+  .page-layout {}
+}
+
+// No touch
+.no-touchevents {
+
+  .footer-attached,
+  .footer-below {
+
+    .footer {
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+  }
+
+  .footer-attached {
+
+    .footer {
+      position: absolute;
+    }
+  }
+
+  .footer-below {
+
+    .content {
+      z-index: 50;
+    }
+
+    .footer {
+      position: fixed;
+      z-index: 0;
+    }
+  }
+}
+
+// --------------------------------------------------
+// Mixins
+// --------------------------------------------------
+
+// Page layout mixin
+.page-layout-mixin() {}

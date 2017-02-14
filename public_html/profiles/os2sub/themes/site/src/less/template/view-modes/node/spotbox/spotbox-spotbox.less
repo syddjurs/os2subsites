@@ -1,0 +1,223 @@
+// |--------------------------------------------------------------------------
+// | Spotbox
+// |--------------------------------------------------------------------------
+// |
+// | This file contains styles for the following:
+// | - .os2-node-spotbox-spotbox
+// |
+
+// --------------------------------------------------
+// Variables
+// --------------------------------------------------
+
+@os2-node-spotbox-spotbox-background-color: @body-bg;
+@os2-node-spotbox-spotbox-border-radius: @border-radius-base;
+
+// With image
+@os2-node-spotbox-spotbox-with-image-background-color: @content-bg;
+@os2-node-spotbox-spotbox-with-image-heading-color: @brand-primary;
+
+// Responsive
+@os2-node-spotbox-spotbox-xs-stacked-spacing: floor( (@grid-gutter-width / 3) );
+@os2-node-spotbox-spotbox-sm-stacked-spacing: floor( (@grid-gutter-width / 3) );
+@os2-node-spotbox-spotbox-md-stacked-spacing: floor( (@grid-gutter-width / 2) );
+@os2-node-spotbox-spotbox-lg-stacked-spacing: floor( (@grid-gutter-width / 2) );
+
+// --------------------------------------------------
+// Styling
+// --------------------------------------------------
+
+// Spotbox
+.os2-node-spotbox-spotbox {
+	background-color: @os2-node-spotbox-spotbox-background-color;
+	border-radius: @os2-node-spotbox-spotbox-border-radius;
+	min-height: 140px;
+	.background-cover;
+	background-position: center center;
+
+	.os2-node-spotbox-heading {
+
+		.os2-node-spotbox-heading-title {
+			.heading-h4;
+			font-weight: @headings-font-weight-bold;
+		}
+	}
+
+	.os2-node-spotbox-body {
+		padding-top: 0;
+	}
+
+	.os2-node-spotbox-links {
+
+		.field-item {
+			display: inline-block;
+			margin-right: 5px;
+			margin-bottom: 5px;
+
+			a {
+				background-color: @state-primary-bg;
+				color: @state-primary-text;
+				padding: 1px 6px;
+				text-decoration: none;
+				border-radius: @border-radius-base;
+			}
+		}
+	}
+}
+
+// --------------------------------------------------
+// Variants
+// --------------------------------------------------
+
+// Without links
+.os2-node-spotbox-spotbox {
+
+	&.os2-node-spotbox-spotbox-variant-without-links {
+		position: relative;
+		padding: 0;
+
+		.os2-node-spotbox-heading {
+			position: absolute;
+			left: 0;
+			top: 50%;
+			margin-top: -18px;
+			background-color: #fff;
+			padding: 8px @content-lg-left-right-spacing;
+			.border-right-radius(@border-radius-base);
+
+			.os2-node-spotbox-heading-title {
+			}
+		}
+	}
+}
+
+// With links
+.os2-node-spotbox-spotbox {
+
+	&.os2-node-spotbox-spotbox-variant-with-links {
+	}
+}
+
+// --------------------------------------------------
+// Responsive
+// --------------------------------------------------
+
+// Mobile
+@media @media-query-mobile {
+
+	// Spotbox
+	.os2-node-spotbox-spotbox {}
+}
+
+// Mobile - only
+@media @media-query-mobile-only {
+
+	// Spotbox
+	.os2-node-spotbox-spotbox {
+		margin-bottom: @os2-node-spotbox-spotbox-xs-stacked-spacing !important;
+
+		&.os2-node-spotbox-spotbox-variant-without-links {
+
+			.os2-node-spotbox-heading {
+				padding: 8px @content-xs-left-right-spacing;
+			}
+		}
+	}
+}
+
+// Tablet
+@media @media-query-tablet {
+
+	// Spotbox
+	.os2-node-spotbox-spotbox {}
+}
+
+// Tablet - only
+@media @media-query-tablet-only {
+
+	// Spotbox
+	.os2-node-spotbox-spotbox {
+		margin-bottom: @os2-node-spotbox-spotbox-sm-stacked-spacing !important;
+
+		&.os2-node-spotbox-spotbox-variant-without-links {
+
+			.os2-node-spotbox-heading {
+				padding: 8px @content-sm-left-right-spacing;
+			}
+		}
+	}
+}
+
+// Desktop
+@media @media-query-desktop {
+
+	// Spotbox
+	.os2-node-spotbox-spotbox {}
+}
+
+// Desktop - only
+@media @media-query-desktop-only {
+
+	// Spotbox
+	.os2-node-spotbox-spotbox {
+		margin-bottom: @os2-node-spotbox-spotbox-md-stacked-spacing !important;
+
+		&.os2-node-spotbox-spotbox-variant-without-links {
+
+			.os2-node-spotbox-heading {
+				padding: 8px @content-md-left-right-spacing;
+			}
+		}
+	}
+}
+
+// Large desktop
+@media @media-query-large-desktop {
+
+	// Spotbox
+	.os2-node-spotbox-spotbox {}
+}
+
+// Large desktop - only
+@media @media-query-large-desktop-only {
+
+	// Spotbox
+	.os2-node-spotbox-spotbox {
+		margin-bottom: @os2-node-spotbox-spotbox-lg-stacked-spacing !important;
+
+		&.os2-node-spotbox-spotbox-variant-without-links {
+
+			.os2-node-spotbox-heading {
+				padding: 8px @content-lg-left-right-spacing;
+			}
+		}
+	}
+}
+
+// Print
+@media print {
+
+	// Spotbox
+	.os2-node-spotbox-spotbox {}
+}
+
+// Touch
+.touchevents {
+
+	// Spotbox
+	.os2-node-spotbox-spotbox {}
+}
+
+// No touch
+.no-touchevents {
+
+	// Spotbox
+	.os2-node-spotbox-spotbox {}
+}
+
+// --------------------------------------------------
+// Mixins
+// --------------------------------------------------
+
+// Spotbox mixin
+.os2-mixin-spotbox-spotbox() {}

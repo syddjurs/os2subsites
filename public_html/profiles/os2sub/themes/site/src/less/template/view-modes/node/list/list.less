@@ -1,0 +1,262 @@
+// |--------------------------------------------------------------------------
+// | List
+// |--------------------------------------------------------------------------
+// |
+// | This file contains styles for the following:
+// | - .os2-node-list
+// |
+
+// --------------------------------------------------
+// Variables
+// --------------------------------------------------
+
+@os2-node-list-stacked-spacing: 5px;
+@os2-node-list-border-color: @border-color;
+
+@os2-node-list-heading-font-color: @brand-primary;
+@os2-node-list-heading-top-bottom-spacing: 3px;
+@os2-node-list-heading-left-right-spacing: 0;
+
+@os2-node-list-body-top-bottom-spacing: 0;
+@os2-node-list-body-left-right-spacing: 0;
+
+// --------------------------------------------------
+// Styling
+// --------------------------------------------------
+
+// List
+.os2-node-list {
+	padding: @os2-node-list-stacked-spacing 0;
+	border-bottom: 1px solid @os2-node-list-border-color;
+
+	// Date
+	.os2-node-list-date {
+		font-size: @font-size-small;
+		font-weight: @font-weight-bold;
+		color: @brand-secondary;
+	}
+
+	.os2-node-list-info {
+
+		span {
+			font-style: italic;
+		}
+	}
+
+	.os2-node-list-heading {
+		padding: @os2-node-list-heading-top-bottom-spacing @os2-node-list-heading-left-right-spacing;
+
+		.os2-node-list-heading-title {
+			margin: 0;
+			.heading-h5;
+
+			&,
+			a {
+				color: @os2-node-list-heading-font-color;
+			}
+		}
+
+		.os2-node-list-heading-time-ago {
+			font-style: italic;
+		}
+	}
+
+	.os2-node-list-body {
+		padding: @os2-node-list-body-top-bottom-spacing @os2-node-list-body-left-right-spacing;
+	}
+
+	.table {
+		margin-bottom: 0;
+
+		.table-cell {
+			vertical-align: middle;
+		}
+	}
+}
+
+.field-item {
+
+	&:first-child {
+
+		.os2-node-list {
+			border-top: 0;
+			padding-top: 0;
+		}
+	}
+
+	&:last-child {
+
+		.os2-node-list {
+			border-bottom: 0;
+			padding-bottom: 0;
+		}
+	}
+}
+
+.views-row {
+
+	&:first-child {
+
+		.os2-node-list {
+
+			&:first-child {
+				border-top: 0;
+				padding-top: 0;
+			}
+		}
+	}
+
+	&:last-child {
+
+		.os2-node-list {
+
+			&:last-child {
+				border-bottom: 0;
+				padding-bottom: 0;
+			}
+		}
+	}
+}
+
+// --------------------------------------------------
+// Variants
+// --------------------------------------------------
+
+.os2-box,
+.os2-box-primary {
+
+	.os2-node-list {
+		.os2-mixin-list-box-variant(@brand-primary);
+	}
+}
+
+.os2-box-secondary {
+
+	.os2-node-list {
+		.os2-mixin-list-box-variant(@brand-secondary);
+	}
+}
+
+.os2-box-tertiary {
+
+	.os2-node-list {
+		.os2-mixin-list-box-variant(@brand-tertiary);
+	}
+}
+
+.os2-box-quaternary {
+
+	.os2-node-list {
+		.os2-mixin-list-box-variant(@brand-quaternary);
+	}
+}
+
+.os2-box-quinary {
+
+	.os2-node-list {
+		.os2-mixin-list-box-variant(@brand-quinary);
+	}
+}
+
+// --------------------------------------------------
+// Responsive
+// --------------------------------------------------
+
+// Mobile
+@media @media-query-mobile {
+
+	// List
+	.os2-node-list {}
+}
+
+// Mobile - only
+@media @media-query-mobile-only {
+
+	// List
+	.os2-node-list {}
+}
+
+// Tablet
+@media @media-query-tablet {
+
+	// List
+	.os2-node-list {}
+}
+
+// Tablet - only
+@media @media-query-tablet-only {
+
+	// List
+	.os2-node-list {}
+}
+
+// Desktop
+@media @media-query-desktop {
+
+	// List
+	.os2-node-list {}
+}
+
+// Desktop - only
+@media @media-query-desktop-only {
+
+	// List
+	.os2-node-list {}
+}
+
+// Large desktop
+@media @media-query-large-desktop {
+
+	// List
+	.os2-node-list {}
+}
+
+// Large desktop - only
+@media @media-query-large-desktop-only {
+
+	// List
+	.os2-node-list {}
+}
+
+// Print
+@media print {
+
+	// List
+	.os2-node-list {}
+}
+
+// Touch
+.touchevents {
+
+	// List
+	.os2-node-list {}
+}
+
+// No touch
+.no-touchevents {
+
+	// List
+	.os2-node-list {}
+}
+
+// --------------------------------------------------
+// Mixins
+// --------------------------------------------------
+
+// List mixin
+.os2-mixin-list() {}
+
+// Box variant mixin
+.os2-mixin-list-box-variant(@font-color) {
+
+	.os2-node-list-heading {
+
+		.os2-node-list-heading-calendar-date {
+			color: @font-color;
+		}
+
+		.os2-node-list-heading-time-ago {
+			color: @font-color;
+		}
+	}
+}

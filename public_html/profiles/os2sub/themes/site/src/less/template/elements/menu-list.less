@@ -1,0 +1,201 @@
+// |--------------------------------------------------------------------------
+// | Menu list
+// |--------------------------------------------------------------------------
+// |
+// | This file contains styles for the following:
+// | - .os2-menu-list
+// |
+
+// --------------------------------------------------
+// Variables
+// --------------------------------------------------
+
+@os2-menu-list-border-color: @body-bg;
+@os2-menu-list-top-bottom-spacing: 12px;
+@os2-menu-list-link-hover-marquer-width: 5px;
+
+// --------------------------------------------------
+// Styling
+// --------------------------------------------------
+
+// Menu list
+.os2-menu-list {
+
+	ul {
+		padding: 0;
+		margin: 0;
+		list-style: none;
+
+		li {
+			border-bottom: 1px solid @os2-menu-list-border-color;
+
+			a {
+				display: block;
+				padding: @os2-menu-list-top-bottom-spacing 0;
+				font-weight: @font-weight;
+
+				&:hover {
+					background-color: #e0e3ee;
+					border-left: 5px solid @brand-quinary;
+				}
+			}
+
+			&:last-child {
+				border-bottom: 0;
+			}
+		}
+	}
+
+	.os2-box-body {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
+// --------------------------------------------------
+// Responsive
+// --------------------------------------------------
+
+// Mobile
+@media @media-query-mobile {
+
+	// Menu list
+	.os2-menu-list {}
+}
+
+// Mobile - only
+@media @media-query-mobile-only {
+
+	// Menu list
+	.os2-menu-list {
+
+		ul {
+
+			li {
+
+				a {
+					padding: @os2-menu-list-top-bottom-spacing @content-xs-left-right-spacing;
+
+					&:hover {
+						padding-left: floor( (@content-xs-left-right-spacing - @os2-menu-list-link-hover-marquer-width) );
+					}
+				}
+			}
+		}
+	}
+}
+
+// Tablet
+@media @media-query-tablet {
+
+	// Menu list
+	.os2-menu-list {}
+}
+
+// Tablet - only
+@media @media-query-tablet-only {
+
+	// Menu list
+	.os2-menu-list {
+
+		ul {
+
+			li {
+
+				a {
+					padding: @os2-menu-list-top-bottom-spacing @content-sm-left-right-spacing;
+
+					&:hover {
+						padding-left: floor( (@content-sm-left-right-spacing - @os2-menu-list-link-hover-marquer-width) );
+					}
+				}
+			}
+		}
+	}
+}
+
+// Desktop
+@media @media-query-desktop {
+
+	// Menu list
+	.os2-menu-list {}
+}
+
+// Desktop - only
+@media @media-query-desktop-only {
+
+	// Menu list
+	.os2-menu-list {
+
+		ul {
+
+			li {
+
+				a {
+					padding: @os2-menu-list-top-bottom-spacing @content-md-left-right-spacing;
+
+					&:hover {
+						padding-left: floor( (@content-md-left-right-spacing - @os2-menu-list-link-hover-marquer-width) );
+					}
+				}
+			}
+		}
+	}
+}
+
+// Large desktop
+@media @media-query-large-desktop {
+
+	// Menu list
+	.os2-menu-list {}
+}
+
+// Large desktop - only
+@media @media-query-large-desktop-only {
+
+	// Menu list
+	.os2-menu-list {
+
+		ul {
+
+			li {
+
+				a {
+					padding: @os2-menu-list-top-bottom-spacing @content-lg-left-right-spacing;
+
+					&:hover {
+						padding-left: floor( (@content-lg-left-right-spacing - @os2-menu-list-link-hover-marquer-width) );
+					}
+				}
+			}
+		}
+	}
+}
+
+// Print
+@media print {
+
+	// Menu list
+	.os2-menu-list {}
+}
+
+// Touch
+.touchevents {
+
+	// Menu list
+	.os2-menu-list {}
+}
+
+// No touch
+.no-touchevents {
+
+	// Menu list
+	.os2-menu-list {}
+}
+
+// --------------------------------------------------
+// Mixins
+// --------------------------------------------------
+
+// Menu list mixin
+.os2-mixin-menu-list() {}

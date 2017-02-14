@@ -1,0 +1,214 @@
+// |--------------------------------------------------------------------------
+// | Quicktabs
+// |--------------------------------------------------------------------------
+// |
+// | This file contains styles for the following:
+// | - .quicktabs-wrapper
+// |
+
+// --------------------------------------------------
+// Variables
+// --------------------------------------------------
+
+// --------------------------------------------------
+// Styling
+// --------------------------------------------------
+
+// Quicktabs
+.quicktabs-wrapper {
+
+  .quicktabs-tabs {
+    display: inline-block;
+    padding: 0;
+    margin-bottom: floor( (@os2-tabs-spacing - @os2-tabs-arrow-height) );
+    border: 0;
+    list-style: none;
+    &:extend(.clearfix all);
+
+    li {
+      position: relative;
+      display: block;
+      float: left;
+
+      // Stacked
+      + li {
+        margin-left: @os2-tabs-stacked-spacing;
+      }
+
+      a {
+        display: block;
+
+        &,
+        &:hover,
+        &:focus {
+          padding: @os2-tabs-top-bottom-inner-spacing @os2-tabs-left-right-inner-spacing;
+          border-radius: @os2-tabs-border-radius;
+          border: none;
+          text-decoration: none;
+          .transition(all @os2-tabs-transition-time ease-in-out);
+        }
+      }
+
+      // Active state
+      &.active {
+
+        a {
+
+          // After
+          &:after {
+            content: "";
+            display: block;
+            position: absolute;
+            left: 50%;
+            bottom: -8px;
+            width: 0;
+            height: 0;
+            overflow: hidden;
+            margin-left: floor( (0 - @os2-tabs-arrow-width) );
+            border-width: @os2-tabs-arrow-height @os2-tabs-arrow-width;
+            border-style: solid;
+          }
+        }
+      }
+    }
+  }
+}
+
+// --------------------------------------------------
+// Variants
+// --------------------------------------------------
+
+// Default
+.quicktabs-wrapper {
+  .quicktabs-mixin-wrapper(@os2-tabs-default-background-color, @os2-tabs-default-hover-background-color, @os2-tabs-default-active-background-color, @os2-tabs-default-font-color, @os2-tabs-default-hover-font-color, @os2-tabs-default-active-font-color);
+}
+
+// --------------------------------------------------
+// Responsive
+// --------------------------------------------------
+
+// Mobile
+@media @media-query-mobile {
+
+  // Quicktabs
+  .quicktabs-wrapper {}
+}
+
+// Mobile - only
+@media @media-query-mobile-only {
+
+  // Quicktabs
+  .quicktabs-wrapper {}
+}
+
+// Tablet
+@media @media-query-tablet {
+
+  // Quicktabs
+  .quicktabs-wrapper {}
+}
+
+// Tablet - only
+@media @media-query-tablet-only {
+
+  // Quicktabs
+  .quicktabs-wrapper {}
+}
+
+// Desktop
+@media @media-query-desktop {
+
+  // Quicktabs
+  .quicktabs-wrapper {}
+}
+
+// Desktop - only
+@media @media-query-desktop-only {
+
+  // Quicktabs
+  .quicktabs-wrapper {}
+}
+
+// Large desktop
+@media @media-query-large-desktop {
+
+  // Quicktabs
+  .quicktabs-wrapper {}
+}
+
+// Large desktop - only
+@media @media-query-large-desktop-only {
+
+  // Quicktabs
+  .quicktabs-wrapper {}
+}
+
+// Print
+@media print {
+
+  // Quicktabs
+  .quicktabs-wrapper {}
+}
+
+// Touch
+.touchevents {
+
+  // Quicktabs
+  .quicktabs-wrapper {}
+}
+
+// No touch
+.no-touchevents {
+
+  // Quicktabs
+  .quicktabs-wrapper {}
+}
+
+// --------------------------------------------------
+// Mixins
+// --------------------------------------------------
+
+// Quicktabs mixin
+.quicktabs-mixin-wrapper(@background-color, @background-hover-color, @background-active-color, @font-color, @font-hover-color, @font-active-color) {
+
+  // Tabs
+  .quicktabs-tabs {
+
+    li {
+
+      a {
+
+        &,
+        &:hover,
+        &:focus {
+          color: @font-color;
+          background-color: @background-color;
+        }
+
+        &:hover {
+          color: @font-hover-color;
+          background-color: @background-hover-color;
+        }
+      }
+
+      // Active state
+      &.active {
+
+        a {
+
+          &,
+          &:hover,
+          &:focus {
+            color: @font-active-color;
+            background-color: @background-active-color;
+          }
+
+          // After
+          &:after {
+            border-color: @background-active-color transparent transparent;
+          }
+        }
+      }
+    }
+  }
+}

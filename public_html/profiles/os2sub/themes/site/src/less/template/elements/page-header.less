@@ -1,0 +1,183 @@
+// |--------------------------------------------------------------------------
+// | Page header
+// |--------------------------------------------------------------------------
+// |
+// | This file contains styles for the following:
+// | - .os2-page-header
+// |
+
+// --------------------------------------------------
+// Variables
+// --------------------------------------------------
+
+@os2-page-header-background-color:            #fff;
+@os2-page-header-heading-left-right-padding:  @content-md-left-right-spacing;
+@os2-page-header-heading-title-color:         @headings-color;
+@os2-page-header-heading-title-font-weight:   @headings-font-weight-light;
+
+// Responsive
+@os2-page-header-tabs-xs-margin-bottom:                 -4px;
+@os2-page-header-xs-margin-bottom:                      10px;
+@os2-page-header-xs-heading-inner-top-bottom-padding:   20px;
+
+@os2-page-header-tabs-sm-margin-bottom:                 -6px;
+@os2-page-header-sm-margin-bottom:                      15px;
+@os2-page-header-sm-heading-inner-top-bottom-padding:   20px;
+
+@os2-page-header-tabs-md-margin-bottom:                 -12px;
+@os2-page-header-md-margin-bottom:                      20px;
+@os2-page-header-md-heading-inner-top-bottom-padding:   25px;
+
+@os2-page-header-tabs-lg-margin-bottom:                 -14px;
+@os2-page-header-lg-margin-bottom:                      20px;
+@os2-page-header-lg-heading-inner-top-bottom-padding:   30px;
+
+// --------------------------------------------------
+// Styling
+// --------------------------------------------------
+
+// Page header
+.os2-page-header {
+  background-color: @os2-page-header-background-color;
+
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+  }
+
+  .os2-page-header-heading {
+
+    .os2-page-header-heading-title {
+      .heading-h3;
+      color: @os2-page-header-heading-title-color;
+      font-weight: @os2-page-header-heading-title-font-weight;
+    }
+  }
+}
+
+// --------------------------------------------------
+// Responsive
+// --------------------------------------------------
+
+// Mobile
+@media @media-query-mobile {
+
+  // Page header
+  .os2-page-header {}
+}
+
+// Mobile - only
+@media @media-query-mobile-only {
+
+  // Page header
+  .os2-page-header {
+    margin-bottom: floor( ( @os2-page-header-xs-margin-bottom + abs( @os2-page-header-tabs-xs-margin-bottom ) ) );
+
+    .os2-page-header-heading {
+      padding: @os2-page-header-xs-heading-inner-top-bottom-padding @content-xs-left-right-spacing;
+    }
+
+    .os2-page-header-tabs {
+      margin-bottom: @os2-page-header-tabs-xs-margin-bottom;
+    }
+  }
+}
+
+// Tablet
+@media @media-query-tablet {
+
+  // Page header
+  .os2-page-header {}
+}
+
+// Tablet - only
+@media @media-query-tablet-only {
+
+  // Page header
+  .os2-page-header {
+    margin-bottom: floor( ( @os2-page-header-sm-margin-bottom + abs( @os2-page-header-tabs-sm-margin-bottom ) ) );
+
+    .os2-page-header-heading {
+      padding: @os2-page-header-sm-heading-inner-top-bottom-padding @content-sm-left-right-spacing;
+    }
+
+    .os2-page-header-tabs {
+      margin-bottom: @os2-page-header-tabs-sm-margin-bottom;
+    }
+  }
+}
+
+// Desktop
+@media @media-query-desktop {
+
+  // Page header
+  .os2-page-header {}
+}
+
+// Desktop - only
+@media @media-query-desktop-only {
+
+  // Page header
+  .os2-page-header {
+    margin-bottom: floor( ( @os2-page-header-md-margin-bottom + abs( @os2-page-header-tabs-md-margin-bottom ) ) );
+
+    .os2-page-header-heading {
+      padding: @os2-page-header-md-heading-inner-top-bottom-padding @content-md-left-right-spacing;
+    }
+
+    .os2-page-header-tabs {
+      margin-bottom: @os2-page-header-tabs-md-margin-bottom;
+    }
+  }
+}
+
+// Large desktop
+@media @media-query-large-desktop {
+
+  // Page header
+  .os2-page-header {}
+}
+
+// Large desktop - only
+@media @media-query-large-desktop-only {
+
+  // Page header
+  .os2-page-header {
+    margin-bottom: floor( ( @os2-page-header-lg-margin-bottom + abs( @os2-page-header-tabs-lg-margin-bottom ) ) );
+
+    .os2-page-header-heading {
+      padding: @os2-page-header-lg-heading-inner-top-bottom-padding @content-lg-left-right-spacing;
+    }
+
+    .os2-page-header-tabs {
+      margin-bottom: @os2-page-header-tabs-lg-margin-bottom;
+    }
+  }
+}
+
+// Print
+@media print {
+
+  // Page header
+  .os2-page-header {}
+}
+
+// Touch
+.touchevents {
+
+  // Page header
+  .os2-page-header {}
+}
+
+// No touch
+.no-touchevents {
+
+  // Page header
+  .os2-page-header {}
+}
+
+// --------------------------------------------------
+// Mixins
+// --------------------------------------------------
+
+// Page header mixin
+.os2-mixin-page-header() {}

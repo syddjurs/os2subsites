@@ -1,0 +1,47 @@
+// |--------------------------------------------------------------------------
+// | Simple navigation
+// |--------------------------------------------------------------------------
+
+//== Base
+@bs3-simple-navigation-height: 60px;
+@bs3-simple-navigation-background-color: #00538f;
+@bs3-simple-navigation-background-color-rgba: rgba(red(@bs3-simple-navigation-background-color), green(@bs3-simple-navigation-background-color), blue(@bs3-simple-navigation-background-color), 1);
+
+//== Sticky
+@bs3-simple-navigation-sticky-zindex: @zindex-navbar-fixed;
+
+//== Logo
+@bs3-simple-navigation-logo-image-height: 104px;
+@bs3-simple-navigation-logo-image-width: 230px;
+
+//== List
+@bs3-simple-navigation-list-button-color: #ffffff;
+@bs3-simple-navigation-list-button-icon-color: @bs3-simple-navigation-list-button-color;
+@bs3-simple-navigation-nav-button-icon-font-size: floor((@bs3-simple-navigation-height * 0.4));
+
+// Search form
+@bs3-simple-navigation-list-search-form-zindex: @bs3-simple-navigation-sticky-zindex;
+@bs3-simple-navigation-list-search-form-min-width: 280px;
+@bs3-simple-navigation-list-search-form-background-color: @bs3-simple-navigation-background-color;
+@bs3-simple-navigation-list-search-form-background-color-rgba: transparent;
+@bs3-simple-navigation-list-search-form-input-font-size: @font-size-large;
+@bs3-simple-navigation-list-search-form-input-color: @bs3-simple-navigation-list-button-color;
+@bs3-simple-navigation-list-search-form-input-placeholder-color: lighten(@bs3-simple-navigation-list-search-form-background-color, 50%);
+
+//== Nav - button
+@bs3-simple-navigation-nav-button-background-color: darken(@bs3-simple-navigation-background-color, 5%);
+@bs3-simple-navigation-nav-button-background-color-rgba: rgba(red(@bs3-simple-navigation-nav-button-background-color), green(@bs3-simple-navigation-nav-button-background-color), blue(@bs3-simple-navigation-nav-button-background-color), 1);
+@bs3-simple-navigation-nav-button-icon-color: @text-color;
+
+@bs3-simple-navigation-nav-button-hover-background-color: darken(@bs3-simple-navigation-nav-button-background-color, 5%);
+@bs3-simple-navigation-nav-button-hover-background-color-rgba: rgba(red(@bs3-simple-navigation-nav-button-hover-background-color), green(@bs3-simple-navigation-nav-button-hover-background-color), blue(@bs3-simple-navigation-nav-button-hover-background-color), 1);
+@bs3-simple-navigation-nav-button-hover-icon-color: @bs3-simple-navigation-nav-button-icon-color;
+
+//== Nav - button - sidebar toggle
+@bs3-simple-navigation-nav-sidebar-toggle-background-color: darken(@bs3-simple-navigation-background-color, 5%);
+@bs3-simple-navigation-nav-sidebar-toggle-background-color-rgba: rgba(red(@bs3-simple-navigation-nav-sidebar-toggle-background-color), green(@bs3-simple-navigation-nav-sidebar-toggle-background-color), blue(@bs3-simple-navigation-nav-sidebar-toggle-background-color), 1);
+@bs3-simple-navigation-nav-sidebar-toggle-line-color: @text-color;
+
+@bs3-simple-navigation-nav-sidebar-toggle-hover-background-color: darken(@bs3-simple-navigation-nav-sidebar-toggle-background-color, 5%);
+@bs3-simple-navigation-nav-sidebar-toggle-hover-background-color-rgba: rgba(red(@bs3-simple-navigation-nav-sidebar-toggle-hover-background-color), green(@bs3-simple-navigation-nav-sidebar-toggle-hover-background-color), blue(@bs3-simple-navigation-nav-sidebar-toggle-hover-background-color), 1);
+@bs3-simple-navigation-nav-sidebar-toggle-hover-line-color: @bs3-simple-navigation-nav-sidebar-toggle-line-color;

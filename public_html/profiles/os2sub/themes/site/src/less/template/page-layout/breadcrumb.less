@@ -1,0 +1,213 @@
+// |--------------------------------------------------------------------------
+// | Breadcrumb
+// |--------------------------------------------------------------------------
+// |
+// | This file contains styles for the following:
+// | - .os2-breadcrumb-container
+// |
+
+// --------------------------------------------------
+// Variables
+// --------------------------------------------------
+
+// Breadcrumb
+@os2-breadcrumb-background-color:			transparent;
+
+@os2-breadcrumb-separator-font-size:	@font-size-small;
+
+@os2-breadcrumb-link-color:			      @brand-primary;
+@os2-breadcrumb-link-hover-color:		  @os2-breadcrumb-link-color;
+@os2-breadcrumb-active-color:		  		@os2-breadcrumb-link-color;
+
+@os2-breadcrumb-separator-color:		  @brand-quaternary;
+@os2-breadcrumb-separator-spacing:	  5px;
+
+// --------------------------------------------------
+// Styling
+// --------------------------------------------------
+
+// Breadcrumb
+.os2-breadcrumb-container {
+	background-color: @os2-breadcrumb-background-color;
+	padding: 10px;
+
+	.breadcrumb {
+		padding: 0;
+		margin: 0;
+		border-radius: 0;
+		background-color: transparent;
+		line-height: 1.2em;
+
+		li {
+			font-size: @os2-breadcrumb-separator-font-size;
+
+			a {
+				color: @os2-breadcrumb-link-color;
+
+				&:hover {
+					color: @os2-breadcrumb-link-hover-color;
+				}
+			}
+
+			&:before {
+		  	font-family: 'FontAwesome';
+				content: @fa-var-chevron-right;
+				color: @os2-breadcrumb-separator-color;
+				padding: 0 @os2-breadcrumb-separator-spacing;
+			}
+			&:first-child {
+
+				a {
+					// font-size: 0;
+
+					.icon {
+
+						&:before {
+							display: inline-block;
+							font-family: FontAwesome;
+							font-size: @font-size-base;
+							content: @fa-var-home;
+							color: @os2-breadcrumb-separator-color;
+							padding: 0 @os2-breadcrumb-separator-spacing;
+						}
+					}
+
+					&:extend(.clearfix all);
+				}
+
+				+ li {
+
+					&:before {
+						// display: none;
+					}
+				}
+			}
+
+			&.active {
+				color: @os2-breadcrumb-active-color;
+				&:before {
+				  display: none;
+				}
+			}
+
+			+ li {
+
+				&:before {
+					font-family: 'FontAwesome';
+					content: @fa-var-chevron-right;
+					color: @os2-breadcrumb-separator-color;
+					padding: 0 @os2-breadcrumb-separator-spacing;
+				}
+			}
+		}
+	}
+}
+
+// --------------------------------------------------
+// Responsive
+// --------------------------------------------------
+
+// Mobile
+@media @media-query-mobile {
+
+	// Breadcrumb
+	.os2-breadcrumb-container {}
+}
+
+// Mobile - only
+@media @media-query-mobile-only {
+
+	// Breadcrumb
+	.os2-breadcrumb-container {
+		display: none;
+
+		.breadcrumb {
+			margin: 0 @content-xs-left-right-spacing;
+		}
+	}
+}
+
+// Tablet
+@media @media-query-tablet {
+
+	// Breadcrumb
+	.os2-breadcrumb-container {}
+}
+
+// Tablet - only
+@media @media-query-tablet-only {
+
+	// Breadcrumb
+	.os2-breadcrumb-container {
+
+		.breadcrumb {
+			margin: 0 @content-sm-left-right-spacing;
+		}
+	}
+}
+
+// Desktop
+@media @media-query-desktop {
+
+	// Breadcrumb
+	.os2-breadcrumb-container {}
+}
+
+// Desktop - only
+@media @media-query-desktop-only {
+
+	// Breadcrumb
+	.os2-breadcrumb-container {
+
+		.breadcrumb {
+			margin: 0 @content-md-left-right-spacing;
+		}
+	}
+}
+
+// Large desktop
+@media @media-query-large-desktop {
+
+	// Breadcrumb
+	.os2-breadcrumb-container {}
+}
+
+// Large desktop - only
+@media @media-query-large-desktop-only {
+
+	// Breadcrumb
+	.os2-breadcrumb-container {
+
+		.breadcrumb {
+			margin: 0 @content-lg-left-right-spacing;
+		}
+	}
+}
+
+// Print
+@media print {
+
+	// Breadcrumb
+	.os2-breadcrumb-container {}
+}
+
+// Touch
+.touchevents {
+
+	// Breadcrumb
+	.os2-breadcrumb-container {}
+}
+
+// No touch
+.no-touchevents {
+
+	// Breadcrumb
+	.os2-breadcrumb-container {}
+}
+
+// --------------------------------------------------
+// Mixins
+// --------------------------------------------------
+
+// Breadcrumb mixin
+.os2-mixin-breadcrumb() {}

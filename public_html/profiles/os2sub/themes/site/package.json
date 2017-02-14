@@ -1,0 +1,21 @@
+{
+  "name": "site",
+  "version": "0.0.1",
+  "description": "Website base grunt setup.",
+  "author": "Morten Nissen <mn@bellcom.dk>",
+  "license": "MIT",
+  "dependencies": {
+    "grunt": "^1.0.1",
+    "grunt-autoprefixer": "~3.0.4",
+    "grunt-jscs": "~3.0.1",
+    "grunt-contrib-concat": "~1.0.1",
+    "grunt-contrib-csslint": "~2.0.0",
+    "grunt-contrib-clean": "~1.0.0",
+    "grunt-contrib-jshint": "~1.1.0",
+    "grunt-contrib-less": "^1.4.0",
+    "grunt-contrib-watch": "^1.0.0"
+  },
+  "devDependencies": {
+    "grunt-modernizr": "^1.0.2"
+  }
+}

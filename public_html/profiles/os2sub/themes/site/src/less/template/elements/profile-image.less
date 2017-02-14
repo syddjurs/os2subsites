@@ -1,0 +1,163 @@
+// |--------------------------------------------------------------------------
+// | Profile image
+// |--------------------------------------------------------------------------
+// |
+// | This file contains styles for the following:
+// | - .os2-profile-image
+// |
+
+// --------------------------------------------------
+// Variables
+// --------------------------------------------------
+
+// Default
+@os2-profile-image-default-width: 70px;
+@os2-profile-image-default-height: @os2-profile-image-default-width;
+@os2-profile-image-default-border-radius: 100%;
+
+// Mini
+@os2-profile-image-mini-width: 36px;
+@os2-profile-image-mini-height: @os2-profile-image-mini-width;
+@os2-profile-image-mini-border-radius: 100%;
+
+// Small
+@os2-profile-image-small-width: 58px;
+@os2-profile-image-small-height: @os2-profile-image-small-width;
+@os2-profile-image-small-border-radius: 100%;
+
+// Large
+@os2-profile-image-large-width: 125px;
+@os2-profile-image-large-height: @os2-profile-image-large-width;
+@os2-profile-image-large-border-radius: 100%;
+
+// --------------------------------------------------
+// Styling
+// --------------------------------------------------
+
+// Profile image
+.os2-profile-image {}
+
+// --------------------------------------------------
+// Variants
+// --------------------------------------------------
+
+// Default
+.os2-mixin-profile-image-variant(@os2-profile-image-default-width, @os2-profile-image-default-height, @os2-profile-image-default-border-radius);
+
+// Mini
+.os2-profile-image-mini {
+  .os2-mixin-profile-image-variant(@os2-profile-image-mini-width, @os2-profile-image-mini-height, @os2-profile-image-mini-border-radius);
+}
+
+// Small
+.os2-profile-image-small {
+  .os2-mixin-profile-image-variant(@os2-profile-image-small-width, @os2-profile-image-small-height, @os2-profile-image-small-border-radius);
+}
+
+// Large
+.os2-profile-image-large {
+  .os2-mixin-profile-image-variant(@os2-profile-image-large-width, @os2-profile-image-large-height, @os2-profile-image-large-border-radius);
+}
+
+// --------------------------------------------------
+// Responsive
+// --------------------------------------------------
+
+// Mobile
+@media @media-query-mobile {
+
+  // Profile image
+  .os2-profile-image {}
+}
+
+// Mobile - only
+@media @media-query-mobile-only {
+
+  // Profile image
+  .os2-profile-image {}
+}
+
+// Tablet
+@media @media-query-tablet {
+
+  // Profile image
+  .os2-profile-image {}
+}
+
+// Tablet - only
+@media @media-query-tablet-only {
+
+  // Profile image
+  .os2-profile-image {}
+}
+
+// Desktop
+@media @media-query-desktop {
+
+  // Profile image
+  .os2-profile-image {}
+}
+
+// Desktop - only
+@media @media-query-desktop-only {
+
+  // Profile image
+  .os2-profile-image {}
+}
+
+// Large desktop
+@media @media-query-large-desktop {
+
+  // Profile image
+  .os2-profile-image {}
+}
+
+// Large desktop - only
+@media @media-query-large-desktop-only {
+
+  // Profile image
+  .os2-profile-image {}
+}
+
+// Print
+@media print {
+
+  // Profile image
+  .os2-profile-image {}
+}
+
+// Touch
+.touchevents {
+
+  // Profile image
+  .os2-profile-image {}
+}
+
+// No touch
+.no-touchevents {
+
+  // Profile image
+  .os2-profile-image {}
+}
+
+// --------------------------------------------------
+// Mixins
+// --------------------------------------------------
+
+// Profile image mixin
+.os2-mixin-profile-image-variant(@image-width, @image-height, @border-radius) {
+
+  .os2-profile-image,
+  &.os2-profile-image {
+
+    img {
+
+      &,
+      &.img-responsive {
+        max-width: @image-width;
+        max-height: @image-height;
+        border-radius: @border-radius;
+      }
+    }
+  }
+}

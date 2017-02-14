@@ -1,0 +1,316 @@
+// |--------------------------------------------------------------------------
+// | Tabs
+// |--------------------------------------------------------------------------
+// |
+// | This file contains styles for the following:
+// | - .os2-tabs-container
+// |
+
+// --------------------------------------------------
+// Variables
+// --------------------------------------------------
+
+@os2-tabs-spacing:                 @line-height-computed;
+@os2-tabs-border-radius:           @border-radius-base;
+@os2-tabs-transition-time:         @bs3-designer-transition-time;
+@os2-tabs-stacked-spacing:         5px;
+@os2-tabs-arrow-height:            5px;
+@os2-tabs-arrow-width:             8px;
+
+@os2-tabs-top-bottom-inner-spacing: @padding-base-vertical;
+@os2-tabs-left-right-inner-spacing: @padding-base-horizontal;
+
+// Variants
+@os2-tabs-default-font-color:              @btn-default-color;
+@os2-tabs-default-background-color:        @btn-default-bg;
+@os2-tabs-default-hover-font-color:        darken(@os2-tabs-default-font-color, 5%);
+@os2-tabs-default-hover-background-color:  darken(@os2-tabs-default-background-color, 15%);
+@os2-tabs-default-active-font-color:       @btn-secondary-color;
+@os2-tabs-default-active-background-color: @btn-secondary-bg;
+
+@os2-tabs-primary-font-color:              @btn-default-color;
+@os2-tabs-primary-background-color:        @btn-default-bg;
+@os2-tabs-primary-hover-font-color:        darken(@os2-tabs-primary-font-color, 5%);
+@os2-tabs-primary-hover-background-color:  darken(@os2-tabs-primary-background-color, 15%);
+@os2-tabs-primary-active-font-color:       @btn-primary-color;
+@os2-tabs-primary-active-background-color: @btn-primary-bg;
+
+@os2-tabs-secondary-font-color:              @btn-default-color;
+@os2-tabs-secondary-background-color:        @btn-default-bg;
+@os2-tabs-secondary-hover-font-color:        darken(@os2-tabs-secondary-font-color, 5%);
+@os2-tabs-secondary-hover-background-color:  darken(@os2-tabs-secondary-background-color, 15%);
+@os2-tabs-secondary-active-font-color:       @btn-secondary-color;
+@os2-tabs-secondary-active-background-color: @btn-secondary-bg;
+
+@os2-tabs-tertiary-font-color:              @btn-default-color;
+@os2-tabs-tertiary-background-color:        @btn-default-bg;
+@os2-tabs-tertiary-hover-font-color:        darken(@os2-tabs-tertiary-font-color, 5%);
+@os2-tabs-tertiary-hover-background-color:  darken(@os2-tabs-tertiary-background-color, 15%);
+@os2-tabs-tertiary-active-font-color:       @btn-tertiary-color;
+@os2-tabs-tertiary-active-background-color: @btn-tertiary-bg;
+
+@os2-tabs-quaternary-font-color:              @btn-default-color;
+@os2-tabs-quaternary-background-color:        @btn-default-bg;
+@os2-tabs-quaternary-hover-font-color:        darken(@os2-tabs-quaternary-font-color, 5%);
+@os2-tabs-quaternary-hover-background-color:  darken(@os2-tabs-quaternary-background-color, 15%);
+@os2-tabs-quaternary-active-font-color:       @btn-quaternary-color;
+@os2-tabs-quaternary-active-background-color: @btn-quaternary-bg;
+
+@os2-tabs-quinary-font-color:              @btn-default-color;
+@os2-tabs-quinary-background-color:        @btn-default-bg;
+@os2-tabs-quinary-hover-font-color:        darken(@os2-tabs-quinary-font-color, 5%);
+@os2-tabs-quinary-hover-background-color:  darken(@os2-tabs-quinary-background-color, 15%);
+@os2-tabs-quinary-active-font-color:       @btn-quinary-color;
+@os2-tabs-quinary-active-background-color: @btn-quinary-bg;
+
+// --------------------------------------------------
+// Styling
+// --------------------------------------------------
+
+// Tabs
+.os2-tabs-container {
+  .text-center;
+
+  // Tabs
+  .tabs--primary,
+  .tabs--secondary {
+    display: inline-block;
+    padding: 0;
+    margin-bottom: floor( (@os2-tabs-spacing - @os2-tabs-arrow-height) );
+    border: 0;
+    list-style: none;
+    &:extend(.clearfix all);
+
+    li {
+      position: relative;
+      display: block;
+      float: left;
+
+      // Stacked
+      + li {
+        margin-left: @os2-tabs-stacked-spacing;
+      }
+
+      a {
+        display: block;
+
+        &,
+        &:hover,
+        &:focus {
+          padding: @os2-tabs-top-bottom-inner-spacing @os2-tabs-left-right-inner-spacing;
+          border-radius: @os2-tabs-border-radius;
+          border: none;
+          text-decoration: none;
+          .transition(all @os2-tabs-transition-time ease-in-out);
+        }
+      }
+
+      // Active state
+      &.active {
+
+        a {
+
+          // After
+          &:after {
+            content: "";
+            display: block;
+            position: absolute;
+            left: 50%;
+            bottom: floor( (0 - (@os2-tabs-arrow-height * 2)) );
+            width: 0;
+            height: 0;
+            overflow: hidden;
+            margin-left: floor( (0 - @os2-tabs-arrow-width) );
+            border-width: @os2-tabs-arrow-height @os2-tabs-arrow-width;
+            border-style: solid;
+          }
+        }
+      }
+    }
+  }
+}
+
+// --------------------------------------------------
+// Variants
+// --------------------------------------------------
+
+// Default
+.os2-tabs-container {
+
+  &.os2-tabs-variant-default {
+    .os2-mixin-os2-tabs-variant(@os2-tabs-default-background-color, @os2-tabs-default-hover-background-color, @os2-tabs-default-active-background-color, @os2-tabs-default-font-color, @os2-tabs-default-hover-font-color, @os2-tabs-default-active-font-color);
+  }
+}
+
+// Primary
+.os2-tabs-container {
+
+  &.os2-tabs-variant-primary {
+    .os2-mixin-os2-tabs-variant(@os2-tabs-primary-background-color, @os2-tabs-primary-hover-background-color, @os2-tabs-primary-active-background-color, @os2-tabs-primary-font-color, @os2-tabs-primary-hover-font-color, @os2-tabs-primary-active-font-color);
+  }
+}
+
+// Secondary
+.os2-tabs-container {
+
+  &.os2-tabs-variant-secondary {
+    .os2-mixin-os2-tabs-variant(@os2-tabs-secondary-background-color, @os2-tabs-secondary-hover-background-color, @os2-tabs-secondary-active-background-color, @os2-tabs-secondary-font-color, @os2-tabs-secondary-hover-font-color, @os2-tabs-secondary-active-font-color);
+  }
+}
+
+// Tertiary
+.os2-tabs-container {
+
+  &.os2-tabs-variant-tertiary {
+    .os2-mixin-os2-tabs-variant(@os2-tabs-tertiary-background-color, @os2-tabs-tertiary-hover-background-color, @os2-tabs-tertiary-active-background-color, @os2-tabs-tertiary-font-color, @os2-tabs-tertiary-hover-font-color, @os2-tabs-tertiary-active-font-color);
+  }
+}
+
+// Quaternary
+.os2-tabs-container {
+
+  &.os2-tabs-variant-quaternary {
+    .os2-mixin-os2-tabs-variant(@os2-tabs-quaternary-background-color, @os2-tabs-quaternary-hover-background-color, @os2-tabs-quaternary-active-background-color, @os2-tabs-quaternary-font-color, @os2-tabs-quaternary-hover-font-color, @os2-tabs-quaternary-active-font-color);
+  }
+}
+
+// Quinary
+.os2-tabs-container {
+
+  &.os2-tabs-variant-quinary {
+    .os2-mixin-os2-tabs-variant(@os2-tabs-quinary-background-color, @os2-tabs-quinary-hover-background-color, @os2-tabs-quinary-active-background-color, @os2-tabs-quinary-font-color, @os2-tabs-quinary-hover-font-color, @os2-tabs-quinary-active-font-color);
+  }
+}
+
+// --------------------------------------------------
+// Responsive
+// --------------------------------------------------
+
+// Mobile
+@media @media-query-mobile {
+
+  // Tabs
+  .os2-tabs-container {}
+}
+
+// Mobile - only
+@media @media-query-mobile-only {
+
+  // Tabs
+  .os2-tabs-container {}
+}
+
+// Tablet
+@media @media-query-tablet {
+
+  // Tabs
+  .os2-tabs-container {}
+}
+
+// Tablet - only
+@media @media-query-tablet-only {
+
+  // Tabs
+  .os2-tabs-container {}
+}
+
+// Desktop
+@media @media-query-desktop {
+
+  // Tabs
+  .os2-tabs-container {}
+}
+
+// Desktop - only
+@media @media-query-desktop-only {
+
+  // Tabs
+  .os2-tabs-container {}
+}
+
+// Large desktop
+@media @media-query-large-desktop {
+
+  // Tabs
+  .os2-tabs-container {}
+}
+
+// Large desktop - only
+@media @media-query-large-desktop-only {
+
+  // Tabs
+  .os2-tabs-container {}
+}
+
+// Print
+@media print {
+
+  // Tabs
+  .os2-tabs-container {
+    display: none;
+  }
+}
+
+// Touch
+.touchevents {
+
+  // Tabs
+  .os2-tabs-container {}
+}
+
+// No touch
+.no-touchevents {
+
+  // Tabs
+  .os2-tabs-container {}
+}
+
+// --------------------------------------------------
+// Mixins
+// --------------------------------------------------
+
+// Tabs variant mixin
+.os2-mixin-os2-tabs-variant(@background-color, @background-hover-color, @background-active-color, @font-color, @font-hover-color, @font-active-color) {
+
+  // Tabs
+  .tabs--primary,
+  .tabs--secondary {
+
+    li {
+
+      a {
+
+        &,
+        &:hover,
+        &:focus {
+          color: @font-color;
+          background-color: @background-color;
+        }
+
+        &:hover {
+          color: @font-hover-color;
+          background-color: @background-hover-color;
+        }
+      }
+
+      // Active state
+      &.active {
+
+        a {
+
+          &,
+          &:hover,
+          &:focus {
+            color: @font-active-color;
+            background-color: @background-active-color;
+          }
+
+          // After
+          &:after {
+            border-color: @background-active-color transparent transparent;
+          }
+        }
+      }
+    }
+  }
+}

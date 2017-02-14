@@ -1,0 +1,138 @@
+// |--------------------------------------------------------------------------
+// | Lists
+// |--------------------------------------------------------------------------
+// |
+// | This file contains styles for the following:
+// | - ul, ol
+// |
+
+// --------------------------------------------------
+// Variables
+// --------------------------------------------------
+
+@os2-lists-icon: @fa-var-chevron-right;
+@os2-lists-icon-color: @brand-quaternary;
+
+// --------------------------------------------------
+// Styling
+// --------------------------------------------------
+
+// Lists
+.os2-node-full,
+.os2-node-teaser,
+.os2-node-includeable,
+.os2-node-list,
+.os2-node-spotbox {
+
+  ul, ol {
+    .lists-mixin;
+  }
+}
+
+// --------------------------------------------------
+// Responsive
+// --------------------------------------------------
+
+// Mobile
+@media @media-query-mobile {
+
+  // Lists
+  ul, ol {}
+}
+
+// Mobile - only
+@media @media-query-mobile-only {
+
+  // Lists
+  ul, ol {}
+}
+
+// Tablet
+@media @media-query-tablet {
+
+  // Lists
+  ul, ol {}
+}
+
+// Tablet - only
+@media @media-query-tablet-only {
+
+  // Lists
+  ul, ol {}
+}
+
+// Desktop
+@media @media-query-desktop {
+
+  // Lists
+  ul, ol {}
+}
+
+// Desktop - only
+@media @media-query-desktop-only {
+
+  // Lists
+  ul, ol {}
+}
+
+// Large desktop
+@media @media-query-large-desktop {
+
+  // Lists
+  ul, ol {}
+}
+
+// Large desktop - only
+@media @media-query-large-desktop-only {
+
+  // Lists
+  ul, ol {}
+}
+
+// Print
+@media print {
+
+  // Lists
+  ul, ol {}
+}
+
+// Touch
+.touchevents {
+
+  // Lists
+  ul, ol {}
+}
+
+// No touch
+.no-touchevents {
+
+  // Lists
+  ul, ol {}
+}
+
+// --------------------------------------------------
+// Mixins
+// --------------------------------------------------
+
+// Lists mixin
+.lists-mixin() {
+
+  & {
+    list-style: none;
+
+    &:not(.menu) {
+
+      li {
+
+        &:before {
+          font-family: FontAwesome;
+          font-size: 18px;
+          .line-height(18px);
+          content: @os2-lists-icon;
+          margin: 0 5px 0 -15px;
+          color: @os2-lists-icon-color;
+        }
+      }
+    }
+  }
+}
