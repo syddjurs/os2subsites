@@ -268,6 +268,12 @@ function _theme_settings_form(&$form, $form_state) {
     '#default_value' => theme_get_setting('footer_show_social_links'),
     '#description'   => t("Skal links til sociale tjenester vises i bunden af siden?"),
   );
+  $form['options']['layout']['footer']['footer_show_branding'] = array(
+    '#type'          => 'checkbox',
+    '#title'         => t('Vis kommunelogo'),
+    '#default_value' => theme_get_setting('footer_show_branding'),
+    '#description'   => t("Skal der vises kommunelogo eller ej?"),
+  );
 
   /*
   |--------------------------------------------------------------------------
@@ -349,7 +355,7 @@ function _theme_settings_form(&$form, $form_state) {
     '#default_value' => theme_get_setting('working_hours'),
   );
 
-  
+
   /**
 * Implementation of THEMEHOOK_settings() function.
 *
@@ -381,9 +387,9 @@ function _theme_settings_form(&$form, $form_state) {
   );
   $form['#submit'][] = 'bellcom_settings_submit';
   $form['options']['sublogo']['sublogo_upload']['#element_validate'][] = 'bellcom_settings_submit';
- 
+
   */
-  
+
     /*
   |--------------------------------------------------------------------------
   | Social links
@@ -684,7 +690,7 @@ function _theme_settings_form(&$form, $form_state) {
     '#title'         => t('Tysk'),
     '#default_value' => theme_get_setting('lang_german'),
   );
-  
+
   $form['options']['languages']['lang_german_url'] = array(
     '#type'          => 'textfield',
     '#title'         => t('Tysk URL'),
@@ -698,7 +704,7 @@ function _theme_settings_form(&$form, $form_state) {
       ),
     ),
   );
-  
+
   $form['options']['languages']['lang_german_tooltip'] = array(
     '#type'          => 'textfield',
     '#title'         => t('Tekst ved mouse-over'),
@@ -719,7 +725,7 @@ function _theme_settings_form(&$form, $form_state) {
     '#title'         => t('Dansk'),
     '#default_value' => theme_get_setting('lang_danish'),
   );
-  
+
   $form['options']['languages']['lang_danish_url'] = array(
     '#type'          => 'textfield',
     '#title'         => t('Dansk URL'),
@@ -733,7 +739,7 @@ function _theme_settings_form(&$form, $form_state) {
       ),
     ),
   );
-  
+
   $form['options']['languages']['lang_danish_tooltip'] = array(
     '#type'          => 'textfield',
     '#title'         => t('Tekst ved mouse-over'),
@@ -755,7 +761,7 @@ function _theme_settings_form(&$form, $form_state) {
     '#title'         => t('Engelsk'),
     '#default_value' => theme_get_setting('lang_english'),
   );
-  
+
   $form['options']['languages']['lang_english_url'] = array(
     '#type'          => 'textfield',
     '#title'         => t('Engelsk URL'),
@@ -769,7 +775,7 @@ function _theme_settings_form(&$form, $form_state) {
       ),
     ),
   );
-  
+
   $form['options']['languages']['lang_english_tooltip'] = array(
     '#type'          => 'textfield',
     '#title'         => t('Tekst ved mouse-over'),
@@ -790,7 +796,7 @@ function _theme_settings_form(&$form, $form_state) {
     '#title'         => t('Svensk'),
     '#default_value' => theme_get_setting('lang_swedish'),
   );
-  
+
   $form['options']['languages']['lang_swedish_url'] = array(
     '#type'          => 'textfield',
     '#title'         => t('Svensk URL'),
@@ -804,7 +810,7 @@ function _theme_settings_form(&$form, $form_state) {
       ),
     ),
   );
-  
+
   $form['options']['languages']['lang_swedish_tooltip'] = array(
     '#type'          => 'textfield',
     '#title'         => t('Tekst ved mouse-over'),
@@ -818,15 +824,15 @@ function _theme_settings_form(&$form, $form_state) {
       ),
     ),
   );
-  
-  
+
+
     // Norsk
   $form['options']['languages']['lang_norwegian'] = array(
     '#type'          => 'checkbox',
     '#title'         => t('Norsk'),
     '#default_value' => theme_get_setting('lang_norwegian'),
   );
-  
+
   $form['options']['languages']['lang_norwegian_url'] = array(
     '#type'          => 'textfield',
     '#title'         => t('Norsk URL'),
@@ -840,7 +846,7 @@ function _theme_settings_form(&$form, $form_state) {
       ),
     ),
   );
-  
+
   $form['options']['languages']['lang_norwegian_tooltip'] = array(
     '#type'          => 'textfield',
     '#title'         => t('Tekst ved mouse-over'),
@@ -854,14 +860,14 @@ function _theme_settings_form(&$form, $form_state) {
       ),
     ),
   );
-  
+
   // Arabisk
   $form['options']['languages']['lang_arabic'] = array(
     '#type'          => 'checkbox',
     '#title'         => t('Arabisk'),
     '#default_value' => theme_get_setting('lang_arabic'),
   );
-  
+
   $form['options']['languages']['lang_arabic_url'] = array(
     '#type'          => 'textfield',
     '#title'         => t('Arabisk URL'),
@@ -875,7 +881,7 @@ function _theme_settings_form(&$form, $form_state) {
       ),
     ),
   );
-  
+
   $form['options']['languages']['lang_arabic_tooltip'] = array(
     '#type'          => 'textfield',
     '#title'         => t('Tekst ved mouse-over'),
@@ -936,7 +942,7 @@ function _bellcom_collect_theme_settings() {
   $settings['social_links']['youtube']['active'] = theme_get_setting('youtube');
   $settings['social_links']['youtube']['url'] = theme_get_setting('youtube_url');
   $settings['social_links']['youtube']['tooltip'] = t(theme_get_setting('youtube_tooltip'));
-  
+
   // Languages
   $settings['languages']['lang_danish']['active'] = theme_get_setting('lang_danish');
   $settings['languages']['lang_danish']['url'] = theme_get_setting('lang_danish_url');
@@ -956,10 +962,11 @@ function _bellcom_collect_theme_settings() {
   $settings['languages']['lang_arabic']['active'] = theme_get_setting('lang_arabic');
   $settings['languages']['lang_arabic']['url'] = theme_get_setting('lang_arabic_url');
   $settings['languages']['lang_arabic']['tooltip'] = t(theme_get_setting('lang_arabic_tooltip'));
-  
+
   // Layout
   $settings['layout']['copyright'] = ($settings['contact_information']['business_startup_year'] < date('Y') AND $settings['contact_information']['business_startup_year'] !== NULL) ? $settings['contact_information']['business_startup_year'] . '-' . date('Y') : date('Y');
   $settings['layout']['footer']['show_social_links'] = theme_get_setting('footer_show_social_links');
+  $settings['layout']['footer']['show_branding'] = theme_get_setting('footer_show_branding');
   $settings['layout']['sidebar']['show_social_links'] = theme_get_setting('sidebar_show_social_links');
 
   return $settings;
@@ -969,7 +976,7 @@ function _bellcom_collect_theme_settings() {
  * Capture theme settings submissions and update uploaded image
  */
 /* Disabled
-	
+
 	function bellcom_settings_submit($form, &$form_state) {
   // Check for a new uploaded file, and use that if available.
   if ($file = file_save_upload('sublogo_upload')) {

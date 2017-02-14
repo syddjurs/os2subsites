@@ -102,6 +102,7 @@ settings[lang_arabic_tooltip] = 'AR'
 ; Layout
 settings[sidebar_show_social_links] = 0;
 settings[footer_show_social_links]  = 0;
+settings[footer_show_branding]  = 1;
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Settings
