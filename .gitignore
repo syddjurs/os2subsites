@@ -1,9 +1,13 @@
+# root
 logs/
 tmp/
 sessions/
 private/
-public_html/sites/sites.php
+
+# scripts
 scripts/.admin_password.txt
 scripts/config.sh
-public_html/sites/*.dd
-/public_html/sites/all/translations
+
+# public
+public_html/sites/*
+public_html/sites/all/translations
