@@ -143,7 +143,7 @@ check_existence_remove() {
 
   debug "Checking if the domain exists ($REMOVEDOMAIN)"
   # Check if new domain exists
-  EXISTSSERVERALIAS=$(egrep -c "ServerAlias $REMOVEDOMAIN" "/etc/apache2/sites-enabled/$SITENAME" || true)
+  EXISTSSERVERALIAS=$(egrep -c "ServerAlias $REMOVEDOMAIN" "/etc/apache2/sites-enabled/$SITENAME.conf" || true)
   if [[ "$EXISTSSERVERALIAS" -eq 0 ]]
   then
     echo "ERROR: Vhost, $REMOVEDOMAIN doesn't exists in the vhost for $SITENAME"
@@ -205,20 +205,6 @@ install_drupal() {
   # Do a drush site install
   /usr/bin/drush -q -y -r $MULTISITE site-install $PROFILE --locale=da --db-url="mysql://$DBUSER:$DBPASS@localhost/$DBNAME" --sites-subdir="$SITENAME" --account-mail="$EMAIL" --site-mail="$EMAIL" --site-name="$SITENAME" --account-pass="$ADMINPASS"
 
-  # Set tmp
-  /usr/bin/drush -q -y -r "$MULTISITE" --uri="$SITENAME" vset file_temporary_path "$TMPDIR"
-
-  # Do some drupal setup here. Could also be done in the install profile.
-  /usr/bin/drush -q -y -r "$MULTISITE" --uri="$SITENAME" vset user_register 0
-  /usr/bin/drush -q -y -r "$MULTISITE" --uri="$SITENAME" vset error_level 1
-  /usr/bin/drush -q -y -r "$MULTISITE" --uri="$SITENAME" vset preprocess_css 1
-  /usr/bin/drush -q -y -r "$MULTISITE" --uri="$SITENAME" vset preprocess_js 1
-  /usr/bin/drush -q -y -r "$MULTISITE" --uri="$SITENAME" vset cache 1
-  /usr/bin/drush -q -y -r "$MULTISITE" --uri="$SITENAME" vset page_cache_maximum_age 10800
-  # translation updates - takes a long time
-  #/usr/bin/drush -q -y -r "$MULTISITE" --uri="$SITENAME" l10n-update-refresh
-  #/usr/bin/drush -q -y -r "$MULTISITE" --uri="$SITENAME" l10n-update
-  /usr/bin/drush -q -y -r "$MULTISITE" --uri="$SITENAME" dis update
 }
 
 set_permissions() {
@@ -321,3 +307,18 @@ remove_from_vhost() {
   debug "Reloading Apache2"
   /etc/init.d/apache2 reload >/dev/null
 }
+
+set_variables() {
+  debug "Setting variables"
+  cd "$MULTISITE/sites/$SITENAME" || exit
+  /usr/bin/drush -q -y -r "$MULTISITE" --uri="$SITENAME" vset file_temporary_path "$TMPDIR"
+  /usr/bin/drush -q -y -r "$MULTISITE" --uri="$SITENAME" vset file_public_path "sites/$SITENAME/files"
+  /usr/bin/drush -q -y -r "$MULTISITE" --uri="$SITENAME" vset user_register 0
+  /usr/bin/drush -q -y -r "$MULTISITE" --uri="$SITENAME" vset error_level 1
+  /usr/bin/drush -q -y -r "$MULTISITE" --uri="$SITENAME" vset preprocess_css 1
+  /usr/bin/drush -q -y -r "$MULTISITE" --uri="$SITENAME" vset preprocess_js 1
+  /usr/bin/drush -q -y -r "$MULTISITE" --uri="$SITENAME" vset cache 1
+  /usr/bin/drush -q -y -r "$MULTISITE" --uri="$SITENAME" vset page_cache_maximum_age 10800
+  /usr/bin/drush -q -y -r "$MULTISITE" --uri="$SITENAME" dis update
+}
+
