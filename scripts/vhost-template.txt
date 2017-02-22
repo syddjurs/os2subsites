@@ -6,7 +6,7 @@
        # Uncommenting below will only allow a limited number of Bellcom IPs access to the site
        #Include /etc/apache2/limit-bellcom.conf
        # Below blocks access without auth if the domain ends with bellcom.dk
-       #Include /etc/apache2/limit-subsite-access.conf
+       Include /etc/apache2/limit-subsite-access.conf
     </Directory>
 
     ServerAdmin domains@bellcom.dk
