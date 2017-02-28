@@ -20,13 +20,13 @@
   "concat": {
     "jsApp": [
       "src/vendor/bootstrap/dist/js/bootstrap.js",
-      "src/vendor/bs3-designer/js/bs3-designer.js",
       "src/vendor/appear/jquery.appear.js",
-      "src/vendor/bs3-sidebar/js/bs3-sidebar.js",
       "src/vendor/jquery-placeholder/jquery.placeholder.js",
       "src/vendor/jquery.cookie/jquery.cookie.js",
       "src/vendor/fastclick/lib/fastclick.js",
       "src/vendor/jqueryui-touch-punch/jquery.ui.touch-punch.js",
+      "src/js/bs3-designer.js",
+      "src/js/bs3-sidebar.js",
       "src/js/os2-self-service-toggle.js",
       "src/js/popover-button.js",
       "src/js/accordion.js",
