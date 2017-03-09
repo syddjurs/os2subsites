@@ -288,7 +288,7 @@ function os2sub_frontpage_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'owlcarousel_items_tablet_owlcarousel_settings_default_items';
-  $strongarm->value = '2';
+  $strongarm->value = '1';
   $export['owlcarousel_items_tablet_owlcarousel_settings_default_items'] = $strongarm;
 
   $strongarm = new stdClass();
