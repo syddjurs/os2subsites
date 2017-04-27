@@ -59,3 +59,8 @@ $sites['ebeltofthavn.dk'] = 'ebeltofthavn.subsites.syddjurs.dk';
 
 $sites['www.smartsyddjurs.dk'] = 'smartsyddjurs.subsites.syddjurs.dk';
 $sites['smartsyddjurs.dk'] = 'smartsyddjurs.subsites.syddjurs.dk';
+
+$sites['teampåtværs.syddjurs.dk'] = 'engodstartsammen.subsites.syddjurs.dk';
+$sites['xn--teamptvrs-92an.syddjurs.dk']= 'engodstartsammen.subsites.syddjurs.dk';
+$sites['tt.syddjurs.dk'] = 'engodstartsammen.subsites.syddjurs.dk';
+
