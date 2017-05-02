@@ -2376,206 +2376,6 @@ if (typeof jQuery === 'undefined') {
 
 }(jQuery);
 
-// |--------------------------------------------------------------------------
-// | BS3 designer
-// |--------------------------------------------------------------------------
-// |
-// | This jQuery script is written by
-// | Morten Nissen
-// |
-// | - Optimize form elements
-// | - Attach footer to bottom of page on non-touch devices
-// | - Enable BS3 tooltips on non-touch devices
-// | - Disable form autocomplete on non-touch devices
-// | - Apply loader icon to .btn.btn-loader on click
-// | - Use appear on non-touch devices
-// |
-
-// jscs:disable requireCamelCaseOrUpperCaseIdentifiers
-
-var bs3Designer = (function ($) {
-    'use strict';
-
-    var pub = {};
-
-    /**
-     * Instantiate
-     */
-    pub.init = function () {
-        registerBootEventHandlers();
-        registerEventHandlers();
-    }
-
-    /**
-     * Register boot event handlers
-     */
-    function registerBootEventHandlers() {
-        if ( ! Modernizr.touchevents) {
-            footerAttached();
-            footerBelow();
-        }
-
-        optimizeFormElements();
-        inputClear();
-        appear();
-        bs3Tooltip();
-    }
-
-    /**
-     * Register event handlers
-     */
-    function registerEventHandlers() {
-
-        $(window).resize(function () {
-            footerAttached();
-            footerBelow();
-        });
-
-        $('.btn-loader').on('click touchstart', function () {
-            var $element = $(this);
-
-            iconSpin($element);
-        });
-    }
-
-    /**
-     * Footer attached
-     */
-    function footerAttached() {
-        if ($('body').hasClass('footer-attached')) {
-            var $footer = $('.footer');
-            var footerHeight = $footer.outerHeight(true);
-
-            $('.inner-wrapper').css('padding-bottom', footerHeight);
-        }
-    }
-
-    /**
-     * Footer below
-     */
-    function footerBelow() {
-        if ($('body').hasClass('footer-below')) {
-            var $footer = $('.footer');
-            var footerHeight = $footer.outerHeight(true);
-
-            $('.inner-wrapper').css('padding-bottom', footerHeight);
-        }
-    }
-
-    /**
-     * Appear
-     */
-    function appear() {
-        var $appear = $('.appear');
-        var $animation = $('.animation');
-
-        if (Modernizr.touchevents || !Modernizr.cssanimations) {
-
-            $animation
-              .removeClass('animation')
-              .removeClass('animation-appear-from-top')
-              .removeClass('animation-appear-from-right')
-              .removeClass('animation-appear-from-left')
-              .removeClass('animation-appear-from-bottom')
-              .removeClass('animation-appear-from-center');
-
-            return false;
-        }
-
-        // Enable appear
-        $appear.appear();
-
-        // Force processing on animation objects
-        $animation.appear({
-            force_process: true
-        });
-
-        // Animation object has appeared
-        $animation.on('appear', function () {
-
-            var $element = $(this);
-            var delay = $element.data('delay');
-
-            setTimeout(function () {
-                $element.addClass('animation-start');
-            }, delay);
-        });
-    }
-
-    /**
-     * BS tooltip
-     */
-    function bs3Tooltip() {
-        if (Modernizr.touchevents) {
-            $('[data-toggle=tooltip]').tooltip('hide');
-
-            return false;
-        }
-
-        $('[data-toggle=tooltip]').tooltip();
-    }
-
-    /**
-     * Optimize form elements
-     */
-    function optimizeFormElements() {
-        $('form').attr('autocomplete', 'off');
-    }
-
-    /**
-     * Icon spin
-     */
-    function iconSpin($element) {
-        var $icon = $('<span />').addClass('fa').addClass('icon').addClass('icon-spin');
-        var elementWidth = $element.outerWidth(true);
-
-        // Remove button value and insert icon
-        $element.html($icon).addClass('btn-loader-active').css('width', elementWidth);
-    }
-
-    /**
-     * Input clear
-     */
-    function inputClear() {
-        var $inputs = $('input[type="text"].form-control').not('.sliderfield-value-field');
-
-        // Run through all input fields and add elements to DOM
-        $inputs.each(function(index) {
-            var $input = $(this);
-            var $wrapper = $('<div />').addClass('form-control-clear-wrapper');
-            var $clearButton = $('<span />').addClass('form-control-clear').on('click touchstart', function(event) {
-                $input.attr('value', '').focus();
-
-                $(this).hide();
-            });
-
-            // Wrap input
-            $input.wrap($wrapper);
-
-            // Add clear button
-            $input.after($clearButton);
-
-            // Input has content - show clear button
-            if ($input.val().replace(/^\s+|\s+$/g, '').length > 0) {
-                $clearButton.show();
-            }
-
-            // Show clear button
-            $input.on('keyup keydown change focus', function(event) {
-
-                if ($input.val().replace(/^\s+|\s+$/g, '').length > 0) {
-
-                    if (!$clearButton.is(':visible')) {
-                        $clearButton.show();
-                    }
-                }
-            });
-        });
-    }
-
-    return pub;
-})(jQuery);
-
 /*
  * jQuery appear plugin
  *
@@ -2689,179 +2489,6 @@ var bs3Designer = (function ($) {
     return jQuery;
   }
 }());
-
-// |--------------------------------------------------------------------------
-// | BS3 sidebar
-// |--------------------------------------------------------------------------
-// |
-// | App alike navigation with sidebar.
-// |
-// | This jQuery script is written by
-// | Morten Nissen
-// |
-var bs3Sidebar = (function ($) {
-  'use strict';
-
-  var pub = {};
-
-  /**
-   * Instantiate
-   */
-  pub.init = function (options) {
-    registerEventHandlers();
-    registerBootEventHandlers();
-  }
-
-  /**
-   * Register event handlers
-   */
-  function registerEventHandlers() {
-
-    // Toggle sidebar
-    $('[data-sidebar-toggle]').on('click touchstart', function (event) {
-      event.preventDefault();
-
-      var $element = $(this);
-
-      toggleSidebar($element);
-    });
-
-    // Toggle dropdown
-    $('.sidebar .sidebar-navigation-dropdown > a > .sidebar-navigation-dropdown-toggle').on('click touchstart', function (event) {
-      event.preventDefault();
-
-      var $element = $(this);
-
-      toggleDropdown($element);
-    });
-  }
-
-  /**
-   * Register boot event handlers
-   */
-  function registerBootEventHandlers() {
-  }
-
-  /**
-   * Toggle sidebar
-   */
-  function toggleSidebar($element) {
-    var $body = $('body');
-    var attribute = $element.attr('data-sidebar-toggle');
-
-    if (attribute != 'left' && attribute != 'right') {
-      return false;
-    }
-
-    if (attribute == 'left' && $body.hasClass('sidebar-right-open')) {
-      $body.removeClass('sidebar-right-open');
-    }
-
-    if (attribute == 'right' && $body.hasClass('sidebar-left-open')) {
-      $body.removeClass('sidebar-left-open');
-    }
-
-    $body.toggleClass('sidebar-' + attribute + '-open');
-  }
-
-  /**
-   * Toggle dropdown
-   */
-  function toggleDropdown($element) {
-    var $parent = $element.parent().parent();
-    var parentIsActive = $parent.hasClass('active') || $parent.hasClass('active-trail') ? true : false;
-
-    if (parentIsActive) {
-      closeDropdown($parent);
-    }
-
-    else {
-      openDropdown($parent);
-    }
-  }
-
-  /**
-   * Open dropdown
-   */
-  function openDropdown($parent) {
-    var $dropdownMenu = $parent.find('> .sidebar-navigation-dropdown-menu');
-    var dropdownMenuHeight = $dropdownMenu.outerHeight(true);
-    var preAnimationCSS = { opacity: 0.1, height: 0, top: -20 };
-    var animationCSS = { opacity: 1, height: dropdownMenuHeight, top: 0 };
-    var callbackFunction = function () {
-      $dropdownMenu.attr('style', '');
-    };
-
-    closeAllDropdownMenus($parent);
-
-    $parent.addClass('active');
-
-    $dropdownMenu
-      .addClass('active')
-      .css(preAnimationCSS);
-
-    dropdownMenuAnimatedToggle($dropdownMenu, animationCSS, callbackFunction);
-  }
-
-  /**
-   * Close dropdown
-   */
-  function closeDropdown($parent) {
-    var $dropdownMenu = $parent.find('> .sidebar-navigation-dropdown-menu');
-    var animationCSS = { height: 0, opacity: 0.1 };
-    var callbackFunction = function () {
-
-      // Remove all active class' from dropdown menu and all child elements with active states
-      $dropdownMenu
-        .removeClass('active')
-        .attr('style', '')
-        .find('.active:not(a)')
-        .removeClass('active')
-        .attr('style', '');
-
-      $dropdownMenu
-        .removeClass('active-trail')
-        .attr('style', '')
-        .find('.active-trail:not(a)')
-        .removeClass('active-trail')
-        .attr('style', '');
-    };
-
-    $parent
-      .removeClass('active')
-      .removeClass('active-trail');
-
-    dropdownMenuAnimatedToggle($dropdownMenu, animationCSS, callbackFunction);
-  }
-
-  /**
-   * Close all dropdown menus
-   */
-  function closeAllDropdownMenus($parent) {
-    $parent
-      .siblings('.sidebar-navigation-dropdown.active, .sidebar-navigation-dropdown.active-trail')
-      .each(function () {
-        var $element = $(this);
-
-        closeDropdown($element);
-      });
-  }
-
-  /**
-   * Dropdown menu animated toggle
-   */
-  function dropdownMenuAnimatedToggle($dropdownMenu, animationCSS, callbackFunction) {
-    $dropdownMenu.animate(
-      animationCSS,
-      {
-        duration: 400,
-        easing  : 'easeOutSine',
-        complete: callbackFunction
-      });
-  }
-
-  return pub;
-})(jQuery);
 
 ;(function () {
 	'use strict';
@@ -3704,6 +3331,379 @@ var bs3Sidebar = (function ($) {
 		window.FastClick = FastClick;
 	}
 }());
+
+// |--------------------------------------------------------------------------
+// | BS3 designer
+// |--------------------------------------------------------------------------
+// |
+// | This jQuery script is written by
+// | Morten Nissen
+// |
+// | - Optimize form elements
+// | - Attach footer to bottom of page on non-touch devices
+// | - Enable BS3 tooltips on non-touch devices
+// | - Disable form autocomplete on non-touch devices
+// | - Apply loader icon to .btn.btn-loader on click
+// | - Use appear on non-touch devices
+// |
+
+// jscs:disable requireCamelCaseOrUpperCaseIdentifiers
+
+var bs3Designer = (function ($) {
+    'use strict';
+
+    var pub = {};
+
+    /**
+     * Instantiate
+     */
+    pub.init = function () {
+        registerBootEventHandlers();
+        registerEventHandlers();
+    }
+
+    /**
+     * Register boot event handlers
+     */
+    function registerBootEventHandlers() {
+        if ( ! Modernizr.touchevents) {
+            footerAttached();
+            footerBelow();
+        }
+
+        optimizeFormElements();
+        inputClear();
+        appear();
+        bs3Tooltip();
+    }
+
+    /**
+     * Register event handlers
+     */
+    function registerEventHandlers() {
+
+        $(window).resize(function () {
+            footerAttached();
+            footerBelow();
+        });
+
+        $('.btn-loader').on('click touchstart', function () {
+            var $element = $(this);
+
+            iconSpin($element);
+        });
+    }
+
+    /**
+     * Footer attached
+     */
+    function footerAttached() {
+        if ($('body').hasClass('footer-attached')) {
+            var $footer = $('.footer');
+            var footerHeight = $footer.outerHeight(true);
+
+            $('.inner-wrapper').css('padding-bottom', footerHeight);
+        }
+    }
+
+    /**
+     * Footer below
+     */
+    function footerBelow() {
+        if ($('body').hasClass('footer-below')) {
+            var $footer = $('.footer');
+            var footerHeight = $footer.outerHeight(true);
+
+            $('.inner-wrapper').css('padding-bottom', footerHeight);
+        }
+    }
+
+    /**
+     * Appear
+     */
+    function appear() {
+        var $appear = $('.appear');
+        var $animation = $('.animation');
+
+        if (Modernizr.touchevents || !Modernizr.cssanimations) {
+
+            $animation
+              .removeClass('animation')
+              .removeClass('animation-appear-from-top')
+              .removeClass('animation-appear-from-right')
+              .removeClass('animation-appear-from-left')
+              .removeClass('animation-appear-from-bottom')
+              .removeClass('animation-appear-from-center');
+
+            return false;
+        }
+
+        // Enable appear
+        $appear.appear();
+
+        // Force processing on animation objects
+        $animation.appear({
+            force_process: true
+        });
+
+        // Animation object has appeared
+        $animation.on('appear', function () {
+
+            var $element = $(this);
+            var delay = $element.data('delay');
+
+            setTimeout(function () {
+                $element.addClass('animation-start');
+            }, delay);
+        });
+    }
+
+    /**
+     * BS tooltip
+     */
+    function bs3Tooltip() {
+        if (Modernizr.touchevents) {
+            $('[data-toggle=tooltip]').tooltip('hide');
+
+            return false;
+        }
+
+        $('[data-toggle=tooltip]').tooltip();
+    }
+
+    /**
+     * Optimize form elements
+     */
+    function optimizeFormElements() {
+        $('form').attr('autocomplete', 'off');
+    }
+
+    /**
+     * Icon spin
+     */
+    function iconSpin($element) {
+        var $icon = $('<span />').addClass('fa').addClass('icon').addClass('icon-spin');
+        var elementWidth = $element.outerWidth(true);
+
+        // Remove button value and insert icon
+        $element.html($icon).addClass('btn-loader-active').css('width', elementWidth);
+    }
+
+    /**
+     * Input clear
+     */
+    function inputClear() {
+        var $inputs = $('input[type="text"].form-control').not('.sliderfield-value-field');
+
+        // Run through all input fields and add elements to DOM
+        $inputs.each(function(index) {
+            var $input = $(this);
+            var $wrapper = $('<div />').addClass('form-control-clear-wrapper');
+            var $clearButton = $('<span />').addClass('form-control-clear').on('click touchstart', function(event) {
+                $input.attr('value', '').focus();
+
+                $(this).hide();
+            });
+
+            // Wrap input
+            $input.wrap($wrapper);
+
+            // Add clear button
+            $input.after($clearButton);
+
+            // Input has content - show clear button
+            if ($input.val().replace(/^\s+|\s+$/g, '').length > 0) {
+                $clearButton.show();
+            }
+
+            // Show clear button
+            $input.on('keyup keydown change focus', function(event) {
+
+                if ($input.val().replace(/^\s+|\s+$/g, '').length > 0) {
+
+                    if (!$clearButton.is(':visible')) {
+                        $clearButton.show();
+                    }
+                }
+            });
+        });
+    }
+
+    return pub;
+})(jQuery);
+
+// |--------------------------------------------------------------------------
+// | BS3 sidebar
+// |--------------------------------------------------------------------------
+// |
+// | App alike navigation with sidebar.
+// |
+// | This jQuery script is written by
+// | Morten Nissen
+// |
+var bs3Sidebar = (function ($) {
+  'use strict';
+
+  var pub = {};
+
+  /**
+   * Instantiate
+   */
+  pub.init = function (options) {
+    registerEventHandlers();
+    registerBootEventHandlers();
+  }
+
+  /**
+   * Register event handlers
+   */
+  function registerEventHandlers() {
+
+    // Toggle sidebar
+    $('[data-sidebar-toggle]').on('click touchstart', function (event) {
+      event.preventDefault();
+
+      var $element = $(this);
+
+      toggleSidebar($element);
+    });
+
+    // Toggle dropdown
+    $('.sidebar .sidebar-navigation-dropdown > a > .sidebar-navigation-dropdown-toggle').on('click touchstart', function (event) {
+      event.preventDefault();
+
+      var $element = $(this);
+
+      toggleDropdown($element);
+    });
+  }
+
+  /**
+   * Register boot event handlers
+   */
+  function registerBootEventHandlers() {
+  }
+
+  /**
+   * Toggle sidebar
+   */
+  function toggleSidebar($element) {
+    var $body = $('body');
+    var attribute = $element.attr('data-sidebar-toggle');
+
+    if (attribute != 'left' && attribute != 'right') {
+      return false;
+    }
+
+    if (attribute == 'left' && $body.hasClass('sidebar-right-open')) {
+      $body.removeClass('sidebar-right-open');
+    }
+
+    if (attribute == 'right' && $body.hasClass('sidebar-left-open')) {
+      $body.removeClass('sidebar-left-open');
+    }
+
+    $body.toggleClass('sidebar-' + attribute + '-open');
+  }
+
+  /**
+   * Toggle dropdown
+   */
+  function toggleDropdown($element) {
+    var $parent = $element.parent().parent();
+    var parentIsActive = $parent.hasClass('active') || $parent.hasClass('active-trail') ? true : false;
+
+    if (parentIsActive) {
+      closeDropdown($parent);
+    }
+
+    else {
+      openDropdown($parent);
+    }
+  }
+
+  /**
+   * Open dropdown
+   */
+  function openDropdown($parent) {
+    var $dropdownMenu = $parent.find('> .sidebar-navigation-dropdown-menu');
+    var dropdownMenuHeight = $dropdownMenu.outerHeight(true);
+    var preAnimationCSS = { opacity: 0.1, height: 0, top: -20 };
+    var animationCSS = { opacity: 1, height: dropdownMenuHeight, top: 0 };
+    var callbackFunction = function () {
+      $dropdownMenu.attr('style', '');
+    };
+
+    closeAllDropdownMenus($parent);
+
+    $parent.addClass('active');
+
+    $dropdownMenu
+      .addClass('active')
+      .css(preAnimationCSS);
+
+    dropdownMenuAnimatedToggle($dropdownMenu, animationCSS, callbackFunction);
+  }
+
+  /**
+   * Close dropdown
+   */
+  function closeDropdown($parent) {
+    var $dropdownMenu = $parent.find('> .sidebar-navigation-dropdown-menu');
+    var animationCSS = { height: 0, opacity: 0.1 };
+    var callbackFunction = function () {
+
+      // Remove all active class' from dropdown menu and all child elements with active states
+      $dropdownMenu
+        .removeClass('active')
+        .attr('style', '')
+        .find('.active:not(a)')
+        .removeClass('active')
+        .attr('style', '');
+
+      $dropdownMenu
+        .removeClass('active-trail')
+        .attr('style', '')
+        .find('.active-trail:not(a)')
+        .removeClass('active-trail')
+        .attr('style', '');
+    };
+
+    $parent
+      .removeClass('active')
+      .removeClass('active-trail');
+
+    dropdownMenuAnimatedToggle($dropdownMenu, animationCSS, callbackFunction);
+  }
+
+  /**
+   * Close all dropdown menus
+   */
+  function closeAllDropdownMenus($parent) {
+    $parent
+      .siblings('.sidebar-navigation-dropdown.active, .sidebar-navigation-dropdown.active-trail')
+      .each(function () {
+        var $element = $(this);
+
+        closeDropdown($element);
+      });
+  }
+
+  /**
+   * Dropdown menu animated toggle
+   */
+  function dropdownMenuAnimatedToggle($dropdownMenu, animationCSS, callbackFunction) {
+    $dropdownMenu.animate(
+      animationCSS,
+      {
+        duration: 400,
+        easing  : 'easeOutSine',
+        complete: callbackFunction
+      });
+  }
+
+  return pub;
+})(jQuery);
 
 // |--------------------------------------------------------------------------
 // | OS2 Self Service Toggle

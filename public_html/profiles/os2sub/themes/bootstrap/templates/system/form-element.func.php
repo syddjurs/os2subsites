@@ -1,11 +1,59 @@
 <?php
 /**
  * @file
- * form-element.func.php
+ * Stub file for bootstrap_form_element().
  */
 
 /**
- * Overrides theme_form_element().
+ * Returns HTML for a form element.
+ *
+ * Each form element is wrapped in a DIV container having the following CSS
+ * classes:
+ * - form-item: Generic for all form elements.
+ * - form-type-#type: The internal element #type.
+ * - form-item-#name: The internal form element #name (usually derived from the
+ *   $form structure and set via form_builder()).
+ * - form-disabled: Only set if the form element is #disabled.
+ *
+ * In addition to the element itself, the DIV contains a label for the element
+ * based on the optional #title_display property, and an optional #description.
+ *
+ * The optional #title_display property can have these values:
+ * - before: The label is output before the element. This is the default.
+ *   The label includes the #title and the required marker, if #required.
+ * - after: The label is output after the element. For example, this is used
+ *   for radio and checkbox #type elements as set in system_element_info().
+ *   If the #title is empty but the field is #required, the label will
+ *   contain only the required marker.
+ * - invisible: Labels are critical for screen readers to enable them to
+ *   properly navigate through forms but can be visually distracting. This
+ *   property hides the label for everyone except screen readers.
+ * - attribute: Set the title attribute on the element to create a tooltip
+ *   but output no label element. This is supported only for checkboxes
+ *   and radios in form_pre_render_conditional_form_element(). It is used
+ *   where a visual label is not needed, such as a table of checkboxes where
+ *   the row and column provide the context. The tooltip will include the
+ *   title and required marker.
+ *
+ * If the #title property is not set, then the label and any required marker
+ * will not be output, regardless of the #title_display or #required values.
+ * This can be useful in cases such as the password_confirm element, which
+ * creates children elements that have their own labels and required markers,
+ * but the parent element should have neither. Use this carefully because a
+ * field without an associated label can cause accessibility challenges.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - element: An associative array containing the properties of the element.
+ *     Properties used: #title, #title_display, #description, #id, #required,
+ *     #children, #type, #name.
+ *
+ * @return string
+ *   The constructed HTML.
+ *
+ * @see theme_form_element()
+ *
+ * @ingroup theme_functions
  */
 function bootstrap_form_element(&$variables) {
   $element = &$variables['element'];
@@ -32,7 +80,7 @@ function bootstrap_form_element(&$variables) {
   }
 
   // Check for errors and set correct error class.
-  if ((isset($element['#parents']) && form_get_error($element)) || (!empty($element['#required']) && bootstrap_setting('forms_required_has_error'))) {
+  if ((isset($element['#parents']) && form_get_error($element) !== NULL) || (!empty($element['#required']) && bootstrap_setting('forms_required_has_error'))) {
     $wrapper_attributes['class'][] = 'has-error';
   }
 
@@ -69,12 +117,8 @@ function bootstrap_form_element(&$variables) {
   // Render the label for the form element.
   $build['label'] = array(
     '#markup' => theme('form_element_label', $variables),
+    '#weight' => $element['#title_display'] === 'before' ? 0 : 2,
   );
-
-  // Increase the label weight if it should be displayed after the element.
-  if ($element['#title_display'] === 'after') {
-    $build['label']['#weight'] = 10;
-  }
 
   // Checkboxes and radios render the input element inside the label. If the
   // element is neither of those, then the input element must be rendered here.
@@ -101,6 +145,7 @@ function bootstrap_form_element(&$variables) {
       '#markup' => $element['#children'],
       '#prefix' => !empty($prefix) ? $prefix : NULL,
       '#suffix' => !empty($suffix) ? $suffix : NULL,
+      '#weight' => 1,
     );
   }
 
@@ -111,7 +156,7 @@ function bootstrap_form_element(&$variables) {
       '#attributes' => array(
         'class' => array('help-block'),
       ),
-      '#weight' => 20,
+      '#weight' => isset($element['#description_display']) && $element['#description_display'] === 'before' ? 0 : 20,
       0 => array('#markup' => filter_xss_admin($element['#description'])),
     );
   }

@@ -1,7 +1,11 @@
 <?php
 /**
  * @file
- * bootstrap-carousel.tpl.php
+ * Default theme implementation to display a Bootstrap carousel component.
+ *
+ * @todo Fill out list of available variables.
+ *
+ * @ingroup templates
  */
 ?>
 <div<?php print $attributes; ?>>
@@ -19,10 +23,10 @@
         <?php if ($item['title'] || $item['description']): ?>
           <div class="carousel-caption">
             <?php if ($item['title']): ?>
-              <h3><?php print render($item['title']); ?></h3>
+              <h3><?php print $item['title']; ?></h3>
             <?php endif; ?>
             <?php if ($item['description']): ?>
-              <p><?php print render($item['description']); ?></p>
+              <p><?php print $item['description']; ?></p>
             <?php endif; ?>
           </div>
         <?php endif; ?>
