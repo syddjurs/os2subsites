@@ -12,7 +12,10 @@
 
 
 @os2sub-box-background-color: #fff;
+@os2sub-box-border-color: @gray-lighter;
+@os2sub-box-border: @os2sub-box-border-width solid @os2sub-box-border-color ;
 @os2sub-box-border-radius: 	 	@border-radius-base;
+@os2sub-box-border-width: 2px;
 
 @os2sub-box-heading-top-bottom-spacing: 10px;
 @os2sub-box-heading-left-right-spacing: @default-left-right-spacing;
@@ -37,6 +40,7 @@
 .os2sub-box {
 	background-color: @os2sub-box-background-color;
 	border-radius: @os2sub-box-border-radius;
+	border: @os2sub-box-border;
 
 	.os2sub-box-heading {
 		padding: @os2sub-box-heading-top-bottom-spacing @os2sub-box-heading-left-right-spacing;
@@ -61,6 +65,40 @@
 	.os2sub-box-footer {
 		padding: @os2sub-box-footer-top-bottom-spacing @os2sub-box-footer-left-right-spacing;
 	}
+}
+
+.os2sub-box-stack {
+  border-radius: @os2sub-box-border-radius;
+	border: @os2sub-box-border;
+  .os2sub-box {
+  	background-color: @os2sub-box-background-color;
+  	border-radius: @os2sub-box-border-radius;
+  	border: @os2sub-box-border-width 0 @os2sub-box-border-width 0 solid ;
+
+  	.os2sub-box-heading {
+  		padding: @os2sub-box-heading-top-bottom-spacing @os2sub-box-heading-left-right-spacing;
+  		.border-top-radius(@os2sub-box-border-radius);
+
+  		.pane-title,
+  		.os2sub-box-heading-title {
+  			margin: 0;
+  			.heading-h4;
+  			text-transform: uppercase;
+  		}
+  	}
+
+  	.os2sub-box-body {
+  		padding: @os2sub-box-body-top-bottom-spacing @os2sub-box-body-left-right-spacing;
+
+  		+ .os2sub-box-footer {
+  			padding-top: 0;
+  		}
+  	}
+
+  	.os2sub-box-footer {
+  		padding: @os2sub-box-footer-top-bottom-spacing @os2sub-box-footer-left-right-spacing;
+  	}
+  }
 }
 
 // --------------------------------------------------

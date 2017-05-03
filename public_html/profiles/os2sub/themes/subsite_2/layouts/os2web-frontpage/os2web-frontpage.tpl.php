@@ -21,18 +21,18 @@
 	<?php endif ?>
 
     <?php if ($content['sidebar-right']): ?>
-    
+
 	    <!-- Begin - right sidebar -->
-	    <div class="col-md-4 col-md-push-5">
+	    <div class="col-md-4 col-md-push-5 os2sub-box-stacked">
 	        <?php print $content['sidebar-right']; ?>
 	    </div>
 	    <!-- End - right sidebar -->
 	<?php endif ?>
 
 	<?php if ($content['sidebar-left'] && $content['sidebar-right']): ?>
-    	
+
     	<?php /* If both sidebars are present*/?>
-    	
+
 	    <!-- Begin - content -->
 	    <div class="col-md-5 col-md-pull-4">
 	        <?php print $content['content']; ?>
@@ -50,7 +50,7 @@
 	<?php else : ?>
 
     	<?php /* If no sidebars are present*/?>
-	
+
 		<div class="col-sm-12">
 	        <?php print $content['content']; ?>
 	    </div>

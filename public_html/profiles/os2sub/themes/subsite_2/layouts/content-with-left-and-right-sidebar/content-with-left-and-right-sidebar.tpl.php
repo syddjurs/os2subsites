@@ -10,10 +10,10 @@
 	<?php endif ?>
 
     <?php if ($content['sidebar-right']): ?>
-    
-	    <!-- Begin - right sidebar -->
+
+	    <!-- Begin - right sidebar her -->
 	    <?php if ($content['sidebar-left']): ?>
-	    <div class="col-md-3 col-md-push-6">
+	    <div class="col-md-3 col-md-push-6 os2sub-box-stacked">
 	<?php else : ?>
 	    <div class="col-md-3 col-md-push-9">
 	<?php endif ?>
@@ -23,9 +23,9 @@
 	<?php endif ?>
 
 	<?php if ($content['sidebar-left'] && $content['sidebar-right']): ?>
-    	
+
     	<?php /* If both sidebars are present*/?>
-    	
+
 	    <!-- Begin - content -->
 	    <div class="col-md-6 col-md-pull-3">
 	        <?php print $content['content']; ?>
@@ -51,7 +51,7 @@
 	<?php elseif (!$content['sidebar-left'] && !$content['sidebar-right']) : ?>
 
     	<?php /* If no sidebars are present*/?>
-	
+
 		<div class="col-sm-12">
 	        <?php print $content['content']; ?>
 	    </div>
