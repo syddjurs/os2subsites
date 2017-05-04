@@ -72,12 +72,12 @@
 
   .main-navigation-logo-link {
   	float: left;
-  	
+
     .main-navigation-logo-image {
 	  max-width: 100%;
       border: 0;
     }
-    
+
     &:extend(.clearfix all);
   }
 }
@@ -101,7 +101,7 @@
     a {
       white-space: nowrap;
     }
-    
+
     &:extend(.clearfix all);
   }
 }
@@ -129,26 +129,26 @@
       &:hover {
 
         > a {
-          background-color: @bs3-main-navigation-nav-link-hover-background-color;
-          color: @bs3-main-navigation-nav-link-hover-font-color;
-          text-decoration: @bs3-main-navigation-nav-link-hover-text-decoration;
+          background-color: @brand-primary;
+          color: #FFF;
+          text-decoration: underline;
         }
       }
 
       &.active {
 
         > a {
-          background-color: @bs3-main-navigation-nav-link-active-background-color;
-          color: @bs3-main-navigation-nav-link-active-font-color;
+          background-color: @brand-primary;
+          color: #FFF;
           text-decoration: @bs3-main-navigation-nav-link-active-text-decoration;
         }
 
         &:hover {
 
           > a {
-            background-color: @bs3-main-navigation-nav-link-active-hover-background-color;
-            color: @bs3-main-navigation-nav-link-active-hover-font-color;
-            text-decoration: @bs3-main-navigation-nav-link-active-hover-text-decoration;
+            background-color: @brand-primary;
+            color: @brand-primary-light;
+            text-decoration: underline;
           }
         }
       }

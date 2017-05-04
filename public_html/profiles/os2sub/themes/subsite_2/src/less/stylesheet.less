@@ -17,7 +17,7 @@
 }
 
 .kontaktblok {
-		.kontaktblok-headline 	{ font-size: @font-size-h3;}
+		.kontaktblok-headline 	{ font-size: @font-size-h3; color: @brand-primary;}
 		.kontaktblok-text { font-size: @font-size-large;}
 }
 // os2-node-teaser node node-os2web-base-news view-mode-spotbox node--os2web_base_news--spotbox
@@ -227,12 +227,16 @@
 .simple-navigation-logo-link { color: #333; text-align: left; font-size: @font-size-large;
 	&:hover { color: #dedede}
 }
-.main-navigation-list-link a { text-transform: uppercase; }
+.main-navigation-list-link {
+  width: 20%;
+  a { border-radius: @border-radius-base; 
+  }
+}
 
 .page-node .view-os2sub-banner { margin-bottom: 20px;}
 
 .main-navigation-wrapper .main-navigation-list.main-navigation-lang {
-  float: right;
+  float: left;
   .main-navigation-list-link {
     border-left: none;
     .lang-link {
@@ -281,4 +285,53 @@
 }
 .main-content-area {
   padding: 0 ceil((@grid-gutter-width / 2));
+}
+
+
+.col-xs-15,
+.col-sm-15,
+.col-md-15,
+.col-lg-15 {
+    position: relative;
+    min-height: 1px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.col-xs-15 {
+    width: 20%;
+    float: left;
+}
+
+
+// Tablet
+@media @media-query-tablet {
+
+.col-sm-15 {
+        width: 20%;
+        float: left;
+    }
+}
+
+
+// Desktop
+@media @media-query-desktop {
+
+	// Full node
+    .col-md-15 {
+        width: 20%;
+        float: left;
+    }
+}
+
+
+
+// Large desktop
+@media @media-query-large-desktop {
+
+	// Full node
+    .col-lg-15 {
+        width: 20%;
+        float: left;
+    }
 }

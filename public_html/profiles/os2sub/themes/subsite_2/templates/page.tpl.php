@@ -191,18 +191,6 @@
           <ul class="action-links"><?php print render($action_links); ?></ul>
         <?php endif; ?>
 
-        <?php if (!empty($breadcrumb)): ?>
-          <!-- Begin - breadcrumb -->
-          <section class="os2sub-breadcrumb-container">
-            <div class="row">
-              <div class="col-xs-12">
-                <?php print $breadcrumb; ?>
-              </div>
-            </div>
-          </section>
-          <!-- End - breadcrumb -->
-        <?php endif;?>
-
         <?php if (!empty($tabs)): ?>
           <!-- Begin - tabs -->
           <div class="content-tabs-container">

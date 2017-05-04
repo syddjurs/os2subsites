@@ -16,7 +16,8 @@
 
 // Main navigation
 .main-navigation-wrapper {
-
+  background-color: @brand-primary-light;
+  padding: @default-left-right-spacing 0;
     .search-form {
         margin-left: @default-left-right-spacing;
 
@@ -35,9 +36,11 @@
     }
 
     .main-navigation-list {
-
+      width: 100%;
         > li {
-            border-left: 2px solid @body-bg;
+            margin: 0 10px;
+            float: right;
+            border-radius: 8px;
         }
     }
 }
