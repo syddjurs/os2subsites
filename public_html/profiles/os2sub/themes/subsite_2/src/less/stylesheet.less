@@ -33,6 +33,56 @@
 	}
 }
 
+.linkmenuer {
+  ul.menu {
+
+    li {
+      line-height: 1.2;
+      list-style: none;
+      margin: 0;
+      padding-left: 0px;
+      display: block;
+      vertical-align: middle;
+      line-height: 1.2;
+      list-style: none;
+      &.expanded {
+        line-height: 1.2;
+        background-position: 0 -10px;
+        border-bottom: 0;
+        background-image: none;
+        li {
+          background-image: none;
+        }
+      }
+      &.collapsed,
+      &.leaf {
+        padding: 0;
+        margin: 0 -10px;
+      }
+      a {
+        padding-left: 30px;
+      }
+      ul {
+        li {
+          padding-left: 0px; border-bottom:none;
+        }
+      }
+    }
+  }
+}
+
+#region-sidebar-first ul.menu li ul li a.active, 
+#region-sidebar-first ul.menu li a, 
+#region-sidebar-first ul.menu li ul a {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.2;
+  padding: 13px 40px 13px 20px;
+  background: url(../img/v-arrow-default.png) no-repeat right 50%;
+  border-top: 2px solid #ddd;
+  padding-left: 8px;
+}
+    
 .kontaktblok {
 		.kontaktblok-headline 	{ font-size: @font-size-h3; color: @brand-primary;}
 		.kontaktblok-text { font-size: @font-size-large;}
