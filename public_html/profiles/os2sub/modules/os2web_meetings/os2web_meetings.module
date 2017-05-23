@@ -1,0 +1,421 @@
+<?php
+
+/**
+ * @file
+ * Code for the OS2Web Meeting Views feature.
+ */
+
+include_once 'os2web_meetings.features.inc';
+
+/**
+ * Implements hook_init().
+ */
+function os2web_meetings_init(){
+  drupal_add_css(drupal_get_path('module', 'os2web_meetings') . '/css/os2web_meetings.css', array('group' => CSS_THEME, 'every_page' => FALSE));
+  drupal_add_js(drupal_get_path('module', 'os2web_meetings') . '/js/os2web_meetings.js');
+  drupal_add_library('system', 'ui.datepicker');
+}
+
+/**
+ * Implements hook_FORM_alter().
+ */
+function os2web_meetings_form_views_exposed_form_alter(&$form, &$form_state) {
+  if ($form['#id'] === 'views-exposed-form-os2web-meetings-view-search-page') {
+    // Set up a validate function to forward user.
+    $form['#validate'] = array('os2web_meetings_views_exposed_form_os2web_meetings_view_search_page_validate');
+
+    $form['from_date']['value']['#date_format'] = 'd-m-Y';
+    $form['to_date']['value']['#date_format'] = 'd-m-Y';
+
+    // Add a little js to make the calendar icons clickable.
+    $cal_icon = url(drupal_get_path('theme', variable_get('theme_default', NULL)) . "/images/cal.png");
+    $datepicker = '
+
+
+      (function ($) {
+        Drupal.behaviors.os2web_meetings = {
+          attach: function(context, settings) {
+                      $("#edit-from-date-value-date").datepicker({
+                                    showOn: "both",
+                                    //buttonImage: "' . $cal_icon . '",
+                                    buttonImageOnly: true,
+                                    dateFormat: "dd-mm-yy"
+                      });
+                      $("#edit-to-date-value-date").datepicker({
+                                    showOn: "both",
+                                    //buttonImage: "' . $cal_icon . '",
+                                    buttonImageOnly: true,
+                                    dateFormat: "dd-mm-yy"
+                      });
+            }
+          }
+        }(jQuery));';
+
+    drupal_add_js($datepicker, array(
+      'type' => 'inline',
+      'scope' => 'footer',
+      'weight' => 5)
+    );
+  }
+}
+
+/**
+ * Custom validate callback funtion.
+ */
+function os2web_meetings_views_exposed_form_os2web_meetings_view_search_page_validate(&$form, &$form_state) {
+  $searchtext = rawurlencode($form_state['values']['search_params']);
+  if (is_numeric($form_state['values']['os2web_meetings_tax_committee']) || $form_state['values']['os2web_meetings_tax_committee'] === 'All') {
+
+  }
+  else {
+    $options = array(
+      'external' => TRUE,
+      'absolute' => TRUE,
+    );
+    drupal_goto($form_state['values']['os2web_meetings_tax_committee'] . $searchtext, $options);
+  }
+  views_exposed_form_validate($form, $form_state);
+}
+
+/**
+ * Implements hook_block_info().
+ */
+function os2web_meetings_block_info() {
+  $blocks['meeting-search-block'] = array(
+    'info' => 'Dagsordens søgning',
+  );
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function os2web_meetings_block_view($delta = '') {
+  $block = array();
+  switch ($delta) {
+    case 'meeting-search-block':
+      $block['subject'] = t('Search Agendas');
+      $block['content'] = _os2web_meetings_get_exposed_filter();
+      break;
+  }
+  return $block;
+}
+
+/**
+ * Code that extracts the exposed filter for use in block.
+ *
+ * Adopted from: http://www.butlerraines.com/node/4
+ */
+function _os2web_meetings_get_exposed_filter() {
+  // Create a view object first, e. g. $view = views_get_view('myViewName');
+  // Then set the demanded display_id, e. g. $display_id = 'page_1';
+  $view = views_get_view('os2web_meetings_view_search');
+  $display_id = 'page';
+  $view->set_display($display_id);
+
+  // Initialize display handlers.
+  $view->init_handlers();
+  $form_state = array(
+    'view' => $view,
+    'display' => $view->display_handler->display,
+    // Exposed form plugins are used in Views 3.
+    'exposed_form_plugin' => $view->display_handler->get_plugin('exposed_form'),
+    'method' => 'get',
+    'rerender' => TRUE,
+    'no_redirect' => TRUE,
+  );
+  // Create the filter form.
+  $form = drupal_build_form('views_exposed_form', $form_state);
+  // You now have a form array which can be themed or further altered.
+  $rendered_form = drupal_render($form);
+  return $rendered_form;
+}
+
+/**
+ * Helper function for the os2web_meetings_view_search view.
+ *
+ * @param stdObject $entity
+ *   The entity
+ *
+ * @access protected
+ */
+function _os2web_meetings_generate_search_data($entity) {
+  $title = $entity->title;
+  $entity_type = 'node';
+
+  /* $abbr = '';
+    if (is_array(field_get_items($entity_type, $entity, 'field_os2web_meetings_abbr')))
+      $abbr = ' '.array_pop(array_pop(field_get_items($entity_type, $entity, 'field_os2web_meetings_abbr'))); */
+
+  $location = field_get_items($entity_type, $entity, 'field_os2web_meetings_location');
+  if (is_array($location)) {
+    $location_term = taxonomy_term_load(array_pop(array_pop($location)));
+    $location = ' ' . $location_term->name;
+  }
+
+  $committee = field_get_items($entity_type, $entity, 'field_os2web_meetings_committee');
+  if (is_array($committee)) {
+    $committee_term = taxonomy_term_load(array_pop(array_pop($committee)));
+    $committee = ' ' . $committee_term->name;
+  }
+
+  $bps = '';
+  $bpoints = field_get_items($entity_type, $entity, 'field_os2web_meetings_bullets');
+  if (is_array($bpoints)) {
+    foreach ($bpoints as $bpoint) {
+      $node = node_load($bpoint['target_id']);
+      $text = strip_tags(check_markup($node->title, 'plain_text'));
+      $bps .= ' ' . $text;
+
+      $bpas = field_get_items($entity_type, $node, 'field_os2web_meetings_attach');
+      if (is_array($bpas)) {
+        foreach ($bpas as $bpa) {
+          $node2 = node_load($bpa['target_id']);
+          $body = field_get_items($entity_type, $node2, 'field_os2web_meetings_bpa_body');
+          $text = strip_tags(check_markup(array_pop(array_pop($body)), 'filtered_html'));
+          $text = trim(preg_replace('/[\",;:.\'\(\)]/', ' ', $text));
+          $text = trim(preg_replace('/\s\s+/', ' ', $text));
+          $bps .= ' ' . $text;
+        }
+      }
+
+    }
+  }
+
+  // Extract keywords so only relevant words are stored.
+  $t = mb_split('\s+', $bps);
+  $t = array_keys(array_flip($t));
+  $t = array_filter($t, '_os2web_meetings_strip_words');
+  $bps = implode(' ', $t);
+
+  $result = $title . $location . $committee . ' ' . $bps;
+  return $result;
+}
+
+/**
+ * Helper function which removes common and small (<2 chars) words.
+ */
+function _os2web_meetings_strip_words($text) {
+  $text = preg_replace('/^[^\w|\d|æ|ø|å]+/', '', $text);
+  $text = preg_replace('/[^\w|\d|æ|ø|å]+$/', '', $text);
+  if (strlen($text) > 3) {
+    return TRUE;
+  }
+  else {
+    return FALSE;
+  }
+}
+
+/**
+ * Implements hook_node_insert().
+ *
+ * Add any newly created published meetings to the queue with category as the
+ * meeting committee.
+ * See module os2web_subscription.
+ */
+function os2web_meetings_node_insert($node) {
+  if ($node->status == 1 &&
+      $node->type === 'os2web_meetings_meeting' &&
+      function_exists('os2web_subscription_add_to_queue')) {
+    $field_meetings_type = field_get_items('node', $node, 'field_os2web_meetings_type');
+    $type = $field_meetings_type[0]['value'];
+    if (($type === 'Dagsorden' && variable_get('os2web_meetings_subscription_first_dagsorden', FALSE)) ||
+        ($type === 'Referat' && variable_get('os2web_meetings_subscription_first_referat', FALSE)) ) {
+      _os2web_meetings_os2web_subscription_add($node);
+    }
+  }
+}
+
+/**
+ * Implements hook_node_update().
+ *
+ * When meetings are upgraded to an "Referat", add the node to the Subscription
+ * Queue again. This way any subscribers will get notified on the update.
+ * See module os2web_subscription.
+ */
+function os2web_meetings_node_update($node) {
+  if ($node->status == 1 &&
+      $node->type === 'os2web_meetings_meeting' &&
+      function_exists('os2web_subscription_add_to_queue')) {
+
+    $old = $node->original;
+
+    $field_meetings_type = field_get_items('node', $node, 'field_os2web_meetings_type');
+    $field_meetings_subid = field_get_items('node', $node, 'field_os2web_meetings_system_id');
+    $type = $field_meetings_type[0]['value'];
+    $subid = $field_meetings_subid[0]['value'];
+
+    $old_field_meetings_type = field_get_items('node', $old, 'field_os2web_meetings_type');
+    $old_field_meetings_subid = field_get_items('node', $old, 'field_os2web_meetings_system_id');
+    $old_type = $old_field_meetings_type[0]['value'];
+    $old_subid = $old_field_meetings_subid[0]['value'];
+
+    // Determine if this meeting should get queued for email. This is handled by
+    // multiple rules.
+    if (($type === 'Dagsorden' && $subid > $old_subid && variable_get('os2web_meetings_subscription_new_dagsorden', FALSE)) ||
+        ($type === 'Referat' && $old_type === 'Dagsorden' && variable_get('os2web_meetings_subscription_first_referat', FALSE)) ||
+        ($type === 'Referat' && $subid > $old_subid && variable_get('os2web_meetings_subscription_new_referat', FALSE))) {
+
+      _os2web_meetings_os2web_subscription_add($node);
+    }
+    else {
+      os2web_subscription_delete_from_queue($node->nid);
+    }
+  }
+}
+
+/**
+ * Helper function to add a meeting to the subscription queue.
+ */
+function _os2web_meetings_os2web_subscription_add($node) {
+  if ($node->status == 1 &&
+      $node->type === 'os2web_meetings_meeting' &&
+      function_exists('os2web_subscription_add_to_queue')) {
+
+    $dates = field_get_items('node', $node, 'field_os2web_meetings_date');
+    $date = array_shift($dates);
+    $date = new DateTime($date['value']);
+    // Only add to subscription queue if meeting date is younger than xx days from now.
+    if ($date->diff(new DateTime('now'))->days < variable_get('os2web_meetings_subscription_max_age', 10)) {
+      // Add it to the master meeting type queue.
+      $enabled_node_types = os2web_subscription_get_node_types();
+      if (in_array($node->type, $enabled_node_types)) {
+        // If the meetings category is enabled, add it to the queue.
+        os2web_subscription_add_to_queue($node->nid, $node->type);
+      }
+
+      $meeting_type = field_get_items('node', $node, 'field_os2web_meetings_committee');
+      if (!empty($meeting_type[0]['tid'])) {
+        os2web_subscription_add_to_queue($node->nid, 'os2web_meetings_meeting-type_' . $meeting_type[0]['tid']);
+      }
+    }
+    else {
+      os2web_subscription_delete_from_queue($node->nid);
+    }
+  }
+}
+
+/**
+ * Implements hook_os2web_subscription_categories().
+ * See module os2web_subscription.
+ */
+function os2web_meetings_os2web_subscription_categories() {
+  $subscription_type_array = &drupal_static(__FUNCTION__);
+  if (!isset($subscription_type_array)) {
+
+    // Return alle types of meetings. These types are grapped from the commitee
+    // vocabulary.
+    $vocabulary = taxonomy_vocabulary_machine_name_load('os2web_meetings_tax_committee');
+    $subscription_type_array = array();
+    $types = taxonomy_get_tree($vocabulary->vid);
+    foreach ($types as $type) {
+      $subscription_type_array['os2web_meetings_meeting-type_' . $type->tid] = 'os2web_meetings_meeting-type_' . $type->tid;
+
+      // If there are no title for the meeting type, use the name of the committee.
+      if (!variable_get('os2web_subscription_title_os2web_meetings_meeting-type_' . $type->tid, FALSE)) {
+        variable_set('os2web_subscription_title_os2web_meetings_meeting-type_' . $type->tid, t('Meeting: !name', array('!name' => $type->name)));
+      }
+    }
+
+    // Add the meeting node type to the categories array. This is handled by us,
+    // and not the os2web_subscription module.
+    $subscription_type_array[] = 'os2web_meetings_meeting';
+  }
+
+  return $subscription_type_array;
+}
+
+/**
+ * Implements hook_page_alter().
+ *
+ * Add a subscription form to the overview page at /dagsorden-og-referat.
+ * See module os2web_subscription.
+ */
+function os2web_meetings_page_alter(&$page) {
+
+  // Only add subscription form, if meeting settings are set.
+  if (!variable_get('os2web_meetings_subscription_first_dagsorden', FALSE) &&
+      !variable_get('os2web_meetings_subscription_new_dagsorden', FALSE) &&
+      !variable_get('os2web_meetings_subscription_first_referat', FALSE) &&
+      !variable_get('os2web_meetings_subscription_new_referat', FALSE)) {
+    return;
+  }
+
+  // If the OS2web Subscription module are enabled, add a subscribe form.
+  if (module_exists('os2web_subscription') &&
+      request_path() === 'dagsorden-og-referat') {
+
+    $subscription_types = array();
+
+    // Add the default meeting node type to the form.
+    $subscription_types[] = 'os2web_meetings_meeting';
+
+    // Add all types of meetings (committees).
+    $vocabulary = taxonomy_vocabulary_machine_name_load('os2web_meetings_tax_committee');
+    $subscription_type_array = array();
+    $types = taxonomy_get_tree($vocabulary->vid);
+    foreach ($types as $type) {
+      $subscription_types[] = 'os2web_meetings_meeting-type_' . $type->tid;
+    }
+
+    if (!empty($subscription_types)) {
+      $page['content'][] = drupal_get_form('os2web_subscription_add_subscription_form', $subscription_types, t('Subscribe to meetings'));
+    }
+  }
+}
+
+/**
+ * Implements hook_FORM_alter();
+ */
+function os2web_meetings_form_alter(&$form, &$form_state) {
+  // Alter the OS2web Subscription settings form. Add some Meeting specific
+  // configurations.
+  if ($form['#id'] === 'os2web-subscription-settings-form') {
+    $form['os2web_subscription_os2web_meetings_settings'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('OS2web Meetings integration'),
+      '#collapsible' => TRUE,
+      '#collapsed' => TRUE,
+    );
+    $form['os2web_subscription_os2web_meetings_settings']['os2web_meetings_subscription_max_age'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Maximum age in days of a meeting when sending a email on reimport etc. default 10 days.'),
+      '#default_value' => variable_get('os2web_meetings_subscription_max_age', 10),
+      '#element_validate' => array('element_validate_integer_positive'),
+    );
+    $form['os2web_subscription_os2web_meetings_settings']['os2web_meetings_subscription_first_dagsorden'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Adviser ved første import af en dagsorden.'),
+      '#default_value' => variable_get('os2web_meetings_subscription_first_dagsorden', FALSE),
+    );
+    $form['os2web_subscription_os2web_meetings_settings']['os2web_meetings_subscription_new_dagsorden'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Adviser ved alle nye versioner af en dagsorden.'),
+      '#default_value' => variable_get('os2web_meetings_subscription_new_dagsorden', FALSE),
+    );
+    $form['os2web_subscription_os2web_meetings_settings']['os2web_meetings_subscription_first_referat'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Adviser ved første import af et referat.'),
+      '#default_value' => variable_get('os2web_meetings_subscription_first_referat', FALSE),
+    );
+    $form['os2web_subscription_os2web_meetings_settings']['os2web_meetings_subscription_new_referat'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Adviser ved alle nye versioner af et referat.'),
+      '#default_value' => variable_get('os2web_meetings_subscription_new_referat', FALSE),
+    );
+
+    // Unset the default meeting node type from the os2web_subscription module.
+    // We add it directly from hook_os2web_subscription_categories hook.
+    unset($form['os2web_subscription_enabled_types_group']['os2web_subscription_node_type_os2web_meetings_meeting']);
+  }
+}
+
+/**
+ * Implements hook_os2web_help().
+ */
+function os2web_meetings_os2web_help($sections) {
+
+  // Content types.
+  $sections['contenttype'] = t('<p><b>Meetings:</b> Dependent on the system, meetings are often imported by a metting importer, which can communicate with your ESDH.<br />A meeting contains bullets which can contain attachments. These are all imported, and should not be altered directly on site.<br />See the <a href="@url" target="_blank">overview</a> over meetings.</p>', array('@url' => url('dagsorden-og-referat')));
+  return $sections;
+}
