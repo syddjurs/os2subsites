@@ -71,6 +71,8 @@
   .os2sub-box {
     border-radius: 0;
     margin-bottom: 0;
+    border: @os2sub-box-border-width solid @os2sub-box-border-color;
+    border-bottom: none;
     &:first-child {
     border-top-left-radius: @border-radius-base;
     border-top-right-radius: @border-radius-base;
@@ -80,6 +82,8 @@
     border-bottom-left-radius: @border-radius-base;
     border-bottom-right-radius: @border-radius-base;
     margin-bottom: 10px;
+    border-bottom: @os2sub-box-border-width solid @os2sub-box-border-color;
+
     }
 
   }
