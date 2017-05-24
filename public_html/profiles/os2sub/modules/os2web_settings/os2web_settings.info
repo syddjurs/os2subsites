@@ -10,7 +10,6 @@ dependencies[] = features
 dependencies[] = filter
 dependencies[] = locale
 dependencies[] = media
-dependencies[] = os2web_base
 dependencies[] = os2web_cpr_filter
 dependencies[] = pathauto
 dependencies[] = print
