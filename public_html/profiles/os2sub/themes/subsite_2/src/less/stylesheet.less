@@ -38,12 +38,48 @@
       }
     }
   }
+  .os2sub-box-body {
+    padding-bottom: 0;
+  }
+}
+.pane-seniorportalen-nyhedsliste {
+  ul {
+    list-style: none; /* Remove list bullets */
+    padding: 0;
+    margin: 0;
+  }
+  
+  li {
+      padding-left: 10px;
+  }
+  
+  li:before {
+      content: ">"; /* Insert content that looks like bullets */
+      padding-right: 15px;
+      margin-left: -10px;
+      color: @brand-primary;
+  }
 }
 
 .front {
   .pane-os2sub-kontaktblok {
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
+  }
+}
+
+.toplinks {
+  .main-navigation-right {
+    .nav();
+    .nav-pills();
+    > .main-navigation-list-link {
+      float: right;
+      margin-left: 10px;
+      width: auto;
+      a {
+        border: 2px solid lighten(@gray-base, 70.0%);
+      }
+    }
   }
 }
 .linkmenuer ul.menu li ul li a.active, 
@@ -225,11 +261,31 @@
 }
 .main-navigation-list-link {
   width: 20%;
-  a { border-radius: @border-radius-base; 
+  a { border-radius: @border-radius-base;
   }
 }
 
 .page-node .view-os2sub-banner { margin-bottom: 20px;}
+
+.main-navigation-wrapper .main-navigation-list .main-navigation-list-link > a.cykel,
+.main-navigation-wrapper .main-navigation-list .main-navigation-list-link > a.hus,
+.main-navigation-wrapper .main-navigation-list .main-navigation-list-link > a.hands {
+  padding-left: 60px;
+  white-space: normal;
+  line-height: 20px;
+  font-size: 18px;
+  font-weight: normal;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+}
+
+.main-navigation-wrapper .main-navigation-list .main-navigation-list-link > a.cykel { 
+  background-image: url('../img/bicyle.png')
+}
+.main-navigation-wrapper .main-navigation-list .main-navigation-list-link > a.hus { }
+.main-navigation-wrapper .main-navigation-list .main-navigation-list-link > a.hands { }
 
 .main-navigation-wrapper .main-navigation-list.main-navigation-lang {
   float: left;
@@ -279,6 +335,7 @@
 .container-fluid.no-gutters {
     padding: 0 !important;
 }
+.header.row,
 .main-content-area {
   padding: 0 ceil((@grid-gutter-width / 2));
   max-width: @screen-md;

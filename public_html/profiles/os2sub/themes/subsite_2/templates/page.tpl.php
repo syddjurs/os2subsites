@@ -72,34 +72,8 @@
             <?php if (!empty($page['header'])): ?>
               <?php print render($page['header']); ?>
             <?php endif; ?>
-          </div>
-        </div>
-        <!-- Begin - main navigation -->
-        <nav class="main-navigation-wrapper">
-          <section class="main-navigation-bar">
-            <div class="row no-gutters">
-
-              <!-- Begin - content -->
-                <?php if ($secondary_navigation): ?>
-              <div class="col-md-9">
-		            <?php else : ?>
-                  <div class="col-md-12">
-		            <?php endif; ?>
-
-
-
-                <?php if (isset($primary_navigation)): ?>
-                  <!-- Begin - navigation -->
-                  <?php print render($primary_navigation); ?>
-                  <!-- End - navigation -->
-                <?php endif; ?>
-
-              </div>
-              <!-- End - content -->
-
-              <!-- Begin - content -->
-            <?php if ($secondary_navigation): ?>
-              <div class="col-md-3">
+            
+            <nav class="toplinks">
                <?php print render($secondary_navigation); ?>
 
                <ul class="main-navigation-list main-navigation-lang">
@@ -169,10 +143,36 @@
                   </li>
                   <?php endif; ?>
                 </ul>
+              <!-- End - navigation -->
+            </nav>
+
+          </div>
+        </div>
+        <!-- Begin - main navigation -->
+        <nav class="main-navigation-wrapper">
+          <section class="main-navigation-bar">
+            <div class="row no-gutters">
+
+              <!-- Begin - content -->
+                <?php if ($secondary_navigation): ?>
+              <div class="col-md-9">
+		            <?php else : ?>
+                  <div class="col-md-12">
+		            <?php endif; ?>
+
+
+
+                <?php if (isset($primary_navigation)): ?>
+                  <!-- Begin - navigation -->
+                  <?php print render($primary_navigation); ?>
                   <!-- End - navigation -->
+                <?php endif; ?>
+
               </div>
- 		            <?php endif; ?>
               <!-- End - content -->
+
+              <!-- Begin - content -->
+                         <!-- End - content -->
 
             </div>
           </section>
