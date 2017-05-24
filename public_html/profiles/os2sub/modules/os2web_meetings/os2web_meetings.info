@@ -9,7 +9,6 @@ dependencies[] = better_exposed_filters
 dependencies[] = computed_field
 dependencies[] = ctools
 dependencies[] = date
-dependencies[] = ds
 dependencies[] = entity
 dependencies[] = entityreference
 dependencies[] = expire

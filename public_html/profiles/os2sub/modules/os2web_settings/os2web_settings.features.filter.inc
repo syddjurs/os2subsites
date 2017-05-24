@@ -43,21 +43,5 @@ function os2web_settings_filter_default_formats() {
     ),
   );
 
-  // Exported format: Full HTML.
-  $formats['full_html'] = array(
-    'format' => 'full_html',
-    'name' => 'Full HTML',
-    'cache' => 1,
-    'status' => 1,
-    'weight' => -9,
-    'filters' => array(
-      'media_filter' => array(
-        'weight' => -45,
-        'status' => 1,
-        'settings' => array(),
-      ),
-    ),
-  );
-
   return $formats;
 }
