@@ -128,6 +128,46 @@ function seniorportalen_default_page_manager_handlers() {
     $display->content['new-58a56bcb-a73c-414b-9e1d-5251d0f3e94d'] = $pane;
     $display->panels['content'][1] = 'new-58a56bcb-a73c-414b-9e1d-5251d0f3e94d';
     $pane = new stdClass();
+    $pane->pid = 'new-23e57714-4a8f-4f9a-98e8-cfdc97bdc0f4';
+    $pane->panel = 'content';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:field_os2web_base_field_photo';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'title',
+      'formatter' => 'photoswipe',
+      'delta_limit' => '0',
+      'delta_offset' => '0',
+      'delta_reversed' => 0,
+      'formatter_settings' => array(
+        'photoswipe_node_style' => 'gallery-thumb',
+        'photoswipe_image_style' => '',
+        'image_style' => 'gallery',
+        'optionset' => 'seniorportalen',
+        'caption' => '1',
+      ),
+      'context' => 'argument_entity_id:node_1',
+      'override_title' => 1,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => '',
+      'template_suggestion' => 'plain',
+    );
+    $pane->extras = array();
+    $pane->position = 2;
+    $pane->locks = array();
+    $pane->uuid = '23e57714-4a8f-4f9a-98e8-cfdc97bdc0f4';
+    $display->content['new-23e57714-4a8f-4f9a-98e8-cfdc97bdc0f4'] = $pane;
+    $display->panels['content'][2] = 'new-23e57714-4a8f-4f9a-98e8-cfdc97bdc0f4';
+    $pane = new stdClass();
     $pane->pid = 'new-b398e1ac-858e-43e3-872f-2d6f3524454d';
     $pane->panel = 'content';
     $pane->type = 'entity_field';
@@ -154,11 +194,11 @@ function seniorportalen_default_page_manager_handlers() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 2;
+    $pane->position = 3;
     $pane->locks = array();
     $pane->uuid = 'b398e1ac-858e-43e3-872f-2d6f3524454d';
     $display->content['new-b398e1ac-858e-43e3-872f-2d6f3524454d'] = $pane;
-    $display->panels['content'][2] = 'new-b398e1ac-858e-43e3-872f-2d6f3524454d';
+    $display->panels['content'][3] = 'new-b398e1ac-858e-43e3-872f-2d6f3524454d';
     $pane = new stdClass();
     $pane->pid = 'new-63a6eac5-6b10-4f0e-a477-d45cf28aa2e4';
     $pane->panel = 'sidebar-left';
@@ -478,6 +518,25 @@ function seniorportalen_default_page_manager_handlers() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
+    $pane->pid = 'new-cc87eb9e-1917-4e83-aaf3-a9fbdae2442a';
+    $pane->panel = 'content';
+    $pane->type = 'page_breadcrumb';
+    $pane->subtype = 'page_breadcrumb';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'cc87eb9e-1917-4e83-aaf3-a9fbdae2442a';
+    $display->content['new-cc87eb9e-1917-4e83-aaf3-a9fbdae2442a'] = $pane;
+    $display->panels['content'][0] = 'new-cc87eb9e-1917-4e83-aaf3-a9fbdae2442a';
+    $pane = new stdClass();
     $pane->pid = 'new-58a56bcb-a73c-414b-9e1d-5251d0f3e94d';
     $pane->panel = 'content';
     $pane->type = 'node_content';
@@ -502,11 +561,11 @@ function seniorportalen_default_page_manager_handlers() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 0;
+    $pane->position = 1;
     $pane->locks = array();
     $pane->uuid = '58a56bcb-a73c-414b-9e1d-5251d0f3e94d';
     $display->content['new-58a56bcb-a73c-414b-9e1d-5251d0f3e94d'] = $pane;
-    $display->panels['content'][0] = 'new-58a56bcb-a73c-414b-9e1d-5251d0f3e94d';
+    $display->panels['content'][1] = 'new-58a56bcb-a73c-414b-9e1d-5251d0f3e94d';
     $pane = new stdClass();
     $pane->pid = 'new-b398e1ac-858e-43e3-872f-2d6f3524454d';
     $pane->panel = 'content';
@@ -538,11 +597,11 @@ function seniorportalen_default_page_manager_handlers() {
       'template_suggestion' => 'plain',
     );
     $pane->extras = array();
-    $pane->position = 1;
+    $pane->position = 2;
     $pane->locks = array();
     $pane->uuid = 'b398e1ac-858e-43e3-872f-2d6f3524454d';
     $display->content['new-b398e1ac-858e-43e3-872f-2d6f3524454d'] = $pane;
-    $display->panels['content'][1] = 'new-b398e1ac-858e-43e3-872f-2d6f3524454d';
+    $display->panels['content'][2] = 'new-b398e1ac-858e-43e3-872f-2d6f3524454d';
     $pane = new stdClass();
     $pane->pid = 'new-63a6eac5-6b10-4f0e-a477-d45cf28aa2e4';
     $pane->panel = 'sidebar-left';
@@ -578,7 +637,7 @@ function seniorportalen_default_page_manager_handlers() {
       'title_link' => 1,
       'admin_title' => '',
       'level' => '2',
-      'follow' => 0,
+      'follow' => 'child',
       'depth' => '0',
       'depth_relative' => 0,
       'expanded' => 0,
