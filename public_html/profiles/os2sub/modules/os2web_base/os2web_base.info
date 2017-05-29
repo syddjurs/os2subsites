@@ -141,6 +141,7 @@ features[field_instance][] = node-os2web_base_contentpage-field_os2web_base_fiel
 features[field_instance][] = node-os2web_base_contentpage-field_os2web_base_field_loca_ref
 features[field_instance][] = node-os2web_base_contentpage-field_os2web_base_field_media
 features[field_instance][] = node-os2web_base_contentpage-field_os2web_base_field_organiz
+features[field_instance][] = node-os2web_base_contentpage-field_os2web_base_field_photo
 features[field_instance][] = node-os2web_base_contentpage-field_os2web_base_field_politics
 features[field_instance][] = node-os2web_base_contentpage-field_os2web_base_field_related
 features[field_instance][] = node-os2web_base_contentpage-field_os2web_base_field_selfserv
