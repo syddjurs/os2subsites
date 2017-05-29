@@ -93,6 +93,7 @@ function os2web_base_field_group_info() {
       1 => 'field_os2web_base_field_contact',
       2 => 'field_os2web_base_field_hidlinks',
       3 => 'field_svendborg_hide_contact',
+      4 => 'field_os2sub_subtype',
     ),
     'format_type' => 'htab',
     'format_settings' => array(
@@ -120,11 +121,12 @@ function os2web_base_field_group_info() {
     'weight' => '2',
     'children' => array(
       0 => 'group_os2web_base_group_3',
-      1 => 'group_os2web_base_group_extras',
-      2 => 'group_os2web_base_group_general',
-      3 => 'group_os2web_base_group_images',
-      4 => 'group_relationer',
-      5 => 'group_spotbokse',
+      1 => 'group_os2web_base_group_esdh',
+      2 => 'group_os2web_base_group_extras',
+      3 => 'group_os2web_base_group_general',
+      4 => 'group_os2web_base_group_images',
+      5 => 'group_relationer',
+      6 => 'group_spotbokse',
     ),
     'format_type' => 'htabs',
     'format_settings' => array(
@@ -168,11 +170,8 @@ function os2web_base_field_group_info() {
   $field_group->parent_name = 'group_os2web_base_group_content';
   $field_group->data = array(
     'label' => 'Sager og dokumenter',
-    'weight' => '6',
-    'children' => array(
-      0 => 'field_os2web_base_field_case',
-      1 => 'field_os2web_base_field_doc',
-    ),
+    'weight' => '10',
+    'children' => array(),
     'format_type' => 'htab',
     'format_settings' => array(
       'label' => 'Sager og dokumenter',
@@ -230,7 +229,8 @@ function os2web_base_field_group_info() {
     'weight' => '4',
     'children' => array(
       0 => 'body',
-      1 => 'field_os2web_base_field_summary',
+      1 => 'field_os2web_base_field_kle_ref',
+      2 => 'field_os2web_base_field_summary',
     ),
     'format_type' => 'htab',
     'format_settings' => array(
@@ -343,10 +343,10 @@ function os2web_base_field_group_info() {
     'label' => 'Billeder og filer',
     'weight' => '5',
     'children' => array(
-      0 => 'field_os2web_base_field_image',
-      1 => 'field_os2web_base_field_media',
-      2 => 'field_baggrund',
-      3 => 'field_os2web_base_banner',
+      0 => 'field_baggrund',
+      1 => 'field_os2web_base_banner',
+      2 => 'field_os2web_base_field_image',
+      3 => 'field_os2web_base_field_media',
     ),
     'format_type' => 'htab',
     'format_settings' => array(

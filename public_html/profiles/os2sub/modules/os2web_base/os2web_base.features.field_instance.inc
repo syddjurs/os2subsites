@@ -640,6 +640,50 @@ function os2web_base_field_default_field_instances() {
   );
 
   // Exported field_instance:
+  // 'node-os2web_base_contentpage-field_os2sub_subtype'.
+  $field_instances['node-os2web_base_contentpage-field_os2sub_subtype'] = array(
+    'bundle' => 'os2web_base_contentpage',
+    'default_value' => array(
+      0 => array(
+        'value' => 'normal',
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 21,
+      ),
+      'spotbox' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_os2sub_subtype',
+    'label' => 'Sidetype',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'content_taxonomy_opt_groups' => FALSE,
+      ),
+      'type' => 'options_select',
+      'weight' => 16,
+    ),
+  );
+
+  // Exported field_instance:
   // 'node-os2web_base_contentpage-field_os2web_base_banner'.
   $field_instances['node-os2web_base_contentpage-field_os2web_base_banner'] = array(
     'bundle' => 'os2web_base_contentpage',
@@ -5055,6 +5099,7 @@ function os2web_base_field_default_field_instances() {
   t('Resume - lang overskrift');
   t('Selvbetjening');
   t('Selvbetjeningslinks');
+  t('Sidetype');
   t('Skjul automatisk relaterede links');
   t('Skjul højre sidebar');
   t('Skjul kontaktblok');
