@@ -42,6 +42,52 @@
     padding-bottom: 0;
   }
 }
+
+.main-navigation-wrapper {
+
+  .main-navigation-list {
+    
+    .main-navigation-list-link.with-icon {
+     a {
+        padding-left: 45px;
+        font-size: 22px;
+        white-space: normal;
+        line-height: 20px;
+        height: 62px;
+        font-weight: normal;
+        display: flex;
+        align-items: center;
+        &:before {
+          background-attachment: scroll;
+          background-color: transparent;
+          background-position: center center;
+          background-repeat: no-repeat;
+          background-size: 100% auto;
+          content: '';
+          display: block;
+          height: 100%;
+          left: 0.6667em;
+          position: absolute;
+          top: 0;
+          width: 25px;
+          background-image: url('');
+        }
+      }
+    }
+    .with-icon.house-outline a:before{
+        background-image: url('../img/icons/menu/house-outline.svg');
+    }
+    .with-icon.bicycle a:before{
+        background-image: url('../img/icons/menu/bicycle.svg');
+    }
+    .with-icon.handshake a:before{
+        background-image: url('../img/icons/menu/handshake.svg');
+    }
+  }
+  
+}
+
+
 .pane-seniorportalen-nyhedsliste {
   ul {
     list-style: none; /* Remove list bullets */
@@ -335,6 +381,7 @@
 .container-fluid.no-gutters {
     padding: 0 !important;
 }
+.main-navigation-bar,
 .header.row,
 .main-content-area {
   padding: 0 ceil((@grid-gutter-width / 2));
