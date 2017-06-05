@@ -50,9 +50,9 @@
     .main-navigation-list-link.with-icon {
      a {
         padding-left: 45px;
-        font-size: 22px;
+        font-size: 16px;
         white-space: normal;
-        line-height: 20px;
+        line-height: 16px;
         height: 62px;
         font-weight: normal;
         display: flex;
@@ -74,17 +74,28 @@
         }
       }
     }
-    .with-icon.house-outline a:before{
+    .with-icon.house-outline a:before {
         background-image: url('../img/icons/menu/house-outline.svg');
+    }
+    .with-icon.house-outline a:hover:before,
+    .with-icon.house-outline a.active-trail:hover:before {
+        background-image: url('../img/icons/menu/house-outline-hover.svg');
     }
     .with-icon.bicycle a:before{
         background-image: url('../img/icons/menu/bicycle.svg');
     }
+    .with-icon.bicycle a:hover:before,
+    .with-icon.bicycle a.active-trail:hover:before{
+        background-image: url('../img/icons/menu/bicycle-hover.svg');
+    }
     .with-icon.handshake a:before{
         background-image: url('../img/icons/menu/handshake.svg');
     }
+    .with-icon.handshake a:hover:before,
+    .with-icon.handshake a.active-trail:hover:before{
+        background-image: url('../img/icons/menu/handshake-hover.svg');
+    }
   }
-  
 }
 
 

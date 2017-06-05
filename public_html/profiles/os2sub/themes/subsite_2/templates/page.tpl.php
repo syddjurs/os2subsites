@@ -153,14 +153,7 @@
           <section class="main-navigation-bar">
             <div class="row no-gutters">
 
-              <!-- Begin - content -->
-                <?php if ($secondary_navigation): ?>
-              <div class="col-md-9">
-		            <?php else : ?>
-                  <div class="col-md-12">
-		            <?php endif; ?>
-
-
+              <div class="menu-knapper">
 
                 <?php if (isset($primary_navigation)): ?>
                   <!-- Begin - navigation -->
@@ -169,10 +162,6 @@
                 <?php endif; ?>
 
               </div>
-              <!-- End - content -->
-
-              <!-- Begin - content -->
-                         <!-- End - content -->
 
             </div>
           </section>
