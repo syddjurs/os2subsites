@@ -137,6 +137,9 @@
 
 .toplinks {
   .main-navigation-right {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
     .nav();
     .nav-pills();
     > .main-navigation-list-link {
@@ -145,10 +148,42 @@
       width: auto;
       a {
         border: 2px solid lighten(@gray-base, 70.0%);
+        padding: 5px 15px;
       }
     }
   }
 }
+
+.toplinks {
+  .main-navigation-wrapper {
+    .main-navigation-list {
+      .main-navigation-list-link.with-icon.eye {
+        a {
+          height: auto;
+          &:before {
+            background-attachment: scroll;
+            background-color: transparent;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: 100% auto;
+            content: '';
+            display: block;
+            height: 100%;
+            left: 1.5em;
+            position: absolute;
+            top: 0;
+            width: 25px;
+            background-image: url('');
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+
 .linkmenuer ul.menu li ul li a.active, 
 .linkmenuer ul.menu li a, 
 .linkmenuer ul.menu li ul a {
