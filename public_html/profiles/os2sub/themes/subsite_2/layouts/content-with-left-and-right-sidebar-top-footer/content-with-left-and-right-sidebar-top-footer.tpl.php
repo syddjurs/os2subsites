@@ -14,43 +14,19 @@
 
     <?php if ($content['sidebar-left']): ?>
 	    <!-- Begin - left sidebar -->
-	    <div class="col-md-3">
+	    <div class="col-sm-15">
 	        <?php print $content['sidebar-left']; ?>
 	    </div>
 	    <!-- End - left sidebar -->
 	<?php endif ?>
 
-    <?php if ($content['sidebar-right']): ?>
-
-	    <!-- Begin - right sidebar -->
-
-    	    <?php if ($content['sidebar-left']): ?>
-              <div class="col-md-3 col-md-push-6 os2sub-box-stacked">
-          	<?php else : ?>
-
-              <div class="col-md-3 col-md-push-9">
-            <?php endif ?>
-
-    	     <?php print $content['sidebar-right']; ?>
-    	    </div>
-
-
-	    <!-- End - right sidebar -->
-
-	    <?php elseif ($content['sidebar-left'] && $content['sidebar-right']): ?>
-	    	    <!-- Begin - right sidebar -->
-	    <div class="col-md-3 col-md-push-6">
-	        <?php print $content['sidebar-right']; ?>
-	    </div>
-	    <!-- End - right sidebar -->
-	<?php endif ?>
 
 	<?php if ($content['sidebar-left'] && $content['sidebar-right']): ?>
 
     	<?php /* If both sidebars are present*/?>
 
 	    <!-- Begin - content -->
-	    <div class="col-md-6 col-md-pull-3">
+	    <div class="col-sm-35">
 	        <?php print $content['content']; ?>
 	    </div>
 	    <!-- End - content -->
@@ -59,12 +35,12 @@
 
     	<?php /* If left sidebar is present*/?>
 
-		<div class="col-md-9">
+		<div class="col-sm-15">
 	        <?php print $content['content']; ?>
 	    </div>
 	<?php elseif ($content['content'] && $content['sidebar-right']): ?>
 
-		<div class="col-md-9 col-sm-9 col-md-pull-3">
+		<div class="col-sm-45">
 	        <?php print $content['content']; ?>
 	    </div>
 
@@ -77,6 +53,33 @@
 	    </div>
 
 	<?php endif ?>
+	
+	
+	    <?php if ($content['sidebar-right']): ?>
+
+	    <!-- Begin - right sidebar -->
+
+    	    <?php if ($content['sidebar-left']): ?>
+              <div class="col-sm-15 os2sub-box-stacked">
+          	<?php else : ?>
+
+              <div class="col-sm-15 sidebar-20">
+            <?php endif ?>
+
+    	     <?php print $content['sidebar-right']; ?>
+    	    </div>
+
+
+	    <!-- End - right sidebar -->
+
+	    <?php elseif ($content['sidebar-left'] && $content['sidebar-right']): ?>
+	    	    <!-- Begin - right sidebar -->
+	    <div class="col-sm-15">
+	        <?php print $content['sidebar-right']; ?>
+	    </div>
+	    <!-- End - right sidebar -->
+	<?php endif ?>
+
 
     <?php if ($content['footer']): ?>
 	   	<!-- Begin - bottom -->

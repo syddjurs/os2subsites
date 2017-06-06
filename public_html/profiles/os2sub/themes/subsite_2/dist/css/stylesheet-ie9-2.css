@@ -7819,6 +7819,21 @@
     width: 20%;
     float: left;
   }
+
+  .col-sm-25 {
+    width: 40%;
+    float: left;
+  }
+
+  .col-sm-35 {
+    width: 60%;
+    float: left;
+  }
+
+  .col-sm-45 {
+    width: 80%;
+    float: left;
+  }
 }
 
 @media screen and (min-width: 992px) {
@@ -7826,11 +7841,41 @@
     width: 20%;
     float: left;
   }
+
+  .col-md-25 {
+    width: 40%;
+    float: left;
+  }
+
+  .col-md-35 {
+    width: 60%;
+    float: left;
+  }
+
+  .col-md-55 {
+    width: 80%;
+    float: left;
+  }
 }
 
 @media screen and (min-width: 1200px) {
   .col-lg-15 {
     width: 20%;
+    float: left;
+  }
+
+  .col-lg-25 {
+    width: 40%;
+    float: left;
+  }
+
+  .col-lg-35 {
+    width: 60%;
+    float: left;
+  }
+
+  .col-lg-45 {
+    width: 80%;
     float: left;
   }
 }

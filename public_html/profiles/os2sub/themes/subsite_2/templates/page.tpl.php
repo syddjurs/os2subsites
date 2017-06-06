@@ -219,8 +219,8 @@
       <!-- Begin - footer -->
       <div class=" <?php print $container_class; ?>">
       <footer class="footer">
-
-
+        <div class="footer-innter">
+          
 	        <?php print render($page['footer']); ?>
 
 	        <?php if (!empty($theme_settings['contact_information'])): ?>
@@ -309,7 +309,7 @@
 
                 </ul>
 	        <?php endif ?>
-
+        </div>
       </footer>
   </div>
       <!-- End - footer -->
