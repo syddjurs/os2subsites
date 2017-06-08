@@ -199,17 +199,19 @@
         <a id="main-content"></a>
 
         <?php if (!panels_get_current_page_display()): ?>
-          <div class="os2sub-box">
-            <?php if (empty($node) ) {
-                 if ($title): ?>
-                <div class="os2sub-box-heading">
-                  <h2 class="os2sub-box-heading-title"><?php print $title; ?></h2>
-                </div>
-                <?php endif;
-              } ?>
-            <div class="os2sub-box-body">
-              <?php print render($page['content']); ?>
-            </div>
+          <div class="main-content-area">
+            <div class="os2sub-box">
+              <?php if (empty($node) ) {
+                   if ($title): ?>
+                  <div class="os2sub-box-heading">
+                    <h2 class="os2sub-box-heading-title"><?php print $title; ?></h2>
+                  </div>
+                  <?php endif;
+                } ?>
+              <div class="os2sub-box-body">
+                <?php print render($page['content']); ?>
+              </div>
+            </div>          
           </div>
 
         <?php else: ?>
