@@ -3,6 +3,11 @@
 /**
  * Implements theme_preprocess_html().
  */
+function subsite_2_preprocess_page(&$variables){
+  $search_box = drupal_render(drupal_get_form('search_form'));
+  $variables['search_box'] = $search_box;
+}
+
 function subsite_2_preprocess_html(&$variables) {
   $theme_path = path_to_theme();
 

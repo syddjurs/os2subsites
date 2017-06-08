@@ -152,15 +152,23 @@
         <nav class="main-navigation-wrapper">
           <section class="main-navigation-bar">
             <div class="row no-gutters">
-
               <div class="menu-knapper">
-
+                <span class="backlink">
+                  <span class="backlink-inner">
+                    <a href="javascript: history.go(-1)">Tilbage</a>
+                  </span>
+                </span>
                 <?php if (isset($primary_navigation)): ?>
                   <!-- Begin - navigation -->
                   <?php print render($primary_navigation); ?>
                   <!-- End - navigation -->
                 <?php endif; ?>
-
+                <div class="searchbox">
+                  <div class="searchbox-title">
+                    Hvad søger du?
+                  </div>
+                  <?php print $search_box; ?>  
+                </div>
               </div>
 
             </div>

@@ -7814,6 +7814,13 @@
   }
 }
 
+@media (min-width: 768px) {
+  .main-navigation-list-link {
+    float: left;
+    width: 33.33333333%;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .col-sm-15 {
     width: 20%;
