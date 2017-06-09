@@ -164,13 +164,14 @@
                   <!-- End - navigation -->
                 <?php endif; ?>
                 <div class="searchbox">
-                  <div class="searchbox-title">
-                    Hvad søger du?
+                  <div class="searchbox-inner">
+                    <div class="searchbox-title">
+                      Hvad søger du?
+                    </div>
+                    <?php print $search_box; ?>                      
                   </div>
-                  <?php print $search_box; ?>  
                 </div>
               </div>
-
             </div>
           </section>
         </nav>
