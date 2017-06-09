@@ -2,7 +2,7 @@
   <!-- node.tpl.php -->
   <!-- Begin - full node -->
 
-  <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> subsite-full"<?php print $attributes; ?>>
+  <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> os2sub-velkomst-teaser os2sub-teaser subsite-full"<?php print $attributes; ?>>
  
     <div class="os2sub-teaser-heading">
       
