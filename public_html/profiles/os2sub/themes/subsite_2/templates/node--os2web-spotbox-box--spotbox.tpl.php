@@ -11,7 +11,7 @@ $style_url = image_style_url($style, $path);
 
 
 <article id="node-<?php print $node->nid; ?>" class="<?php print $classes . " all"; ?> clearfix"<?php print $attributes; ?> 
-	style="background: url(<?php print file_create_url($style_url); ?>) no-repeat scroll ;height:150px;background-size: cover;">
+	style="background: url(<?php print file_create_url($style_url); ?>) no-repeat scroll ;height:85px;background-size: cover;">
   <?php print render($title_prefix); ?>
   <?php print render($title_suffix); ?>
   <a class="bottom-link" href="<?php print $parth2; ?>">
