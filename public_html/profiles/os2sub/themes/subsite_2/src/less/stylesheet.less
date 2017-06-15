@@ -142,8 +142,8 @@
 
 .pane-menu-menu-genveje {
   ul {
-    height: 450px;
-    overflow: auto;
+    max-height: 450px;
+    overflow: scroll;
     margin: 0 -20px;
     li {
       margin: 0;
@@ -153,6 +153,21 @@
     }
   }
 }
+
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: rgba(0,0,0,.5);
+  -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
+
+
+
+
 .pane-seniorportalen-nyhedsliste {
   ul {
     list-style: none; /* Remove list bullets */
