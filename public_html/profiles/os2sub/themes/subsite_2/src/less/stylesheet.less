@@ -57,17 +57,28 @@
   .menu-knapper {
     .main-navigation-list {
       width: 60%;
+      display: block;
+      float: left;
     }
     .backlink {
       width: 20%;
       display: block;
       float: left;
+      .backlink-inner {
+        display: flex;
+        padding: 0 10px;
+      }
       a {
         .btn;
         .btn-lg;
         .btn-default;
         .btn-block;
-        margin: 10px 0;
+        line-height: 2.0em;
+        background-color: #FFF;
+        margin: 0;
+        &:hover {
+          background-color: #8b0053;
+        }
       }
     }
   }
@@ -240,7 +251,10 @@
     }
   }
 }
-    
+.node--os2web_contact_contact--teaser {
+  margin-bottom: 0;
+}
+
 .kontaktblok {
 		.kontaktblok-headline { 
   		font-size: @font-size-h3; 
