@@ -2,7 +2,7 @@
 $style='os2sub_banner';
 $path=$node->field_banner_billede['und']['0']['uri'];
 $parth2=$node->field_knap_link['und']['0']['url'];
-$parth3=$node->field_knap_link['und']['0']['title'];
+$parth3=$node->field_banner_headline['und']['0']['value'];
 $style_url = image_style_url($style, $path);
 ?>
 <article id="node-<?php print $node->nid; ?>" class="<?php print $classes . " all"; ?> clearfix"<?php print $attributes; ?> 
