@@ -49,8 +49,7 @@ function subsite_2_preprocess_html(&$variables) {
   // $variables['classes_array'][] = 'footer-attached';
 
   $variables['classes_array'][] = 'simple-navigation-enabled-xs';
-  $variables['classes_array'][] = 'simple-navigation-enabled-sm';
-
+  $variables['classes_array'][] = 'main-navigation-enabled-sm';
   $variables['classes_array'][] = 'main-navigation-enabled-md';
   $variables['classes_array'][] = 'main-navigation-enabled-lg';
 
