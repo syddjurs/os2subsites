@@ -7842,6 +7842,7 @@
     float: left;
   }
 
+  .panel-pane.knap .btn-lg,
   .linkmenuer ul.menu li a {
     font-size: 90%;
   }
@@ -7868,6 +7869,7 @@
     float: left;
   }
 
+  .panel-pane.knap .btn-lg,
   .linkmenuer ul.menu li a {
     font-size: 100%;
   }
