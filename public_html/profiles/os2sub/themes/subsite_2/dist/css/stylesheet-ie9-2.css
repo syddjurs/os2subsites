@@ -7841,6 +7841,10 @@
     width: 80%;
     float: left;
   }
+
+  .linkmenuer ul.menu li a {
+    font-size: 90%;
+  }
 }
 
 @media screen and (min-width: 992px) {
@@ -7862,6 +7866,10 @@
   .col-md-55 {
     width: 80%;
     float: left;
+  }
+
+  .linkmenuer ul.menu li a {
+    font-size: 100%;
   }
 }
 
