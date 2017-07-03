@@ -115,7 +115,7 @@
 }
 .node-banner {
   &.view-mode-teaser {
-    border-radius: 4px;
+    border-radius: @border-radius-base;
       .banner-headline {
         position: absolute;
         bottom: 0;
@@ -141,8 +141,8 @@
         background-size: 80px;
         background-repeat: no-repeat;
         background-position: right 40px top -20px;
-        border-bottom-left-radius: 5px;
-        border-bottom-right-radius: 5px;
+        border-bottom-left-radius: @border-radius-base;
+        border-bottom-right-radius: @border-radius-base;
         border-top: 3px solid @brand-primary-light;
       
         .btn-banner {
@@ -175,7 +175,7 @@
 
 .node-os2web-spotbox-box {
   &.view-mode-spotbox {
-    border-radius: 4px;
+    border-radius: @border-radius-base;
     .spotbox-wrapper {
       height: 85px;
       position: relative;
@@ -202,8 +202,8 @@
         background-size: 60px;
         background-repeat: no-repeat;
         background-position: right 20px top -20px;
-        border-bottom-left-radius: 5px;
-        border-bottom-right-radius: 5px;
+        border-bottom-left-radius: @border-radius-base;
+        border-bottom-right-radius: @border-radius-base;
         border-top: 3px solid @brand-primary-light;
       }
     }
@@ -267,8 +267,10 @@
         background-size: 160px;
         background-repeat: no-repeat;
         background-position: right -32px top -26px;
-        border-bottom-left-radius: 5px;
-        border-bottom-right-radius: 5px;
+        border-bottom-left-radius: @border-radius-base;
+        border-bottom-right-radius: @border-radius-base;
+        border-top-right-radius: @border-radius-base;
+        border-top-left-radius: @border-radius-base;
         border-top: 3px solid @brand-primary-light;
       }
     }
