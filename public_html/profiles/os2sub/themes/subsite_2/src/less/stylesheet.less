@@ -52,7 +52,21 @@
       }
     }
   }
+  ul.menu li ul li a.active, 
+  ul.menu li a, 
+  ul.menu li ul a {
+    display: block;
+    vertical-align: middle;
+    line-height: 1.2;
+    padding: 13px 40px 13px 20px;
+    background: url(../img/v-arrow-default.png) no-repeat right 50%;
+    border-bottom: 2px solid lighten(@gray-base, 70.0%);
+    padding-left: 8px;
+  }
 }
+
+
+
 .main-navigation-bar {
   .menu-knapper {
     .main-navigation-list {
@@ -250,17 +264,7 @@
   }
 }
 
-.linkmenuer ul.menu li ul li a.active, 
-.linkmenuer ul.menu li a, 
-.linkmenuer ul.menu li ul a {
-  display: block;
-  vertical-align: middle;
-  line-height: 1.2;
-  padding: 13px 40px 13px 20px;
-  background: url(../img/v-arrow-default.png) no-repeat right 50%;
-  border-top: 2px solid lighten(@gray-base, 70.0%);
-  padding-left: 8px;
-}
+
 
 .field-name-field-os2web-base-field-spotbox.field-type-node-reference {
   .field-items {
