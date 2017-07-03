@@ -1,0 +1,44 @@
+<?php
+/**
+ * @file
+ * File to perform installation/uninstallation tasks.
+ */
+
+/**
+ * Implements hook_uninstall().
+ */
+function autocomplete_searchbox_uninstall() {
+
+  // Delete all variables.
+  db_delete('variable')
+  ->condition('name', db_like('autocomplete_searchbox_') . '%', 'like')
+  ->execute();
+}
+
+/**
+ * Implements hook_install().
+ */
+function autocomplete_searchbox_install() {
+  $default_terms = array();
+  $default_content_types = array();
+
+  // Get all the required info.
+  $terms = taxonomy_get_vocabularies();
+  $types = node_type_get_types();
+
+  // Make all this info available for autocomplete results.
+  foreach ($terms as $tid => $detail) {
+    $term_tree = taxonomy_get_tree($tid);
+    foreach ($term_tree as $key => $term_detail) {
+      $default_terms[$term_detail->name] = $term_detail->name;
+    }
+  }
+
+  foreach ($types as $name => $details) {
+    $default_content_types[$details->type] = $details->type;
+  }
+
+  // Add this info to default variables.
+  variable_set('autocomplete_searchbox_terms', $default_terms);
+  variable_set('autocomplete_searchbox_content_types', $default_content_types);
+}

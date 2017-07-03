@@ -1,0 +1,195 @@
+<?php
+/**
+ * @file
+ * To make searchbox autocomplete.
+ *
+ */
+
+/**
+ * Implements hook_help().
+ */
+function autocomplete_searchbox_help($path, $arg) {
+  switch ($path) {
+    case 'admin/help#autocomplete_searchbox' :
+      return check_markup(file_get_contents(dirname(__FILE__) . "/README.txt"));
+    break;
+  }
+}
+
+/**
+ * Implements hook_init().
+ */
+function autocomplete_searchbox_init() {
+  if (variable_get('autocomplete_searchbox_auto_select', '0')) {
+    if (current_path() != 'admin/config/search/autocomplete-search-config') {
+      drupal_add_js(drupal_get_path('module', 'autocomplete_searchbox') . '/js/autocomplete_searchbox.js');
+    }
+  }
+}
+
+/**
+ * Implements hook_permission().
+ */
+function autocomplete_searchbox_permission() {
+  return array(
+    'access autocomplete search' => array(
+      'title' => t('Access autocomplete search'),
+      'description' => t('Use autocomplete functionality of searchbox.'),
+    ),
+    'administer search autocomplete' => array(
+      'title' => t('Administer search autocomplete'),
+      'description' => t('Administer configuration settings for autocomplete functionality of searchbox.'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_menu().
+ */
+function autocomplete_searchbox_menu() {
+  $items['admin/config/search/autocomplete-search-config'] = array(
+    'title' => 'Autocomplete Searchbox',
+    'description' => 'Configuration settings for drupal search box',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('autocomplete_searchbox_config'),
+    'access callback' => 'user_access',
+    'access arguments' => array('administer search autocomplete'),
+    'type' => MENU_NORMAL_ITEM,
+    'weight' => 0,
+    'file' => 'autocomplete_searchbox.admin.inc',
+  );
+  $items['admin/config/search/autocomplete-search-config/settings'] = array(
+    'title' => 'Settings',
+    'type' => MENU_DEFAULT_LOCAL_TASK,
+    'file' => 'autocomplete_searchbox.admin.inc',
+  );
+  $items['admin/config/search/autocomplete-search-config/select-color'] = array(
+    'title' => 'Colors',
+    'description' => 'Select highlighting colors to be used',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('autocomplete_searchbox_config_colors'),
+    'access callback' => 'user_access',
+    'access arguments' => array('administer search autocomplete'),
+    'type' => MENU_LOCAL_TASK,
+    'weight' => 1,
+    'file' => 'autocomplete_searchbox.admin.inc',
+  );
+  $items['admin/search-portal'] = array(
+    'page callback' => '_autocomplete_searchbox_search_portal',
+    'access callback' => 'user_access',
+    'access arguments' => array('access autocomplete search'),
+    'type' => MENU_CALLBACK,
+    'file' => 'autocomplete_searchbox.pages.inc',
+  );
+  return $items;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function autocomplete_searchbox_theme() {
+  return array(
+    'search_dropdown' => array(
+      'variables' => array(
+        'type' => '',
+        'db_result' => array(),
+        'label' => '',
+        'fcolor' => '',
+        'bcolor' => '',
+      ),
+    ),
+  );
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function autocomplete_searchbox_form_search_block_form_alter(&$form, &$form_state, $form_id) {
+  $form['search_block_form']['#attributes']['placeholder'] = variable_get('autocomplete_searchbox_placeholder', t('Explore'));
+  $form['search_block_form']['#attributes']['class'][] = 'autocomplete_search_text';
+
+  // Make autocomplete optional.
+  if (variable_get('autocomplete_searchbox_searchbox_autocomplete', '1')) {
+    $form['search_block_form']['#autocomplete_path'] = 'admin/search-portal';
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function autocomplete_searchbox_form_search_form_alter(&$form, &$form_state, $form_id) {
+  $form['basic']['keys']['#attributes']['placeholder'] = variable_get('autocomplete_searchbox_placeholder', t('Explore'));
+
+  // Make autocomplete optional.
+  if (variable_get('autocomplete_searchbox_searchbox_autocomplete', '1')) {
+    $form['basic']['keys']['#autocomplete_path'] = 'admin/search-portal';
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function autocomplete_searchbox_form_autocomplete_searchbox_config_alter(&$form, &$form_state, $form_id) {
+  $form['#submit'][] = 'autocomplete_searchbox_set_permissions';
+  $form['actions']['submit']['#value'] = t('Save');
+}
+
+/**
+ * Additional submit handler for autocomplete_searchbox_config form.
+ */
+function autocomplete_searchbox_set_permissions($form, &$form_state) {
+
+  // Change permissions.
+  $permissions = $form_state['values']['autocomplete_searchbox_roles'];
+  foreach ($permissions as $rid => $value) {
+    user_role_change_permissions($rid, array(
+      'access autocomplete search' => $value,
+    ));
+  }
+}
+
+/**
+ * Implements hook_entity_insert().
+ *
+ * Select all new terms automatically.
+ */
+function autocomplete_searchbox_entity_insert($entity, $type) {
+  $autoselect = variable_get('autocomplete_searchbox_autoselect', '0');
+  if ($autoselect) {
+    if ($type == 'taxonomy_term') {
+      $existing = variable_get('autocomplete_searchbox_terms', array());
+      $new = array($entity->name => $entity->name);
+      variable_set('autocomplete_searchbox_terms', array_merge($existing, $new));
+    }
+  }
+}
+
+/**
+ * Implements hook_entity_delete().
+ *
+ * Update all the selected terms on deletion.
+ */
+function autocomplete_searchbox_entity_delete($entity, $type) {
+  if ($type == 'taxonomy_term') {
+    $existing = variable_get('autocomplete_searchbox_terms', array());
+    $name = $entity->name;
+    if (array_key_exists($name, $existing)) {
+      unset($existing[$name]);
+      variable_set('autocomplete_searchbox_terms', array_merge($existing));
+    }
+  }
+}
+
+/**
+ * Implements hook_node_type_insert().
+ *
+ * Select all new content types automatically.
+ */
+function autocomplete_searchbox_node_type_insert($info) {
+  $autoselect = variable_get('autocomplete_searchbox_autoselect', '0');
+  if ($autoselect) {
+    $existing = variable_get('autocomplete_searchbox_content_types', array());
+    $new = array($info->type => $info->type);
+    variable_set('autocomplete_searchbox_content_types', array_merge($existing, $new));
+  }
+}
