@@ -746,7 +746,7 @@ print("<div class=\\"indicator-has-notes\\"></div>");
 if (function_exists("os2web_print_send_to_friend_bullet_point_access"))
 {
 if (os2web_print_send_to_friend_bullet_point_access($row->nid)){
-echo \'<img src="/profiles/os2web/themes/os2web_core_theme/images/icon-print-bullet-point.png">\';
+echo \'<img src="/profiles/os2sub/themes/site/dist/img/icon-print-bullet-point.png">\';
 }
 }
 ?>';
@@ -768,7 +768,7 @@ echo \'<img src="/profiles/os2web/themes/os2web_core_theme/images/icon-print-bul
 if (function_exists("os2web_print_send_to_friend_bullet_point_access"))
 {
 if (os2web_print_send_to_friend_bullet_point_access($row->nid)){
-echo \'<img src="/profiles/os2web/themes/os2web_core_theme/images/icon-send-to-friend-bullet-point.png">\';
+echo \'<img src="/profiles/os2sub/themes/site/dist/img/icon-send-to-friend-bullet-point.png">\';
 }
 }
 ?> ';
