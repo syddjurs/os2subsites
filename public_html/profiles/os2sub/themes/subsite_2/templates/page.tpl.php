@@ -165,7 +165,16 @@
                 <?php endif; ?>
 
                 <?php if (!empty($page['navigation'])): ?>
-                  <div class="navigation-blocks"><?php print render($page['navigation']); ?></div>
+                  <div class="searchbox">
+                    <div class="searchbox-inner">
+                      <div class="searchbox-title">
+                        Hvad søger du?
+                      </div>
+                      <div class="navigation-blocks">
+                        <?php print render($page['navigation']); ?>
+                      </div>
+                    </div>
+                  </div>
                 <?php else: ?>  
                   <div class="searchbox">
                     <div class="searchbox-inner">
