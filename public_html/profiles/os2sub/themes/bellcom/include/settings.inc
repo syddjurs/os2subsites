@@ -65,10 +65,25 @@ function _theme_settings_form(&$form, $form_state) {
     '#collapsible' => TRUE,
     '#collapsed'   => TRUE,
   );
+  
   $form['options']['layout']['navigation']['login_account_links'] = array(
     '#type'          => 'checkbox',
     '#title'         => t('Vis login og brugerlink'),
     '#default_value' => theme_get_setting('login_account_links'),
+    '#description'   => t("Vises i højre side af navigationen"),
+  );
+
+  $form['options']['layout']['navigation']['searchboxdisp'] = array(
+    '#type'          => 'checkbox',
+    '#title'         => t('Vis søgeboks'),
+    '#default_value' => theme_get_setting('searchboxdisp'),
+    '#description'   => t("Vises i højre side af navigationen"),
+  );
+  
+    $form['options']['layout']['navigation']['navigationblocks'] = array(
+    '#type'          => 'checkbox',
+    '#title'         => t('Vis alm blocks i navigationslinien'),
+    '#default_value' => theme_get_setting('navigationblocks'),
     '#description'   => t("Vises i højre side af navigationen"),
   );
 
