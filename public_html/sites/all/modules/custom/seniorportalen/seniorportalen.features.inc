@@ -24,24 +24,6 @@ function seniorportalen_views_api($module = NULL, $api = NULL) {
 }
 
 /**
- * Implements hook_field_default_field_bases_alter().
- */
-function seniorportalen_field_default_field_bases_alter(&$data) {
-  if (isset($data['field_os2sub_event_venue'])) {
-    unset($data['field_os2sub_event_venue']);
-  }
-}
-
-/**
- * Implements hook_field_default_field_instances_alter().
- */
-function seniorportalen_field_default_field_instances_alter(&$data) {
-  if (isset($data['node-os2sub_event-field_os2sub_event_venue'])) {
-    unset($data['node-os2sub_event-field_os2sub_event_venue']);
-  }
-}
-
-/**
  * Implements hook_image_styles_alter().
  */
 function seniorportalen_image_styles_alter(&$data) {

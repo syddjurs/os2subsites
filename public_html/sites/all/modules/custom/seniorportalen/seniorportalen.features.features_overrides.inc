@@ -11,12 +11,6 @@ function seniorportalen_features_override_default_overrides() {
   // This code is only used for UI in features. Exported alters hooks do the magic.
   $overrides = array();
 
-  // Exported overrides for: field_base
-  $overrides["field_base.field_os2sub_event_venue.field_os2sub_event_venue"]["DELETED"] = TRUE;
-
-  // Exported overrides for: field_instance
-  $overrides["field_instance.node-os2sub_event-field_os2sub_event_venue.node-os2sub_event-field_os2sub_event_venue"]["DELETED"] = TRUE;
-
   // Exported overrides for: image
   $overrides["image.gallery-thumb.effects|0|data|height"] = 140;
   $overrides["image.gallery-thumb.effects|0|data|width"] = 180;
