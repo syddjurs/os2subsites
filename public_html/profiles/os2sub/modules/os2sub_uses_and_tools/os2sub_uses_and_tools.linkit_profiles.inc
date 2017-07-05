@@ -127,6 +127,10 @@ function os2sub_uses_and_tools_default_linkit_profiles() {
   $linkit_profile->profile_type = '2';
   $linkit_profile->data = array(
     'search_plugins' => array(
+      'entity:fieldable_panels_pane' => array(
+        'enabled' => 0,
+        'weight' => '-10',
+      ),
       'entity:taxonomy_term' => array(
         'enabled' => 0,
         'weight' => '-10',
@@ -144,24 +148,46 @@ function os2sub_uses_and_tools_default_linkit_profiles() {
         'weight' => '-10',
       ),
     ),
+    'entity:fieldable_panels_pane' => array(
+      'result_description' => '',
+    ),
     'entity:node' => array(
       'result_description' => '',
       'bundles' => array(
+        'os2sub_event' => 'os2sub_event',
         'os2web_base_gallery' => 'os2web_base_gallery',
         'os2web_base_contentpage' => 'os2web_base_contentpage',
+        'kalenderside' => 'kalenderside',
         'webform' => 'webform',
-        'event_calendar' => 0,
         'banner' => 0,
+        'event_calendar' => 0,
         'os2web_contact_contact' => 0,
         'media' => 0,
         'os2web_base_news' => 0,
         'os2web_base_selfservice_link' => 0,
+        'os2web_spotbox_box' => 0,
         'velkomst' => 0,
       ),
       'group_by_bundle' => 0,
       'include_unpublished' => 0,
     ),
-    'entity:file' => 'entity',
+    'entity:file' => array(
+      'result_description' => '',
+      'bundles' => array(
+        'image' => 0,
+        'video' => 0,
+        'audio' => 0,
+        'document' => 0,
+      ),
+      'group_by_bundle' => 0,
+      'show_scheme' => 0,
+      'group_by_scheme' => 0,
+      'url_type' => 'entity',
+      'image_extra_info' => array(
+        'thumbnail' => 'thumbnail',
+        'dimensions' => 'dimensions',
+      ),
+    ),
     'entity:taxonomy_term' => array(
       'result_description' => '',
       'bundles' => array(
@@ -178,7 +204,6 @@ function os2sub_uses_and_tools_default_linkit_profiles() {
         'tags' => 0,
         'os2web_base_tax_promoteto' => 0,
         'os2web_base_tax_site_structure' => 0,
-        'forsidefoto' => 0,
       ),
       'group_by_bundle' => 0,
     ),
@@ -190,10 +215,6 @@ function os2sub_uses_and_tools_default_linkit_profiles() {
       'url_method' => '2',
     ),
     'attribute_plugins' => array(
-      'accesskey' => array(
-        'enabled' => 0,
-        'weight' => '-10',
-      ),
       'target' => array(
         'enabled' => 0,
         'weight' => '-10',
@@ -202,15 +223,19 @@ function os2sub_uses_and_tools_default_linkit_profiles() {
         'enabled' => 0,
         'weight' => '-10',
       ),
-      'rel' => array(
-        'enabled' => 0,
-        'weight' => '-10',
-      ),
       'id' => array(
         'enabled' => 0,
         'weight' => '-10',
       ),
       'title' => array(
+        'enabled' => 0,
+        'weight' => '-10',
+      ),
+      'accesskey' => array(
+        'enabled' => 0,
+        'weight' => '-10',
+      ),
+      'rel' => array(
         'enabled' => 0,
         'weight' => '-10',
       ),
