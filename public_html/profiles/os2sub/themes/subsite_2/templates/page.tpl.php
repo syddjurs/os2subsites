@@ -168,8 +168,7 @@
                   <?php if (!empty($page['navigation'])): ?>
                     <div class="navigation-blocks"><?php print render($page['navigation']); ?></div>
                   <?php endif; ?>
-                <?php endif; ?>  
-                <?php if ($theme_settings['layout']['navigation']['searchboxdisp']['active']): ?>
+                <?php else: ?>  
                   <div class="searchbox">
                     <div class="searchbox-inner">
                       <div class="searchbox-title">
