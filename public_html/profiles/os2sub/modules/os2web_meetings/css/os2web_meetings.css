@@ -1,0 +1,14 @@
+.agenda-item .item-list li{
+  list-style: none;
+  margin: 0;
+}
+
+.view-os2web-meetings-meeting-details .agenda-bullet-list {
+  height: auto;
+  min-height: 25px;
+  font-size: 15px;
+  margin-right: 0;
+  padding-right: 43px;
+}
+
+

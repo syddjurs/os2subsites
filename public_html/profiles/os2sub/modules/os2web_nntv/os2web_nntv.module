@@ -1,0 +1,325 @@
+<?php
+
+/**
+ * @file
+ * Implements methods that allows the use of QBrick movies in fields.
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function os2web_nntv_menu() {
+  $items['node/%node/nntv_video'] = array(
+    'page callback' => 'os2web_nntv_import_video_for_meeting',
+    'page arguments' => array(1),
+    'access callback' => 'os2web_nntv_access_import',
+    'access arguments' => array(1),
+    'title' => 'Importer video',
+    'type' => MENU_LOCAL_TASK,
+  );
+  return $items;
+}
+
+/**
+ * Page callback for importing video for a meeting.
+ */
+function os2web_nntv_import_video_for_meeting($node) {
+  if (is_object($node) && $node->type == 'os2web_meetings_meeting') {
+    // Force import of video.
+    os2web_nntv_update_meeting($node->nid, TRUE);
+    drupal_goto('node/' . $node->nid);
+  }
+}
+
+/**
+ * Access callback for video import menu item.
+ */
+function os2web_nntv_access_import($node) {
+  if (is_object($node) && $node->type == 'os2web_meetings_meeting' && node_access('update', $node)) {
+    // If the current user is allowed to edit the node, grant permissions to
+    // import the video aswell.
+    return TRUE;
+  }
+  return FALSE;
+}
+
+/**
+ * Implements hook_cron().
+ */
+function os2web_nntv_cron() {
+  // Get all meetings that are up to 5 days old.
+  $from = variable_get('os2web_nntv_last_run');
+  $from -= 432000;
+
+  $query = new EntityFieldQuery();
+  $query->entityCondition('entity_type', 'node')
+    ->entityCondition('bundle', 'os2web_meetings_meeting')
+    ->propertyCondition('changed', $from, '>');
+  $result = $query->execute();
+
+  if (!empty($result['node'])) {
+    foreach ($result['node'] as $nid => $info) {
+      os2web_nntv_update_meeting($nid);
+    }
+  }
+
+  variable_set('os2web_nntv_last_run', time());
+}
+
+/**
+ * Update a meeting node with video reference.
+ */
+function os2web_nntv_update_meeting($nid, $force = FALSE) {
+  // Get info for the meeting.
+  $movie_info = _os2web_nntv_get_movie_info($nid);
+
+  // If there is any, we might have to update the meeting node.
+  if ($movie_info) {
+    $meeting = node_load($nid);
+
+    // Get current field contents.
+    $field = field_get_items('node', $meeting, 'field_os2web_meetings_nntv_ref');
+
+    // If there isn't any or the field is empty, update it. Also update, if it
+    // is a different id.
+    if ($force || ((!$field || !$field[0]['id'] || $field[0]['id'] != $movie_info['movie_id']) && !empty($movie_info['chapters']))) {
+      $meeting->field_os2web_meetings_nntv_ref[LANGUAGE_NONE][0]['id'] = $movie_info['movie_id'];
+      $meeting->field_os2web_meetings_nntv_ref[LANGUAGE_NONE][0]['seek'] = 0;
+
+      node_save($meeting);
+
+      if ($field = field_get_items('node', $meeting, 'field_os2web_meetings_bullets')) {
+        foreach ($field as $delta => $value) {
+          _nntv_update_bullet_point($value['target_id'], $movie_info['movie_id'], $movie_info['chapters'][$delta]);
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Update bullet point with movie info.
+ */
+function _nntv_update_bullet_point($nid, $movie_id, $chapter_info) {
+  // Load a bulletpoint node and set the movie ref and seek time.
+  $bullet_point = node_load($nid);
+
+  $bullet_point->field_os2web_meetings_nntv_ref[LANGUAGE_NONE][0]['id'] = $movie_id;
+  $bullet_point->field_os2web_meetings_nntv_ref[LANGUAGE_NONE][0]['seek'] = (int) $chapter_info['time'];
+
+  node_save($bullet_point);
+}
+
+/**
+ * Helper function. Makes danish characters ascii-safe.
+ * @access protected
+ *
+ * @param string $str
+ *   Input string
+ *
+ * @return string
+ *   Safe string
+ */
+function _os2web_nntv_safedk($str) {
+  return str_replace('å', 'aa', str_replace('æ', 'ae', str_replace('ø', 'oe', strtolower($str))));
+}
+
+/**
+ * Returns the movie_id for a given meeting.
+ * @access protected
+ *
+ * @param int $nid
+ *   Node id
+ *
+ * @return string
+ *   Movie id, or False on error.
+ */
+function _os2web_nntv_get_movie_info($nid) {
+  $search_url = 'http://xml.videotool.dk/?cid=y6pjfjxyqrjdjx29phgg&search=';
+  if (is_numeric($nid)) {
+    $node = node_load($nid);
+  }
+  else {
+    $node = $nid;
+  }
+  if (!is_object($node)) {
+    return FALSE;
+  }
+
+  $committee = taxonomy_term_load($node->field_os2web_meetings_committee[$node->language][0]['tid']);
+  $committee = _os2web_nntv_safedk($committee->name);
+  $date = format_date(strtotime($node->field_os2web_meetings_date[$node->language][0]['value']), 'custom', 'dmY', $node->field_os2web_meetings_date[$node->language][0]['timezone']);
+
+  $url = $search_url . rawurlencode($committee . ' ' . $date);
+  $xml = simplexml_load_file($url);
+  $movie_id = (string) ($xml->Videos->Video->VideoName);
+
+  if ($movie_id) {
+    $tmp_chapters = $xml->xpath('//Videos/Video/Chapters/Chapter');
+
+    foreach ($tmp_chapters as $chapter) {
+      $chapters[] = array(
+        'title' => $chapter->Title,
+        'time' => $chapter['Time'],
+      );
+    }
+
+    return array(
+      'movie_id' => $movie_id,
+      'chapters' => $chapters,
+    );
+  }
+
+  return FALSE;
+}
+
+/**
+ * Implements hook_field_info().
+ */
+function os2web_nntv_field_info() {
+  $field['os2web_nntv_movie'] = array(
+    'label' => t('NNTV movie'),
+    'description' => t('Add a NNTV movie to this field.'),
+    'default_widget' => 'os2web_nntv_movie_simple',
+    'default_formatter' => 'os2web_nntv_movie_simple',
+  );
+  return $field;
+}
+
+/**
+ * Implements hook_field_is_empty().
+ */
+function os2web_nntv_field_is_empty($item, $field) {
+  if ($item['seek'] === 0 && trim($item['id']) === '') {
+    return TRUE;
+  }
+}
+
+// --- Widget:
+/**
+ * Implments hook_field_widget_info().
+ */
+function os2web_nntv_field_widget_info() {
+  $widgets['os2web_nntv_movie_simple'] = array(
+    'label' => 'NNTV Movie simple entry',
+    'field types' => array('os2web_nntv_movie'),
+  );
+  $widgets['os2web_nntv_movie_noedit'] = array(
+    'label' => 'NNTV Movie deny edit',
+    'field types' => array('os2web_nntv_movie'),
+  );
+  return $widgets;
+}
+
+/**
+ * Implements hook_field_widget_form().
+ */
+function os2web_nntv_field_widget_form(&$form, &$form_state, $field, $instance, $langcode, $items, $delta, $element) {
+  $default = array('id' => '', 'seek' => 0);
+  if (isset($form_state['node']->{$field['field_name']}[$langcode][$delta])) {
+    $default = $form_state['node']->{$field['field_name']}[$langcode][$delta];
+  }
+  switch ($instance['widget']['type']) {
+    case 'os2web_nntv_movie_noedit':
+      break;
+
+    case 'os2web_nntv_movie_simple':
+      $element += array(
+        '#type' => 'fieldset',
+        '#tree' => TRUE,
+        'id' => array(
+          '#type' => 'textfield',
+          '#title' => t('Movie Id'),
+          '#description' => t('ID of NNTV movie'),
+          '#default_value' => $default['id'],
+          '#required' => FALSE,
+          '#weight' => 0,
+          '#delta' => $delta,
+        ),
+        'seek' => array(
+          '#type' => 'textfield',
+          '#title' => t('Seek time'),
+          '#description' => t('Chapter time to seek to.'),
+          '#default_value' => $default['seek'],
+          '#required' => FALSE,
+          '#weight' => 1,
+          '#delta' => $delta,
+        ),
+      );
+      break;
+  }
+  return $element;
+}
+
+/**
+ * Implements hook_field_formatter_info().
+ */
+function os2web_nntv_field_formatter_info() {
+  $formatters['os2web_nntv_movie_simple'] = array(
+    'label' => t('NNTV movie render'),
+    'field types' => array('os2web_nntv_movie'),
+  );
+  $formatters['os2web_nntv_movie_seek'] = array(
+    'label' => t('NNTV movie seek-only'),
+    'field types' => array('os2web_nntv_movie'),
+  );
+  return $formatters;
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ */
+function os2web_nntv_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  $player_id = 'AC80F5D9';
+  switch ($display['type']) {
+    case 'os2web_nntv_movie_seek':
+      $icon = drupal_get_path('module', 'os2web_nntv') . '/images/video.jpg';
+      foreach ($items as $delta => $item) {
+        if ($item['seek']) {
+          $seek_link = '<a href="#videotool_player" onclick="javascript:playFromTime(' . $item['seek'] . ');"><img src="/' . $icon . '" alt="Show video"/></a>';
+          $element[$delta]['#markup'] = $seek_link;
+        }
+      }
+      break;
+
+    case 'os2web_nntv_movie_simple':
+      foreach ($items as $delta => $item) {
+        if ($item['id']) {
+          $embed_url = 'https://media.videotool.dk/?vn=' . $item['id'];
+          $script = <<<EOF
+            <iframe src="$embed_url" id="videotool_player" width="562" height="316" allowfullscreen></iframe>
+            <script>
+              function playFromTime(startTime) {
+                var win = document.getElementById("videotool_player").contentWindow;
+                var iframeSrc = document.getElementById("videotool_player").src;
+                var parser = document.createElement('a');
+                parser.href = iframeSrc;
+                var postMessageDomain = parser.protocol+'//'+parser.hostname;
+
+                win.postMessage(
+                    startTime,
+                    postMessageDomain
+                )
+                return false
+              }
+            </script>
+EOF;
+
+          $element[$delta]['#markup'] = $script;
+        }
+      }
+      break;
+  }
+  return $element;
+}
+
+/**
+ * Implements hook_os2web_help().
+ */
+function os2web_nntv_os2web_help($sections) {
+
+  // Module specific.
+  $sections['os2web_nntv'] = t('<h2>NNTV:</h2><p>NNTV is used to upload videos of meetings.</p>', array('@url' => url('job')));
+
+  return $sections;
+}

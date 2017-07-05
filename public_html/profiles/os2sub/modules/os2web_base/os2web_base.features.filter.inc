@@ -17,20 +17,7 @@ function os2web_base_filter_default_formats() {
     'cache' => 1,
     'status' => 1,
     'weight' => -8,
-    'filters' => array(
-      'filter_html_escape' => array(
-        'weight' => -10,
-        'status' => 1,
-        'settings' => array(),
-      ),
-      'filter_url' => array(
-        'weight' => 0,
-        'status' => 1,
-        'settings' => array(
-          'filter_url_length' => 72,
-        ),
-      ),
-    ),
+    'filters' => array(),
   );
 
   return $formats;

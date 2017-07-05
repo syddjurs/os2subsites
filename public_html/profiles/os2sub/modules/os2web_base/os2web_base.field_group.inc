@@ -171,7 +171,11 @@ function os2web_base_field_group_info() {
   $field_group->data = array(
     'label' => 'Sager og dokumenter',
     'weight' => '10',
-    'children' => array(),
+    'children' => array(
+      0 => 'field_os2web_base_field_case',
+      1 => 'field_os2web_base_field_casesort',
+      2 => 'field_os2web_base_field_doc',
+    ),
     'format_type' => 'htab',
     'format_settings' => array(
       'label' => 'Sager og dokumenter',

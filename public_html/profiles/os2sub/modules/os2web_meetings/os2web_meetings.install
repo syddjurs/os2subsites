@@ -1,0 +1,33 @@
+<?php
+/**
+ * @file
+ * os2web_meetings.install
+ */
+
+/**
+ * This updates the meta data of all meeting nodes
+ *
+ */
+function os2web_meetings_update_7004(&$sandbox) {
+  if (!isset($sandbox['progress'])) {
+    $sandbox['#finished'] = 0;
+    $sandbox['progress'] = 0;
+    $sandbox['current_nid'] = 0;
+    $sandbox['max'] = db_select('node', 'n')->fields('n', array('nid'))->condition('type', 'os2web_meetings_meeting')->execute()->rowCount();
+  }
+  $nids = db_select('node', 'n')->fields('n', array('nid'))
+    ->condition('type', 'os2web_meetings_meeting')
+    ->condition('nid', $sandbox['current_nid'], '>')
+    ->orderBy('nid', 'ASC')
+    ->range(0, 15)
+    ->execute()
+    ->fetchCol();
+  foreach ($nids as $nid) {
+    $node = node_load($nid);
+    node_save($node);
+    $sandbox['current_nid'] = $nid;
+    $sandbox['progress']++;
+  }
+  $sandbox['#finished'] = min($sandbox['progress'] / $sandbox['max'], 1.0);
+  return 'Updated ' . $sandbox['max'] . ' nodes.';
+}
