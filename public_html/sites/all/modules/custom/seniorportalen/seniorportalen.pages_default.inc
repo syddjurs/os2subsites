@@ -1476,7 +1476,7 @@ function seniorportalen_default_page_manager_handlers() {
       'args' => '',
       'url' => '',
       'display' => 'block',
-      'override_title' => 0,
+      'override_title' => 1,
       'override_title_text' => '',
       'override_title_heading' => 'h2',
     );
@@ -2572,7 +2572,7 @@ function seniorportalen_default_page_manager_handlers() {
     $pane->configuration = array(
       'override_pager_settings' => 0,
       'use_pager' => 0,
-      'nodes_per_page' => '2',
+      'nodes_per_page' => '3',
       'pager_id' => '0',
       'offset' => '0',
       'more_link' => 0,
@@ -2583,7 +2583,7 @@ function seniorportalen_default_page_manager_handlers() {
       'url' => '',
       'display' => 'block',
       'override_title' => 1,
-      'override_title_text' => 'Aktuelt',
+      'override_title_text' => '',
       'override_title_heading' => 'h2',
     );
     $pane->cache = array();
