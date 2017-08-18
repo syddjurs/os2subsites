@@ -7807,6 +7807,13 @@
 
 }
 
+@media (min-width: 768px) {
+  .field-name-field-os2web-base-field-spotbox.field-type-node-reference .field-items .field-item {
+    float: left;
+    width: 50%;
+  }
+}
+
 @media (min-width: 992px) {
   .field-name-field-os2web-base-field-spotbox.field-type-node-reference .field-items .field-item {
     float: left;
@@ -7815,6 +7822,11 @@
 }
 
 @media screen and (max-width: 767px) {
+  .main-content-area .row {
+    display: flex;
+    flex-direction: column;
+  }
+
   .field-name-field-os2web-base-field-spotbox.field-type-node-reference .field-items {
     margin-left: -10px;
     margin-right: -10px;
