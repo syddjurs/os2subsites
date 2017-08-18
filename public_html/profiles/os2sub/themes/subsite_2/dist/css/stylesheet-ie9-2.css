@@ -7822,7 +7822,7 @@
   }
 
   .os2sub-box.pane-seniorportalen-nyhedsliste .os2sub-box-body li a {
-    word-break: break-all;
+    word-break: break-word;
   }
 }
 
