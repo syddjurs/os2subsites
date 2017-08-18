@@ -7807,7 +7807,31 @@
 
 }
 
-@media (min-width: 768px) {
+@media (min-width: 992px) {
+  .field-name-field-os2web-base-field-spotbox.field-type-node-reference .field-items .field-item {
+    float: left;
+    width: 33.33333333%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .field-name-field-os2web-base-field-spotbox.field-type-node-reference .field-items {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+
+  .field-name-field-os2web-base-field-spotbox.field-type-node-reference .field-items .field-item {
+    position: relative;
+    min-height: 1px;
+    padding-left: 10px;
+    padding-right: 10px;
+    max-width: 100%;
+    max-height: 150px;
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 767px) and (min-width: 768px) {
   .field-name-field-os2web-base-field-spotbox.field-type-node-reference .field-items .field-item {
     float: left;
     width: 33.33333333%;

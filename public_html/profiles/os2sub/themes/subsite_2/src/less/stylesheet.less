@@ -320,10 +320,24 @@
   .field-items {
     .make-row();
     .field-item {
-      .make-sm-column(4);
+      .make-md-column(4);
       max-width: 300px;
       max-height: 150px;
       margin-bottom: 20px;
+    }
+  }
+}
+
+@media @media-query-mobile-only {
+  .field-name-field-os2web-base-field-spotbox.field-type-node-reference {
+  .field-items {
+    .make-row();
+    .field-item {
+      .make-sm-column(4);
+      max-width: 100%;
+      max-height: 150px;
+      margin-bottom: 10px;
+      }
     }
   }
 }
@@ -679,6 +693,7 @@
     overflow: hidden;
     img {
       float: left;
+      max-width: 50%;
     }
     .views-field-field-os2web-base-field-image {
       position: absolute;
