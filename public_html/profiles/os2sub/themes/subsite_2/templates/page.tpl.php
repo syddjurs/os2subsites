@@ -7,7 +7,7 @@
     <!-- Begin - logo - wide -->
     <div class="sidebar-logo">
       <a href="<?php print $front_page; ?>" class="sidebar-logo-link">
-        <span class="sidebar-logo-image sidebar-logo-image-wide"><?php print $site_name; ?></span>
+        <img src="<?php print $logo; ?>" class="sidebar-logo-image sidebar-logo-image-wide" alt="<?php print $site_name. t(' logo'); ?>" />
         <img src="<?php print $path_img . '/logo-xs.png'; ?>" class="sidebar-logo-image sidebar-logo-image-narrow" alt="<?php print $site_name. t(' logo'); ?>" />
       </a>
     </div>
