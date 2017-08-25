@@ -7824,6 +7824,10 @@
   .os2sub-box.pane-seniorportalen-nyhedsliste .os2sub-box-body li a {
     word-break: break-word;
   }
+
+  .pane-1.knap .btn-lg {
+    font-size: 100%;
+  }
 }
 
 @media (min-width: 768px) {
