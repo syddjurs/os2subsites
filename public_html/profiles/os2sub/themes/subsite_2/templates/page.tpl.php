@@ -64,7 +64,7 @@
             <?php print $messages; ?>
             </div>
           <?php endif; ?>
-          <div class="col-md-6">
+          <div class="col-md-6 hidden-xs">
             <?php if ($logo): ?>
               <img class="main-navigation-logo-image" src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
               <?php else: ?>
