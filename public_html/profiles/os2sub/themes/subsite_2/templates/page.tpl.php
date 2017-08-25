@@ -66,10 +66,15 @@
           <?php endif; ?>
           <div class="col-md-6 hidden-xs">
             <?php if ($logo): ?>
-              <img class="main-navigation-logo-image" src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
-              <?php else: ?>
-                <?php print $site_name; ?>
+              <a href="<?php print $front_page; ?>">
+                <img class="main-navigation-logo-image" src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
+                <?php else: ?>
+                  <?php print $site_name; ?>
+              </a>
         		<?php endif; ?>
+          </div>
+          <div class="visible-xs-block">
+            <?php print $search_box; ?>
           </div>
           <div class="col-md-6">
             <?php if (!empty($page['header'])): ?>
