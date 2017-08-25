@@ -65,7 +65,11 @@
             </div>
           <?php endif; ?>
           <div class="col-md-6">
-
+            <?php if ($logo): ?>
+              <img class="main-navigation-logo-image" src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
+              <?php else: ?>
+                <?php print $site_name; ?>
+        		<?php endif; ?>
           </div>
           <div class="col-md-6">
             <?php if (!empty($page['header'])): ?>
