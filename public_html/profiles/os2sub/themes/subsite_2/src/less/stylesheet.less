@@ -247,7 +247,7 @@
   border-top-right-radius: 6px;
 }
 img.main-navigation-logo-image {
-  max-width: 100%;
+  max-width: 90%;
   height: auto;
 }
 @media @media-query-tablet-only {
@@ -346,9 +346,21 @@ img.main-navigation-logo-image {
 }
 
 @media @media-query-mobile-only {
+  nav.toplinks {
+    display: none;
+  }
   .main-content-area .row {
     display: flex;
     flex-direction: column;
+    .col-sm-35 {
+      order: 1;
+    }
+    .col-sm-15 {
+      order: 3;
+    }
+    .col-sm-15.os2sub-box-stacked {
+      order: 2;
+    }
   }
   .view-id-seniorportalen_nyhedsliste.view-display-id-block .view-content {
     height: auto;
@@ -525,7 +537,12 @@ img.main-navigation-logo-image {
 .os2web-spotbox-spotbox { border-radius: 4px;}
 @radius: 3px;
 
-.simple-navigation-logo-link { color: #333; text-align: left; font-size: @font-size-large;
+.simple-navigation-logo-link { 
+  color: #333; 
+  text-align: left; 
+  font-size: @font-size-large;
+  display: block;
+  margin-left: 55px;
 	&:hover { color: #dedede}
 }
 .main-navigation-list-link {

@@ -7841,9 +7841,25 @@
 }
 
 @media screen and (max-width: 767px) {
+  nav.toplinks {
+    display: none;
+  }
+
   .main-content-area .row {
     display: flex;
     flex-direction: column;
+  }
+
+  .main-content-area .row .col-sm-35 {
+    order: 1;
+  }
+
+  .main-content-area .row .col-sm-15 {
+    order: 3;
+  }
+
+  .main-content-area .row .col-sm-15.os2sub-box-stacked {
+    order: 2;
   }
 
   .view-id-seniorportalen_nyhedsliste.view-display-id-block .view-content {

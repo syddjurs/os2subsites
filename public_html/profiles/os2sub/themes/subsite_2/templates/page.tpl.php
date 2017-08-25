@@ -45,7 +45,11 @@
 
       <!-- Begin - logo -->
       <a href="<?php print $front_page; ?>" class="simple-navigation-logo-link">
-        <?php print $site_name; ?>
+        <?php if ($logo): ?>
+          <img class="main-navigation-logo-image" src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
+          <?php else: ?>
+            <?php print $site_name; ?>
+    		<?php endif; ?>
       </a>
       <!-- End - logo -->
 
@@ -62,11 +66,7 @@
             </div>
           <?php endif; ?>
           <div class="col-md-6">
-   			  	<?php if ($logo): ?>
-              <a href='<?php print $front_page; ?>' class="main-navigation-logo-link">
-                <img class="main-navigation-logo-image" src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
-              </a>
-    				<?php endif; ?>
+
           </div>
           <div class="col-md-6">
             <?php if (!empty($page['header'])): ?>
