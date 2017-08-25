@@ -10,13 +10,8 @@
         <img src="<?php print $logo; ?>" class="sidebar-logo-image sidebar-logo-image-wide" alt="<?php print $site_name. t(' logo'); ?>" />
         <img src="<?php print $path_img . '/logo-xs.png'; ?>" class="sidebar-logo-image sidebar-logo-image-narrow" alt="<?php print $site_name. t(' logo'); ?>" />
       </a>
-    <div class="visible-xs-block">
-      <?php print $search_box; ?>
-    </div>
     </div>
     <!-- End - logo - wide -->
-
-
 
     <?php if (isset($sidebar_primary_navigation)): ?>
       <!-- Begin - navigation -->
@@ -74,11 +69,14 @@
               <a href="<?php print $front_page; ?>">
                 <img class="main-navigation-logo-image" src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
               </a>
-              <?php else: ?>
-                <a href="<?php print $front_page; ?>">
+                <?php else: ?>
+              <a href="<?php print $front_page; ?>">
                   <?php print $site_name; ?>
-                </a>
+              </a>
         		<?php endif; ?>
+          </div>
+          <div class="visible-xs-block">
+            <?php print $search_box; ?>
           </div>
           <div class="col-md-6">
             <?php if (!empty($page['header'])): ?>
