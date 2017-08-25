@@ -29,6 +29,9 @@
     <nav class="simple-navigation">
 
       <!-- Begin - button list -->
+          <div class="visible-xs-block">
+            <?php print $search_box; ?>
+          </div>
       <ul class="simple-navigation-list simple-navigation-list-left">
 
         <!-- Begin - button -->
@@ -74,9 +77,6 @@
                   <?php print $site_name; ?>
                 </a>
         		<?php endif; ?>
-          </div>
-          <div class="visible-xs-block">
-            <?php print $search_box; ?>
           </div>
           <div class="col-md-6">
             <?php if (!empty($page['header'])): ?>
