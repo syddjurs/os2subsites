@@ -12,6 +12,10 @@
       </a>
     </div>
     <!-- End - logo - wide -->
+    <div class="visible-xs-block">
+      <?php print $search_box; ?>
+    </div>
+
 
     <?php if (isset($sidebar_primary_navigation)): ?>
       <!-- Begin - navigation -->
@@ -29,9 +33,6 @@
     <nav class="simple-navigation">
 
       <!-- Begin - button list -->
-          <div class="visible-xs-block">
-            <?php print $search_box; ?>
-          </div>
       <ul class="simple-navigation-list simple-navigation-list-left">
 
         <!-- Begin - button -->
