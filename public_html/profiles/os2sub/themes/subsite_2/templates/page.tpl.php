@@ -10,11 +10,12 @@
         <img src="<?php print $logo; ?>" class="sidebar-logo-image sidebar-logo-image-wide" alt="<?php print $site_name. t(' logo'); ?>" />
         <img src="<?php print $path_img . '/logo-xs.png'; ?>" class="sidebar-logo-image sidebar-logo-image-narrow" alt="<?php print $site_name. t(' logo'); ?>" />
       </a>
-    </div>
-    <!-- End - logo - wide -->
     <div class="visible-xs-block">
       <?php print $search_box; ?>
     </div>
+    </div>
+    <!-- End - logo - wide -->
+
 
 
     <?php if (isset($sidebar_primary_navigation)): ?>
