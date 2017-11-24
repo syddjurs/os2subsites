@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the OS2web Kulturnaut events feature.
+ */
+
+include_once 'os2web_kulturnaut_events.features.inc';
