@@ -428,21 +428,23 @@ function os2web_kulturnaut_events_field_default_field_bases() {
     'entity_types' => array(),
     'field_name' => 'field_os2web_kulturnaut_source',
     'indexes' => array(
-      'value' => array(
-        0 => 'value',
+      'tid' => array(
+        0 => 'tid',
       ),
     ),
     'locked' => 0,
-    'module' => 'list',
+    'module' => 'taxonomy',
     'settings' => array(
       'allowed_values' => array(
-        'manual' => 'Manual',
-        'feed' => 'Feed',
+        0 => array(
+          'vocabulary' => 'feeds',
+          'parent' => 0,
+        ),
       ),
-      'allowed_values_function' => '',
+      'options_list_callback' => 'content_taxonomy_allowed_values',
     ),
     'translatable' => 0,
-    'type' => 'list_text',
+    'type' => 'taxonomy_term_reference',
   );
 
   // Exported field_base: 'field_os2web_kulturnaut_szip'.

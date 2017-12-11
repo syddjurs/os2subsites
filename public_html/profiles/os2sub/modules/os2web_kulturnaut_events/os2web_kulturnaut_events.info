@@ -75,6 +75,7 @@ features[field_instance][] = taxonomy_term-os2web_kulturnaut_venue-field_os2web_
 features[field_instance][] = taxonomy_term-os2web_kulturnaut_venue-field_os2web_kult_venue_sbtext
 features[field_instance][] = taxonomy_term-os2web_kulturnaut_venue-field_os2web_kulturnaut_tema
 features[node][] = os2web_kulturnaut_knactivity
+features[taxonomy][] = feeds
 features[taxonomy][] = os2web_kulturnaut_tema
 features[taxonomy][] = os2web_kulturnaut_venue
 features[variable][] = field_bundle_settings_node__os2web_kulturnaut_knactivity
