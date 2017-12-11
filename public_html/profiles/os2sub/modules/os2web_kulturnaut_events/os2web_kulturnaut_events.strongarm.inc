@@ -59,13 +59,13 @@ function os2web_kulturnaut_events_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'metatags' => array(
-          'weight' => '26',
+          'weight' => '13',
         ),
         'title' => array(
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '16',
+          'weight' => '7',
         ),
       ),
       'display' => array(),

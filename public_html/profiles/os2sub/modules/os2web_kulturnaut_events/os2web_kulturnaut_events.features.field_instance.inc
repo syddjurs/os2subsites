@@ -337,7 +337,7 @@ function os2web_kulturnaut_events_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 35,
+      'weight' => 22,
     ),
   );
 
@@ -419,7 +419,7 @@ function os2web_kulturnaut_events_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 34,
+      'weight' => 21,
     ),
   );
 
@@ -589,7 +589,7 @@ function os2web_kulturnaut_events_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 12,
+      'weight' => 6,
     ),
   );
 
@@ -666,7 +666,7 @@ function os2web_kulturnaut_events_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'node_reference_autocomplete',
-      'weight' => 20,
+      'weight' => 9,
     ),
   );
 
@@ -748,7 +748,7 @@ function os2web_kulturnaut_events_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 27,
+      'weight' => 14,
     ),
   );
 
@@ -830,7 +830,7 @@ function os2web_kulturnaut_events_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 28,
+      'weight' => 15,
     ),
   );
 
@@ -912,7 +912,7 @@ function os2web_kulturnaut_events_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 29,
+      'weight' => 16,
     ),
   );
 
@@ -994,7 +994,7 @@ function os2web_kulturnaut_events_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 32,
+      'weight' => 19,
     ),
   );
 
@@ -1139,7 +1139,7 @@ function os2web_kulturnaut_events_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'media_generic',
-      'weight' => 19,
+      'weight' => 8,
     ),
   );
 
@@ -1222,7 +1222,7 @@ function os2web_kulturnaut_events_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 31,
+      'weight' => 18,
     ),
   );
 
@@ -1230,49 +1230,22 @@ function os2web_kulturnaut_events_field_default_field_instances() {
   // 'node-os2web_kulturnaut_knactivity-field_os2web_kulturnaut_source'.
   $field_instances['node-os2web_kulturnaut_knactivity-field_os2web_kulturnaut_source'] = array(
     'bundle' => 'os2web_kulturnaut_knactivity',
-    'default_value' => array(
-      0 => array(
-        'value' => 'manual',
-      ),
-    ),
+    'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Created manual or imported from feeds importer Kulturnaut begivenheder',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
+        'module' => 'taxonomy',
         'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 4,
-      ),
-      'os2sub_spotbox_list' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 5,
-      ),
-      'os2sub_spotbox_mini' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'os2sub_spotbox_single' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'os2sub_teaser_mini' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 21,
       ),
       'search_result' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 5,
+        'weight' => 0,
       ),
       'spotbox' => array(
         'label' => 'above',
@@ -1295,11 +1268,14 @@ function os2web_kulturnaut_events_field_default_field_instances() {
       'user_register_form' => FALSE,
     ),
     'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_buttons',
-      'weight' => 25,
+      'active' => 0,
+      'module' => 'taxonomy',
+      'settings' => array(
+        'autocomplete_path' => 'taxonomy/autocomplete',
+        'size' => 60,
+      ),
+      'type' => 'taxonomy_autocomplete',
+      'weight' => 12,
     ),
   );
 
@@ -1381,7 +1357,7 @@ function os2web_kulturnaut_events_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 30,
+      'weight' => 17,
     ),
   );
 
@@ -1463,7 +1439,7 @@ function os2web_kulturnaut_events_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 5,
+      'weight' => 4,
     ),
   );
 
@@ -1538,7 +1514,7 @@ function os2web_kulturnaut_events_field_default_field_instances() {
         'content_taxonomy_opt_groups' => 0,
       ),
       'type' => 'options_select',
-      'weight' => 22,
+      'weight' => 11,
     ),
   );
 
@@ -1620,7 +1596,7 @@ function os2web_kulturnaut_events_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 33,
+      'weight' => 20,
     ),
   );
 
@@ -1704,7 +1680,7 @@ function os2web_kulturnaut_events_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 8,
+      'weight' => 5,
     ),
   );
 
@@ -1783,7 +1759,7 @@ function os2web_kulturnaut_events_field_default_field_instances() {
         'content_taxonomy_opt_groups' => 0,
       ),
       'type' => 'options_select',
-      'weight' => 21,
+      'weight' => 10,
     ),
   );
 
@@ -2231,7 +2207,6 @@ function os2web_kulturnaut_events_field_default_field_instances() {
   t('Address');
   t('Beskrivelse');
   t('Billeturl');
-  t('Created manual or imported from feeds importer Kulturnaut begivenheder');
   t('Data source');
   t('Dato');
   t('Genre');
