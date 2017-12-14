@@ -13,6 +13,7 @@ dependencies[] = list
 dependencies[] = media
 dependencies[] = node_reference
 dependencies[] = options
+dependencies[] = os2web_taxonomies
 dependencies[] = strongarm
 dependencies[] = taxonomy
 dependencies[] = text
