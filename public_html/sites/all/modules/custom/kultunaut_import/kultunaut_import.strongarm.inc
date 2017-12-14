@@ -13,6 +13,27 @@ function kultunaut_import_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_os2web_kulturnaut_knactivity_pattern';
+  $strongarm->value = '[node:field-os2web-kulturnaut-venue:parents:join-path]/[node:field_os2web_kulturnaut_venue]/[node:title]';
+  $export['pathauto_node_os2web_kulturnaut_knactivity_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_taxonomy_term_os2web_base_tax_site_structure_pattern';
+  $strongarm->value = '';
+  $export['pathauto_taxonomy_term_os2web_base_tax_site_structure_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_taxonomy_term_os2web_kulturnaut_venue_pattern';
+  $strongarm->value = '';
+  $export['pathauto_taxonomy_term_os2web_kulturnaut_venue_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'taxonomy_menu_display_descendants_os2web_taxonomies_tax_places';
   $strongarm->value = 0;
   $export['taxonomy_menu_display_descendants_os2web_taxonomies_tax_places'] = $strongarm;

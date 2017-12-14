@@ -10,9 +10,9 @@ files[] = taxonomy_menu.module
 files[] = taxonomy_menu.test
 files[] = taxonomy_menu.install
 
-; Information added by Drupal.org packaging script on 2014-04-01
-version = "7.x-1.5"
+; Information added by Drupal.org packaging script on 2016-11-23
+version = "7.x-1.5+8-dev"
 core = "7.x"
 project = "taxonomy_menu"
-datestamp = "1396359247"
+datestamp = "1479919148"
 
