@@ -3,6 +3,7 @@ core = 7.x
 package = Syddjurs Subsites
 version = 7.x-1.0
 dependencies[] = ctools
+dependencies[] = os2web_kulturnaut_events
 dependencies[] = strongarm
 dependencies[] = taxonomy_menu
 features[ctools][] = strongarm:strongarm:1
