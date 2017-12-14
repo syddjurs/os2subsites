@@ -576,7 +576,7 @@ function os2web_kulturnaut_events_field_default_field_bases() {
     'settings' => array(
       'allowed_values' => array(
         0 => array(
-          'vocabulary' => 'os2web_kulturnaut_venue',
+          'vocabulary' => 'os2web_taxonomies_tax_places',
           'parent' => 0,
           'depth' => '',
         ),
