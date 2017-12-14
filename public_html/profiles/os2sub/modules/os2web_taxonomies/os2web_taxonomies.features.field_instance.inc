@@ -564,6 +564,40 @@ function os2web_taxonomies_field_default_field_instances() {
   );
 
   // Exported field_instance:
+  // 'taxonomy_term-os2web_taxonomies_tax_places-field_os2web_taxonomies_disp_var'.
+  $field_instances['taxonomy_term-os2web_taxonomies_tax_places-field_os2web_taxonomies_disp_var'] = array(
+    'bundle' => 'os2web_taxonomies_tax_places',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 10,
+      ),
+    ),
+    'entity_type' => 'taxonomy_term',
+    'field_name' => 'field_os2web_taxonomies_disp_var',
+    'label' => 'Visning',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'content_taxonomy_opt_groups' => FALSE,
+      ),
+      'type' => 'options_select',
+      'weight' => 10,
+    ),
+  );
+
+  // Exported field_instance:
   // 'taxonomy_term-os2web_taxonomies_tax_places-field_os2web_taxonomies_name'.
   $field_instances['taxonomy_term-os2web_taxonomies_tax_places-field_os2web_taxonomies_name'] = array(
     'bundle' => 'os2web_taxonomies_tax_places',
@@ -927,6 +961,7 @@ function os2web_taxonomies_field_default_field_instances() {
   t('Systemid');
   t('Søgeord');
   t('Udgået');
+  t('Visning');
 
   return $field_instances;
 }
