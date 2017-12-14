@@ -2,51 +2,59 @@
 
 /**
  * @param $menu_name
- * @param bool|FALSE $theme_function_name
+ * @param bool|FALSE $menu_type
+ * @param bool|FALSE $full_menu
  * @param null $max_depth
- * Menu type: "full" or "trail"
+ * Menu type: "navigation-list" or "sidebar"
  *
  * @return array
  */
-function _bellcom_generate_menu($menu_name, $theme_function_name = FALSE, $max_depth = NULL) {
+function _bellcom_generate_menu($menu_name, $menu_type = NULL, $full_menu = false, $max_depth = NULL) {
   if (empty($menu_name)) {
     return array();
   }
 
-  $menu_tree = menu_tree_page_data($menu_name, $max_depth);
+  // Menu type
+  if ($full_menu) {
+    $menu_tree = menu_tree_all_data($menu_name, NULL, $max_depth);
+  }
+  else {
+    $menu_tree = menu_tree_page_data($menu_name, $max_depth);
+  }
 
   $output = menu_tree_output($menu_tree);
 
-//  // Start level
-//  if ($start_level !== NULL) {
-//
-//    while ($start_level-- > 0 && $menu_tree) {
-//
-//      // Loop through the current level's items until we find one that is in trail.
-//      while ($item = array_shift($menu_tree)) {
-//        if ($item['link']['in_active_trail']) {
-//
-//          // If the item is in the active trail, we continue in the subtree.
-//          $menu_tree = empty($item['below']) ? array() : $item['below'];
-//          break;
-//        }
-//      }
-//    }
-//  }
+  //  // Start level
+  //  if ($start_level !== NULL) {
+  //
+  //    while ($start_level-- > 0 && $menu_tree) {
+  //
+  //      // Loop through the current level's items until we find one that is in trail.
+  //      while ($item = array_shift($menu_tree)) {
+  //        if ($item['link']['in_active_trail']) {
+  //
+  //          // If the item is in the active trail, we continue in the subtree.
+  //          $menu_tree = empty($item['below']) ? array() : $item['below'];
+  //          break;
+  //        }
+  //      }
+  //    }
+  //  }
 
   // Change theme function for tree and links
-  if ($theme_function_name !== FALSE) {
+  if ($menu_type !== NULL) {
 
     // Tree
     $menu_tree_function_names = array(
-      'menu_tree__' . strtr($menu_name, '-', '_') . '__' . strtr($theme_function_name, '-', '_'),
+      'menu_tree__' . strtr($menu_type, '-', '_'),
+      'menu_tree__' . strtr($menu_name, '-', '_') . '__' . strtr($menu_type, '-', '_'),
     );
     $output['#theme_wrappers'] = $menu_tree_function_names;
 
     // Links
     $menu_link_function_names = array(
       'old' => 'menu_link__' . strtr($menu_name, '-', '_'),
-      'new' => 'menu_link__' . strtr($theme_function_name, '-', '_'),
+      'new' => 'menu_link__' . strtr($menu_type, '-', '_'),
     );
     array_walk_recursive($output, '_bellcom_alter_menu_theme_function', $menu_link_function_names);
   }
