@@ -160,6 +160,34 @@ function os2web_taxonomies_field_default_field_bases() {
     'type' => 'number_integer',
   );
 
+  // Exported field_base: 'field_os2web_taxonomies_disp_var'.
+  $field_bases['field_os2web_taxonomies_disp_var'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_os2web_taxonomies_disp_var',
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        'var1' => 'Variant 1',
+        'var2' => 'Variant 2',
+        'var3' => 'Variant 3',
+        'var4' => 'Variant 4',
+        'var5' => 'Variant 5',
+      ),
+      'allowed_values_function' => '',
+    ),
+    'translatable' => 0,
+    'type' => 'list_text',
+  );
+
   // Exported field_base: 'field_os2web_taxonomies_legi_ref'.
   $field_bases['field_os2web_taxonomies_legi_ref'] = array(
     'active' => 1,
