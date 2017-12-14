@@ -174,6 +174,14 @@ function bellcom_menu_tree__user_menu__sidebar(&$variables) {
 }
 
 /*
+ * Implements theme_menu_tree().
+ * For slinky menu types.
+ */
+function bellcom_menu_tree__slinky(&$variables) {
+  return $variables['tree'];
+}
+
+/*
  * Implements theme_menu_link().
  */
 function bellcom_menu_link__main_navigation(array $variables) {
@@ -276,76 +284,39 @@ function bellcom_menu_link__sidebar(array $variables) {
 }
 
 /*
- * Seperated dates
- * Heavily inspired by drupals format_date() function.
+ * Implements theme_menu_link().
  */
-function _bellcom_seperated_dates($timestamp) {
-  $seperated_dates = array();
+function bellcom_menu_link__slinky(array $variables) {
+  $element = $variables['element'];
+  $sub_menu = '';
 
-  // Use the advanced drupal_static() pattern, since this is called very often.
-  static $drupal_static_fast;
-  if (!isset($drupal_static_fast)) {
-    $drupal_static_fast['timezones'] = &drupal_static(__FUNCTION__);
-  }
-  $timezones = &$drupal_static_fast['timezones'];
+  if ($element['#below']) {
 
-  if (!isset($timezone)) {
-    $timezone = date_default_timezone_get();
-  }
-  // Store DateTimeZone objects in an array rather than repeatedly
-  // constructing identical objects over the life of a request.
-  if (!isset($timezones[$timezone])) {
-    $timezones[$timezone] = timezone_open($timezone);
-  }
+    // Prevent dropdown functions from being added to management menu so it
+    // does not affect the navbar module.
+    if (($element['#original_link']['menu_name'] == 'management') && (module_exists('navbar'))) {
+      $sub_menu = drupal_render($element['#below']);
+    }
 
-  // Use the default langcode if none is set.
-  global $language;
-  if (empty($langcode)) {
-    $langcode = isset($language->language) ? $language->language : 'en';
+    elseif ((!empty($element['#original_link']['depth']))) {
+
+      // Add our own wrapper.
+      unset($element['#below']['#theme_wrappers']);
+
+      // Submenu classes
+      $sub_menu = ' <ul>' . drupal_render($element['#below']) . '</ul>';
+    }
   }
 
-  // Create a DateTime object from the timestamp.
-  $date_time = date_create('@' . $timestamp);
-  // Set the time zone for the DateTime object.
-  date_timezone_set($date_time, $timezones[$timezone]);
+  // If this is a parent link, slinky require is to just link to a #
+  if ($element['#below']) {
+    $element['#href'] = '';
 
-  // Seperated dates
-  $seperated_dates = array(
-    'day' => array(
-      'integer' => date_format($date_time, 'd'),
-      'short' => t(date_format($date_time, 'D')),
-      'full' => t(date_format($date_time, 'l')),
-    ),
-    'month' => array(
-      'integer' => date_format($date_time, 'm'),
-      'short' => t(date_format($date_time, 'M')),
-      'full' => t(date_format($date_time, 'F')),
-    ),
-    'year' => array(
-      'short' => date_format($date_time, 'y'),
-      'full' => date_format($date_time, 'Y'),
-    ),
-    'week' => date_format($date_time, 'W'),
-  );
+    $element['#localized_options']['fragment'] = 'content';
+    $element['#localized_options']['external'] = TRUE;
+  }
 
-  return $seperated_dates;
+  $output = l($element['#title'], $element['#href'], $element['#localized_options']);
+
+  return '<li>' . $output . $sub_menu . "</li>\n";
 }
-
-/*
- * Text shortener
- */
-function _bellcom_text_shortener($text_string, $max_length) {
-  $alter = array(
-    'max_length'    => $max_length,
-    'ellipsis'      => TRUE,
-    'word_boundary' => TRUE,
-    'html'          => TRUE,
-  );
-
-  $shortened_string = views_trim_text($alter, $text_string);
-
-  return $shortened_string;
-}
-
-
-
