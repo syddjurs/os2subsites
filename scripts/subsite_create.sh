@@ -45,8 +45,8 @@ create_vhost
 add_to_hosts "$SITENAME"
 install_drupal
 set_permissions
-set_variables
+#set_variables
 add_to_crontab
 add_subsiteadmin
 
-mail_status "$SITENAME" "jjs@bellcom.dk"
+mail_status "$SITENAME" "kbha@syddjurs.dk"
