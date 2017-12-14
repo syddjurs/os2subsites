@@ -161,7 +161,7 @@ function taxonomy_menu_vocab_submit($form, &$form_state) {
       }
     }
 
-    // If $changed is alreayd set to true, then don't bother checking any others.
+    // If $changed is already set to true, then don't bother checking any others.
     if (!$changed) {
       // Check to see if the variable has changed.
       if (_taxonomy_menu_check_variable($variable_name, $value)) {
@@ -292,12 +292,14 @@ function _taxonomy_menu_check_variable($variable, $new_value) {
  */
 function _taxonomy_menu_update_link_items($vid) {
   $menu_name = variable_get(_taxonomy_menu_build_variable('vocab_menu', $vid), FALSE);
+  $depth = variable_get(_taxonomy_menu_build_variable('max_depth', $vid), 0);
 
   // Get a list of the current tid - menu_link combinations
   $menu_links = _taxonomy_menu_get_menu_items($vid);
 
   // Cycle through the menu links
   foreach ($menu_links as $tid => $mlid) {
+    if (!_taxonomy_menu_term_too_deep($tid, $depth))
     // $args must be reset each time through.
     $args = array(
       'menu_name' => $menu_name,
@@ -377,7 +379,7 @@ function taxonomy_menu_taxonomy_term_delete($term) {
 function taxonomy_menu_node_insert($node) {
   $terms_old = &drupal_static('taxonomy_menu_terms_old');
   // We use this direct table pull to avoid the cache and because
-  // free tags are not formated in a matter where extrating the
+  // free tags are not formatted in a matter where extrating the
   // tid's is easy.
   $terms_new = _taxonomy_menu_get_node_terms($node);
 
@@ -392,7 +394,7 @@ function taxonomy_menu_node_insert($node) {
 function taxonomy_menu_node_update($node) {
   $terms_old = &drupal_static('taxonomy_menu_terms_old');
   //we use this direct table pull to avoid the cache and because
-  //free tags are not formated in a matter where extrating the
+  //free tags are not formatted in a matter where extrating the
   //tid's is easy
   $terms_new = _taxonomy_menu_get_node_terms($node);
 
@@ -436,8 +438,9 @@ function _taxonomy_menu_taxonomy_termapi_helper($term, $operation) {
   // option has been checked.
   $menu_name = variable_get(_taxonomy_menu_build_variable('vocab_menu', $term->vid), 0);
   $sync = variable_get(_taxonomy_menu_build_variable('sync', $term->vid), 0);
+  $depth = variable_get(_taxonomy_menu_build_variable('max_depth', $term->vid), 0);
 
-  if ($menu_name && $sync) {
+  if ($menu_name && $sync && !_taxonomy_menu_term_too_deep($term->tid, $depth)) {
     $item = array(
       'tid' => $term->tid,
       'vid' => $term->vid,
@@ -611,8 +614,7 @@ function taxonomy_menu_handler($op, $args = array(), $node = NULL, $item = array
 function _taxonomy_menu_save($item) {
   $insert = TRUE;
 
-  $flatten_menu = variable_get(_taxonomy_menu_build_variable('flat',
-$item['vid']));
+  $flatten_menu = variable_get(_taxonomy_menu_build_variable('flat', $item['vid']));
   // Child items should appear around the parent/root, so set their weight
   // equal to the root term's
   if ($flatten_menu) {
@@ -640,13 +642,23 @@ $item['vid']));
     'link_title' => $item['name'],
     'menu_name' => $item['menu_name'],
     'plid' => $plid,
-    'options' => array('attributes' => array('title' => trim($item['description'])
-      ? $item['description'] : $item['name'])),
     'weight' => $item['weight'],
     'module' => 'taxonomy_menu',
     'expanded' => variable_get(_taxonomy_menu_build_variable('expanded', $item['vid']), TRUE),
     'link_path' => $path,
   );
+
+  // Be sure to load the original menu link to preserve non-standard properties.
+  if (isset($item['mlid']) && !empty($item['mlid']) && $original_link = menu_link_load($item['mlid'])) {
+    $link = array_merge($original_link, $link);
+  }
+  else {
+    $link['options'] = array(
+      'attributes' => array(
+        'title' => trim($item['description']) ? $item['description'] : $item['name'],
+      ),
+    );
+  }
 
   // Add setup the query paramater in the URL correctly
   if (strpos($path, '?') !== FALSE) {
@@ -665,6 +677,11 @@ $item['vid']));
   if (isset($item['mlid']) && $item['mlid']) {
     $link['mlid'] = $item['mlid'];
     $insert = FALSE;
+    $menu_link = menu_link_load($item['mlid']);
+    $is_hidden = $menu_link['hidden'];
+  }
+  else {
+    $is_hidden = 0;
   }
 
   // FIXME: i18nmenu need to be cleaned up to allow translation from other menu module
@@ -688,7 +705,7 @@ $item['vid']));
   }
 
   // If remove is true then set hidden to 1
-  $link['hidden'] = (isset($item['remove']) && $item['remove']) ? 1 : 0;
+  $link['hidden'] = (isset($item['remove']) && $item['remove']) ? 1 : $is_hidden;
 
   // Save the menu item
   if ($mlid = menu_link_save($link)) {
@@ -754,7 +771,7 @@ function taxonomy_menu_path_default($vid, $tid) {
   if ($tid == 0) {
     // get all of the terms for the vocab
     $vtids = _taxonomy_menu_get_terms($vid);
-    $end = implode(' ', $vtids);
+    $end = implode('/', $vtids);
     $path = "taxonomy/term/$end";
   }
   else {
@@ -771,9 +788,9 @@ function taxonomy_menu_path_default($vid, $tid) {
         foreach ($terms as $term) {
           $tids[] = $term->tid;
         }
-        if ($tids) {
-          $end = implode(' ', $tids);
-          $path .= ' ' . $end;
+        if (isset($tids)) {
+          $end = implode('/', $tids);
+          $path .= '/ ' . $end;
         }
       }
     }
@@ -847,7 +864,7 @@ function _taxonomy_menu_create_item($args = array(), $node) {
     // a flat taxonomy menu.
     if (is_object($term)) {
       $term_parents = taxonomy_get_parents_all($term->tid);
-      $root_term_weight = $term_parents[count($term_parents) - 1]->weight;
+      $root_term_weight = ($term_parents) ? $term_parents[count($term_parents) - 1]->weight : 0;
     }
     else {
       $root_term_weight = 0;
@@ -860,7 +877,7 @@ function _taxonomy_menu_create_item($args = array(), $node) {
         'tid' => $term->tid,
         'name' => $term->name,
         'description' => variable_get(_taxonomy_menu_build_variable('term_item_description', $term->vid), 0) ? $term->description : '',
-        'weight' => $term->weight,
+        'weight' => !empty($term->weight) ? $term->weight : 0,
         'vid' => $term->vid,
         'ptid' => $ptid,
         'root_term_weight' => $root_term_weight,
@@ -922,7 +939,7 @@ function _taxonomy_menu_item($item) {
 
     // if display number is selected and $num > 0 then change the title
     if (variable_get(_taxonomy_menu_build_variable('display_num', $item['vid']), FALSE)) {
-      // if number > 0 and display decendants, then count all of the children
+      // if number > 0 and display descendants, then count all of the children
       if (variable_get(_taxonomy_menu_build_variable('display_descendants', $item['vid']), FALSE)) {
         $num = taxonomy_menu_term_count_nodes($item['tid'], $item['vid']);
       }
@@ -1070,6 +1087,14 @@ function taxonomy_menu_taxonomy_menu_options() {
     'default' => TRUE,
   );
 
+  $options['max_depth'] = array(
+   '#type' => 'select',
+   '#title' => t('Max depth'),
+   '#description' => t('Limit how many levels of the taxonomy tree to process. Useful if you have a very large tree of taxonomy terms, and only want to provide a menu for the first several levels.'),
+   '#options' => array(0 => t('All'), 1 => 1, 2 => 2, 3 => 3, 4 => 4, 5 => 5, 6 => 6, 7 => 7, 8 => 8, 9 => 9),
+   'default' => 0,
+  );
+
   $options['display_num'] = array(
     '#title' => t('Display number of items'),
     '#description' => t('Display the number of items per taxonomy terms. Will not show up for vocabulary menu items.'),
@@ -1165,7 +1190,7 @@ function taxonomy_menu_translated_menu_link_alter(&$item, $map) {
             }
             // if display number is selected and $num > 0 then change the title
             elseif (variable_get(_taxonomy_menu_build_variable('display_num', $t->vid), FALSE)) {
-              // if number > 0 and display decendants, then count all of the children
+              // if number > 0 and display descendants, then count all of the children
               if (variable_get(_taxonomy_menu_build_variable('display_descendants', $t->vid), FALSE)) {
                 $num = taxonomy_menu_term_count_nodes($t->tid, $t->vid);
               }
@@ -1196,4 +1221,25 @@ function taxonomy_menu_translated_menu_link_alter(&$item, $map) {
       }
     }
   }
+}
+
+/**
+ * Get term depth from a tid.
+ */
+function _taxonomy_menu_term_too_deep($tid, $max_depth) {
+  if ($max_depth) {
+    $depth = 0;
+    while ($parent = db_select('taxonomy_term_hierarchy', 't')
+      ->condition('tid', $tid, '=')
+      ->fields('t')
+      ->execute()
+      ->fetchAssoc()) {
+      $depth++;
+      $tid = $parent['parent'];
+      if ($depth > $max_depth) {
+        return TRUE;
+      }
+    }
+  }
+  return FALSE;
 }
