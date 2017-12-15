@@ -76,6 +76,7 @@ function os2sub_install() {
   theme_disable(array('bartik', 'rubik', 'seven'));
   variable_set('theme_default', 'subsite_1');
   variable_set('admin_theme', 'adminimal');
+  variable_set('site_frontpage', 'forside');
 
   // Set admin theme on node/edit and node/add
   variable_set('node_admin_theme', '1');
