@@ -13,6 +13,18 @@ function kultunaut_import_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'crumbs_weights';
+  $strongarm->value = array(
+    'crumbs.home_title' => 1,
+    'path' => 2,
+    'taxonomy.termReference.*' => 3,
+    '*' => 4,
+  );
+  $export['crumbs_weights'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'pathauto_node_os2web_kulturnaut_knactivity_pattern';
   $strongarm->value = '[node:field-os2web-kulturnaut-venue:parents:join-path]/[node:field_os2web_kulturnaut_venue]/[node:title]';
   $export['pathauto_node_os2web_kulturnaut_knactivity_pattern'] = $strongarm;

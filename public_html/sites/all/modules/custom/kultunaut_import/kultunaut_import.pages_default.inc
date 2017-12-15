@@ -65,18 +65,13 @@ function kultunaut_import_default_page_manager_handlers() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-e66073e8-ae26-4ebc-a5ec-10261eb60d34';
+    $pane->pid = 'new-106ba0fd-3a46-4022-83c6-296379e996e0';
     $pane->panel = 'content';
-    $pane->type = 'term_list';
-    $pane->subtype = 'term_list';
+    $pane->type = 'term_description';
+    $pane->subtype = 'term_description';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'title' => NULL,
-      'type' => 'child',
-      'include_current_term' => 0,
-      'list_type' => 'ol',
-      'path' => 'taxonomy/term',
       'context' => 'argument_term_1',
       'override_title' => 1,
       'override_title_text' => '',
@@ -90,9 +85,55 @@ function kultunaut_import_default_page_manager_handlers() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = 'e66073e8-ae26-4ebc-a5ec-10261eb60d34';
-    $display->content['new-e66073e8-ae26-4ebc-a5ec-10261eb60d34'] = $pane;
-    $display->panels['content'][0] = 'new-e66073e8-ae26-4ebc-a5ec-10261eb60d34';
+    $pane->uuid = '106ba0fd-3a46-4022-83c6-296379e996e0';
+    $display->content['new-106ba0fd-3a46-4022-83c6-296379e996e0'] = $pane;
+    $display->panels['content'][0] = 'new-106ba0fd-3a46-4022-83c6-296379e996e0';
+    $pane = new stdClass();
+    $pane->pid = 'new-92ce8abd-b085-4601-adfc-531845800884';
+    $pane->panel = 'content';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'oplevsyddjurs_term_subterms-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'context' => array(
+        0 => 'argument_term_1',
+      ),
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '92ce8abd-b085-4601-adfc-531845800884';
+    $display->content['new-92ce8abd-b085-4601-adfc-531845800884'] = $pane;
+    $display->panels['content'][1] = 'new-92ce8abd-b085-4601-adfc-531845800884';
+    $pane = new stdClass();
+    $pane->pid = 'new-01d21cf4-07a8-4bd3-80dd-2af0cd8bd140';
+    $pane->panel = 'content';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'oplevsyddjurs_term_nodes-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'context' => array(
+        0 => 'argument_term_1',
+      ),
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 2;
+    $pane->locks = array();
+    $pane->uuid = '01d21cf4-07a8-4bd3-80dd-2af0cd8bd140';
+    $display->content['new-01d21cf4-07a8-4bd3-80dd-2af0cd8bd140'] = $pane;
+    $display->panels['content'][2] = 'new-01d21cf4-07a8-4bd3-80dd-2af0cd8bd140';
     $pane = new stdClass();
     $pane->pid = 'new-813b8640-4929-41aa-bb34-4d5f76d1e350';
     $pane->panel = 'top';
