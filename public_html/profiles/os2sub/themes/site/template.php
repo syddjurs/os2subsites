@@ -93,7 +93,7 @@ function site_preprocess_page(&$variables) {
   }
 
   // Navigation
-  $variables['sidebar_tertiary'] = _bellcom_generate_menu('main-menu', 'sidebar', 2);
+  $variables['sidebar_tertiary'] = _bellcom_generate_menu('main-menu', 'sidebar', false, 2);
 
   // Tabs.
   $variables['tabs_primary'] = $variables['tabs'];
@@ -105,7 +105,7 @@ function site_preprocess_page(&$variables) {
   $variables['page_header_search'] = module_invoke('search_api_page', 'block_view', '2');
 
   // Tabbed navigation
-  $variables['tabbed_navigation'] = _bellcom_generate_menu($primary_navigation_name, 'tabbed', 1);
+  $variables['tabbed_navigation'] = _bellcom_generate_menu($primary_navigation_name, 'tabbed', false, 1);
 
 }
 
