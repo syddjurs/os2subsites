@@ -53,6 +53,7 @@ features[variable][] = taxonomy_menu_voc_item_os2web_taxonomies_tax_places
 features[variable][] = taxonomy_menu_voc_name_os2web_taxonomies_tax_places
 features[variable][] = taxonomy_menu_vocab_menu_os2web_taxonomies_tax_places
 features[variable][] = taxonomy_menu_vocab_parent_os2web_taxonomies_tax_places
+features[views_view][] = oplevsyddjurs_andre_events
 features[views_view][] = oplevsyddjurs_forside_banner
 features[views_view][] = oplevsyddjurs_forside_kalender
 features[views_view][] = oplevsyddjurs_term_nodes
