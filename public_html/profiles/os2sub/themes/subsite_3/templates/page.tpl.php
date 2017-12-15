@@ -25,7 +25,11 @@
                              alt="<?php print t('@site_name logo', array('@site_name' => $site_name)); ?>"/>
                     </a>
                     <!-- End - logo -->
-
+                    <?php if (!empty($page['search'])): ?>
+                      <?php print render($page['search']); ?>
+                      <?php else : ?>
+                      <?php print $search_box; ?>
+                    <?php endif; ?>
                     <!-- Push navigation to the right -->
                     <div class="flexy-spacer"></div>
 
@@ -124,22 +128,12 @@
             <?php print $messages; ?>
         </div>
 
-        <?php if (panels_get_current_page_display()): ?>
 
             <?php print $breadcrumb; ?>
 
-            <?php if ($wrap_panels_layout): ?>
                 <div class="container">
                     <?php print render($page['content']); ?>
                 </div>
-            <?php else: ?>
-                <?php print render($page['content']); ?>
-            <?php endif; ?>
-        <?php else: ?>
-            <div class="container">
-                <?php print render($page['content']); ?>
-            </div>
-        <?php endif; ?>
 
     </main>
     <!-- End - content -->
