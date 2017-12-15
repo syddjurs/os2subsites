@@ -13,6 +13,355 @@ function kultunaut_import_default_page_manager_handlers() {
   $handler = new stdClass();
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
+  $handler->name = 'node_view__panel_context_c46c121f-3797-4277-95fb-a9f62cd9469e';
+  $handler->task = 'node_view';
+  $handler->subtask = '';
+  $handler->handler = 'panel_context';
+  $handler->weight = -25;
+  $handler->conf = array(
+    'title' => 'KultuNaut Events',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => '',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+    'name' => '',
+    'access' => array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'node_type',
+          'settings' => array(
+            'type' => array(
+              'os2web_kulturnaut_knactivity' => 'os2web_kulturnaut_knactivity',
+            ),
+          ),
+          'context' => 'argument_entity_id:node_1',
+          'not' => FALSE,
+        ),
+      ),
+      'logic' => 'and',
+    ),
+  );
+  $display = new panels_display();
+  $display->layout = 'content-with-left-and-right-sidebar-top-footer';
+  $display->layout_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'footer' => NULL,
+      'top' => NULL,
+      'sidebar-left' => NULL,
+      'sidebar-right' => NULL,
+      'content' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = '';
+  $display->uuid = '7a2a3e58-469d-47f1-b9de-d4faef6d8fe1';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-23ea6d7a-2c44-4cc5-815b-5ea2edaf2d2d';
+    $pane->panel = 'content';
+    $pane->type = 'node_title';
+    $pane->subtype = 'node_title';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'link' => 0,
+      'markup' => 'h1',
+      'id' => '',
+      'class' => '',
+      'context' => 'argument_entity_id:node_1',
+      'override_title' => 1,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '23ea6d7a-2c44-4cc5-815b-5ea2edaf2d2d';
+    $display->content['new-23ea6d7a-2c44-4cc5-815b-5ea2edaf2d2d'] = $pane;
+    $display->panels['content'][0] = 'new-23ea6d7a-2c44-4cc5-815b-5ea2edaf2d2d';
+    $pane = new stdClass();
+    $pane->pid = 'new-162d2a84-b65e-4d82-8694-8edc639fb003';
+    $pane->panel = 'content';
+    $pane->type = 'node_body';
+    $pane->subtype = 'node_body';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'context' => 'argument_entity_id:node_1',
+      'override_title' => 1,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '162d2a84-b65e-4d82-8694-8edc639fb003';
+    $display->content['new-162d2a84-b65e-4d82-8694-8edc639fb003'] = $pane;
+    $display->panels['content'][1] = 'new-162d2a84-b65e-4d82-8694-8edc639fb003';
+    $pane = new stdClass();
+    $pane->pid = 'new-a129bd71-d0ff-4aa5-9886-8e6194ac765c';
+    $pane->panel = 'content';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => '',
+      'title' => 'Andre events',
+      'body' => '<p>Vis 2 events fra samme kategpri</p>
+',
+      'format' => 'full_html',
+      'substitute' => 0,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 2;
+    $pane->locks = array();
+    $pane->uuid = 'a129bd71-d0ff-4aa5-9886-8e6194ac765c';
+    $display->content['new-a129bd71-d0ff-4aa5-9886-8e6194ac765c'] = $pane;
+    $display->panels['content'][2] = 'new-a129bd71-d0ff-4aa5-9886-8e6194ac765c';
+    $pane = new stdClass();
+    $pane->pid = 'new-2cc6b48d-bdb7-45d6-abc8-a0cb83ac44d7';
+    $pane->panel = 'sidebar-right';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:field_os2web_kulturnaut_slidesho';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'hidden',
+      'formatter' => 'image',
+      'delta_limit' => '0',
+      'delta_offset' => '0',
+      'delta_reversed' => 0,
+      'formatter_settings' => array(
+        'image_style' => 'os2sub_small_imagesize',
+        'image_link' => '',
+      ),
+      'context' => 'argument_entity_id:node_1',
+      'override_title' => 1,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '2cc6b48d-bdb7-45d6-abc8-a0cb83ac44d7';
+    $display->content['new-2cc6b48d-bdb7-45d6-abc8-a0cb83ac44d7'] = $pane;
+    $display->panels['sidebar-right'][0] = 'new-2cc6b48d-bdb7-45d6-abc8-a0cb83ac44d7';
+    $pane = new stdClass();
+    $pane->pid = 'new-d27b90c0-a52b-4892-8779-6c8b940134a1';
+    $pane->panel = 'sidebar-right';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:field_os2web_kulturnaut_date';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'title',
+      'formatter' => 'date_default',
+      'delta_limit' => 0,
+      'delta_offset' => '0',
+      'delta_reversed' => FALSE,
+      'formatter_settings' => array(
+        'format_type' => 'long',
+        'multiple_number' => '',
+        'multiple_from' => '',
+        'multiple_to' => '',
+        'fromto' => 'both',
+        'show_remaining_days' => 0,
+      ),
+      'context' => 'argument_entity_id:node_1',
+      'override_title' => 1,
+      'override_title_text' => 'Tidspunkt',
+      'override_title_heading' => 'h3',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = 'd27b90c0-a52b-4892-8779-6c8b940134a1';
+    $display->content['new-d27b90c0-a52b-4892-8779-6c8b940134a1'] = $pane;
+    $display->panels['sidebar-right'][1] = 'new-d27b90c0-a52b-4892-8779-6c8b940134a1';
+    $pane = new stdClass();
+    $pane->pid = 'new-1c136eea-4339-44c4-9f39-d3b6191baa14';
+    $pane->panel = 'sidebar-right';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:field_os2web_kulturnaut_venue';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'hidden',
+      'formatter' => 'taxonomy_term_reference_link',
+      'delta_limit' => 0,
+      'delta_offset' => '0',
+      'delta_reversed' => FALSE,
+      'formatter_settings' => array(),
+      'context' => 'argument_entity_id:node_1',
+      'override_title' => 1,
+      'override_title_text' => 'Sted',
+      'override_title_heading' => 'h3',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 2;
+    $pane->locks = array();
+    $pane->uuid = '1c136eea-4339-44c4-9f39-d3b6191baa14';
+    $display->content['new-1c136eea-4339-44c4-9f39-d3b6191baa14'] = $pane;
+    $display->panels['sidebar-right'][2] = 'new-1c136eea-4339-44c4-9f39-d3b6191baa14';
+    $pane = new stdClass();
+    $pane->pid = 'new-eebd5313-9908-4b9f-9d25-81d72ed4f935';
+    $pane->panel = 'sidebar-right';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:field_os2web_kulturnaut_price';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'title',
+      'formatter' => 'text_default',
+      'delta_limit' => 0,
+      'delta_offset' => '0',
+      'delta_reversed' => FALSE,
+      'formatter_settings' => array(),
+      'context' => 'argument_entity_id:node_1',
+      'override_title' => 1,
+      'override_title_text' => 'Pris',
+      'override_title_heading' => 'h3',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 3;
+    $pane->locks = array();
+    $pane->uuid = 'eebd5313-9908-4b9f-9d25-81d72ed4f935';
+    $display->content['new-eebd5313-9908-4b9f-9d25-81d72ed4f935'] = $pane;
+    $display->panels['sidebar-right'][3] = 'new-eebd5313-9908-4b9f-9d25-81d72ed4f935';
+    $pane = new stdClass();
+    $pane->pid = 'new-7fa6fe85-f801-4961-a038-56d954427937';
+    $pane->panel = 'sidebar-right';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:field_os2web_kulturnaut_target';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'title',
+      'formatter' => 'text_default',
+      'delta_limit' => 0,
+      'delta_offset' => '0',
+      'delta_reversed' => FALSE,
+      'formatter_settings' => array(),
+      'context' => 'argument_entity_id:node_1',
+      'override_title' => 1,
+      'override_title_text' => 'Målgruppe',
+      'override_title_heading' => 'h3',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 4;
+    $pane->locks = array();
+    $pane->uuid = '7fa6fe85-f801-4961-a038-56d954427937';
+    $display->content['new-7fa6fe85-f801-4961-a038-56d954427937'] = $pane;
+    $display->panels['sidebar-right'][4] = 'new-7fa6fe85-f801-4961-a038-56d954427937';
+    $pane = new stdClass();
+    $pane->pid = 'new-2d7d8409-50de-4c43-89a4-73dc3dfd8265';
+    $pane->panel = 'sidebar-right';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:field_os2web_kulturnaut_url';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'title',
+      'formatter' => 'text_default',
+      'delta_limit' => 0,
+      'delta_offset' => '0',
+      'delta_reversed' => FALSE,
+      'formatter_settings' => array(),
+      'context' => 'argument_entity_id:node_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 5;
+    $pane->locks = array();
+    $pane->uuid = '2d7d8409-50de-4c43-89a4-73dc3dfd8265';
+    $display->content['new-2d7d8409-50de-4c43-89a4-73dc3dfd8265'] = $pane;
+    $display->panels['sidebar-right'][5] = 'new-2d7d8409-50de-4c43-89a4-73dc3dfd8265';
+    $pane = new stdClass();
+    $pane->pid = 'new-5f399056-6e3a-4b97-8630-4d0aead357ee';
+    $pane->panel = 'top';
+    $pane->type = 'block';
+    $pane->subtype = 'crumbs-breadcrumb';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 1,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '5f399056-6e3a-4b97-8630-4d0aead357ee';
+    $display->content['new-5f399056-6e3a-4b97-8630-4d0aead357ee'] = $pane;
+    $display->panels['top'][0] = 'new-5f399056-6e3a-4b97-8630-4d0aead357ee';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = 'new-23ea6d7a-2c44-4cc5-815b-5ea2edaf2d2d';
+  $handler->conf['display'] = $display;
+  $export['node_view__panel_context_c46c121f-3797-4277-95fb-a9f62cd9469e'] = $handler;
+
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
   $handler->name = 'term_view__panel_context_6434e852-b63e-45b4-9234-b6dcc05d23bd';
   $handler->task = 'term_view';
   $handler->subtask = '';
@@ -833,4 +1182,109 @@ function kultunaut_import_default_page_manager_handlers() {
   $export['term_view__variant-5'] = $handler;
 
   return $export;
+}
+
+/**
+ * Implements hook_default_page_manager_pages().
+ */
+function kultunaut_import_default_page_manager_pages() {
+  $page = new stdClass();
+  $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
+  $page->api_version = 1;
+  $page->name = 'olevsyddjurs_forside';
+  $page->task = 'page';
+  $page->admin_title = 'OlevSyddjurs Forside';
+  $page->admin_description = '';
+  $page->path = 'kalenderforside';
+  $page->access = array();
+  $page->menu = array();
+  $page->arguments = array();
+  $page->conf = array(
+    'admin_paths' => FALSE,
+  );
+  $page->default_handlers = array();
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'page_olevsyddjurs_forside__panel';
+  $handler->task = 'page';
+  $handler->subtask = 'olevsyddjurs_forside';
+  $handler->handler = 'panel_context';
+  $handler->weight = 0;
+  $handler->conf = array(
+    'title' => 'Panel',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => '',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+    'name' => 'panel',
+  );
+  $display = new panels_display();
+  $display->layout = 'os2web-frontpage';
+  $display->layout_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'footer' => NULL,
+      'top' => NULL,
+      'sidebar-left' => NULL,
+      'sidebar-right' => NULL,
+      'content' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = '';
+  $display->uuid = '6fabdbbb-d6d4-4a47-be27-b83e4d9d0504';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-dbba442a-8e78-4866-8484-70a5a233ae63';
+    $pane->panel = 'content';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'oplevsyddjurs_forside_kalender-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'dbba442a-8e78-4866-8484-70a5a233ae63';
+    $display->content['new-dbba442a-8e78-4866-8484-70a5a233ae63'] = $pane;
+    $display->panels['content'][0] = 'new-dbba442a-8e78-4866-8484-70a5a233ae63';
+    $pane = new stdClass();
+    $pane->pid = 'new-facdf032-e98d-4624-963f-5df7eccab516';
+    $pane->panel = 'top';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'oplevsyddjurs_forside_banner-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'facdf032-e98d-4624-963f-5df7eccab516';
+    $display->content['new-facdf032-e98d-4624-963f-5df7eccab516'] = $pane;
+    $display->panels['top'][0] = 'new-facdf032-e98d-4624-963f-5df7eccab516';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = '0';
+  $handler->conf['display'] = $display;
+  $page->default_handlers[$handler->name] = $handler;
+  $pages['olevsyddjurs_forside'] = $page;
+
+  return $pages;
+
 }
