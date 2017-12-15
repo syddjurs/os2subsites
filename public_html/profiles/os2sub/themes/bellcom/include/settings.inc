@@ -1,15 +1,15 @@
 <?php
 
-function _theme_settings_form(&$form, $form_state) {
+function _theme_settings_form(&$form, &$form_state) {
 
   // Vertical tabs
-  $form['options'] = array(
+  $form['options'] = [
     '#type'        => 'vertical_tabs',
     '#default_tab' => 'main',
     '#weight'      => '-20',
     '#prefix'      => '<h2><small>' . t('Site indstillinger') . '</small></h2>',
     '#title'       => t('Indstillinger'),
-  );
+  ];
 
   /*
   |--------------------------------------------------------------------------
@@ -21,274 +21,279 @@ function _theme_settings_form(&$form, $form_state) {
   */
 
   // Fieldset
-  $form['options']['layout'] = array(
+  $form['options']['layout'] = [
     '#type'  => 'fieldset',
     '#title' => t('Sideopsætning'),
-  );
+  ];
 
   // Top bar.
-  $form['options']['layout']['top_bar'] = array(
+  $form['options']['layout']['top_bar'] = [
     '#type'        => 'fieldset',
     '#title'       => 'Top bar',
     '#collapsible' => TRUE,
     '#collapsed'   => TRUE,
-  );
+  ];
 
   // Top bar - contact information
-  $form['options']['layout']['top_bar']['contact_information'] = array(
+  $form['options']['layout']['top_bar']['contact_information'] = [
     '#type'          => 'select',
     '#title'         => t('Vis kontaktinformationer'),
-    '#options'       => array(
+    '#options'       => [
       1 => t('Nej, skjul dem.'),
       2 => t('Venstre side'),
-      3 => t('Højre side')
-    ),
+      3 => t('Højre side'),
+    ],
     '#default_value' => theme_get_setting('contact_information'),
-  );
+  ];
 
   // Top bar - social links
-  $form['options']['layout']['top_bar']['social_links'] = array(
+  $form['options']['layout']['top_bar']['social_links'] = [
     '#type'          => 'select',
     '#title'         => t('Vis links til sociale websites'),
-    '#options'       => array(
+    '#options'       => [
       1 => t('Nej, skjul dem.'),
       2 => t('Venstre side'),
-      3 => t('Højre side')
-    ),
+      3 => t('Højre side'),
+    ],
     '#default_value' => theme_get_setting('social_links'),
-  );
+  ];
 
   // Navigation
-  $form['options']['layout']['navigation'] = array(
+  $form['options']['layout']['navigation'] = [
     '#type'        => 'fieldset',
     '#title'       => t('Navigation'),
     '#collapsible' => TRUE,
     '#collapsed'   => TRUE,
-  );
-  
-  $form['options']['layout']['navigation']['login_account_links'] = array(
+  ];
+
+  $form['options']['layout']['navigation']['login_account_links'] = [
     '#type'          => 'checkbox',
     '#title'         => t('Vis login og brugerlink'),
     '#default_value' => theme_get_setting('login_account_links'),
     '#description'   => t("Vises i højre side af navigationen"),
-  );
+  ];
 
-  $form['options']['layout']['navigation']['searchboxdisp'] = array(
+  $form['options']['layout']['navigation']['searchboxdisp'] = [
     '#type'          => 'checkbox',
     '#title'         => t('Vis søgeboks'),
     '#default_value' => theme_get_setting('searchboxdisp'),
     '#description'   => t("Vises i højre side af navigationen"),
-  );
-  
-    $form['options']['layout']['navigation']['navigationblocks'] = array(
+  ];
+
+  $form['options']['layout']['navigation']['navigationblocks'] = [
     '#type'          => 'checkbox',
     '#title'         => t('Vis alm blocks i navigationslinien'),
     '#default_value' => theme_get_setting('navigationblocks'),
     '#description'   => t("Vises i højre side af navigationen"),
-  );
+  ];
 
   // Sidebar
-  $form['options']['layout']['sidebar'] = array(
+  $form['options']['layout']['sidebar'] = [
     '#type'        => 'fieldset',
     '#title'       => 'Sidebar',
     '#collapsible' => TRUE,
     '#collapsed'   => TRUE,
-  );
+  ];
 
   // Sidebar left
-  $form['options']['layout']['sidebar']['left'] = array(
+  $form['options']['layout']['sidebar']['left']                                         = [
     '#type'        => 'fieldset',
     '#title'       => t('Sidebar venstre'),
     '#collapsible' => TRUE,
     '#collapsed'   => TRUE,
-  );
-  $form['options']['layout']['sidebar']['left']['xs'] = array(
+  ];
+  $form['options']['layout']['sidebar']['left']['xs']                                   = [
     '#type'        => 'fieldset',
     '#title'       => t('XS viewmode'),
     '#collapsible' => TRUE,
     '#collapsed'   => FALSE,
-  );
-  $form['options']['layout']['sidebar']['left']['xs']['sidebar_left_xs_enabled'] = array(
+  ];
+  $form['options']['layout']['sidebar']['left']['xs']['sidebar_left_xs_enabled']        = [
     '#type'          => 'checkbox',
     '#title'         => t('Aktiv'),
     '#default_value' => theme_get_setting('sidebar_left_xs_enabled'),
-  );
-  $form['options']['layout']['sidebar']['left']['xs']['sidebar_left_xs_state'] = array(
+  ];
+  $form['options']['layout']['sidebar']['left']['xs']['sidebar_left_xs_state']          = [
     '#type'          => 'radios',
     '#title'         => t('Tilstand'),
     '#default_value' => theme_get_setting('sidebar_left_xs_state'),
-    '#options'       => array(
+    '#options'       => [
       'expanded'  => t('Åben'),
       'collapsed' => t('Lukket'),
       'hidden'    => t('Skjult'),
-    ),
-    '#states'        => array(
-      'visible' => array(
-        ':input[name="sidebar_left_xs_enabled"]' => array('checked' => TRUE),
-      ),
-    ),
-  );
-  $form['options']['layout']['sidebar']['left']['xs']['sidebar_left_xs_content_effect'] = array(
+    ],
+    '#states'        => [
+      'visible' => [
+        ':input[name="sidebar_left_xs_enabled"]' => ['checked' => TRUE],
+      ],
+    ],
+  ];
+  $form['options']['layout']['sidebar']['left']['xs']['sidebar_left_xs_content_effect'] = [
     '#type'          => 'radios',
     '#title'         => t('Content effect'),
     '#default_value' => theme_get_setting('sidebar_left_xs_content_effect'),
-    '#options'       => array(
+    '#options'       => [
       'shrink' => 'Shrink content',
       'push'   => 'Push content (off-canvas)',
-    ),
-    '#states'        => array(
-      'visible' => array(
-        ':input[name="sidebar_left_xs_enabled"]' => array('checked' => TRUE),
-        ':input[name="sidebar_left_xs_state"]'   => array('value' => 'hidden'),
-      ),
-    ),
-  );
+    ],
+    '#states'        => [
+      'visible' => [
+        ':input[name="sidebar_left_xs_enabled"]' => ['checked' => TRUE],
+        ':input[name="sidebar_left_xs_state"]'   => ['value' => 'hidden'],
+      ],
+    ],
+  ];
 
-  $form['options']['layout']['sidebar']['left']['sm'] = array(
+  $form['options']['layout']['sidebar']['left']['sm']                                   = [
     '#type'        => 'fieldset',
     '#title'       => t('SM viewmode'),
     '#collapsible' => TRUE,
     '#collapsed'   => FALSE,
-  );
-  $form['options']['layout']['sidebar']['left']['sm']['sidebar_left_sm_enabled'] = array(
+  ];
+  $form['options']['layout']['sidebar']['left']['sm']['sidebar_left_sm_enabled']        = [
     '#type'          => 'checkbox',
     '#title'         => t('Aktiv'),
     '#default_value' => theme_get_setting('sidebar_left_sm_enabled'),
-  );
-  $form['options']['layout']['sidebar']['left']['sm']['sidebar_left_sm_state'] = array(
+  ];
+  $form['options']['layout']['sidebar']['left']['sm']['sidebar_left_sm_state']          = [
     '#type'          => 'radios',
     '#title'         => t('Tilstand'),
     '#default_value' => theme_get_setting('sidebar_left_sm_state'),
-    '#options'       => array(
+    '#options'       => [
       'expanded'  => t('Åben'),
       'collapsed' => t('Lukket'),
       'hidden'    => t('Skjult'),
-    ),
-    '#states'        => array(
-      'visible' => array(
-        ':input[name="sidebar_left_sm_enabled"]' => array('checked' => TRUE),
-      ),
-    ),
-  );
-  $form['options']['layout']['sidebar']['left']['sm']['sidebar_left_sm_content_effect'] = array(
+    ],
+    '#states'        => [
+      'visible' => [
+        ':input[name="sidebar_left_sm_enabled"]' => ['checked' => TRUE],
+      ],
+    ],
+  ];
+  $form['options']['layout']['sidebar']['left']['sm']['sidebar_left_sm_content_effect'] = [
     '#type'          => 'radios',
     '#title'         => t('Visning af indhold'),
     '#default_value' => theme_get_setting('sidebar_left_sm_content_effect'),
-    '#options'       => array(
+    '#options'       => [
       'shrink' => t('Presset sammen'),
       'push'   => t('Skubbet til siden (off-canvas)'),
-    ),
-    '#states'        => array(
-      'visible' => array(
-        ':input[name="sidebar_left_sm_enabled"]' => array('checked' => TRUE),
-        ':input[name="sidebar_left_sm_state"]'   => array('value' => 'hidden'),
-      ),
-    ),
-  );
+    ],
+    '#states'        => [
+      'visible' => [
+        ':input[name="sidebar_left_sm_enabled"]' => ['checked' => TRUE],
+        ':input[name="sidebar_left_sm_state"]'   => ['value' => 'hidden'],
+      ],
+    ],
+  ];
 
-  $form['options']['layout']['sidebar']['left']['md'] = array(
+  $form['options']['layout']['sidebar']['left']['md']                                   = [
     '#type'        => 'fieldset',
     '#title'       => t('MD viewmode'),
     '#collapsible' => TRUE,
     '#collapsed'   => FALSE,
-  );
-  $form['options']['layout']['sidebar']['left']['md']['sidebar_left_md_enabled'] = array(
+  ];
+  $form['options']['layout']['sidebar']['left']['md']['sidebar_left_md_enabled']        = [
     '#type'          => 'checkbox',
     '#title'         => t('Aktiv'),
     '#default_value' => theme_get_setting('sidebar_left_md_enabled'),
-  );
-  $form['options']['layout']['sidebar']['left']['md']['sidebar_left_md_state'] = array(
+  ];
+  $form['options']['layout']['sidebar']['left']['md']['sidebar_left_md_state']          = [
     '#type'          => 'radios',
     '#title'         => t('Tilstand'),
     '#default_value' => theme_get_setting('sidebar_left_md_state'),
-    '#options'       => array(
+    '#options'       => [
       'expanded'  => t('Åben'),
       'collapsed' => t('Lukket'),
       'hidden'    => t('Skjult'),
-    ),
-    '#states'        => array(
-      'visible' => array(
-        ':input[name="sidebar_left_md_enabled"]' => array('checked' => TRUE),
-      ),
-    ),
-  );
-  $form['options']['layout']['sidebar']['left']['md']['sidebar_left_md_content_effect'] = array(
+    ],
+    '#states'        => [
+      'visible' => [
+        ':input[name="sidebar_left_md_enabled"]' => ['checked' => TRUE],
+      ],
+    ],
+  ];
+  $form['options']['layout']['sidebar']['left']['md']['sidebar_left_md_content_effect'] = [
     '#type'          => 'radios',
     '#title'         => t('Visning af indhold'),
     '#default_value' => theme_get_setting('sidebar_left_md_content_effect'),
-    '#options'       => array(
+    '#options'       => [
       'shrink' => t('Presset sammen'),
       'push'   => t('Skubbet til siden (off-canvas)'),
-    ),
-    '#states'        => array(
-      'visible' => array(
-        ':input[name="sidebar_left_md_enabled"]' => array('checked' => TRUE),
-        ':input[name="sidebar_left_md_state"]'   => array('value' => 'hidden'),
-      ),
-    ),
-  );
+    ],
+    '#states'        => [
+      'visible' => [
+        ':input[name="sidebar_left_md_enabled"]' => ['checked' => TRUE],
+        ':input[name="sidebar_left_md_state"]'   => ['value' => 'hidden'],
+      ],
+    ],
+  ];
 
-  $form['options']['layout']['sidebar']['left']['lg'] = array(
+  $form['options']['layout']['sidebar']['left']['lg']                                   = [
     '#type'        => 'fieldset',
     '#title'       => 'LG viewmode',
     '#collapsible' => TRUE,
     '#collapsed'   => FALSE,
-  );
-  $form['options']['layout']['sidebar']['left']['lg']['sidebar_left_lg_enabled'] = array(
+  ];
+  $form['options']['layout']['sidebar']['left']['lg']['sidebar_left_lg_enabled']        = [
     '#type'          => 'checkbox',
     '#title'         => t('Aktiv'),
     '#default_value' => theme_get_setting('sidebar_left_lg_enabled'),
-  );
-  $form['options']['layout']['sidebar']['left']['lg']['sidebar_left_lg_state'] = array(
+  ];
+  $form['options']['layout']['sidebar']['left']['lg']['sidebar_left_lg_state']          = [
     '#type'          => 'radios',
     '#title'         => t('Tilstand'),
     '#default_value' => theme_get_setting('sidebar_left_lg_state'),
-    '#options'       => array(
+    '#options'       => [
       'expanded'  => t('Åben'),
       'collapsed' => t('Lukket'),
       'hidden'    => t('Skjult'),
-    ),
-    '#states'        => array(
-      'visible' => array(
-        ':input[name="sidebar_left_lg_enabled"]' => array('checked' => TRUE),
-      ),
-    ),
-  );
-  $form['options']['layout']['sidebar']['left']['lg']['sidebar_left_lg_content_effect'] = array(
+    ],
+    '#states'        => [
+      'visible' => [
+        ':input[name="sidebar_left_lg_enabled"]' => ['checked' => TRUE],
+      ],
+    ],
+  ];
+  $form['options']['layout']['sidebar']['left']['lg']['sidebar_left_lg_content_effect'] = [
     '#type'          => 'radios',
     '#title'         => t('Visning af indhold'),
     '#default_value' => theme_get_setting('sidebar_left_lg_content_effect'),
-    '#options'       => array(
+    '#options'       => [
       'shrink' => t('Presset sammen'),
       'push'   => t('Skubbet til siden (off-canvas)'),
-    ),
-    '#states'        => array(
-      'visible' => array(
-        ':input[name="sidebar_left_lg_enabled"]' => array('checked' => TRUE),
-        ':input[name="sidebar_left_lg_state"]'   => array('value' => 'hidden'),
-      ),
-    ),
-  );
+    ],
+    '#states'        => [
+      'visible' => [
+        ':input[name="sidebar_left_lg_enabled"]' => ['checked' => TRUE],
+        ':input[name="sidebar_left_lg_state"]'   => ['value' => 'hidden'],
+      ],
+    ],
+  ];
 
   // Footer
-  $form['options']['layout']['footer'] = array(
+  $form['options']['layout']['footer']                             = [
     '#type'        => 'fieldset',
     '#title'       => t('Footer'),
     '#collapsible' => TRUE,
     '#collapsed'   => TRUE,
-  );
-  $form['options']['layout']['footer']['footer_show_social_links'] = array(
+  ];
+  $form['options']['layout']['footer']['footer_show_social_links'] = [
     '#type'          => 'checkbox',
     '#title'         => t('Vis links til sociale tjenester'),
     '#default_value' => theme_get_setting('footer_show_social_links'),
     '#description'   => t("Skal links til sociale tjenester vises i bunden af siden?"),
-  );
-  $form['options']['layout']['footer']['footer_show_branding'] = array(
+  ];
+  $form['options']['layout']['footer']['footer_show_branding']     = [
     '#type'          => 'checkbox',
     '#title'         => t('Vis kommunelogo'),
     '#default_value' => theme_get_setting('footer_show_branding'),
     '#description'   => t("Skal der vises kommunelogo eller ej?"),
-  );
+  ];
+  $form['options']['layout']['footer']['footer_description']       = [
+    '#type'          => 'textfield',
+    '#title'         => t('Kort beskrivelse'),
+    '#default_value' => theme_get_setting('footer_description'),
+  ];
 
   /*
   |--------------------------------------------------------------------------
@@ -300,730 +305,710 @@ function _theme_settings_form(&$form, $form_state) {
   */
 
   // Fieldset
-  $form['options']['contact_information'] = array(
+  $form['options']['contact_information'] = [
     '#type'  => 'fieldset',
     '#title' => t('Kontakt information'),
-  );
+  ];
 
   // Business owner name
-  $form['options']['contact_information']['business_owner_name'] = array(
+  $form['options']['contact_information']['business_owner_name'] = [
     '#type'          => 'textfield',
     '#title'         => t('Navn'),
     '#default_value' => theme_get_setting('business_owner_name'),
-  );
+  ];
 
   // Business startup year
-  $form['options']['contact_information']['business_startup_year'] = array(
+  $form['options']['contact_information']['business_startup_year'] = [
     '#type'          => 'textfield',
     '#title'         => t('Opstartsår'),
     '#default_value' => theme_get_setting('business_startup_year'),
-  );
+  ];
 
   // Address
-  $form['options']['contact_information']['address'] = array(
+  $form['options']['contact_information']['address'] = [
     '#type'          => 'textfield',
     '#title'         => t('Adresse'),
     '#default_value' => theme_get_setting('address'),
-  );
+  ];
 
   // Zipcode
-  $form['options']['contact_information']['zipcode'] = array(
+  $form['options']['contact_information']['zipcode'] = [
     '#type'          => 'textfield',
     '#title'         => t('Postnr'),
     '#default_value' => theme_get_setting('zipcode'),
-  );
+  ];
 
   // City
-  $form['options']['contact_information']['city'] = array(
+  $form['options']['contact_information']['city'] = [
     '#type'          => 'textfield',
-    '#title'         => t('By'),
+    '#title'         => t('City'),
     '#default_value' => theme_get_setting('city'),
-  );
+  ];
 
   // Phone number
-  $form['options']['contact_information']['phone_system'] = array(
+  $form['options']['contact_information']['phone_system'] = [
     '#type'          => 'textfield',
     '#title'         => t('Telefon'),
     '#description'   => t('HUSK: uden mellemrum og inkl. +45 f.eks.: +4570260085'),
     '#default_value' => theme_get_setting('phone_system'),
-  );
+  ];
 
   // Phone number - readable
-  $form['options']['contact_information']['phone_readable'] = array(
+  $form['options']['contact_information']['phone_readable'] = [
     '#type'          => 'textfield',
     '#title'         => t('Vist telefon nummer'),
     '#description'   => t('Telefonnummeret vist (brug evt. mellemrum så det er let læseligt)'),
     '#default_value' => theme_get_setting('phone_readable'),
-  );
+  ];
 
   // E-mail address
-  $form['options']['contact_information']['email'] = array(
+  $form['options']['contact_information']['email'] = [
     '#type'          => 'textfield',
     '#title'         => t('E-mail'),
     '#default_value' => theme_get_setting('email'),
-  );
+  ];
 
   // Working hours
-  $form['options']['contact_information']['working_hours'] = array(
+  $form['options']['contact_information']['working_hours'] = [
     '#type'          => 'textfield',
     '#title'         => t('Åbningstid eller anden info'),
     '#default_value' => theme_get_setting('working_hours'),
-  );
+  ];
 
 
   /**
-* Implementation of THEMEHOOK_settings() function.
-*
-* @param $saved_settings
-*   array An array of saved settings for this theme.
-* @return
-*   array A form array.
+   * Implementation of THEMEHOOK_settings() function.
+   *
+   * @param $saved_settings
+   *   array An array of saved settings for this theme.
+   *
+   * @return
+   *   array A form array.
+   */
+  /* Disabled
+    $form['options']['sublogo'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('Secondary logo'),
+      '#description' => t("May be displayed in the footer or under a column.")
+    );
+    $form['options']['sublogo']['use_sublogo'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Use a sublogo.'),
+      '#default_value' => theme_get_setting('use_sublogo'),
+    );
+    $form['options']['sublogo']['sublogo_path'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Path to sublogo'),
+      '#default_value' => theme_get_setting('sublogo_path'),
+    );
+
+    $form['options']['sublogo']['sublogo_upload'] = array(
+      '#type' => 'file',
+      '#title' => t('Upload sublogo image'),
+    );
+    $form['#submit'][] = 'bellcom_settings_submit';
+    $form['options']['sublogo']['sublogo_upload']['#element_validate'][] = 'bellcom_settings_submit';
+
+    */
+
+  /*
+|--------------------------------------------------------------------------
+| Social links
+|--------------------------------------------------------------------------
+|
+| Sets all necessary options to save data.
+|
 */
-/* Disabled
-  $form['options']['sublogo'] = array(
-    '#type' => 'fieldset',
-    '#title' => t('Secondary logo'),
-    '#description' => t("May be displayed in the footer or under a column.")
-  );
-  $form['options']['sublogo']['use_sublogo'] = array(
-    '#type' => 'checkbox',
-    '#title' => t('Use a sublogo.'),
-    '#default_value' => theme_get_setting('use_sublogo'),
-  );
-  $form['options']['sublogo']['sublogo_path'] = array(
-    '#type' => 'textfield',
-    '#title' => t('Path to sublogo'),
-    '#default_value' => theme_get_setting('sublogo_path'),
-  );
-
-  $form['options']['sublogo']['sublogo_upload'] = array(
-    '#type' => 'file',
-    '#title' => t('Upload sublogo image'),
-  );
-  $form['#submit'][] = 'bellcom_settings_submit';
-  $form['options']['sublogo']['sublogo_upload']['#element_validate'][] = 'bellcom_settings_submit';
-
-  */
-
-    /*
-  |--------------------------------------------------------------------------
-  | Social links
-  |--------------------------------------------------------------------------
-  |
-  | Sets all necessary options to save data.
-  |
-  */
 
   // Fieldset
-  $form['options']['social_links'] = array(
+  $form['options']['social_links'] = [
     '#type'  => 'fieldset',
     '#title' => t('Sociale tjenester'),
-  );
+  ];
 
   // Facebook
-  $form['options']['social_links']['facebook'] = array(
+  $form['options']['social_links']['facebook']         = [
     '#type'          => 'checkbox',
     '#title'         => t('Facebook'),
     '#default_value' => theme_get_setting('facebook'),
-  );
-  $form['options']['social_links']['facebook_url'] = array(
+  ];
+  $form['options']['social_links']['facebook_url']     = [
     '#type'          => 'textfield',
     '#title'         => t('Facebook URL'),
     '#default_value' => theme_get_setting('facebook_url'),
-    '#states'        => array(
+    '#states'        => [
       // Hide the options when the cancel notify checkbox is disabled.
-      'visible' => array(
-        ':input[name="facebook"]' => array(
-          'checked' => TRUE
-        ),
-      ),
-    ),
-  );
-  $form['options']['social_links']['facebook_tooltip'] = array(
+      'visible' => [
+        ':input[name="facebook"]' => [
+          'checked' => TRUE,
+        ],
+      ],
+    ],
+  ];
+  $form['options']['social_links']['facebook_tooltip'] = [
     '#type'          => 'textfield',
     '#title'         => t('Tekst ved mouse-over'),
     '#default_value' => theme_get_setting('facebook_tooltip'),
-    '#states'        => array(
+    '#states'        => [
       // Hide the options when the cancel notify checkbox is disabled.
-      'visible' => array(
-        ':input[name="facebook"]' => array(
-          'checked' => TRUE
-        ),
-      ),
-    ),
-  );
+      'visible' => [
+        ':input[name="facebook"]' => [
+          'checked' => TRUE,
+        ],
+      ],
+    ],
+  ];
 
   // Twitter
-  $form['options']['social_links']['twitter'] = array(
+  $form['options']['social_links']['twitter']         = [
     '#type'          => 'checkbox',
     '#title'         => t('Twitter'),
     '#default_value' => theme_get_setting('twitter'),
-  );
-  $form['options']['social_links']['twitter_url'] = array(
+  ];
+  $form['options']['social_links']['twitter_url']     = [
     '#type'          => 'textfield',
     '#title'         => t('Twitter URL'),
     '#default_value' => theme_get_setting('twitter_url'),
-    '#states'        => array(
+    '#states'        => [
       // Hide the options when the cancel notify checkbox is disabled.
-      'visible' => array(
-        ':input[name="twitter"]' => array(
-          'checked' => TRUE
-        ),
-      ),
-    ),
-  );
-  $form['options']['social_links']['twitter_tooltip'] = array(
+      'visible' => [
+        ':input[name="twitter"]' => [
+          'checked' => TRUE,
+        ],
+      ],
+    ],
+  ];
+  $form['options']['social_links']['twitter_tooltip'] = [
     '#type'          => 'textfield',
     '#title'         => t('Tekst ved mouse-over'),
     '#default_value' => theme_get_setting('twitter_tooltip'),
-    '#states'        => array(
+    '#states'        => [
       // Hide the options when the cancel notify checkbox is disabled.
-      'visible' => array(
-        ':input[name="twitter"]' => array(
-          'checked' => TRUE
-        ),
-      ),
-    ),
-  );
+      'visible' => [
+        ':input[name="twitter"]' => [
+          'checked' => TRUE,
+        ],
+      ],
+    ],
+  ];
 
   // Google plus
-  $form['options']['social_links']['googleplus'] = array(
+  $form['options']['social_links']['googleplus']         = [
     '#type'          => 'checkbox',
     '#title'         => t('Google plus'),
     '#default_value' => theme_get_setting('googleplus'),
-  );
-  $form['options']['social_links']['googleplus_url'] = array(
+  ];
+  $form['options']['social_links']['googleplus_url']     = [
     '#type'          => 'textfield',
     '#title'         => t('Google plus URL'),
     '#default_value' => theme_get_setting('googleplus_url'),
-    '#states'        => array(
+    '#states'        => [
       // Hide the options when the cancel notify checkbox is disabled.
-      'visible' => array(
-        ':input[name="googleplus"]' => array(
-          'checked' => TRUE
-        ),
-      ),
-    ),
-  );
-  $form['options']['social_links']['googleplus_tooltip'] = array(
+      'visible' => [
+        ':input[name="googleplus"]' => [
+          'checked' => TRUE,
+        ],
+      ],
+    ],
+  ];
+  $form['options']['social_links']['googleplus_tooltip'] = [
     '#type'          => 'textfield',
     '#title'         => t('Tekst ved mouse-over'),
     '#default_value' => theme_get_setting('googleplus_tooltip'),
-    '#states'        => array(
+    '#states'        => [
       // Hide the options when the cancel notify checkbox is disabled.
-      'visible' => array(
-        ':input[name="googleplus"]' => array(
-          'checked' => TRUE
-        ),
-      ),
-    ),
-  );
+      'visible' => [
+        ':input[name="googleplus"]' => [
+          'checked' => TRUE,
+        ],
+      ],
+    ],
+  ];
 
   // Instagram
-  $form['options']['social_links']['instagram'] = array(
+  $form['options']['social_links']['instagram']         = [
     '#type'          => 'checkbox',
     '#title'         => t('Instagram'),
     '#default_value' => theme_get_setting('instagram'),
-  );
-  $form['options']['social_links']['instagram_url'] = array(
+  ];
+  $form['options']['social_links']['instagram_url']     = [
     '#type'          => 'textfield',
     '#title'         => t('Instagram URL'),
     '#default_value' => theme_get_setting('instagram_url'),
-    '#states'        => array(
+    '#states'        => [
       // Hide the options when the cancel notify checkbox is disabled.
-      'visible' => array(
-        ':input[name="instagram"]' => array(
-          'checked' => TRUE
-        ),
-      ),
-    ),
-  );
-  $form['options']['social_links']['instagram_tooltip'] = array(
+      'visible' => [
+        ':input[name="instagram"]' => [
+          'checked' => TRUE,
+        ],
+      ],
+    ],
+  ];
+  $form['options']['social_links']['instagram_tooltip'] = [
     '#type'          => 'textfield',
     '#title'         => t('Tekst ved mouse-over'),
     '#default_value' => theme_get_setting('instagram_tooltip'),
-    '#states'        => array(
+    '#states'        => [
       // Hide the options when the cancel notify checkbox is disabled.
-      'visible' => array(
-        ':input[name="instagram"]' => array(
-          'checked' => TRUE
-        ),
-      ),
-    ),
-  );
+      'visible' => [
+        ':input[name="instagram"]' => [
+          'checked' => TRUE,
+        ],
+      ],
+    ],
+  ];
 
   // LinkedIn
-  $form['options']['social_links']['linkedin'] = array(
+  $form['options']['social_links']['linkedin']         = [
     '#type'          => 'checkbox',
     '#title'         => t('LinkedIn'),
     '#default_value' => theme_get_setting('linkedin'),
-  );
-  $form['options']['social_links']['linkedin_url'] = array(
+  ];
+  $form['options']['social_links']['linkedin_url']     = [
     '#type'          => 'textfield',
     '#title'         => t('LinkedIn URL'),
     '#default_value' => theme_get_setting('linkedin_url'),
-    '#states'        => array(
+    '#states'        => [
       // Hide the options when the cancel notify checkbox is disabled.
-      'visible' => array(
-        ':input[name="linkedin"]' => array(
-          'checked' => TRUE
-        ),
-      ),
-    ),
-  );
-  $form['options']['social_links']['linkedin_tooltip'] = array(
+      'visible' => [
+        ':input[name="linkedin"]' => [
+          'checked' => TRUE,
+        ],
+      ],
+    ],
+  ];
+  $form['options']['social_links']['linkedin_tooltip'] = [
     '#type'          => 'textfield',
     '#title'         => t('Tekst ved mouse-over'),
     '#default_value' => theme_get_setting('linkedin_tooltip'),
-    '#states'        => array(
+    '#states'        => [
       // Hide the options when the cancel notify checkbox is disabled.
-      'visible' => array(
-        ':input[name="linkedin"]' => array(
-          'checked' => TRUE
-        ),
-      ),
-    ),
-  );
+      'visible' => [
+        ':input[name="linkedin"]' => [
+          'checked' => TRUE,
+        ],
+      ],
+    ],
+  ];
 
   // Pinterest
-  $form['options']['social_links']['pinterest'] = array(
+  $form['options']['social_links']['pinterest']         = [
     '#type'          => 'checkbox',
     '#title'         => t('Pinterest'),
     '#default_value' => theme_get_setting('pinterest'),
-  );
-  $form['options']['social_links']['pinterest_url'] = array(
+  ];
+  $form['options']['social_links']['pinterest_url']     = [
     '#type'          => 'textfield',
     '#title'         => t('Pinterest URL'),
     '#default_value' => theme_get_setting('pinterest_url'),
-    '#states'        => array(
+    '#states'        => [
       // Hide the options when the cancel notify checkbox is disabled.
-      'visible' => array(
-        ':input[name="pinterest"]' => array(
-          'checked' => TRUE
-        ),
-      ),
-    ),
-  );
-  $form['options']['social_links']['pinterest_tooltip'] = array(
+      'visible' => [
+        ':input[name="pinterest"]' => [
+          'checked' => TRUE,
+        ],
+      ],
+    ],
+  ];
+  $form['options']['social_links']['pinterest_tooltip'] = [
     '#type'          => 'textfield',
     '#title'         => t('Tekst ved mouse-over'),
     '#default_value' => theme_get_setting('pinterest_tooltip'),
-    '#states'        => array(
+    '#states'        => [
       // Hide the options when the cancel notify checkbox is disabled.
-      'visible' => array(
-        ':input[name="pinterest"]' => array(
-          'checked' => TRUE
-        ),
-      ),
-    ),
-  );
+      'visible' => [
+        ':input[name="pinterest"]' => [
+          'checked' => TRUE,
+        ],
+      ],
+    ],
+  ];
 
   // Vimeo
-  $form['options']['social_links']['vimeo'] = array(
+  $form['options']['social_links']['vimeo']         = [
     '#type'          => 'checkbox',
     '#title'         => t('Vimeo'),
     '#default_value' => theme_get_setting('vimeo'),
-  );
-  $form['options']['social_links']['vimeo_url'] = array(
+  ];
+  $form['options']['social_links']['vimeo_url']     = [
     '#type'          => 'textfield',
     '#title'         => t('Vimeo URL'),
     '#default_value' => theme_get_setting('vimeo_url'),
-    '#states'        => array(
+    '#states'        => [
       // Hide the options when the cancel notify checkbox is disabled.
-      'visible' => array(
-        ':input[name="vimeo"]' => array(
-          'checked' => TRUE
-        ),
-      ),
-    ),
-  );
-  $form['options']['social_links']['vimeo_tooltip'] = array(
+      'visible' => [
+        ':input[name="vimeo"]' => [
+          'checked' => TRUE,
+        ],
+      ],
+    ],
+  ];
+  $form['options']['social_links']['vimeo_tooltip'] = [
     '#type'          => 'textfield',
     '#title'         => t('Tekst ved mouse-over'),
     '#default_value' => theme_get_setting('vimeo_tooltip'),
-    '#states'        => array(
+    '#states'        => [
       // Hide the options when the cancel notify checkbox is disabled.
-      'visible' => array(
-        ':input[name="vimeo"]' => array(
-          'checked' => TRUE
-        ),
-      ),
-    ),
-  );
+      'visible' => [
+        ':input[name="vimeo"]' => [
+          'checked' => TRUE,
+        ],
+      ],
+    ],
+  ];
 
   // Youtube
-  $form['options']['social_links']['youtube'] = array(
+  $form['options']['social_links']['youtube']         = [
     '#type'          => 'checkbox',
     '#title'         => t('Youtube'),
     '#default_value' => theme_get_setting('youtube'),
-  );
-  $form['options']['social_links']['youtube_url'] = array(
+  ];
+  $form['options']['social_links']['youtube_url']     = [
     '#type'          => 'textfield',
     '#title'         => t('Youtube URL'),
     '#default_value' => theme_get_setting('youtube_url'),
-    '#states'        => array(
+    '#states'        => [
       // Hide the options when the cancel notify checkbox is disabled.
-      'visible' => array(
-        ':input[name="youtube"]' => array(
-          'checked' => TRUE
-        ),
-      ),
-    ),
-  );
-  $form['options']['social_links']['youtube_tooltip'] = array(
+      'visible' => [
+        ':input[name="youtube"]' => [
+          'checked' => TRUE,
+        ],
+      ],
+    ],
+  ];
+  $form['options']['social_links']['youtube_tooltip'] = [
     '#type'          => 'textfield',
     '#title'         => t('Tekst ved mouse-over'),
     '#default_value' => theme_get_setting('youtube_tooltip'),
-    '#states'        => array(
+    '#states'        => [
       // Hide the options when the cancel notify checkbox is disabled.
-      'visible' => array(
-        ':input[name="youtube"]' => array(
-          'checked' => TRUE
-        ),
-      ),
-    ),
-  );
+      'visible' => [
+        ':input[name="youtube"]' => [
+          'checked' => TRUE,
+        ],
+      ],
+    ],
+  ];
 
-    /*
-  |--------------------------------------------------------------------------
-  | Langua links
-  |--------------------------------------------------------------------------
-  |
-  | Sets all necessary options to save data.
-  |
-  */
+  /*
+|--------------------------------------------------------------------------
+| Langua links
+|--------------------------------------------------------------------------
+|
+| Sets all necessary options to save data.
+|
+*/
 
   // Fieldset
-  $form['options']['languages'] = array(
+  $form['options']['languages'] = [
     '#type'  => 'fieldset',
     '#title' => t('Languages'),
-  );
+  ];
 
   // Tysk
-  $form['options']['languages']['lang_german'] = array(
+  $form['options']['languages']['lang_german'] = [
     '#type'          => 'checkbox',
     '#title'         => t('Tysk'),
     '#default_value' => theme_get_setting('lang_german'),
-  );
+  ];
 
-  $form['options']['languages']['lang_german_url'] = array(
+  $form['options']['languages']['lang_german_url'] = [
     '#type'          => 'textfield',
     '#title'         => t('Tysk URL'),
     '#default_value' => theme_get_setting('lang_german_url'),
-    '#states'        => array(
+    '#states'        => [
       // Hide the options when the cancel notify checkbox is disabled.
-      'visible' => array(
-        ':input[name="lang_german"]' => array(
-          'checked' => TRUE
-        ),
-      ),
-    ),
-  );
+      'visible' => [
+        ':input[name="lang_german"]' => [
+          'checked' => TRUE,
+        ],
+      ],
+    ],
+  ];
 
-  $form['options']['languages']['lang_german_tooltip'] = array(
+  $form['options']['languages']['lang_german_tooltip'] = [
     '#type'          => 'textfield',
     '#title'         => t('Tekst ved mouse-over'),
     '#default_value' => theme_get_setting('lang_german_tooltip'),
-    '#states'        => array(
+    '#states'        => [
       // Hide the options when the cancel notify checkbox is disabled.
-      'visible' => array(
-        ':input[name="lang_german"]' => array(
-          'checked' => TRUE
-        ),
-      ),
-    ),
-  );
+      'visible' => [
+        ':input[name="lang_german"]' => [
+          'checked' => TRUE,
+        ],
+      ],
+    ],
+  ];
 
   // Dansk
-  $form['options']['languages']['lang_danish'] = array(
+  $form['options']['languages']['lang_danish'] = [
     '#type'          => 'checkbox',
     '#title'         => t('Dansk'),
     '#default_value' => theme_get_setting('lang_danish'),
-  );
+  ];
 
-  $form['options']['languages']['lang_danish_url'] = array(
+  $form['options']['languages']['lang_danish_url'] = [
     '#type'          => 'textfield',
     '#title'         => t('Dansk URL'),
     '#default_value' => theme_get_setting('lang_danish_url'),
-    '#states'        => array(
+    '#states'        => [
       // Hide the options when the cancel notify checkbox is disabled.
-      'visible' => array(
-        ':input[name="lang_danish"]' => array(
-          'checked' => TRUE
-        ),
-      ),
-    ),
-  );
+      'visible' => [
+        ':input[name="lang_danish"]' => [
+          'checked' => TRUE,
+        ],
+      ],
+    ],
+  ];
 
-  $form['options']['languages']['lang_danish_tooltip'] = array(
+  $form['options']['languages']['lang_danish_tooltip'] = [
     '#type'          => 'textfield',
     '#title'         => t('Tekst ved mouse-over'),
     '#default_value' => theme_get_setting('lang_danish_tooltip'),
-    '#states'        => array(
+    '#states'        => [
       // Hide the options when the cancel notify checkbox is disabled.
-      'visible' => array(
-        ':input[name="lang_danish"]' => array(
-          'checked' => TRUE
-        ),
-      ),
-    ),
-  );
+      'visible' => [
+        ':input[name="lang_danish"]' => [
+          'checked' => TRUE,
+        ],
+      ],
+    ],
+  ];
 
 
   // Engelsk
-  $form['options']['languages']['lang_english'] = array(
+  $form['options']['languages']['lang_english'] = [
     '#type'          => 'checkbox',
     '#title'         => t('Engelsk'),
     '#default_value' => theme_get_setting('lang_english'),
-  );
+  ];
 
-  $form['options']['languages']['lang_english_url'] = array(
+  $form['options']['languages']['lang_english_url'] = [
     '#type'          => 'textfield',
     '#title'         => t('Engelsk URL'),
     '#default_value' => theme_get_setting('lang_english_url'),
-    '#states'        => array(
+    '#states'        => [
       // Hide the options when the cancel notify checkbox is disabled.
-      'visible' => array(
-        ':input[name="lang_english"]' => array(
-          'checked' => TRUE
-        ),
-      ),
-    ),
-  );
+      'visible' => [
+        ':input[name="lang_english"]' => [
+          'checked' => TRUE,
+        ],
+      ],
+    ],
+  ];
 
-  $form['options']['languages']['lang_english_tooltip'] = array(
+  $form['options']['languages']['lang_english_tooltip'] = [
     '#type'          => 'textfield',
     '#title'         => t('Tekst ved mouse-over'),
     '#default_value' => theme_get_setting('lang_english_tooltip'),
-    '#states'        => array(
+    '#states'        => [
       // Hide the options when the cancel notify checkbox is disabled.
-      'visible' => array(
-        ':input[name="lang_english"]' => array(
-          'checked' => TRUE
-        ),
-      ),
-    ),
-  );
+      'visible' => [
+        ':input[name="lang_english"]' => [
+          'checked' => TRUE,
+        ],
+      ],
+    ],
+  ];
 
   // Svensk
-  $form['options']['languages']['lang_swedish'] = array(
+  $form['options']['languages']['lang_swedish'] = [
     '#type'          => 'checkbox',
     '#title'         => t('Svensk'),
     '#default_value' => theme_get_setting('lang_swedish'),
-  );
+  ];
 
-  $form['options']['languages']['lang_swedish_url'] = array(
+  $form['options']['languages']['lang_swedish_url'] = [
     '#type'          => 'textfield',
     '#title'         => t('Svensk URL'),
     '#default_value' => theme_get_setting('lang_swedish_url'),
-    '#states'        => array(
+    '#states'        => [
       // Hide the options when the cancel notify checkbox is disabled.
-      'visible' => array(
-        ':input[name="lang_swedish"]' => array(
-          'checked' => TRUE
-        ),
-      ),
-    ),
-  );
+      'visible' => [
+        ':input[name="lang_swedish"]' => [
+          'checked' => TRUE,
+        ],
+      ],
+    ],
+  ];
 
-  $form['options']['languages']['lang_swedish_tooltip'] = array(
+  $form['options']['languages']['lang_swedish_tooltip'] = [
     '#type'          => 'textfield',
     '#title'         => t('Tekst ved mouse-over'),
     '#default_value' => theme_get_setting('lang_swedish_tooltip'),
-    '#states'        => array(
+    '#states'        => [
       // Hide the options when the cancel notify checkbox is disabled.
-      'visible' => array(
-        ':input[name="lang_swedish"]' => array(
-          'checked' => TRUE
-        ),
-      ),
-    ),
-  );
+      'visible' => [
+        ':input[name="lang_swedish"]' => [
+          'checked' => TRUE,
+        ],
+      ],
+    ],
+  ];
 
 
-    // Norsk
-  $form['options']['languages']['lang_norwegian'] = array(
+  // Norsk
+  $form['options']['languages']['lang_norwegian'] = [
     '#type'          => 'checkbox',
     '#title'         => t('Norsk'),
     '#default_value' => theme_get_setting('lang_norwegian'),
-  );
+  ];
 
-  $form['options']['languages']['lang_norwegian_url'] = array(
+  $form['options']['languages']['lang_norwegian_url'] = [
     '#type'          => 'textfield',
     '#title'         => t('Norsk URL'),
     '#default_value' => theme_get_setting('lang_norwegian_url'),
-    '#states'        => array(
+    '#states'        => [
       // Hide the options when the cancel notify checkbox is disabled.
-      'visible' => array(
-        ':input[name="lang_norwegian"]' => array(
-          'checked' => TRUE
-        ),
-      ),
-    ),
-  );
+      'visible' => [
+        ':input[name="lang_norwegian"]' => [
+          'checked' => TRUE,
+        ],
+      ],
+    ],
+  ];
 
-  $form['options']['languages']['lang_norwegian_tooltip'] = array(
+  $form['options']['languages']['lang_norwegian_tooltip'] = [
     '#type'          => 'textfield',
     '#title'         => t('Tekst ved mouse-over'),
     '#default_value' => theme_get_setting('lang_norwegian_tooltip'),
-    '#states'        => array(
+    '#states'        => [
       // Hide the options when the cancel notify checkbox is disabled.
-      'visible' => array(
-        ':input[name="lang_norwegian"]' => array(
-          'checked' => TRUE
-        ),
-      ),
-    ),
-  );
+      'visible' => [
+        ':input[name="lang_norwegian"]' => [
+          'checked' => TRUE,
+        ],
+      ],
+    ],
+  ];
 
   // Arabisk
-  $form['options']['languages']['lang_arabic'] = array(
+  $form['options']['languages']['lang_arabic'] = [
     '#type'          => 'checkbox',
     '#title'         => t('Arabisk'),
     '#default_value' => theme_get_setting('lang_arabic'),
-  );
+  ];
 
-  $form['options']['languages']['lang_arabic_url'] = array(
+  $form['options']['languages']['lang_arabic_url'] = [
     '#type'          => 'textfield',
     '#title'         => t('Arabisk URL'),
     '#default_value' => theme_get_setting('lang_arabic_url'),
-    '#states'        => array(
+    '#states'        => [
       // Hide the options when the cancel notify checkbox is disabled.
-      'visible' => array(
-        ':input[name="lang_arabic"]' => array(
-          'checked' => TRUE
-        ),
-      ),
-    ),
-  );
+      'visible' => [
+        ':input[name="lang_arabic"]' => [
+          'checked' => TRUE,
+        ],
+      ],
+    ],
+  ];
 
-  $form['options']['languages']['lang_arabic_tooltip'] = array(
+  $form['options']['languages']['lang_arabic_tooltip'] = [
     '#type'          => 'textfield',
     '#title'         => t('Tekst ved mouse-over'),
     '#default_value' => theme_get_setting('lang_arabic_tooltip'),
-    '#states'        => array(
+    '#states'        => [
       // Hide the options when the cancel notify checkbox is disabled.
-      'visible' => array(
-        ':input[name="lang_arabic"]' => array(
-          'checked' => TRUE
-        ),
-      ),
-    ),
-  );
+      'visible' => [
+        ':input[name="lang_arabic"]' => [
+          'checked' => TRUE,
+        ],
+      ],
+    ],
+  ];
 
 }
 
 
 /**
  * Collect and assemble theme settings.
+ *
  * @return array
  */
 function _bellcom_collect_theme_settings() {
-  $settings = array();
+  $settings = [];
 
   // Contact information
-  $settings['contact_information']['business_owner_name'] = theme_get_setting('business_owner_name');
+  $settings['contact_information']['business_owner_name']   = theme_get_setting('business_owner_name');
   $settings['contact_information']['business_startup_year'] = theme_get_setting('business_startup_year');
-  $settings['contact_information']['address'] = theme_get_setting('address');
-  $settings['contact_information']['zipcode'] = theme_get_setting('zipcode');
-  $settings['contact_information']['city'] = theme_get_setting('city');
-  $settings['contact_information']['phone_system'] = theme_get_setting('phone_system');
-  $settings['contact_information']['phone_readable'] = theme_get_setting('phone_readable');
-  $settings['contact_information']['email'] = theme_get_setting('email');
-  $settings['contact_information']['working_hours'] = theme_get_setting('working_hours');
+  $settings['contact_information']['address']               = theme_get_setting('address');
+  $settings['contact_information']['zipcode']               = theme_get_setting('zipcode');
+  $settings['contact_information']['city']                  = theme_get_setting('city');
+  $settings['contact_information']['phone_system']          = theme_get_setting('phone_system');
+  $settings['contact_information']['phone_readable']        = theme_get_setting('phone_readable');
+  $settings['contact_information']['email']                 = theme_get_setting('email');
+  $settings['contact_information']['working_hours']         = theme_get_setting('working_hours');
 
   // Social links
-  $settings['social_links']['facebook']['active'] = theme_get_setting('facebook');
-  $settings['social_links']['facebook']['url'] = theme_get_setting('facebook_url');
-  $settings['social_links']['facebook']['tooltip'] = t(theme_get_setting('facebook_tooltip'));
-  $settings['social_links']['twitter']['active'] = theme_get_setting('twitter');
-  $settings['social_links']['twitter']['url'] = theme_get_setting('twitter_url');
-  $settings['social_links']['twitter']['tooltip'] = t(theme_get_setting('twitter_tooltip'));
-  $settings['social_links']['googleplus']['active'] = theme_get_setting('googleplus');
-  $settings['social_links']['googleplus']['url'] = theme_get_setting('googleplus_url');
+  $settings['social_links']['facebook']['active']    = theme_get_setting('facebook');
+  $settings['social_links']['facebook']['url']       = theme_get_setting('facebook_url');
+  $settings['social_links']['facebook']['tooltip']   = t(theme_get_setting('facebook_tooltip'));
+  $settings['social_links']['twitter']['active']     = theme_get_setting('twitter');
+  $settings['social_links']['twitter']['url']        = theme_get_setting('twitter_url');
+  $settings['social_links']['twitter']['tooltip']    = t(theme_get_setting('twitter_tooltip'));
+  $settings['social_links']['googleplus']['active']  = theme_get_setting('googleplus');
+  $settings['social_links']['googleplus']['url']     = theme_get_setting('googleplus_url');
   $settings['social_links']['googleplus']['tooltip'] = t(theme_get_setting('googleplus_tooltip'));
-  $settings['social_links']['instagram']['active'] = theme_get_setting('instagram');
-  $settings['social_links']['instagram']['url'] = theme_get_setting('instagram_url');
-  $settings['social_links']['instagram']['tooltip'] = t(theme_get_setting('instagram_tooltip'));
-  $settings['social_links']['linkedin']['active'] = theme_get_setting('linkedin');
-  $settings['social_links']['linkedin']['url'] = theme_get_setting('linkedin_url');
-  $settings['social_links']['linkedin']['tooltip'] = t(theme_get_setting('linkedin_tooltip'));
-  $settings['social_links']['pinterest']['active'] = theme_get_setting('pinterest');
-  $settings['social_links']['pinterest']['url'] = theme_get_setting('pinterest_url');
-  $settings['social_links']['pinterest']['tooltip'] = t(theme_get_setting('pinterest_tooltip'));
-  $settings['social_links']['vimeo']['active'] = theme_get_setting('vimeo');
-  $settings['social_links']['vimeo']['url'] = theme_get_setting('vimeo_url');
-  $settings['social_links']['vimeo']['tooltip'] = t(theme_get_setting('vimeo_tooltip'));
-  $settings['social_links']['youtube']['active'] = theme_get_setting('youtube');
-  $settings['social_links']['youtube']['url'] = theme_get_setting('youtube_url');
-  $settings['social_links']['youtube']['tooltip'] = t(theme_get_setting('youtube_tooltip'));
+  $settings['social_links']['instagram']['active']   = theme_get_setting('instagram');
+  $settings['social_links']['instagram']['url']      = theme_get_setting('instagram_url');
+  $settings['social_links']['instagram']['tooltip']  = t(theme_get_setting('instagram_tooltip'));
+  $settings['social_links']['linkedin']['active']    = theme_get_setting('linkedin');
+  $settings['social_links']['linkedin']['url']       = theme_get_setting('linkedin_url');
+  $settings['social_links']['linkedin']['tooltip']   = t(theme_get_setting('linkedin_tooltip'));
+  $settings['social_links']['pinterest']['active']   = theme_get_setting('pinterest');
+  $settings['social_links']['pinterest']['url']      = theme_get_setting('pinterest_url');
+  $settings['social_links']['pinterest']['tooltip']  = t(theme_get_setting('pinterest_tooltip'));
+  $settings['social_links']['vimeo']['active']       = theme_get_setting('vimeo');
+  $settings['social_links']['vimeo']['url']          = theme_get_setting('vimeo_url');
+  $settings['social_links']['vimeo']['tooltip']      = t(theme_get_setting('vimeo_tooltip'));
+  $settings['social_links']['youtube']['active']     = theme_get_setting('youtube');
+  $settings['social_links']['youtube']['url']        = theme_get_setting('youtube_url');
+  $settings['social_links']['youtube']['tooltip']    = t(theme_get_setting('youtube_tooltip'));
 
   // Languages
-  $settings['languages']['lang_danish']['active'] = theme_get_setting('lang_danish');
-  $settings['languages']['lang_danish']['url'] = theme_get_setting('lang_danish_url');
-  $settings['languages']['lang_danish']['tooltip'] = t(theme_get_setting('lang_danish_tooltip'));
-  $settings['languages']['lang_german']['active'] = theme_get_setting('lang_german');
-  $settings['languages']['lang_german']['url'] = theme_get_setting('lang_german_url');
-  $settings['languages']['lang_german']['tooltip'] = t(theme_get_setting('lang_german_tooltip'));
-  $settings['languages']['lang_english']['active'] = theme_get_setting('lang_english');
-  $settings['languages']['lang_english']['url'] = theme_get_setting('lang_english_url');
-  $settings['languages']['lang_english']['tooltip'] = t(theme_get_setting('lang_english_tooltip'));
-  $settings['languages']['lang_swedish']['active'] = theme_get_setting('lang_swedish');
-  $settings['languages']['lang_swedish']['url'] = theme_get_setting('lang_swedish_url');
-  $settings['languages']['lang_swedish']['tooltip'] = t(theme_get_setting('lang_swedish_tooltip'));
-  $settings['languages']['lang_norwegian']['active'] = theme_get_setting('lang_norwegian');
-  $settings['languages']['lang_norwegian']['url'] = theme_get_setting('lang_norwegian_url');
+  $settings['languages']['lang_danish']['active']     = theme_get_setting('lang_danish');
+  $settings['languages']['lang_danish']['url']        = theme_get_setting('lang_danish_url');
+  $settings['languages']['lang_danish']['tooltip']    = t(theme_get_setting('lang_danish_tooltip'));
+  $settings['languages']['lang_german']['active']     = theme_get_setting('lang_german');
+  $settings['languages']['lang_german']['url']        = theme_get_setting('lang_german_url');
+  $settings['languages']['lang_german']['tooltip']    = t(theme_get_setting('lang_german_tooltip'));
+  $settings['languages']['lang_english']['active']    = theme_get_setting('lang_english');
+  $settings['languages']['lang_english']['url']       = theme_get_setting('lang_english_url');
+  $settings['languages']['lang_english']['tooltip']   = t(theme_get_setting('lang_english_tooltip'));
+  $settings['languages']['lang_swedish']['active']    = theme_get_setting('lang_swedish');
+  $settings['languages']['lang_swedish']['url']       = theme_get_setting('lang_swedish_url');
+  $settings['languages']['lang_swedish']['tooltip']   = t(theme_get_setting('lang_swedish_tooltip'));
+  $settings['languages']['lang_norwegian']['active']  = theme_get_setting('lang_norwegian');
+  $settings['languages']['lang_norwegian']['url']     = theme_get_setting('lang_norwegian_url');
   $settings['languages']['lang_norwegian']['tooltip'] = t(theme_get_setting('lang_norwegian_tooltip'));
-  $settings['languages']['lang_arabic']['active'] = theme_get_setting('lang_arabic');
-  $settings['languages']['lang_arabic']['url'] = theme_get_setting('lang_arabic_url');
-  $settings['languages']['lang_arabic']['tooltip'] = t(theme_get_setting('lang_arabic_tooltip'));
+  $settings['languages']['lang_arabic']['active']     = theme_get_setting('lang_arabic');
+  $settings['languages']['lang_arabic']['url']        = theme_get_setting('lang_arabic_url');
+  $settings['languages']['lang_arabic']['tooltip']    = t(theme_get_setting('lang_arabic_tooltip'));
 
   // Layout
-  $settings['layout']['copyright'] = ($settings['contact_information']['business_startup_year'] < date('Y') AND $settings['contact_information']['business_startup_year'] !== NULL) ? $settings['contact_information']['business_startup_year'] . '-' . date('Y') : date('Y');
-  $settings['layout']['footer']['show_social_links'] = theme_get_setting('footer_show_social_links');
-  $settings['layout']['footer']['show_branding'] = theme_get_setting('footer_show_branding');
+  $settings['layout']['copyright']                    = ($settings['contact_information']['business_startup_year'] < date('Y') AND $settings['contact_information']['business_startup_year'] !== NULL) ? $settings['contact_information']['business_startup_year'] . '-' . date('Y') : date('Y');
+  $settings['layout']['footer']['show_social_links']  = theme_get_setting('footer_show_social_links');
+  $settings['layout']['footer']['show_branding']      = theme_get_setting('footer_show_branding');
+  $settings['layout']['footer']['description']        = theme_get_setting('footer_description');
   $settings['layout']['sidebar']['show_social_links'] = theme_get_setting('sidebar_show_social_links');
 
   return $settings;
 }
 
-/**
- * Capture theme settings submissions and update uploaded image
- */
-/* Disabled
-
-	function bellcom_settings_submit($form, &$form_state) {
-  // Check for a new uploaded file, and use that if available.
-  if ($file = file_save_upload('sublogo_upload')) {
-    $parts = pathinfo($file->filename);
-    $filename = (! empty($key)) ? str_replace('/', '_', $key) .'_sublogo.'. $parts['extension'] : 'sublogo.'. $parts['extension'];
-
-    // The image was saved using file_save_upload() and was added to the
-    // files table as a temporary file. We'll make a copy and let the garbage
-    // collector delete the original upload.
-    if (file_copy($file, $filename)) {
-      $_POST['sublogo']['use_sublogo'] = $form_state['values']['sublogo']['use_sublogo'] = TRUE;
-      $_POST['sublogo']['sublogo_path'] = $form_state['values']['sublogo']['sublogo_path'] = $file->filepath;
-    }
-  }
-}
-
-
-
 /*
  * Sidebar classes
  */
 function _bellcom_sidebar_classes($viewmode) {
-  $classes = array();
+  $classes = [];
 
   // Settings
-  $enabled = theme_get_setting('sidebar_left_' . $viewmode . '_enabled');
-  $state = theme_get_setting('sidebar_left_' . $viewmode . '_state');
+  $enabled        = theme_get_setting('sidebar_left_' . $viewmode . '_enabled');
+  $state          = theme_get_setting('sidebar_left_' . $viewmode . '_state');
   $content_effect = theme_get_setting('sidebar_left_' . $viewmode . '_content_effect');
 
   // Enabled
   if (!isset($enabled) or !$enabled or $enabled == 0) {
-    return array();
+    return [];
   }
 
   $classes[] = 'sidebar-left-enabled-' . $viewmode;
