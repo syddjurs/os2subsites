@@ -696,12 +696,5 @@ function os2sub_frontpage_strongarm() {
   $strongarm->value = '';
   $export['owlcarousel_transition_style_owlcarousel_settings_forsidenyheder'] = $strongarm;
 
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'site_frontpage';
-  $strongarm->value = 'forside';
-  $export['site_frontpage'] = $strongarm;
-
   return $export;
 }

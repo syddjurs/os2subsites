@@ -116,7 +116,6 @@ features[variable][] = owlcarousel_touch_drag_owlcarousel_settings_default
 features[variable][] = owlcarousel_touch_drag_owlcarousel_settings_forsidenyheder
 features[variable][] = owlcarousel_transition_style_owlcarousel_settings_default
 features[variable][] = owlcarousel_transition_style_owlcarousel_settings_forsidenyheder
-features[variable][] = site_frontpage
 features[views_view][] = node_adm
 features[views_view][] = os2sub_nyheder
 features[views_view][] = os2sub_spotbokse
