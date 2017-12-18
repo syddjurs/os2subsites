@@ -19,6 +19,7 @@ dependencies[] = search_config
 dependencies[] = strongarm
 dependencies[] = taxonomy_menu
 dependencies[] = views
+dependencies[] = views_bootstrap
 dependencies[] = views_content
 features[ctools][] = page_manager:pages_default:1
 features[ctools][] = strongarm:strongarm:1
