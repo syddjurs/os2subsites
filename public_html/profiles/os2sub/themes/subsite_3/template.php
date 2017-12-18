@@ -38,7 +38,8 @@ function subsite_3_preprocess_page(&$variables) {
   $current_theme                     = variable_get('theme_default', 'none');
   $primary_navigation_name           = variable_get('menu_main_links_source', 'main-menu');
   $secondary_navigation_name         = variable_get('menu_secondary_links_source', 'user-menu');
-  $variables['menu_slinky__primary'] = _bellcom_generate_menu($primary_navigation_name,'slinky', TRUE);
+
+  $variables['menu_footer__primary'] = _bellcom_generate_menu($primary_navigation_name, 'footer', false, 2);
 
   $variables['theme_path']  = base_path() . drupal_get_path('theme', $current_theme);
 
@@ -47,4 +48,50 @@ function subsite_3_preprocess_page(&$variables) {
   $variables['tabs_secondary'] = $variables['tabs'];
   unset($variables['tabs_primary']['#secondary']);
   unset($variables['tabs_secondary']['#primary']);
+}
+
+/*
+ * Implements theme_menu_tree().
+ * For the footer menu.
+ */
+function subsite_3_menu_tree__footer(&$variables) {
+  return $variables['tree'];
+}
+
+/*
+ * Implements theme_menu_link().
+ */
+function subsite_3_menu_link__footer(array $variables) {
+  $element = $variables['element'];
+  $sub_menu = '';
+
+  if ($element['#below']) {
+
+    // Prevent dropdown functions from being added to management menu so it
+    // does not affect the navbar module.
+    if (($element['#original_link']['menu_name'] == 'management') && (module_exists('navbar'))) {
+      $sub_menu = drupal_render($element['#below']);
+    }
+
+    elseif ((!empty($element['#original_link']['depth']))) {
+
+      // Add our own wrapper.
+      unset($element['#below']['#theme_wrappers']);
+
+      // Submenu classes
+      $sub_menu = ' <ul>' . drupal_render($element['#below']) . '</ul>';
+    }
+  }
+
+  // If this is a parent link, slinky require is to just link to a #
+  if ($element['#below']) {
+    $element['#href'] = '';
+
+    $element['#localized_options']['fragment'] = 'content';
+    $element['#localized_options']['external'] = TRUE;
+  }
+
+  $output = l($element['#title'], $element['#href'], $element['#localized_options']);
+
+  return '<li>' . $output . $sub_menu . "</li>\n";
 }
