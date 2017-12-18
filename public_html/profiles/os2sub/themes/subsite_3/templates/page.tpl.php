@@ -36,9 +36,11 @@
                           <li>
                               <a href="<?php print $theme_settings['social_links']['facebook']['url']; ?>"
                                  target="_blank"
-                                 class="social-icon social-icon-facebook"
+                                 class="social-icon social-icon--facebook"
                                  data-toggle="tooltip" data-placement="top"
-                                 title="<?php print $theme_settings['social_links']['facebook']['tooltip']; ?>"></a>
+                                 title="<?php print $theme_settings['social_links']['facebook']['tooltip']; ?>">
+                                  <span class="icon fa fa-facebook-f"></span>
+                              </a>
                           </li>
                       <?php endif; ?>
 
@@ -46,9 +48,11 @@
                           <li>
                               <a href="<?php print $theme_settings['social_links']['twitter']['url']; ?>"
                                  target="_blank"
-                                 class="social-icon social-icon-twitter"
+                                 class="social-icon social-icon--twitter"
                                  data-toggle="tooltip" data-placement="top"
-                                 title="<?php print $theme_settings['social_links']['twitter']['tooltip']; ?>"></a>
+                                 title="<?php print $theme_settings['social_links']['twitter']['tooltip']; ?>">
+                                  <span class="icon fa fa-twitter"></span>
+                              </a>
                           </li>
                       <?php endif; ?>
 
@@ -56,9 +60,11 @@
                           <li>
                               <a href="<?php print $theme_settings['social_links']['googleplus']['url']; ?>"
                                  target="_blank"
-                                 class="social-icon social-icon-google-plus"
+                                 class="social-icon social-icon--google-plus"
                                  data-toggle="tooltip" data-placement="top"
-                                 title="<?php print $theme_settings['social_links']['googleplus']['tooltip']; ?>"></a>
+                                 title="<?php print $theme_settings['social_links']['googleplus']['tooltip']; ?>">
+                                  <span class="icon fa fa-google-plus"></span>
+                              </a>
                           </li>
                       <?php endif; ?>
 
@@ -66,9 +72,11 @@
                           <li>
                               <a href="<?php print $theme_settings['social_links']['linkedin']['url']; ?>"
                                  target="_blank"
-                                 class="social-icon social-icon-linkedin"
+                                 class="social-icon social-icon--linkedin"
                                  data-toggle="tooltip" data-placement="top"
-                                 title="<?php print $theme_settings['social_links']['linkedin']['tooltip']; ?>"></a>
+                                 title="<?php print $theme_settings['social_links']['linkedin']['tooltip']; ?>">
+                                  <span class="icon fa fa-linkedin"></span>
+                              </a>
                           </li>
                       <?php endif; ?>
 
@@ -76,9 +84,11 @@
                           <li>
                               <a href="<?php print $theme_settings['social_links']['pinterest']['url']; ?>"
                                  target="_blank"
-                                 class="social-icon social-icon-pinterest"
+                                 class="social-icon social-icon--pinterest"
                                  data-toggle="tooltip" data-placement="top"
-                                 title="<?php print $theme_settings['social_links']['pinterest']['tooltip']; ?>"></a>
+                                 title="<?php print $theme_settings['social_links']['pinterest']['tooltip']; ?>">
+                                  <span class="icon fa fa-pinterest"></span>
+                              </a>
                           </li>
                       <?php endif; ?>
 
@@ -86,9 +96,11 @@
                           <li>
                               <a href="<?php print $theme_settings['social_links']['instagram']['url']; ?>"
                                  target="_blank"
-                                 class="social-icon social-icon-instagram"
+                                 class="social-icon social-icon--instagram"
                                  data-toggle="tooltip" data-placement="top"
-                                 title="<?php print $theme_settings['social_links']['instagram']['tooltip']; ?>"></a>
+                                 title="<?php print $theme_settings['social_links']['instagram']['tooltip']; ?>">
+                                  <span class="icon fa fa-instagram"></span>
+                              </a>
                           </li>
                       <?php endif; ?>
 
@@ -96,9 +108,11 @@
                           <li>
                               <a href="<?php print $theme_settings['social_links']['youtube']['url']; ?>"
                                  target="_blank"
-                                 class="social-icon social-icon-youtube"
+                                 class="social-icon social-icon--youtube"
                                  data-toggle="tooltip" data-placement="top"
-                                 title="<?php print $theme_settings['social_links']['youtube']['tooltip']; ?>"></a>
+                                 title="<?php print $theme_settings['social_links']['youtube']['tooltip']; ?>">
+                                  <span class="icon fa fa-youtube"></span>
+                              </a>
                           </li>
                       <?php endif; ?>
 
@@ -106,9 +120,11 @@
                           <li>
                               <a href="<?php print $theme_settings['social_links']['vimeo']['url']; ?>"
                                  target="_blank"
-                                 class="social-icon social-icon-vimeo"
+                                 class="social-icon social-icon--vimeo"
                                  data-toggle="tooltip" data-placement="top"
-                                 title="<?php print $theme_settings['social_links']['vimeo']['tooltip']; ?>"></a>
+                                 title="<?php print $theme_settings['social_links']['vimeo']['tooltip']; ?>">
+                                  <span class="icon fa fa-vimeo"></span>
+                              </a>
                           </li>
                       <?php endif; ?>
 
