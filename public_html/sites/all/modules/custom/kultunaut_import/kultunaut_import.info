@@ -117,6 +117,7 @@ features[variable][] = custom_search_type_selector
 features[variable][] = custom_search_type_selector_all
 features[variable][] = custom_search_type_selector_label
 features[variable][] = custom_search_type_selector_label_visibility
+features[variable][] = page_manager_term_view_disabled
 features[variable][] = pathauto_node_os2web_kulturnaut_knactivity_pattern
 features[variable][] = pathauto_taxonomy_term_os2web_base_tax_site_structure_pattern
 features[variable][] = pathauto_taxonomy_term_os2web_kulturnaut_venue_pattern

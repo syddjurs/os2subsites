@@ -19,6 +19,8 @@ function kultunaut_import_strongarm() {
     'path' => 2,
     'taxonomy.termReference.*' => 3,
     '*' => 4,
+    'search.*' => FALSE,
+    'search.node.result' => FALSE,
   );
   $export['crumbs_weights'] = $strongarm;
 
@@ -657,6 +659,13 @@ function kultunaut_import_strongarm() {
   $strongarm->name = 'custom_search_type_selector_label_visibility';
   $strongarm->value = 1;
   $export['custom_search_type_selector_label_visibility'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'page_manager_term_view_disabled';
+  $strongarm->value = FALSE;
+  $export['page_manager_term_view_disabled'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
