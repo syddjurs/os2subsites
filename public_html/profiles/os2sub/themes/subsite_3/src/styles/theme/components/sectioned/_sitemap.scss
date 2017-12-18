@@ -45,7 +45,8 @@
       padding: 5px 0;
 
       &,
-      &:hover {
+      &:hover,
+      &:focus {
         background-color: transparent;
       }
     }
