@@ -192,6 +192,14 @@ function bellcom_menu_tree__slinky(&$variables) {
 }
 
 /*
+ * Implements theme_menu_tree().
+ * For slinky menu types.
+ */
+function bellcom_menu_tree__flexy_list(&$variables) {
+  return '<ul class="flexy-list">' . $variables['tree'] . '</ul>';
+}
+
+/*
  * Implements theme_menu_link().
  */
 function bellcom_menu_link__main_navigation(array $variables) {
@@ -347,6 +355,44 @@ function bellcom_menu_link__flexy_navigation(array $variables) {
  * Implements theme_menu_link().
  */
 function bellcom_menu_link__slinky(array $variables) {
+  $element = $variables['element'];
+  $sub_menu = '';
+
+  if ($element['#below']) {
+
+    // Prevent dropdown functions from being added to management menu so it
+    // does not affect the navbar module.
+    if (($element['#original_link']['menu_name'] == 'management') && (module_exists('navbar'))) {
+      $sub_menu = drupal_render($element['#below']);
+    }
+
+    elseif ((!empty($element['#original_link']['depth']))) {
+
+      // Add our own wrapper.
+      unset($element['#below']['#theme_wrappers']);
+
+      // Submenu classes
+      $sub_menu = ' <ul>' . drupal_render($element['#below']) . '</ul>';
+    }
+  }
+
+  // If this is a parent link, slinky require is to just link to a #
+  if ($element['#below']) {
+    $element['#href'] = '';
+
+    $element['#localized_options']['fragment'] = 'content';
+    $element['#localized_options']['external'] = TRUE;
+  }
+
+  $output = l($element['#title'], $element['#href'], $element['#localized_options']);
+
+  return '<li>' . $output . $sub_menu . "</li>\n";
+}
+
+/*
+ * Implements theme_menu_link().
+ */
+function bellcom_menu_link__flexy_list(array $variables) {
   $element = $variables['element'];
   $sub_menu = '';
 
