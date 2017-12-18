@@ -1,85 +1,85 @@
 // |--------------------------------------------------------------------------
-// | Social icon
+// | Carousel
 // |--------------------------------------------------------------------------
 // |
 // | This file contains styles for the following:
-// | - .social-icon
+// | - .carousel
 // |
 
 // --------------------------------------------------
 // Variables
 // --------------------------------------------------
 
-$social-icon-height: 34px;
-$social-icon-width: 34px;
-
 // --------------------------------------------------
 // Mixins
 // --------------------------------------------------
 
-@mixin social-icon-mixin() {}
+@mixin carousel-mixin() {}
 
 // --------------------------------------------------
 // Styling
 // --------------------------------------------------
 
-.social-icon {
-  display: flex;
+.carousel {}
 
-  align-items: center;
-  justify-content: center;
+.carousel-control {
 
-  height: $social-icon-height;
-  width: $social-icon-width;
-
-  border-radius: $border-radius-base;
-
-  &:hover {
-    text-decoration: none;
+  .icon-prev,
+  .icon-next {
+    @extend .fa;
   }
 
-  .icon {
-    font-size: 20px;
+  .icon-prev {
 
-    color: #fff;
+    &:before {
+      content: $fa-var-angle-left;
+    }
+  }
+
+  .icon-next {
+
+    &:before {
+      content: $fa-var-angle-right;
+    }
+  }
+}
+
+.carousel-indicators {
+  width: 100%;
+  text-align: right;
+  padding-right: 90px;
+
+  // Resets
+  left: 0;
+  margin-left: 0;
+
+  li {
+    width:  16px;
+    height: 16px;
+
+    margin: 5px;
+
+    border-width: 0;
+    border-radius: 16px;
+
+    background-color: rgba($carousel-indicator-active-bg, .5);
+  }
+
+  .active {
+    width:  16px;
+    height: 16px;
+
+    margin: 5px;
+
+    border-width: 0;
+
+    background-color: $carousel-indicator-active-bg;
   }
 }
 
 // --------------------------------------------------
 // Variants
 // --------------------------------------------------
-
-.social-icon--facebook {
-  background-color: $social-link-color-facebook;
-}
-
-.social-icon--twitter {
-  background-color: $social-link-color-twitter;
-}
-
-.social-icon--google-plus {
-  background-color: $social-link-color-google-plus;
-}
-
-.social-icon--linkedin {
-  background-color: $social-link-color-linkedin;
-}
-
-.social-icon--pinterest {
-  background-color: $social-link-color-pinterest;
-}
-
-.social-icon--instagram {
-  background-color: $social-link-color-instagram;
-}
-
-.social-icon--youtube {
-  background-color: $social-link-color-youtube;
-}
-
-.social-icon--vimeo {
-  background-color: $social-link-color-vimeo;
-}
 
 // --------------------------------------------------
 // Responsive

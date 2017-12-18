@@ -1,85 +1,70 @@
 // |--------------------------------------------------------------------------
-// | Social icon
+// | Banner
 // |--------------------------------------------------------------------------
 // |
 // | This file contains styles for the following:
-// | - .social-icon
+// | - .sectioned--banner
 // |
 
 // --------------------------------------------------
 // Variables
 // --------------------------------------------------
 
-$social-icon-height: 34px;
-$social-icon-width: 34px;
-
 // --------------------------------------------------
 // Mixins
 // --------------------------------------------------
 
-@mixin social-icon-mixin() {}
+@mixin sectioned-banner-mixin() {}
 
 // --------------------------------------------------
 // Styling
 // --------------------------------------------------
 
-.social-icon {
-  display: flex;
+.sectioned--banner {
 
-  align-items: center;
-  justify-content: center;
-
-  height: $social-icon-height;
-  width: $social-icon-width;
-
-  border-radius: $border-radius-base;
-
-  &:hover {
-    text-decoration: none;
+  .sectioned__inner {
+    min-height: 400px;
   }
 
-  .icon {
-    font-size: 20px;
+  .field-name-field-banner-headline {
+    @extend .heading-h1;
+    font-size: 70px;
 
     color: #fff;
+  }
+
+  .field-name-field-banner-text {
+    @extend .heading-h3;
+
+    font-weight: $headings-font-weight-light;
+    color: #fff;
+
+    + .field-name-field-knap-link {
+      margin-top: $grid-gutter-width;
+    }
+  }
+
+  .field-name-field-knap-link {
+
+    a {
+      @extend .btn;
+      @extend .btn-lg;
+
+      &, &:hover {
+        border-color: #fff;
+        color: #fff;
+      }
+    }
+  }
+
+  .container {
+    width: calc(100% - 30%);
   }
 }
 
 // --------------------------------------------------
 // Variants
 // --------------------------------------------------
-
-.social-icon--facebook {
-  background-color: $social-link-color-facebook;
-}
-
-.social-icon--twitter {
-  background-color: $social-link-color-twitter;
-}
-
-.social-icon--google-plus {
-  background-color: $social-link-color-google-plus;
-}
-
-.social-icon--linkedin {
-  background-color: $social-link-color-linkedin;
-}
-
-.social-icon--pinterest {
-  background-color: $social-link-color-pinterest;
-}
-
-.social-icon--instagram {
-  background-color: $social-link-color-instagram;
-}
-
-.social-icon--youtube {
-  background-color: $social-link-color-youtube;
-}
-
-.social-icon--vimeo {
-  background-color: $social-link-color-vimeo;
-}
 
 // --------------------------------------------------
 // Responsive

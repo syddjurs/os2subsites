@@ -27,7 +27,7 @@ function subsite_3_preprocess_html(&$variables) {
     ]);
 
   // Add fonts from Google fonts API.
-  drupal_add_css('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700',
+  drupal_add_css('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600',
     ['type' => 'external']);
 }
 
@@ -40,6 +40,7 @@ function subsite_3_preprocess_page(&$variables) {
   $secondary_navigation_name         = variable_get('menu_secondary_links_source', 'user-menu');
 
   $variables['menu_footer__primary'] = _bellcom_generate_menu($primary_navigation_name, 'footer', false, 2);
+  $variables['menu_header__row_first__secondary'] = _bellcom_generate_menu($secondary_navigation_name, 'flexy_list', false, 1);
 
   $variables['theme_path']  = base_path() . drupal_get_path('theme', $current_theme);
 

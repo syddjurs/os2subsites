@@ -1,19 +1,28 @@
-<?php 
-$style='os2sub_banner';
-$path=$node->field_banner_billede['und']['0']['uri'];
-$parth2=$node->field_knap_link['und']['0']['url'];
-$parth3=$node->field_banner_headline['und']['0']['value'];
+<?php
+$style     = 'os2sub_banner';
+$path      = $node->field_banner_billede['und']['0']['uri'];
 $style_url = image_style_url($style, $path);
 ?>
-<article id="node-<?php print $node->nid; ?>" class="<?php print $classes . " all"; ?> clearfix"<?php print $attributes; ?> 
-	style="background: url(<?php print file_create_url($style_url); ?>) no-repeat scroll ;height:220px;background-size: cover; position: relative; background-position: center center">
-	<a class="banner-link" href="<?php print $parth2; ?>">
-  	<span class="banner-wrapper color-<?php print $node->field_hvid_tekst['und']['0']['value']; ?>">
-  		<span class="banner-headline"><?php print $parth3; ?>
-  		  <span class="btn-banner">
-          <i class="fa fa-angle-right" aria-hidden="true"></i>
-        </span>  
-  		</span>			
-    </span>
-  </a>
-</article>
+
+<div class="sectioned sectioned--banner sectioned--background-image"
+     style="background-image: url(<?php print file_create_url($style_url); ?>);">
+    <div class="sectioned__inner">
+        <div class="container">
+
+            <!-- Begin - headline -->
+            <?php print render($content['field_banner_headline']); ?>
+            <!-- End - headline -->
+
+            <!-- Begin - body -->
+            <?php print render($content['field_banner_text']); ?>
+            <!-- End - body -->
+
+            <!-- Begin - link -->
+            <?php print render($content['field_knap_link']); ?>
+            <!-- End - link -->
+
+        </div>
+    </div>
+</div>
+
+
