@@ -25,13 +25,19 @@
                              alt="<?php print t('@site_name logo', array('@site_name' => $site_name)); ?>"/>
                     </a>
                     <!-- End - logo -->
-                    <?php if (!empty($page['search'])): ?>
-                      <?php print render($page['search']); ?>
-                      <?php else : ?>
-                      <?php print $search_box; ?>
-                    <?php endif; ?>
+
                     <!-- Push navigation to the right -->
                     <div class="flexy-spacer"></div>
+
+                    <!-- Begin - search -->
+                    <div class="flexy-header__form">
+                        <?php if (!empty($page['search'])): ?>
+                            <?php print render($page['search']); ?>
+                        <?php else : ?>
+                            <?php print $search_box; ?>
+                        <?php endif; ?>
+                    </div>
+                    <!-- End - search -->
 
                     <!-- Begin - responsive toggle -->
                     <a href="#" class="flexy-header__sidebar-toggle sidr-toggle--right visible-xs">
@@ -48,7 +54,7 @@
 
                     <!-- Begin - navigation -->
                     <nav class="flexy-header__navigation__wrapper" role="navigation">
-                        <?php print render($primary_navigation); ?>
+                        <?php print render($flexy_navigation__primary); ?>
                     </nav>
                     <!-- End - navigation -->
 
@@ -76,7 +82,7 @@
 
                     <!-- Begin - navigation -->
                     <nav class="flexy-header__navigation__wrapper hidden-xs" role="navigation">
-                        <?php print render($primary_navigation); ?>
+                        <?php print render($flexy_navigation__primary); ?>
                     </nav>
                     <!-- End - navigation -->
 
@@ -128,12 +134,15 @@
             <?php print $messages; ?>
         </div>
 
+        <?php if (!panels_get_current_page_display()): ?>
+            <div class="container">
+                <?php print $breadcrumb; ?>
 
-            <?php print $breadcrumb; ?>
-
-                <div class="container">
-                    <?php print render($page['content']); ?>
-                </div>
+                <?php print render($page['content']); ?>
+            </div>
+        <?php else: ?>
+            <?php print render($page['content']); ?>
+        <?php endif; ?>
 
     </main>
     <!-- End - content -->
@@ -143,7 +152,7 @@
         <div class="sectioned__inner">
             <div class="container">
                 <div class="row">
-                    <div class="col-xs-12 col-sm-4">
+                    <div class="col-xs-12 col-sm-3">
                         <div class="sectioned--sitemap__logo">
                             <a href="<?php print $front_page; ?>">
                                 <img src="<?php print $theme_path; ?>/dist/images/logo__white.png"
@@ -161,8 +170,10 @@
                         <?php endif; ?>
 
                     </div>
-                    <div class="col-xs-12 col-sm-8">
-                        Menu
+                    <div class="col-xs-12 col-sm-9">
+                        <?php if (!empty($menu_footer__primary)): ?>
+                            <?php print render($menu_footer__primary); ?>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
@@ -197,7 +208,7 @@
 
                     <?php if (!empty($theme_settings['contact_information']['email'])) : ?>
                         <div>
-                          <?php print '<a href="mailto:' . $theme_settings['contact_information']['email'] . ' title="' . t('Send email') . '">' . $theme_settings['contact_information']['email'] . '</a>'; ?>
+                          <?php print '<a href="mailto:' . $theme_settings['contact_information']['email'] . '">' . $theme_settings['contact_information']['email'] . '</a>'; ?>
                         </div>
                     <?php endif; ?>
 
