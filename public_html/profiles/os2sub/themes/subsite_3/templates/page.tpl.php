@@ -131,6 +131,12 @@
                     </ul>
                     <!-- End - social icons -->
 
+                    <!-- Begin - navigation -->
+                    <nav role="navigation">
+                        <?php print render($menu_header__row_first__secondary); ?>
+                    </nav>
+                    <!-- End - navigation -->
+
                     <!-- Begin - search -->
                     <div class="flexy-header__form">
                         <?php if (!empty($page['search'])): ?>
