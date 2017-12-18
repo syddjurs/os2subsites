@@ -22,3 +22,28 @@ function kultunaut_import_ctools_plugin_api($module = NULL, $api = NULL) {
 function kultunaut_import_views_api($module = NULL, $api = NULL) {
   return array("api" => "3.0");
 }
+
+/**
+ * Implements hook_default_search_api_page().
+ */
+function kultunaut_import_default_search_api_page() {
+  $items = array();
+  $items['oplevsyddjurs'] = entity_import('search_api_page', '{
+    "index_id" : "default_fuzzysearch_index",
+    "path" : "find",
+    "name" : "Oplevsyddjurs",
+    "machine_name" : "oplevsyddjurs",
+    "description" : null,
+    "options" : {
+      "mode" : "terms",
+      "fields" : [],
+      "per_page" : "20",
+      "get_per_page" : 0,
+      "result_page_search_form" : 1,
+      "view_mode" : "search_result",
+      "language_filter" : { "current" : "current" }
+    },
+    "enabled" : "1"
+  }');
+  return $items;
+}
