@@ -300,6 +300,8 @@ function bellcom_menu_link__flexy_navigation(array $variables) {
   $element = $variables['element'];
   $sub_menu = '';
 
+  $element['#attributes']['class'][] = 'flexy-navigation__item';
+
   if ($element['#below']) {
     // Prevent dropdown functions from being added to management menu so it
     // does not affect the navbar module.
@@ -318,7 +320,7 @@ function bellcom_menu_link__flexy_navigation(array $variables) {
     }
   }
   else {
-    $element['#attributes']['class'][] = 'flexy-navigation__item';
+//    $element['#attributes']['class'][] = 'flexy-navigation__item';
   }
 
   // On primary navigation menu, class 'active' is not set on active menu item.
