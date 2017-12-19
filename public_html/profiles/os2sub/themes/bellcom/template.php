@@ -33,10 +33,13 @@ function bellcom_preprocess_page(&$variables) {
   // Navigation
   $variables['primary_navigation'] = _bellcom_generate_menu($primary_navigation_name, 'main-navigation', 1);
   $variables['secondary_navigation'] = _bellcom_generate_menu($secondary_navigation_name, 'main-navigation');
+
   $variables['sidebar_primary_navigation'] = _bellcom_generate_menu($primary_navigation_name, 'sidebar');
   $variables['sidebar_secondary_navigation'] = _bellcom_generate_menu($secondary_navigation_name, 'sidebar');
+
   $variables['flexy_navigation__primary'] = _bellcom_generate_menu($primary_navigation_name, 'flexy_navigation', TRUE);
   $variables['flexy_navigation__secondary'] = _bellcom_generate_menu($secondary_navigation_name, 'flexy_navigation', TRUE);
+
   $variables['menu_slinky__primary'] = _bellcom_generate_menu($primary_navigation_name, 'slinky', TRUE);
   $variables['menu_slinky__secondary'] = _bellcom_generate_menu($secondary_navigation_name, 'slinky', TRUE);
 
