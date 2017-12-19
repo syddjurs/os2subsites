@@ -29,8 +29,8 @@
                     <!-- Push navigation to the right -->
                     <div class="flexy-spacer"></div>
 
+                    <ul class="flexy-list hidden-xs">
                     <!-- Begin - social icons -->
-                    <ul class="flexy-list">
 
                       <?php if ($theme_settings['social_links']['facebook']['active']): ?>
                           <li>
@@ -132,13 +132,13 @@
                     <!-- End - social icons -->
 
                     <!-- Begin - navigation -->
-                    <nav role="navigation">
+                    <nav class="hidden-xs" role="navigation">
                         <?php print render($menu_header__row_first__secondary); ?>
                     </nav>
                     <!-- End - navigation -->
 
                     <!-- Begin - search -->
-                    <div class="flexy-header__form">
+                    <div class="flexy-header__form hidden-xs">
                         <?php if (!empty($page['search'])): ?>
                             <?php print render($page['search']); ?>
                         <?php else : ?>
@@ -218,27 +218,25 @@
 
             <?php if (!empty($tabs_primary)): ?>
                 <!-- Begin - tabs primary -->
-                <div class="os2-tabs-container os2-tabs-variant-default">
-                    <?php print render($tabs_primary); ?>
-                </div>
+                <?php print render($tabs_primary); ?>
                 <!-- End - tabs primary -->
             <?php endif; ?>
 
             <?php if (!empty($tabs_secondary)): ?>
                 <!-- Begin - tabs secondary -->
-                <div class="os2-tabs-container os2-tabs-variant-tertiary">
-                    <?php print render($tabs_secondary); ?>
-                </div>
+                <?php print render($tabs_secondary); ?>
                 <!-- End - tabs secondary -->
+            <?php endif; ?>
+
+            <?php if (!empty($messages)): ?>
+                <!-- Begin - messages -->
+                <?php print $messages; ?>
+                <!-- End - messages -->
             <?php endif; ?>
 
         </div>
 
         <a id="main-content"></a>
-
-        <div class="message">
-            <?php print $messages; ?>
-        </div>
 
         <?php if (!panels_get_current_page_display()): ?>
             <div class="container">
