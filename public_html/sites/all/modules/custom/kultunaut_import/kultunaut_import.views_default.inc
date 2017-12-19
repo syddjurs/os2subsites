@@ -651,9 +651,9 @@ function kultunaut_import_views_default_views() {
   $handler->display->display_options['fields']['field_os2web_base_field_image']['field'] = 'field_os2web_base_field_image';
   $handler->display->display_options['fields']['field_os2web_base_field_image']['label'] = 'Term image';
   $handler->display->display_options['fields']['field_os2web_base_field_image']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_os2web_base_field_image']['type'] = 'file_rendered';
   $handler->display->display_options['fields']['field_os2web_base_field_image']['settings'] = array(
-    'file_view_mode' => 'default',
+    'image_style' => '',
+    'image_link' => '',
   );
   /* Field: Taxonomy term: Banner */
   $handler->display->display_options['fields']['field_os2web_base_field_banner']['id'] = 'field_os2web_base_field_banner';
@@ -715,6 +715,12 @@ function kultunaut_import_views_default_views() {
   $handler->display->display_options['fields']['name_1']['field'] = 'name';
   $handler->display->display_options['fields']['name_1']['relationship'] = 'parent';
   $handler->display->display_options['fields']['name_1']['label'] = 'Parrent Term Name';
+  /* Field: Taxonomy term: GIS maplink */
+  $handler->display->display_options['fields']['field_os2web_taxonomies_maplink']['id'] = 'field_os2web_taxonomies_maplink';
+  $handler->display->display_options['fields']['field_os2web_taxonomies_maplink']['table'] = 'field_data_field_os2web_taxonomies_maplink';
+  $handler->display->display_options['fields']['field_os2web_taxonomies_maplink']['field'] = 'field_os2web_taxonomies_maplink';
+  $handler->display->display_options['fields']['field_os2web_taxonomies_maplink']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_os2web_taxonomies_maplink']['type'] = 'link_absolute';
   /* Sort criterion: Taxonomy term: Weight */
   $handler->display->display_options['sorts']['weight']['id'] = 'weight';
   $handler->display->display_options['sorts']['weight']['table'] = 'taxonomy_term_data';
@@ -758,6 +764,7 @@ function kultunaut_import_views_default_views() {
     t('Beskrivelse af term'),
     t('Parrent Term ID'),
     t('Parrent Term Name'),
+    t('GIS maplink'),
     t('Page'),
   );
   $export['os2web_taxonomies_tax_places_data'] = $view;
