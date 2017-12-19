@@ -4,7 +4,7 @@ $path      = $node->field_banner_billede['und']['0']['uri'];
 $style_url = image_style_url($style, $path);
 ?>
 
-<div class="sectioned sectioned--banner sectioned--background-image"
+<div class="sectioned sectioned--banner sectioned--background-image sectioned--small-inner-spacing"
      style="background-image: url(<?php print file_create_url($style_url); ?>);">
     <div class="sectioned__inner">
         <div class="container">
@@ -24,5 +24,3 @@ $style_url = image_style_url($style, $path);
         </div>
     </div>
 </div>
-
-
