@@ -149,16 +149,14 @@
                     <div class="flexy-header__form hidden-xs">
                         <?php if (!empty($page['search'])): ?>
                             <?php print render($page['search']); ?>
-                        <?php else : ?>
-                            <?php if (isset($search_box)): ?>
-                                <?php print $search_box; ?>
-                            <?php endif; ?>
+                        <?php elseif(isset($search_box)) : ?>
+                            <?php print $search_box; ?>
                         <?php endif; ?>
                     </div>
                     <!-- End - search -->
 
                     <!-- Begin - responsive toggle -->
-                    <a href="#" class="flexy-header__sidebar-toggle sidr-toggle--right visible-xs">
+                    <a href="#" class="flexy-header__sidebar-toggle sidr-toggle--right visible-xs" role="button">
                         <span class="icon fa fa-bars"></span>
                     </a>
                     <!-- End - responsive toggle -->
@@ -203,7 +201,7 @@
                     <!-- End - navigation -->
 
                     <!-- Begin - responsive toggle -->
-                    <a href="#" class="flexy-header__sidebar-toggle sidr-toggle--right visible-xs">
+                    <a href="#" class="flexy-header__sidebar-toggle sidr-toggle--right visible-xs" role="button">
                         <span class="icon fa fa-bars"></span>
                     </a>
                     <!-- End - responsive toggle -->
