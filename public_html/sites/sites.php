@@ -64,3 +64,6 @@ $sites['teampåtværs.syddjurs.dk'] = 'engodstartsammen.subsites.syddjurs.dk';
 $sites['xn--teamptvrs-92an.syddjurs.dk']= 'engodstartsammen.subsites.syddjurs.dk';
 $sites['tt.syddjurs.dk'] = 'engodstartsammen.subsites.syddjurs.dk';
 
+$sites['example.test-subsites.syddk-web01.bellcom.dk'] = 'example.test-subsites.syddjurs.dk';
+$sites['oplevtestsite.test-subsites.syddk-web01.bellcom.dk'] = 'oplevtestsite.test-subsites.syddjurs.dk';
+$sites['oplevtest.test-subsites.syddk-web01.bellcom.dk'] = 'oplevtest.test-subsites.syddjurs.dk';
