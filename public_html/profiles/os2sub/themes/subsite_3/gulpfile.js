@@ -65,7 +65,10 @@ gulp.task('process:styles', () => {
     return gulp.src(config.settings.styles)
         .pipe(sourcemaps.init())
         .pipe(styles().on('error', swallowError))
-        .pipe(autoprefixer('last 2 version'))
+        .pipe(autoprefixer({
+            browsers: ['last 4 versions'],
+            cascade: false
+        }))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest('dist/stylesheets'))
         .pipe(browserSync.stream({match: '**/*.css'}));
