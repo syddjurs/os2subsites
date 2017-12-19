@@ -11,7 +11,7 @@ if ($uri = $node->field_banner_billede['und']['0']['uri']) {
 <div class="sectioned sectioned--banner sectioned--background-image sectioned--small-inner-spacing"
      style="background-image: url(<?php print $image_url; ?>);">
 <?php else: ?>
-    <div class="sectioned sectioned--banner sectioned--tertiary sectioned--small-inner-spacing">
+    <div class="sectioned sectioned--banner sectioned--quaternary sectioned--small-inner-spacing">
 <?php endif; ?>
 
     <div class="sectioned__inner">
