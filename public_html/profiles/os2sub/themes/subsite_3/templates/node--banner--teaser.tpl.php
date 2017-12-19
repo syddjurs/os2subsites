@@ -2,7 +2,7 @@
 $image_style = 'os2sub_banner';
 $image_url = false;
 
-if ($uri = $node->field_banner_billede['und']['0']['uri']) {
+if (isset($node->field_banner_billede['und']['0']['uri']) && $uri = $node->field_banner_billede['und']['0']['uri']) {
   $image_url = file_create_url(image_style_url($image_style, $uri));
 }
 ?>
