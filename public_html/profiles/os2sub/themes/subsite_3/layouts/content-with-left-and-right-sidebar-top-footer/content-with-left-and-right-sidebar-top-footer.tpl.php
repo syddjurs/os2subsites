@@ -3,7 +3,7 @@
 
   <?php if ($content['top']): ?>
       <!-- Begin - top -->
-      <div class="col-md-12">
+      <div>
         <?php print $content['top']; ?>
       </div>
       <!-- End - top -->
@@ -60,7 +60,7 @@
 
   <?php if ($content['footer']): ?>
       <!-- Begin - footer -->
-      <div class="col-xs-12">
+      <div>
         <?php print $content['footer']; ?>
       </div>
       <!-- End - footer -->
