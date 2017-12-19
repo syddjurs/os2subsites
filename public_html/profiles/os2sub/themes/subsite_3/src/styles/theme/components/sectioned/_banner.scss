@@ -58,7 +58,7 @@
   }
 
   .container {
-    width: calc(100% - 30%);
+    max-width: calc(100% - 30%);
   }
 }
 
