@@ -327,9 +327,6 @@ function bellcom_menu_link__flexy_navigation(array $variables) {
       $element['#localized_options']['html'] = TRUE;
     }
   }
-  else {
-//    $element['#attributes']['class'][] = 'flexy-navigation__item';
-  }
 
   // On primary navigation menu, class 'active' is not set on active menu item.
   // @see https://drupal.org/node/1896674
