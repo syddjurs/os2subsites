@@ -7,28 +7,31 @@ if (isset($node->field_banner_billede['und']['0']['uri']) && $uri = $node->field
 }
 ?>
 
-<?php if ($image_url): ?>
-<div class="sectioned sectioned--banner sectioned--background-image sectioned--small-inner-spacing"
-     style="background-image: url(<?php print $image_url; ?>);">
-<?php else: ?>
-    <div class="sectioned sectioned--banner sectioned--quaternary sectioned--small-inner-spacing">
-<?php endif; ?>
+<?php if ( isset( $content['field_banner_headline'] ) OR isset( $content['field_banner_text'] ) OR isset( $content['field_knap_link'] ) ): ?>
 
-    <div class="sectioned__inner">
-        <div class="container">
+    <?php if ($image_url): ?>
+    <div class="sectioned sectioned--banner sectioned--background-image sectioned--small-inner-spacing"
+         style="background-image: url(<?php print $image_url; ?>);">
+    <?php else: ?>
+        <div class="sectioned sectioned--banner sectioned--quaternary sectioned--small-inner-spacing">
+    <?php endif; ?>
 
-            <!-- Begin - headline -->
-            <?php print render($content['field_banner_headline']); ?>
-            <!-- End - headline -->
+        <div class="sectioned__inner">
+            <div class="container">
 
-            <!-- Begin - body -->
-            <?php print render($content['field_banner_text']); ?>
-            <!-- End - body -->
+                <!-- Begin - headline -->
+                <?php print render($content['field_banner_headline']); ?>
+                <!-- End - headline -->
 
-            <!-- Begin - link -->
-            <?php print render($content['field_knap_link']); ?>
-            <!-- End - link -->
+                <!-- Begin - body -->
+                <?php print render($content['field_banner_text']); ?>
+                <!-- End - body -->
 
+                <!-- Begin - link -->
+                <?php print render($content['field_knap_link']); ?>
+                <!-- End - link -->
+
+            </div>
         </div>
     </div>
-</div>
+<?php endif; ?>
