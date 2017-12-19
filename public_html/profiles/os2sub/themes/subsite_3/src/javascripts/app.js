@@ -8,6 +8,10 @@ jQuery(function($) {
     flexy_navigation.init();
 
     // Sidr
+    $('.slinky-menu')
+        .find('ul, li, a')
+        .removeClass();
+
     $('.sidr-toggle--right').sidr({
         name: 'sidr-main',
         side: 'right',

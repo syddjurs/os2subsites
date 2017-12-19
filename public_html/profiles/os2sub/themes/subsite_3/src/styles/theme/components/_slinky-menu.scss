@@ -23,12 +23,8 @@
 .slinky-menu {
   color: #fff;
 
-  a {
-    text-transform: uppercase;
-  }
-
   li {
-    border-bottom: 1px solid #2a2f36;
+    border-bottom: 1px solid #263c42;
   }
 
   .back {
@@ -42,7 +38,7 @@
       font-size: 18px;
       content: $fa-var-angle-right;
 
-      color: #2a2f36;
+      color: #969899;
     }
   }
 }

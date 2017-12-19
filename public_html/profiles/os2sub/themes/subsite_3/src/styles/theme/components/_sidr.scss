@@ -23,9 +23,10 @@
 .sidr {
 
   .logo {
+    padding: 10px floor( ( $grid-gutter-width / 2 ) );
 
     img {
-      max-height: 80px;
+      max-height: 50px;
     }
   }
 

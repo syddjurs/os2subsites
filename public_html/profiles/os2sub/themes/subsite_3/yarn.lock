@@ -4252,9 +4252,9 @@ shebang-regex@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/shebang-regex/-/shebang-regex-1.0.0.tgz#da42f49740c0b42db2ca9728571cb190c98efea3"
 
-sidr-bootstrap-theme@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/sidr-bootstrap-theme/-/sidr-bootstrap-theme-1.0.1.tgz#e2420c740ec0aa1968503e482ea264342e700482"
+sidr-bootstrap-theme@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/sidr-bootstrap-theme/-/sidr-bootstrap-theme-1.0.2.tgz#db68c4c045ccbd9af388e6a3d8ed55d2e39774c4"
 
 sidr@^2.2.1:
   version "2.2.1"
