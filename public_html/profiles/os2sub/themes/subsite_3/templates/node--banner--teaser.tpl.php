@@ -1,11 +1,19 @@
 <?php
-$style     = 'os2sub_banner';
-$path      = $node->field_banner_billede['und']['0']['uri'];
-$style_url = image_style_url($style, $path);
+$image_style = 'os2sub_banner';
+$image_url = false;
+
+if ($uri = $node->field_banner_billede['und']['0']['uri']) {
+  $image_url = file_create_url(image_style_url($image_style, $uri));
+}
 ?>
 
+<?php if ($image_url): ?>
 <div class="sectioned sectioned--banner sectioned--background-image sectioned--small-inner-spacing"
-     style="background-image: url(<?php print file_create_url($style_url); ?>);">
+     style="background-image: url(<?php print $image_url; ?>);">
+<?php else: ?>
+    <div class="sectioned sectioned--banner sectioned--tertiary sectioned--small-inner-spacing">
+<?php endif; ?>
+
     <div class="sectioned__inner">
         <div class="container">
 
