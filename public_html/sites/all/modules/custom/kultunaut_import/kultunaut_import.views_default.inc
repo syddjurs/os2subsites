@@ -597,5 +597,170 @@ function kultunaut_import_views_default_views() {
   );
   $export['oplevsyddjurs_term_subterms'] = $view;
 
+  $view = new view();
+  $view->name = 'os2web_taxonomies_tax_places_data';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'taxonomy_term_data';
+  $view->human_name = 'os2web_taxonomies_tax_places_data';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'os2web_taxonomies_tax_places_data';
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '0';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['style_plugin'] = 'views_json';
+  $handler->display->display_options['style_options']['root_object'] = 'tax-places';
+  $handler->display->display_options['style_options']['top_child_object'] = 'place';
+  $handler->display->display_options['style_options']['plaintext_output'] = 1;
+  $handler->display->display_options['style_options']['remove_newlines'] = 0;
+  $handler->display->display_options['style_options']['jsonp_prefix'] = '';
+  $handler->display->display_options['style_options']['using_views_api_mode'] = 0;
+  $handler->display->display_options['style_options']['object_arrays'] = 0;
+  $handler->display->display_options['style_options']['numeric_strings'] = 1;
+  $handler->display->display_options['style_options']['bigint_string'] = 0;
+  $handler->display->display_options['style_options']['pretty_print'] = 0;
+  $handler->display->display_options['style_options']['unescaped_slashes'] = 0;
+  $handler->display->display_options['style_options']['unescaped_unicode'] = 0;
+  $handler->display->display_options['style_options']['char_encoding'] = array();
+  /* Relationship: Taxonomy term: Parent term */
+  $handler->display->display_options['relationships']['parent']['id'] = 'parent';
+  $handler->display->display_options['relationships']['parent']['table'] = 'taxonomy_term_hierarchy';
+  $handler->display->display_options['relationships']['parent']['field'] = 'parent';
+  $handler->display->display_options['relationships']['parent']['label'] = 'Overordnet element';
+  /* Field: Taxonomy term: Name */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['label'] = 'Term title';
+  $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['name']['link_to_taxonomy'] = TRUE;
+  /* Field: Field: Billede */
+  $handler->display->display_options['fields']['field_os2web_base_field_image']['id'] = 'field_os2web_base_field_image';
+  $handler->display->display_options['fields']['field_os2web_base_field_image']['table'] = 'field_data_field_os2web_base_field_image';
+  $handler->display->display_options['fields']['field_os2web_base_field_image']['field'] = 'field_os2web_base_field_image';
+  $handler->display->display_options['fields']['field_os2web_base_field_image']['label'] = 'Term image';
+  $handler->display->display_options['fields']['field_os2web_base_field_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_os2web_base_field_image']['type'] = 'file_rendered';
+  $handler->display->display_options['fields']['field_os2web_base_field_image']['settings'] = array(
+    'file_view_mode' => 'default',
+  );
+  /* Field: Taxonomy term: Banner */
+  $handler->display->display_options['fields']['field_os2web_base_field_banner']['id'] = 'field_os2web_base_field_banner';
+  $handler->display->display_options['fields']['field_os2web_base_field_banner']['table'] = 'field_data_field_os2web_base_field_banner';
+  $handler->display->display_options['fields']['field_os2web_base_field_banner']['field'] = 'field_os2web_base_field_banner';
+  $handler->display->display_options['fields']['field_os2web_base_field_banner']['label'] = 'Term banner image';
+  $handler->display->display_options['fields']['field_os2web_base_field_banner']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_os2web_base_field_banner']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
+  );
+  $handler->display->display_options['fields']['field_os2web_base_field_banner']['delta_offset'] = '0';
+  /* Field: Taxonomy term: GIS navn */
+  $handler->display->display_options['fields']['field_os2web_taxonomies_name']['id'] = 'field_os2web_taxonomies_name';
+  $handler->display->display_options['fields']['field_os2web_taxonomies_name']['table'] = 'field_data_field_os2web_taxonomies_name';
+  $handler->display->display_options['fields']['field_os2web_taxonomies_name']['field'] = 'field_os2web_taxonomies_name';
+  /* Field: Taxonomy term: GIS postby */
+  $handler->display->display_options['fields']['field_os2web_taxonomies_city']['id'] = 'field_os2web_taxonomies_city';
+  $handler->display->display_options['fields']['field_os2web_taxonomies_city']['table'] = 'field_data_field_os2web_taxonomies_city';
+  $handler->display->display_options['fields']['field_os2web_taxonomies_city']['field'] = 'field_os2web_taxonomies_city';
+  /* Field: Taxonomy term: GIS type */
+  $handler->display->display_options['fields']['field_os2web_taxonomies_type']['id'] = 'field_os2web_taxonomies_type';
+  $handler->display->display_options['fields']['field_os2web_taxonomies_type']['table'] = 'field_data_field_os2web_taxonomies_type';
+  $handler->display->display_options['fields']['field_os2web_taxonomies_type']['field'] = 'field_os2web_taxonomies_type';
+  /* Field: Taxonomy term: Systemid */
+  $handler->display->display_options['fields']['field_os2web_taxonomies_sys_id']['id'] = 'field_os2web_taxonomies_sys_id';
+  $handler->display->display_options['fields']['field_os2web_taxonomies_sys_id']['table'] = 'field_data_field_os2web_taxonomies_sys_id';
+  $handler->display->display_options['fields']['field_os2web_taxonomies_sys_id']['field'] = 'field_os2web_taxonomies_sys_id';
+  $handler->display->display_options['fields']['field_os2web_taxonomies_sys_id']['settings'] = array(
+    'thousand_separator' => '',
+    'prefix_suffix' => 1,
+  );
+  /* Field: Taxonomy term: Term ID */
+  $handler->display->display_options['fields']['tid']['id'] = 'tid';
+  $handler->display->display_options['fields']['tid']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['tid']['field'] = 'tid';
+  $handler->display->display_options['fields']['tid']['separator'] = '';
+  /* Field: Taxonomy term: Weight */
+  $handler->display->display_options['fields']['weight']['id'] = 'weight';
+  $handler->display->display_options['fields']['weight']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['weight']['field'] = 'weight';
+  $handler->display->display_options['fields']['weight']['label'] = 'Term Weight';
+  $handler->display->display_options['fields']['weight']['separator'] = '';
+  /* Field: Taxonomy term: Term description */
+  $handler->display->display_options['fields']['description']['id'] = 'description';
+  $handler->display->display_options['fields']['description']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['description']['field'] = 'description';
+  $handler->display->display_options['fields']['description']['label'] = 'Beskrivelse af term';
+  /* Field: Taxonomy term: Term ID */
+  $handler->display->display_options['fields']['tid_1']['id'] = 'tid_1';
+  $handler->display->display_options['fields']['tid_1']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['tid_1']['field'] = 'tid';
+  $handler->display->display_options['fields']['tid_1']['relationship'] = 'parent';
+  $handler->display->display_options['fields']['tid_1']['label'] = 'Parrent Term ID';
+  $handler->display->display_options['fields']['tid_1']['separator'] = '';
+  /* Field: Taxonomy term: Name */
+  $handler->display->display_options['fields']['name_1']['id'] = 'name_1';
+  $handler->display->display_options['fields']['name_1']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['name_1']['field'] = 'name';
+  $handler->display->display_options['fields']['name_1']['relationship'] = 'parent';
+  $handler->display->display_options['fields']['name_1']['label'] = 'Parrent Term Name';
+  /* Sort criterion: Taxonomy term: Weight */
+  $handler->display->display_options['sorts']['weight']['id'] = 'weight';
+  $handler->display->display_options['sorts']['weight']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['sorts']['weight']['field'] = 'weight';
+  $handler->display->display_options['sorts']['weight']['relationship'] = 'parent';
+  /* Sort criterion: Taxonomy term: Weight */
+  $handler->display->display_options['sorts']['weight_1']['id'] = 'weight_1';
+  $handler->display->display_options['sorts']['weight_1']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['sorts']['weight_1']['field'] = 'weight';
+  /* Filter criterion: Taxonomy vocabulary: Machine name */
+  $handler->display->display_options['filters']['machine_name']['id'] = 'machine_name';
+  $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
+  $handler->display->display_options['filters']['machine_name']['field'] = 'machine_name';
+  $handler->display->display_options['filters']['machine_name']['value'] = array(
+    'os2web_taxonomies_tax_places' => 'os2web_taxonomies_tax_places',
+  );
+
+  /* Display: Page */
+  $handler = $view->new_display('page', 'Page', 'page');
+  $handler->display->display_options['path'] = 'os2web-taxonomies-tax-places-data';
+  $translatables['os2web_taxonomies_tax_places_data'] = array(
+    t('Master'),
+    t('os2web_taxonomies_tax_places_data'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Overordnet element'),
+    t('Term title'),
+    t('Term image'),
+    t('Term banner image'),
+    t('GIS navn'),
+    t('GIS postby'),
+    t('GIS type'),
+    t('Systemid'),
+    t('Term ID'),
+    t('.'),
+    t('Term Weight'),
+    t('Beskrivelse af term'),
+    t('Parrent Term ID'),
+    t('Parrent Term Name'),
+    t('Page'),
+  );
+  $export['os2web_taxonomies_tax_places_data'] = $view;
+
   return $export;
 }
