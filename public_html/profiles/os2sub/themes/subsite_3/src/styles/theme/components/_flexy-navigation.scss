@@ -53,6 +53,8 @@
     content: "";
 
     background-color: transparent;
+
+    transition: background-color $transition-time-short ease-in-out;
   }
 }
 
