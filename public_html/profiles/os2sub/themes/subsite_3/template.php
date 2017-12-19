@@ -39,6 +39,9 @@ function subsite_3_preprocess_page(&$variables) {
   $primary_navigation_name           = variable_get('menu_main_links_source', 'main-menu');
   $secondary_navigation_name         = variable_get('menu_secondary_links_source', 'user-menu');
 
+  // Overriding the one set by mother theme, as we want to limit the number of levels shown
+  $variables['flexy_navigation__primary'] = _bellcom_generate_menu($primary_navigation_name, 'flexy_navigation', TRUE, 2);
+
   $variables['menu_footer__primary'] = _bellcom_generate_menu($primary_navigation_name, 'footer', false, 2);
   $variables['menu_header__row_first__secondary'] = _bellcom_generate_menu($secondary_navigation_name, 'flexy_list', false, 1);
 
