@@ -150,7 +150,9 @@
                         <?php if (!empty($page['search'])): ?>
                             <?php print render($page['search']); ?>
                         <?php else : ?>
-                            <?php print $search_box; ?>
+                            <?php if (isset($search_box)): ?>
+                                <?php print $search_box; ?>
+                            <?php endif; ?>
                         <?php endif; ?>
                     </div>
                     <!-- End - search -->
@@ -224,6 +226,12 @@
                 <ul class="action-links"><?php print render($action_links); ?></ul>
             <?php endif; ?>
 
+            <?php if (!empty($messages)): ?>
+                <!-- Begin - messages -->
+                <?php print $messages; ?>
+                <!-- End - messages -->
+            <?php endif; ?>
+
             <?php if (!empty($tabs_primary)): ?>
                 <!-- Begin - tabs primary -->
                 <?php print render($tabs_primary); ?>
@@ -234,12 +242,6 @@
                 <!-- Begin - tabs secondary -->
                 <?php print render($tabs_secondary); ?>
                 <!-- End - tabs secondary -->
-            <?php endif; ?>
-
-            <?php if (!empty($messages)): ?>
-                <!-- Begin - messages -->
-                <?php print $messages; ?>
-                <!-- End - messages -->
             <?php endif; ?>
 
         </div>
