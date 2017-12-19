@@ -52,10 +52,6 @@ $lg-flexy-header-static-row-second-height: 60px;
 
   .flexy-navigation {
     @extend .flexy-navigation--full-width;
-
-    .flexy-navigation__item__dropdown-menu {
-      display: none; // Temporary hack until SYDDK-498 - full width is also applied to submenu because of
-    }
   }
 }
 

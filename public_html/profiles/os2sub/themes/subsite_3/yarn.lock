@@ -1773,9 +1773,9 @@ flexy-list@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/flexy-list/-/flexy-list-1.0.2.tgz#3a32b62b9e7d5ff85adaaa5ba5c01976eae5b57e"
 
-flexy-navigation@^1.0.8:
-  version "1.0.8"
-  resolved "https://registry.yarnpkg.com/flexy-navigation/-/flexy-navigation-1.0.8.tgz#2427b775f54482bb450b3023f3f0b28fb1b04d80"
+flexy-navigation@^1.0.9:
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/flexy-navigation/-/flexy-navigation-1.0.9.tgz#08872a37f74fcfe4b68a4b4eb203abb57ee29e2e"
 
 flexy-row@^1.0.0:
   version "1.0.0"

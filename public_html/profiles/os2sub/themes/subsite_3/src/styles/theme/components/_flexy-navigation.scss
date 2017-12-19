@@ -37,6 +37,8 @@
 
   > a {
     display: block !important;
+
+    transition: none;
   }
 
   &:after {
@@ -53,9 +55,24 @@
     content: "";
 
     background-color: transparent;
-
-    transition: background-color $transition-time-short ease-in-out;
   }
+}
+
+.flexy-navigation__item__dropdown-menu {
+  width: 100%;
+
+  margin-top: -1px;
+  padding: floor( ( $grid-gutter-width / 2 ) ) 0;
+
+  border-top: 1px solid transparent;
+
+  box-shadow: none;
+
+  text-align: initial; // This is normally done at library level
+
+  // Reset
+  min-width: 0;
+  max-width: none;
 }
 
 // --------------------------------------------------
@@ -65,11 +82,19 @@
 .flexy-navigation__item--primary {
 
   &.active,
-  &.active-trail,
-  &:hover {
+  &.active-trail {
 
     &:after {
       background-color: $brand-primary;
+    }
+  }
+
+  &:hover {
+    background-color: $brand-primary;
+
+    .flexy-navigation__item__dropdown-menu {
+      background-color: $brand-primary;
+      border-top-color: lighten($brand-primary, 10%);
     }
   }
 }
@@ -77,11 +102,19 @@
 .flexy-navigation__item--secondary {
 
   &.active,
-  &.active-trail,
-  &:hover {
+  &.active-trail {
 
     &:after {
       background-color: $brand-secondary;
+    }
+  }
+
+  &:hover {
+    background-color: $brand-secondary;
+
+    .flexy-navigation__item__dropdown-menu {
+      background-color: $brand-secondary;
+      border-top-color: lighten($brand-secondary, 10%);
     }
   }
 }
@@ -89,11 +122,19 @@
 .flexy-navigation__item--tertiary {
 
   &.active,
-  &.active-trail,
-  &:hover {
+  &.active-trail {
 
     &:after {
       background-color: $brand-tertiary;
+    }
+  }
+
+  &:hover {
+    background-color: $brand-tertiary;
+
+    .flexy-navigation__item__dropdown-menu {
+      background-color: $brand-tertiary;
+      border-top-color: lighten($brand-tertiary, 10%);
     }
   }
 }
@@ -101,11 +142,19 @@
 .flexy-navigation__item--quaternary {
 
   &.active,
-  &.active-trail,
-  &:hover {
+  &.active-trail {
 
     &:after {
       background-color: $brand-quaternary;
+    }
+  }
+
+  &:hover {
+    background-color: $brand-quaternary;
+
+    .flexy-navigation__item__dropdown-menu {
+      background-color: $brand-quaternary;
+      border-top-color: lighten($brand-quaternary, 10%);
     }
   }
 }
