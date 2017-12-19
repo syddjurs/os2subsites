@@ -46,8 +46,7 @@
 
 .carousel-indicators {
   width: 100%;
-  text-align: right;
-  padding-right: 90px;
+  text-align: center;
 
   // Resets
   left: 0;
@@ -89,10 +88,28 @@
 @media #{$breakpoint-mobile-and-up} {}
 
 // Mobile - only
-@media #{$breakpoint-mobile-only} {}
+@media #{$breakpoint-mobile-only} {
+
+  .carousel-control {
+    display: none;
+  }
+}
 
 // Tablet - and up
-@media #{$breakpoint-tablet-and-up} {}
+@media #{$breakpoint-tablet-and-up} {
+
+  .carousel {
+
+    .container {
+      max-width: calc(100% - 30%);
+    }
+  }
+
+  .carousel-indicators {
+    text-align: right;
+    padding-right: 90px;
+  }
+}
 
 // Tablet - only
 @media #{$breakpoint-tablet-only} {}
