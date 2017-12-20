@@ -138,7 +138,7 @@ $flexy-navigation-dropdown-menu-toggle-width: 60px;
     }
   }
 
-  &:first-child {
+  &.flexy-navigation__item--dropdown--first-child {
 
     > .flexy-navigation__item__dropdown-menu,
     > .flexy-navigation__item__dropdown-megamenu {
@@ -155,7 +155,7 @@ $flexy-navigation-dropdown-menu-toggle-width: 60px;
     }
   }
 
-  &:last-child {
+  &.flexy-navigation__item--dropdown--last-child {
 
     > .flexy-navigation__item__dropdown-menu,
     > .flexy-navigation__item__dropdown-megamenu {

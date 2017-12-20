@@ -45,6 +45,24 @@ jQuery(function($) {
         $dropdown_menu.append($btn);
     });
 
+    // Set a first- and last child class on the dropdowns
+    $headers.each(function(index, value) {
+        let $header = $(this);
+
+        // First child
+        $header
+            .find('.flexy-navigation > .flexy-navigation__item--dropdown')
+            .first()
+            .addClass('flexy-navigation__item--dropdown--first-child');
+
+        // Last child
+        $header
+            .find('.flexy-navigation > .flexy-navigation__item--dropdown')
+            .last()
+            .addClass('flexy-navigation__item--dropdown--last-child');
+    });
+
+    // Set dropdown menu height
     function _flexy_navigation_set_dropdown_menu_height() {
         let $headers = $('.flexy-header');
 
