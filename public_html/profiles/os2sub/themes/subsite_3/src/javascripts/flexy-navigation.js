@@ -29,8 +29,8 @@ jQuery(function($) {
     // Add a "close" toggle to the last dropdown menu in the header
     $headers.each(function(index, value) {
         let $header = $(this),
-            $last_list_item = $header.find('.flexy-navigation > .flexy-navigation__item--dropdown:last-child'),
-            $dropdown_menu = $last_list_item.find('.flexy-navigation__item__dropdown-menu');
+            $list_item = $header.find('.flexy-navigation > .flexy-navigation__item--dropdown').last(),
+            $dropdown_menu = $list_item.find('.flexy-navigation__item__dropdown-menu');
 
         let $btn = $('<span />')
             .addClass('flexy-navigation__item__dropdown-menu__toggle icon fa fa-close')
