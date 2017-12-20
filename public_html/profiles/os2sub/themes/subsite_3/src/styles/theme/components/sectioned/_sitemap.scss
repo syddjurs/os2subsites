@@ -39,6 +39,10 @@
 
   .menu {
 
+    .menu--hide {
+      display: none;
+    }
+
     > li {
       margin-bottom: floor( ( $grid-gutter-width / 2 ) );
 
