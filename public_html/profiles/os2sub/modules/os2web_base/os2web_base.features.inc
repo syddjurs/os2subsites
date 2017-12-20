@@ -28,6 +28,37 @@ function os2web_base_ctools_plugin_api($module = NULL, $api = NULL) {
 function os2web_base_image_default_styles() {
   $styles = array();
 
+  // Exported image style: cropped_400_x_220.
+  $styles['cropped_400_x_220'] = array(
+    'label' => 'Cropped - 400x220',
+    'effects' => array(
+      2 => array(
+        'name' => 'epsacrop_crop',
+        'data' => array(
+          'width' => 400,
+          'height' => 220,
+          'anchor' => 'center-center',
+          'disable_scale' => 0,
+          'jcrop_settings' => array(
+            'aspect_ratio' => '',
+            'bgcolor' => 'black',
+            'bgopacity' => 0.6,
+            'fallback' => 0,
+          ),
+        ),
+        'weight' => -10,
+      ),
+      1 => array(
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 400,
+          'height' => 220,
+        ),
+        'weight' => -9,
+      ),
+    ),
+  );
+
   // Exported image style: os2sub_220x130.
   $styles['os2sub_220x130'] = array(
     'label' => 'Forside nyhed 4 spalter',

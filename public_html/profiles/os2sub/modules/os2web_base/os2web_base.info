@@ -205,6 +205,7 @@ features[field_instance][] = taxonomy_term-os2web_base_tax_site_structure-field_
 features[field_instance][] = taxonomy_term-os2web_base_tax_site_structure-field_os2web_base_field_spotbox
 features[field_instance][] = taxonomy_term-os2web_base_tax_site_structure-field_svendborg_hide_sidebar
 features[filter][] = plain_text
+features[image][] = cropped_400_x_220
 features[image][] = os2sub_220x130
 features[image][] = os2sub_300x175
 features[image][] = os2sub_normal_imagesize
