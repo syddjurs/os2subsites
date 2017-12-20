@@ -24,6 +24,46 @@ function os2web_kulturnaut_events_views_api($module = NULL, $api = NULL) {
 }
 
 /**
+ * Implements hook_image_default_styles().
+ */
+function os2web_kulturnaut_events_image_default_styles() {
+  $styles = array();
+
+  // Exported image style: cropped_400_x_220.
+  $styles['cropped_400_x_220'] = array(
+    'label' => 'Cropped - 400x220',
+    'effects' => array(
+      2 => array(
+        'name' => 'epsacrop_crop',
+        'data' => array(
+          'width' => 400,
+          'height' => 220,
+          'anchor' => 'center-center',
+          'disable_scale' => 0,
+          'jcrop_settings' => array(
+            'aspect_ratio' => '',
+            'bgcolor' => 'black',
+            'bgopacity' => 0.6,
+            'fallback' => 0,
+          ),
+        ),
+        'weight' => -10,
+      ),
+      1 => array(
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 400,
+          'height' => 220,
+        ),
+        'weight' => -9,
+      ),
+    ),
+  );
+
+  return $styles;
+}
+
+/**
  * Implements hook_node_info().
  */
 function os2web_kulturnaut_events_node_info() {

@@ -1080,7 +1080,7 @@ function os2web_kulturnaut_events_field_default_field_instances() {
         'module' => 'image',
         'settings' => array(
           'image_link' => '',
-          'image_style' => '',
+          'image_style' => 'cropped_400_x_220',
         ),
         'type' => 'image',
         'weight' => 2,
