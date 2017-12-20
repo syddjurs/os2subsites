@@ -31,7 +31,7 @@ function bellcom_preprocess_page(&$variables) {
   $secondary_navigation_name = variable_get('menu_secondary_links_source', 'user-menu');
 
   // Navigation
-  $variables['primary_navigation'] = _bellcom_generate_menu($primary_navigation_name, 'main-navigation', 1);
+  $variables['primary_navigation'] = _bellcom_generate_menu($primary_navigation_name, 'main-navigation', false, 1);
   $variables['secondary_navigation'] = _bellcom_generate_menu($secondary_navigation_name, 'main-navigation');
 
   $variables['sidebar_primary_navigation'] = _bellcom_generate_menu($primary_navigation_name, 'sidebar');
