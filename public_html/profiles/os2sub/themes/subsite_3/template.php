@@ -95,6 +95,15 @@ function subsite_3_menu_link__footer(array $variables) {
     $element['#localized_options']['external'] = TRUE;
   }
 
+  // Remove disallowed classes
+  $disallowed_items = array('flexy-navigation__item--primary', 'flexy-navigation__item--secondary', 'flexy-navigation__item--tertiary', 'flexy-navigation__item--quaternary');
+
+  foreach($disallowed_items as $disallowed_item) {
+    if (($key = array_search($disallowed_item, $element['#attributes']['class'])) !== false) {
+      unset($element['#attributes']['class'][$key]);
+    }
+  }
+
   $output = l($element['#title'], $element['#href'], $element['#localized_options']);
 
   return '<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n";
