@@ -10,6 +10,9 @@
 // Variables
 // --------------------------------------------------
 
+$flexy-navigation-dropdown-menu-toggle-height: 60px;
+$flexy-navigation-dropdown-menu-toggle-width: 60px;
+
 // Responsive
 
 // --------------------------------------------------
@@ -58,21 +61,64 @@
   }
 }
 
+.flexy-navigation__item__dropdown-menu__toggle {
+  position: absolute;
+
+  display: flex;
+
+  cursor: pointer;
+  cursor: hand;
+
+  right: 0;
+  bottom: 0;
+
+  align-items: center;
+  justify-content: center;
+
+  height: $flexy-navigation-dropdown-menu-toggle-height;
+  width: $flexy-navigation-dropdown-menu-toggle-width;
+
+  font-size: 32px;
+
+  border-top-left-radius: $btn-border-radius-base;
+
+  color: #fff;
+  background-color: $brand-primary;
+}
+
 .flexy-navigation__item__dropdown-menu {
   width: 100%;
 
   margin-top: -1px;
-  padding: floor( ( $grid-gutter-width / 2 ) ) 0;
+  padding-top: floor( ( $grid-gutter-width / 2 ) );
+  padding-bottom: floor( ( ( $grid-gutter-width / 2 ) + $flexy-navigation-dropdown-menu-toggle-height ) );
 
-  border-top: 1px solid transparent;
+  border-top: 1px solid $border-color;
 
-  box-shadow: none;
-
-  text-align: initial; // This is normally done at library level
+  text-align: initial; // This is normally done at library level but since we are just extending ...full-width
 
   // Reset
   min-width: 0;
   max-width: none;
+}
+
+.flexy-navigation__item--dropdown {
+
+  &:hover {
+
+    > .flexy-navigation__item__dropdown-menu,
+    > .flexy-navigation__item__dropdown-megamenu {
+      display: none;
+    }
+  }
+
+  &.hover {
+
+    > .flexy-navigation__item__dropdown-menu,
+    > .flexy-navigation__item__dropdown-megamenu {
+      display: block;
+    }
+  }
 }
 
 // --------------------------------------------------

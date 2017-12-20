@@ -311,23 +311,53 @@ function bellcom_menu_link__flexy_navigation(array $variables) {
   $element = $variables['element'];
   $sub_menu = '';
 
-  $element['#attributes']['class'][] = 'flexy-navigation__item';
+  // @TODO - current level
+  // --- https://drupal.stackexchange.com/questions/32873/how-to-theme-only-top-level-menu
+  // If we are on second level or below, we need to add other classes to the list items.
 
-  if ($element['#below']) {
-    // Prevent dropdown functions from being added to management menu so it
-    // does not affect the navbar module.
-    if (($element['#original_link']['menu_name'] == 'management') && (module_exists('navbar'))) {
-      $sub_menu = drupal_render($element['#below']);
+  // The navbar
+  if ($element['#original_link']['depth'] > 1) {
+    $element['#attributes']['class'][] = 'flexy-navigation__item__dropdown-menu__item';
+
+    // Has a dropdown menu
+    if ($element['#below']) {
+
+      if (($element['#original_link']['menu_name'] == 'management') && (module_exists('navbar'))) {
+        $sub_menu = drupal_render($element['#below']);
+      }
+      elseif ((!empty($element['#original_link']['depth']))) {
+
+        // Add our own wrapper.
+        unset($element['#below']['#theme_wrappers']);
+        $sub_menu = '<ul class="flexy-navigation__item__dropdown-menu">' . drupal_render($element['#below']) . '</ul>';
+
+        // Generate as dropdown.
+        $element['#attributes']['class'][] = 'flexy-navigation__item__dropdown-menu__item--dropdown';
+        $element['#localized_options']['html'] = TRUE;
+      }
     }
-    elseif ((!empty($element['#original_link']['depth']))) {
+  }
 
-      // Add our own wrapper.
-      unset($element['#below']['#theme_wrappers']);
-      $sub_menu = '<ul class="flexy-navigation__item__dropdown-menu">' . drupal_render($element['#below']) . '</ul>';
+  // Inside dropdown menu
+  else {
+    $element['#attributes']['class'][] = 'flexy-navigation__item';
 
-      // Generate as dropdown.
-      $element['#attributes']['class'][] = 'flexy-navigation__item--dropdown';
-      $element['#localized_options']['html'] = TRUE;
+    // Has a dropdown menu
+    if ($element['#below']) {
+
+      if (($element['#original_link']['menu_name'] == 'management') && (module_exists('navbar'))) {
+        $sub_menu = drupal_render($element['#below']);
+      }
+      elseif ((!empty($element['#original_link']['depth']))) {
+
+        // Add our own wrapper.
+        unset($element['#below']['#theme_wrappers']);
+        $sub_menu = '<ul class="flexy-navigation__item__dropdown-menu">' . drupal_render($element['#below']) . '</ul>';
+
+        // Generate as dropdown.
+        $element['#attributes']['class'][] = 'flexy-navigation__item--dropdown';
+        $element['#localized_options']['html'] = TRUE;
+      }
     }
   }
 
@@ -349,6 +379,26 @@ function bellcom_menu_link__flexy_navigation(array $variables) {
   $output = l($element['#title'], $element['#href'], $element['#localized_options']);
 
   return '<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n";
+
+//  if ($element['#below']) {
+//    // Prevent dropdown functions from being added to management menu so it
+//    // does not affect the navbar module.
+//    if (($element['#original_link']['menu_name'] == 'management') && (module_exists('navbar'))) {
+//      $sub_menu = drupal_render($element['#below']);
+//    }
+//    elseif ((!empty($element['#original_link']['depth']))) {
+//
+//      // Add our own wrapper.
+//      unset($element['#below']['#theme_wrappers']);
+//      $sub_menu = '<ul class="flexy-navigation__item__dropdown-menu">' . drupal_render($element['#below']) . '</ul>';
+//
+//      // Generate as dropdown.
+//      $element['#attributes']['class'][] = 'flexy-navigation__item--dropdown';
+//      $element['#localized_options']['html'] = TRUE;
+//    }
+//  }
+//
+//  print_r($element['#original_link']['depth']);
 }
 
 /*

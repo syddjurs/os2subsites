@@ -4,9 +4,6 @@ jQuery(function($) {
     // Flexy header
     flexy_header.init();
 
-    // Flexy navigation
-    flexy_navigation.init();
-
     // Sidr
     $('.slinky-menu')
         .find('ul, li, a')
