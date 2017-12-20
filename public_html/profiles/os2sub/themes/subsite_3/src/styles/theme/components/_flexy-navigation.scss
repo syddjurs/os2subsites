@@ -92,7 +92,7 @@ $flexy-navigation-dropdown-menu-toggle-width: 60px;
 
   margin-top: -1px;
   padding-top: floor( ( $grid-gutter-width / 2 ) );
-  padding-bottom: $flexy-navigation-dropdown-menu-toggle-height;
+  padding-bottom: floor( ( ( $grid-gutter-width / 2 ) + $flexy-navigation-dropdown-menu-toggle-height ) );
 
   border-top: 1px solid $border-color;
 
