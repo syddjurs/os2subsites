@@ -45,23 +45,33 @@ jQuery(function($) {
         $dropdown_menu.append($btn);
     });
 
-    // Apply the same height to all dropdown menus
-    $headers.each(function(index, value) {
-        let $header = $(this),
-            $dropdown_menus = $header.find('.flexy-navigation__item__dropdown-menu'),
-            tallest_dropdown = 0;
+    function _flexy_navigation_set_dropdown_menu_height() {
+        let $headers = $('.flexy-header');
 
-        // Find the tallest dropdown menu
-        $dropdown_menus.each(function(index, value) {
-            let $dropdown_menu = $(this),
-                height = $dropdown_menu.outerHeight(true);
+        // Apply the same height to all dropdown menus
+        $headers.each(function(index, value) {
+            let $header = $(this),
+                $dropdown_menus = $header.find('.flexy-navigation__item__dropdown-menu'),
+                tallest_dropdown = 0;
 
-            if (height > tallest_dropdown) {
-                tallest_dropdown = height;
-            }
+            // Find the tallest dropdown menu
+            $dropdown_menus.each(function(index, value) {
+                let $dropdown_menu = $(this),
+                    height = $dropdown_menu.outerHeight(true);
+
+                if (height > tallest_dropdown) {
+                    tallest_dropdown = height;
+                }
+            });
+
+            // Apply the tallest height to all dropdown menus
+            $dropdown_menus.css('height', tallest_dropdown);
         });
+    }
+    _flexy_navigation_set_dropdown_menu_height(); // Run on boot
 
-        // Apply the tallest height to all dropdown menus
-        $dropdown_menus.css('min-height', tallest_dropdown);
+    // Recalculate dropdown menu height when window is resized
+    $(window).on('resize', function(){
+        _flexy_navigation_set_dropdown_menu_height();
     });
 });

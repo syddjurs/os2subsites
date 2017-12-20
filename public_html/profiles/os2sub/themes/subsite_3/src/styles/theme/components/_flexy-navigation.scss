@@ -69,8 +69,8 @@ $flexy-navigation-dropdown-menu-toggle-width: 60px;
   cursor: pointer;
   cursor: hand;
 
-  right: 0;
-  bottom: 0;
+  right: -1px; // We want to overlap the 1px border
+  bottom: -1px; // We want to overlap the 1px border
 
   align-items: center;
   justify-content: center;
@@ -81,6 +81,7 @@ $flexy-navigation-dropdown-menu-toggle-width: 60px;
   font-size: 32px;
 
   border-top-left-radius: $btn-border-radius-base;
+  border-bottom-right-radius: $border-radius-base;
 
   color: #fff;
   background-color: $brand-primary;
@@ -91,7 +92,7 @@ $flexy-navigation-dropdown-menu-toggle-width: 60px;
 
   margin-top: -1px;
   padding-top: floor( ( $grid-gutter-width / 2 ) );
-  padding-bottom: floor( ( ( $grid-gutter-width / 2 ) + $flexy-navigation-dropdown-menu-toggle-height ) );
+  padding-bottom: $flexy-navigation-dropdown-menu-toggle-height;
 
   border-top: 1px solid $border-color;
 
@@ -117,6 +118,57 @@ $flexy-navigation-dropdown-menu-toggle-width: 60px;
     > .flexy-navigation__item__dropdown-menu,
     > .flexy-navigation__item__dropdown-megamenu {
       display: block;
+    }
+  }
+}
+
+// Borders
+.flexy-navigation__item--dropdown {
+
+  > .flexy-navigation__item__dropdown-menu,
+  > .flexy-navigation__item__dropdown-megamenu {
+    border-bottom: 1px solid $border-color;
+  }
+
+  &:hover {
+
+    > .flexy-navigation__item__dropdown-menu,
+    > .flexy-navigation__item__dropdown-megamenu {
+      border-bottom-color: transparent;
+    }
+  }
+
+  &:first-child {
+
+    > .flexy-navigation__item__dropdown-menu,
+    > .flexy-navigation__item__dropdown-megamenu {
+      border-left: 1px solid $border-color;
+      border-bottom-left-radius: $border-radius-base;
+    }
+
+    &:hover {
+
+      > .flexy-navigation__item__dropdown-menu,
+      > .flexy-navigation__item__dropdown-megamenu {
+        border-left-color: transparent;
+      }
+    }
+  }
+
+  &:last-child {
+
+    > .flexy-navigation__item__dropdown-menu,
+    > .flexy-navigation__item__dropdown-megamenu {
+      border-right: 1px solid $border-color;
+      border-bottom-right-radius: $border-radius-base;
+    }
+
+    &:hover {
+
+      > .flexy-navigation__item__dropdown-menu,
+      > .flexy-navigation__item__dropdown-megamenu {
+        border-right-color: transparent;
+      }
     }
   }
 }
