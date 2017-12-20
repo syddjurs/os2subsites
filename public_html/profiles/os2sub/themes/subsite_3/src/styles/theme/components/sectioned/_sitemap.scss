@@ -39,18 +39,6 @@
 
   .menu {
 
-    a {
-      display: block;
-
-      padding: 5px 0;
-
-      &,
-      &:hover,
-      &:focus {
-        background-color: transparent;
-      }
-    }
-
     > li {
       margin-bottom: floor( ( $grid-gutter-width / 2 ) );
 
@@ -58,6 +46,18 @@
         font-size: $font-size-large;
 
         color: #fff;
+      }
+    }
+
+    a {
+      display: block;
+
+      padding: 5px $grid-gutter-width 5px 0;
+
+      &,
+      &:hover,
+      &:focus {
+        background-color: transparent;
       }
     }
   }
@@ -115,6 +115,8 @@
 
     .menu {
       display: flex;
+
+      flex-wrap: wrap;
 
       width: 100%;
 
