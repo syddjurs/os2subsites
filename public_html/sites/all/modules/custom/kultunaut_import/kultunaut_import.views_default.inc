@@ -473,8 +473,30 @@ function kultunaut_import_views_default_views() {
     'field_data_field_os2web_kulturnaut_date.field_os2web_kulturnaut_date_value' => 'field_data_field_os2web_kulturnaut_date.field_os2web_kulturnaut_date_value',
   );
 
-  /* Display: Content pane */
-  $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
+  /* Display: Teasers */
+  $handler = $view->new_display('panel_pane', 'Teasers', 'panel_pane_1');
+  $handler->display->display_options['argument_input'] = array(
+    'term_node_tid_depth' => array(
+      'type' => 'context',
+      'context' => 'entity:taxonomy_term.tid',
+      'context_optional' => 0,
+      'panel' => '0',
+      'fixed' => '',
+      'label' => 'Indhold: Har taksonomiterm ID (med dybde)',
+    ),
+  );
+
+  /* Display: List */
+  $handler = $view->new_display('panel_pane', 'List', 'panel_pane_2');
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['default_row_class'] = FALSE;
+  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'entity';
+  $handler->display->display_options['row_options']['view_mode'] = 'spotbox';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['argument_input'] = array(
     'term_node_tid_depth' => array(
       'type' => 'context',
@@ -501,8 +523,9 @@ function kultunaut_import_views_default_views() {
     t('next ›'),
     t('last »'),
     t('Alle'),
-    t('Content pane'),
+    t('Teasers'),
     t('View panes'),
+    t('List'),
   );
   $export['oplevsyddjurs_term_nodes'] = $view;
 
@@ -678,7 +701,7 @@ function kultunaut_import_views_default_views() {
   $handler->display->display_options['fields']['field_os2web_taxonomies_type']['id'] = 'field_os2web_taxonomies_type';
   $handler->display->display_options['fields']['field_os2web_taxonomies_type']['table'] = 'field_data_field_os2web_taxonomies_type';
   $handler->display->display_options['fields']['field_os2web_taxonomies_type']['field'] = 'field_os2web_taxonomies_type';
-  /* Field: Taxonomy term: Systemid */
+  /* Field: Taxonomy term: GIS id */
   $handler->display->display_options['fields']['field_os2web_taxonomies_sys_id']['id'] = 'field_os2web_taxonomies_sys_id';
   $handler->display->display_options['fields']['field_os2web_taxonomies_sys_id']['table'] = 'field_data_field_os2web_taxonomies_sys_id';
   $handler->display->display_options['fields']['field_os2web_taxonomies_sys_id']['field'] = 'field_os2web_taxonomies_sys_id';
@@ -757,7 +780,7 @@ function kultunaut_import_views_default_views() {
     t('GIS navn'),
     t('GIS postby'),
     t('GIS type'),
-    t('Systemid'),
+    t('GIS id'),
     t('Term ID'),
     t('.'),
     t('Term Weight'),
