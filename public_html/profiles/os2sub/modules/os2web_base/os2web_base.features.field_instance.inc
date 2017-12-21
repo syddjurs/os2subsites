@@ -5384,6 +5384,12 @@ function os2web_base_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 5,
       ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 5,
+      ),
     ),
     'entity_type' => 'taxonomy_term',
     'field_name' => 'field_alternative_display',
@@ -5420,6 +5426,12 @@ function os2web_base_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 10,
       ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 10,
+      ),
     ),
     'entity_type' => 'taxonomy_term',
     'field_name' => 'field_list_as_spotboks',
@@ -5447,6 +5459,12 @@ function os2web_base_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 14,
+      ),
+      'teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -5516,6 +5534,12 @@ function os2web_base_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 9,
       ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 9,
+      ),
     ),
     'entity_type' => 'taxonomy_term',
     'field_name' => 'field_os2web_base_field_contact',
@@ -5546,6 +5570,12 @@ function os2web_base_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 4,
+      ),
+      'teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -5610,6 +5640,12 @@ function os2web_base_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 8,
       ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 8,
+      ),
     ),
     'entity_type' => 'taxonomy_term',
     'field_name' => 'field_os2web_base_field_hidlinks',
@@ -5637,6 +5673,16 @@ function os2web_base_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'hidden',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => 'svendborg_content_image',
+        ),
+        'type' => 'image',
+        'weight' => 0,
+      ),
+      'teaser' => array(
         'label' => 'hidden',
         'module' => 'image',
         'settings' => array(
@@ -5720,6 +5766,12 @@ function os2web_base_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 7,
       ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 7,
+      ),
     ),
     'entity_type' => 'taxonomy_term',
     'field_name' => 'field_os2web_base_field_kle_ref',
@@ -5748,6 +5800,12 @@ function os2web_base_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 13,
+      ),
+      'teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -5827,6 +5885,13 @@ function os2web_base_field_default_field_instances() {
         'type' => 'file_table',
         'weight' => 2,
       ),
+      'teaser' => array(
+        'label' => 'hidden',
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_table',
+        'weight' => 2,
+      ),
     ),
     'entity_type' => 'taxonomy_term',
     'field_name' => 'field_os2web_base_field_media',
@@ -5885,6 +5950,12 @@ function os2web_base_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 6,
       ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 6,
+      ),
     ),
     'entity_type' => 'taxonomy_term',
     'field_name' => 'field_os2web_base_field_related',
@@ -5915,6 +5986,12 @@ function os2web_base_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 12,
+      ),
+      'teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -5955,6 +6032,12 @@ function os2web_base_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 11,
       ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 11,
+      ),
     ),
     'entity_type' => 'taxonomy_term',
     'field_name' => 'field_os2web_base_field_spotbox',
@@ -5989,6 +6072,12 @@ function os2web_base_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 3,
+      ),
+      'teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',

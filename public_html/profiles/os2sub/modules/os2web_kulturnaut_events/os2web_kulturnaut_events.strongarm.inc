@@ -55,6 +55,15 @@ function os2web_kulturnaut_events_strongarm() {
       'diff_standard' => array(
         'custom_settings' => FALSE,
       ),
+      'list' => array(
+        'custom_settings' => TRUE,
+      ),
+      'list_advanced' => array(
+        'custom_settings' => TRUE,
+      ),
+      'list_simple' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(

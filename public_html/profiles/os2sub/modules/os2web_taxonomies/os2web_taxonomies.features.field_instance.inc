@@ -24,6 +24,12 @@ function os2web_taxonomies_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 9,
       ),
+      'teaser' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 9,
+      ),
     ),
     'entity_type' => 'taxonomy_term',
     'field_name' => 'field_os2web_taxonomies_dep_id',
@@ -60,6 +66,13 @@ function os2web_taxonomies_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 10,
       ),
+      'teaser' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 10,
+      ),
     ),
     'entity_type' => 'taxonomy_term',
     'field_name' => 'field_os2web_taxonomies_dep_name',
@@ -89,6 +102,12 @@ function os2web_taxonomies_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 8,
+      ),
+      'teaser' => array(
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
@@ -130,6 +149,13 @@ function os2web_taxonomies_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 6,
       ),
+      'teaser' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 6,
+      ),
     ),
     'entity_type' => 'taxonomy_term',
     'field_name' => 'field_os2web_taxonomies_cue_word',
@@ -159,6 +185,18 @@ function os2web_taxonomies_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => ' ',
+        ),
+        'type' => 'number_integer',
+        'weight' => 0,
+      ),
+      'teaser' => array(
         'label' => 'above',
         'module' => 'number',
         'settings' => array(
@@ -209,6 +247,12 @@ function os2web_taxonomies_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 2,
       ),
+      'teaser' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 2,
+      ),
     ),
     'entity_type' => 'taxonomy_term',
     'field_name' => 'field_os2web_taxonomies_dis_cont',
@@ -239,6 +283,13 @@ function os2web_taxonomies_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'above',
+        'module' => 'link',
+        'settings' => array(),
+        'type' => 'link_default',
+        'weight' => 5,
+      ),
+      'teaser' => array(
         'label' => 'above',
         'module' => 'link',
         'settings' => array(),
@@ -294,6 +345,12 @@ function os2web_taxonomies_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 7,
       ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 7,
+      ),
     ),
     'entity_type' => 'taxonomy_term',
     'field_name' => 'field_os2web_taxonomies_search',
@@ -332,6 +389,12 @@ function os2web_taxonomies_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 1,
       ),
+      'teaser' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 1,
+      ),
     ),
     'entity_type' => 'taxonomy_term',
     'field_name' => 'field_os2web_taxonomies_dis_cont',
@@ -362,6 +425,12 @@ function os2web_taxonomies_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 2,
+      ),
+      'teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -403,6 +472,12 @@ function os2web_taxonomies_field_default_field_instances() {
         ),
         'type' => 'image',
         'weight' => 9,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 2,
       ),
     ),
     'entity_type' => 'taxonomy_term',
@@ -475,6 +550,16 @@ function os2web_taxonomies_field_default_field_instances() {
         'type' => 'image',
         'weight' => 8,
       ),
+      'teaser' => array(
+        'label' => 'hidden',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => 'cropped_400_x_220',
+        ),
+        'type' => 'image',
+        'weight' => 1,
+      ),
     ),
     'entity_type' => 'taxonomy_term',
     'field_name' => 'field_os2web_base_field_image',
@@ -544,6 +629,12 @@ function os2web_taxonomies_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 12,
       ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 5,
+      ),
     ),
     'entity_type' => 'taxonomy_term',
     'field_name' => 'field_os2web_taxonomies_address',
@@ -601,6 +692,12 @@ function os2web_taxonomies_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 7,
       ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 10,
+      ),
     ),
     'entity_type' => 'taxonomy_term',
     'field_name' => 'field_os2web_taxonomies_city',
@@ -636,6 +733,12 @@ function os2web_taxonomies_field_default_field_instances() {
         'type' => 'list_default',
         'weight' => 10,
       ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 3,
+      ),
     ),
     'entity_type' => 'taxonomy_term',
     'field_name' => 'field_os2web_taxonomies_disp_var',
@@ -669,6 +772,12 @@ function os2web_taxonomies_field_default_field_instances() {
         'settings' => array(),
         'type' => 'link_default',
         'weight' => 11,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 4,
       ),
     ),
     'entity_type' => 'taxonomy_term',
@@ -726,6 +835,12 @@ function os2web_taxonomies_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 5,
       ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 9,
+      ),
     ),
     'entity_type' => 'taxonomy_term',
     'field_name' => 'field_os2web_taxonomies_name',
@@ -759,6 +874,12 @@ function os2web_taxonomies_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 3,
+      ),
+      'teaser' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 7,
       ),
     ),
     'entity_type' => 'taxonomy_term',
@@ -795,6 +916,12 @@ function os2web_taxonomies_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 4,
       ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 8,
+      ),
     ),
     'entity_type' => 'taxonomy_term',
     'field_name' => 'field_os2web_taxonomies_type',
@@ -829,6 +956,12 @@ function os2web_taxonomies_field_default_field_instances() {
         'settings' => array(),
         'type' => 'link_default',
         'weight' => 13,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 6,
       ),
     ),
     'entity_type' => 'taxonomy_term',
@@ -890,6 +1023,12 @@ function os2web_taxonomies_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 8,
       ),
+      'teaser' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 8,
+      ),
     ),
     'entity_type' => 'taxonomy_term',
     'field_name' => 'field_os2web_taxonomies_agenda',
@@ -920,6 +1059,12 @@ function os2web_taxonomies_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 7,
+      ),
+      'teaser' => array(
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
@@ -964,6 +1109,12 @@ function os2web_taxonomies_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 6,
       ),
+      'teaser' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 6,
+      ),
     ),
     'entity_type' => 'taxonomy_term',
     'field_name' => 'field_os2web_taxonomies_dis_cont',
@@ -999,6 +1150,12 @@ function os2web_taxonomies_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 9,
       ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 9,
+      ),
     ),
     'entity_type' => 'taxonomy_term',
     'field_name' => 'field_os2web_taxonomies_search',
@@ -1028,6 +1185,13 @@ function os2web_taxonomies_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 9,
+      ),
+      'teaser' => array(
         'label' => 'above',
         'module' => 'text',
         'settings' => array(),
@@ -1082,6 +1246,18 @@ function os2web_taxonomies_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => ' ',
+        ),
+        'type' => 'number_integer',
+        'weight' => 0,
+      ),
+      'teaser' => array(
         'label' => 'above',
         'module' => 'number',
         'settings' => array(
