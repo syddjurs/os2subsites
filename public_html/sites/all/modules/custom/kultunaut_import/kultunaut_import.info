@@ -9,6 +9,7 @@ dependencies[] = ctools
 dependencies[] = custom_search
 dependencies[] = custom_search_blocks
 dependencies[] = entity
+dependencies[] = entity_view_mode
 dependencies[] = fuzzysearch
 dependencies[] = menu_attributes
 dependencies[] = os2web_kulturnaut_events
