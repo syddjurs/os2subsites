@@ -19,6 +19,7 @@ dependencies[] = file
 dependencies[] = file_entity
 dependencies[] = filter
 dependencies[] = image
+dependencies[] = entity_view_mode
 dependencies[] = kultunaut_import
 dependencies[] = l10n_update
 dependencies[] = libraries
