@@ -54,6 +54,51 @@ function subsite_3_preprocess_page(&$variables) {
   unset($variables['tabs_secondary']['#primary']);
 }
 
+/**
+ * Implements template_preprocess_node.
+ */
+function subsite_3_preprocess_node(&$variables) {
+  $node = $variables['node'];
+
+  // Optionally, run node-type-specific preprocess functions, like
+  // foo_preprocess_node_page() or foo_preprocess_node_story().
+  $function_node_type = __FUNCTION__ . '__' . $node->type;
+  $function_view_mode = __FUNCTION__ . '__' . $variables['view_mode'];
+
+  if (function_exists($function_node_type)) {
+    $function_node_type($variables);
+  }
+
+  if (function_exists($function_view_mode)) {
+    $function_view_mode($variables);
+  }
+}
+
+/**
+ * Implements template_preprocess_node().
+ */
+function subsite_3_preprocess_node__os2web_kulturnaut_knactivity(&$variables) {
+  $node = $variables['node'];
+  $view_mode = $variables['view_mode'];
+
+  if ($venue_target = field_get_items('node', $node, 'field_os2web_kulturnaut_venue')) {
+    if ($venue = taxonomy_term_load($venue_target[0]['tid'])) {
+      if ($venue_tree = taxonomy_get_parents_all($venue->tid)) {
+
+        // Reverse, so the top level term is key 0
+        $reversed_venue_tree = array_reverse($venue_tree);
+
+        $top_level_venue = $reversed_venue_tree[0];
+
+        // The top level are not the same as the selected venue
+        if ($top_level_venue->tid != $venue->tid) {
+          $variables['content']['top_level_venue'] = $top_level_venue;
+        }
+      }
+    }
+  }
+}
+
 /*
  * Implements theme_menu_tree().
  * For the footer menu.
