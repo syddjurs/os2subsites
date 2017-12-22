@@ -38,8 +38,8 @@
                     <div class="flexy-spacer"></div>
 
                     <!-- Begin - social icons -->
-                    <nav class="flexy-header__social-icons hidden-xs" role="navigation">
-                        <ul class="flexy-list hidden-xs">
+                    <nav class="flexy-header__social-icons hidden-xs hidden-sm" role="navigation">
+                        <ul class="flexy-list">
 
                           <?php if ($theme_settings['social_links']['facebook']['active']): ?>
                               <li>
@@ -142,33 +142,33 @@
                     <!-- End - social icons -->
 
                     <!-- Begin - navigation -->
-                    <nav class="flexy-header__secondary-navigation hidden-xs" role="navigation">
+                    <nav class="flexy-header__secondary-navigation hidden-xs hidden-sm" role="navigation">
                         <?php print render($menu_header__row_first__secondary); ?>
                     </nav>
                     <!-- End - navigation -->
 
                     <!-- Begin - search -->
-                    <div class="flexy-header__form hidden-xs">
+                    <div class="flexy-header__form hidden-xs hidden-sm">
                         <div class="form-inline">
-                          <?php if (!empty($page['search'])): ?>
-                            <?php print render($page['search']); ?>
-                          <?php elseif(isset($search_box)) : ?>
-                            <?php print $search_box; ?>
-                          <?php endif; ?>
+                            <?php if (!empty($page['search'])): ?>
+                                <?php print render($page['search']); ?>
+                            <?php elseif(isset($search_box)) : ?>
+                                <?php print $search_box; ?>
+                            <?php endif; ?>
                         </div>
                     </div>
                     <!-- End - search -->
 
                     <!-- Begin - responsive toggle -->
-                    <a href="#" class="flexy-header__sidebar-toggle sidr-toggle--right visible-xs" role="button">
+                    <button class="flexy-header__sidebar-toggle sidr-toggle--right visible-xs visible-sm">
                         <span class="icon fa fa-bars"></span>
-                    </a>
+                    </button>
                     <!-- End - responsive toggle -->
 
                 </div>
             </div>
         </div>
-        <div class="flexy-header__row flexy-header__row--second hidden-xs">
+        <div class="flexy-header__row flexy-header__row--second hidden-xs hidden-sm">
             <div class="container">
 
                 <!-- Begin - navigation -->
@@ -199,15 +199,15 @@
                     <div class="flexy-spacer"></div>
 
                     <!-- Begin - navigation -->
-                    <nav class="flexy-header__navigation__wrapper hidden-xs" role="navigation">
+                    <nav class="flexy-header__navigation__wrapper hidden-xs hidden-sm" role="navigation">
                         <?php print render($flexy_navigation__primary); ?>
                     </nav>
                     <!-- End - navigation -->
 
                     <!-- Begin - responsive toggle -->
-                    <a href="#" class="flexy-header__sidebar-toggle sidr-toggle--right visible-xs" role="button">
+                    <button class="flexy-header__sidebar-toggle sidr-toggle--right visible-xs visible-sm">
                         <span class="icon fa fa-bars"></span>
-                    </a>
+                    </button>
                     <!-- End - responsive toggle -->
 
                 </div>
