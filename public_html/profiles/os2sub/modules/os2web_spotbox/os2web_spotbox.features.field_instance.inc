@@ -37,6 +37,36 @@ function os2web_spotbox_field_default_field_instances() {
         'type' => 'image',
         'weight' => 2,
       ),
+      'list' => array(
+        'label' => 'above',
+        'module' => 'photoswipe',
+        'settings' => array(
+          'photoswipe_image_style' => '',
+          'photoswipe_node_style' => 'os2web_spotbox_image',
+        ),
+        'type' => 'photoswipe',
+        'weight' => 2,
+      ),
+      'list_advanced' => array(
+        'label' => 'above',
+        'module' => 'photoswipe',
+        'settings' => array(
+          'photoswipe_image_style' => '',
+          'photoswipe_node_style' => 'os2web_spotbox_image',
+        ),
+        'type' => 'photoswipe',
+        'weight' => 2,
+      ),
+      'list_simple' => array(
+        'label' => 'above',
+        'module' => 'photoswipe',
+        'settings' => array(
+          'photoswipe_image_style' => '',
+          'photoswipe_node_style' => 'os2web_spotbox_image',
+        ),
+        'type' => 'photoswipe',
+        'weight' => 2,
+      ),
       'related_block' => array(
         'label' => 'above',
         'settings' => array(),
@@ -143,6 +173,27 @@ function os2web_spotbox_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 1,
       ),
+      'list' => array(
+        'label' => 'inline',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 1,
+      ),
+      'list_advanced' => array(
+        'label' => 'inline',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 1,
+      ),
+      'list_simple' => array(
+        'label' => 'inline',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 1,
+      ),
       'related_block' => array(
         'label' => 'above',
         'settings' => array(),
@@ -227,6 +278,27 @@ function os2web_spotbox_field_default_field_instances() {
         'weight' => 0,
       ),
       'full' => array(
+        'label' => 'inline',
+        'module' => 'link',
+        'settings' => array(),
+        'type' => 'link_separate',
+        'weight' => 0,
+      ),
+      'list' => array(
+        'label' => 'inline',
+        'module' => 'link',
+        'settings' => array(),
+        'type' => 'link_separate',
+        'weight' => 0,
+      ),
+      'list_advanced' => array(
+        'label' => 'inline',
+        'module' => 'link',
+        'settings' => array(),
+        'type' => 'link_separate',
+        'weight' => 0,
+      ),
+      'list_simple' => array(
         'label' => 'inline',
         'module' => 'link',
         'settings' => array(),

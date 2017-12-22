@@ -4,7 +4,6 @@ core = 7.x
 package = OS2Web - Frontend
 version = 7.x-1.0
 project = os2web_news_page_archive
-dependencies[] = ctools
 dependencies[] = date
 dependencies[] = features
 dependencies[] = os2web_base
