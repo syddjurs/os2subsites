@@ -339,7 +339,7 @@ function os2web_base_strongarm() {
   $strongarm->value = array(
     'view_modes' => array(
       'list' => array(
-        'custom_settings' => FALSE,
+        'custom_settings' => TRUE,
       ),
       'list_advanced' => array(
         'custom_settings' => TRUE,
@@ -401,7 +401,7 @@ function os2web_base_strongarm() {
         'custom_settings' => FALSE,
       ),
       'list' => array(
-        'custom_settings' => FALSE,
+        'custom_settings' => TRUE,
       ),
       'list_advanced' => array(
         'custom_settings' => TRUE,
@@ -425,6 +425,10 @@ function os2web_base_strongarm() {
             'weight' => '7',
             'visible' => TRUE,
           ),
+          'list' => array(
+            'weight' => '7',
+            'visible' => TRUE,
+          ),
         ),
         'language' => array(
           'default' => array(
@@ -436,6 +440,10 @@ function os2web_base_strongarm() {
             'visible' => FALSE,
           ),
           'list_simple' => array(
+            'weight' => '0',
+            'visible' => FALSE,
+          ),
+          'list' => array(
             'weight' => '0',
             'visible' => FALSE,
           ),
@@ -520,7 +528,7 @@ function os2web_base_strongarm() {
         'custom_settings' => FALSE,
       ),
       'list' => array(
-        'custom_settings' => FALSE,
+        'custom_settings' => TRUE,
       ),
       'list_advanced' => array(
         'custom_settings' => TRUE,
@@ -555,6 +563,10 @@ function os2web_base_strongarm() {
             'visible' => FALSE,
           ),
           'list_simple' => array(
+            'weight' => '0',
+            'visible' => FALSE,
+          ),
+          'list' => array(
             'weight' => '0',
             'visible' => FALSE,
           ),
@@ -661,7 +673,7 @@ function os2web_base_strongarm() {
         'custom_settings' => FALSE,
       ),
       'list' => array(
-        'custom_settings' => FALSE,
+        'custom_settings' => TRUE,
       ),
       'list_advanced' => array(
         'custom_settings' => TRUE,
@@ -682,6 +694,10 @@ function os2web_base_strongarm() {
             'visible' => FALSE,
           ),
           'list_simple' => array(
+            'weight' => '0',
+            'visible' => FALSE,
+          ),
+          'list' => array(
             'weight' => '0',
             'visible' => FALSE,
           ),
@@ -738,7 +754,7 @@ function os2web_base_strongarm() {
   $strongarm->value = array(
     'view_modes' => array(
       'list' => array(
-        'custom_settings' => FALSE,
+        'custom_settings' => TRUE,
       ),
       'list_advanced' => array(
         'custom_settings' => TRUE,
@@ -795,7 +811,7 @@ function os2web_base_strongarm() {
         'custom_settings' => TRUE,
       ),
       'list' => array(
-        'custom_settings' => FALSE,
+        'custom_settings' => TRUE,
       ),
       'list_advanced' => array(
         'custom_settings' => TRUE,
@@ -827,6 +843,10 @@ function os2web_base_strongarm() {
             'visible' => TRUE,
           ),
           'list_simple' => array(
+            'weight' => '2',
+            'visible' => TRUE,
+          ),
+          'list' => array(
             'weight' => '2',
             'visible' => TRUE,
           ),

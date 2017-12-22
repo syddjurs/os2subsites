@@ -30,6 +30,13 @@ function os2web_base_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 2,
       ),
+      'list' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 2,
+      ),
       'list_advanced' => array(
         'label' => 'hidden',
         'module' => 'text',
@@ -104,6 +111,12 @@ function os2web_base_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 6,
       ),
+      'list' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 6,
+      ),
       'list_advanced' => array(
         'label' => 'hidden',
         'settings' => array(),
@@ -160,6 +173,16 @@ function os2web_base_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'hidden',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => 'medium',
+        ),
+        'type' => 'image',
+        'weight' => 0,
+      ),
+      'list' => array(
         'label' => 'hidden',
         'module' => 'image',
         'settings' => array(
@@ -268,6 +291,13 @@ function os2web_base_field_default_field_instances() {
         'type' => 'file_default',
         'weight' => 1,
       ),
+      'list' => array(
+        'label' => 'hidden',
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_default',
+        'weight' => 1,
+      ),
       'list_advanced' => array(
         'label' => 'hidden',
         'module' => 'file',
@@ -352,6 +382,12 @@ function os2web_base_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 7,
       ),
+      'list' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 7,
+      ),
       'list_advanced' => array(
         'label' => 'hidden',
         'settings' => array(),
@@ -411,6 +447,12 @@ function os2web_base_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 4,
+      ),
+      'list' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -480,6 +522,12 @@ function os2web_base_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 5,
       ),
+      'list' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 5,
+      ),
       'list_advanced' => array(
         'label' => 'hidden',
         'settings' => array(),
@@ -543,6 +591,12 @@ function os2web_base_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 3,
+      ),
+      'list' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -620,6 +674,13 @@ function os2web_base_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 2,
       ),
+      'list' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 2,
+      ),
       'list_advanced' => array(
         'label' => 'hidden',
         'module' => 'text',
@@ -684,6 +745,24 @@ function os2web_base_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'hidden',
+        'module' => 'backstretch',
+        'settings' => array(
+          'center_x' => 1,
+          'center_y' => 1,
+          'delta' => '',
+          'duration' => 5000,
+          'element' => 'other',
+          'element_other' => '.content',
+          'fade' => 0,
+          'field' => '',
+          'image_style' => 'os2web_cover',
+          'random' => 0,
+        ),
+        'type' => 'backstretch',
+        'weight' => 5,
+      ),
+      'list' => array(
         'label' => 'hidden',
         'module' => 'backstretch',
         'settings' => array(
@@ -815,6 +894,12 @@ function os2web_base_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 7,
       ),
+      'list' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 7,
+      ),
       'list_advanced' => array(
         'label' => 'above',
         'settings' => array(),
@@ -861,6 +946,12 @@ function os2web_base_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 9,
+      ),
+      'list' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -914,6 +1005,12 @@ function os2web_base_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 18,
+      ),
+      'list' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -980,6 +1077,12 @@ function os2web_base_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 20,
       ),
+      'list' => array(
+        'label' => 'inline',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 20,
+      ),
       'list_advanced' => array(
         'label' => 'inline',
         'settings' => array(),
@@ -1034,6 +1137,12 @@ function os2web_base_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 12,
+      ),
+      'list' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -1116,6 +1225,12 @@ function os2web_base_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 14,
       ),
+      'list' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 14,
+      ),
       'list_advanced' => array(
         'label' => 'above',
         'settings' => array(),
@@ -1167,6 +1282,16 @@ function os2web_base_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'hidden',
+        'module' => 'photoswipe',
+        'settings' => array(
+          'photoswipe_image_style' => '',
+          'photoswipe_node_style' => 'os2sub_normal_imagesize',
+        ),
+        'type' => 'photoswipe',
+        'weight' => 0,
+      ),
+      'list' => array(
         'label' => 'hidden',
         'module' => 'photoswipe',
         'settings' => array(
@@ -1277,6 +1402,12 @@ function os2web_base_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 19,
       ),
+      'list' => array(
+        'label' => 'inline',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 19,
+      ),
       'list_advanced' => array(
         'label' => 'inline',
         'settings' => array(),
@@ -1338,6 +1469,12 @@ function os2web_base_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 21,
       ),
+      'list' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 21,
+      ),
       'list_advanced' => array(
         'label' => 'above',
         'settings' => array(),
@@ -1391,6 +1528,13 @@ function os2web_base_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'hidden',
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_table',
+        'weight' => 4,
+      ),
+      'list' => array(
         'label' => 'hidden',
         'module' => 'file',
         'settings' => array(),
@@ -1486,6 +1630,12 @@ function os2web_base_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 22,
       ),
+      'list' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 22,
+      ),
       'list_advanced' => array(
         'label' => 'above',
         'settings' => array(),
@@ -1539,6 +1689,12 @@ function os2web_base_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 6,
+      ),
+      'list' => array(
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
@@ -1633,6 +1789,12 @@ function os2web_base_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 15,
       ),
+      'list' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 15,
+      ),
       'list_advanced' => array(
         'label' => 'above',
         'settings' => array(),
@@ -1692,6 +1854,12 @@ function os2web_base_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 13,
       ),
+      'list' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 13,
+      ),
       'list_advanced' => array(
         'label' => 'above',
         'settings' => array(),
@@ -1740,6 +1908,12 @@ function os2web_base_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 16,
+      ),
+      'list' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -1804,6 +1978,12 @@ function os2web_base_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 17,
       ),
+      'list' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 17,
+      ),
       'list_advanced' => array(
         'label' => 'above',
         'settings' => array(),
@@ -1858,6 +2038,13 @@ function os2web_base_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 1,
+      ),
+      'list' => array(
         'label' => 'hidden',
         'module' => 'text',
         'settings' => array(),
@@ -1935,6 +2122,15 @@ function os2web_base_field_default_field_instances() {
         'type' => 'node_reference_node',
         'weight' => 3,
       ),
+      'list' => array(
+        'label' => 'hidden',
+        'module' => 'node_reference',
+        'settings' => array(
+          'node_reference_view_mode' => 'full',
+        ),
+        'type' => 'node_reference_node',
+        'weight' => 3,
+      ),
       'list_advanced' => array(
         'label' => 'hidden',
         'module' => 'node_reference',
@@ -1998,6 +2194,12 @@ function os2web_base_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 11,
       ),
+      'list' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 11,
+      ),
       'list_advanced' => array(
         'label' => 'above',
         'settings' => array(),
@@ -2043,6 +2245,12 @@ function os2web_base_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 1,
+      ),
+      'list' => array(
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
@@ -2139,6 +2347,12 @@ function os2web_base_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 6,
       ),
+      'list' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 6,
+      ),
       'list_advanced' => array(
         'label' => 'above',
         'settings' => array(),
@@ -2198,6 +2412,16 @@ function os2web_base_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'hidden',
+        'module' => 'photoswipe',
+        'settings' => array(
+          'photoswipe_image_style' => 'gallery',
+          'photoswipe_node_style' => 'os2sub_small_imagesize',
+        ),
+        'type' => 'photoswipe',
+        'weight' => 0,
+      ),
+      'list' => array(
         'label' => 'hidden',
         'module' => 'photoswipe',
         'settings' => array(
@@ -2858,6 +3082,13 @@ function os2web_base_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 2,
       ),
+      'list' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 2,
+      ),
       'list_advanced' => array(
         'label' => 'hidden',
         'module' => 'text',
@@ -2942,6 +3173,24 @@ function os2web_base_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'hidden',
+        'module' => 'backstretch',
+        'settings' => array(
+          'center_x' => 1,
+          'center_y' => 1,
+          'delta' => '',
+          'duration' => 5000,
+          'element' => 'other',
+          'element_other' => '.content',
+          'fade' => 0,
+          'field' => '',
+          'image_style' => 'os2web_cover',
+          'random' => 0,
+        ),
+        'type' => 'backstretch',
+        'weight' => 19,
+      ),
+      'list' => array(
         'label' => 'hidden',
         'module' => 'backstretch',
         'settings' => array(
@@ -3075,6 +3324,12 @@ function os2web_base_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 13,
       ),
+      'list' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 13,
+      ),
       'list_advanced' => array(
         'label' => 'above',
         'settings' => array(),
@@ -3141,6 +3396,13 @@ function os2web_base_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'hidden',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 4,
+      ),
+      'list' => array(
         'label' => 'hidden',
         'module' => 'taxonomy',
         'settings' => array(),
@@ -3221,6 +3483,12 @@ function os2web_base_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 10,
+      ),
+      'list' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -3321,6 +3589,12 @@ function os2web_base_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 12,
       ),
+      'list' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 12,
+      ),
       'list_advanced' => array(
         'label' => 'above',
         'settings' => array(),
@@ -3385,6 +3659,12 @@ function os2web_base_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 15,
+      ),
+      'list' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -3460,6 +3740,12 @@ function os2web_base_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 5,
+      ),
+      'list' => array(
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
@@ -3651,6 +3937,12 @@ function os2web_base_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 17,
       ),
+      'list' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 17,
+      ),
       'list_advanced' => array(
         'label' => 'above',
         'settings' => array(),
@@ -3722,6 +4014,13 @@ function os2web_base_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'hidden',
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_table',
+        'weight' => 3,
+      ),
+      'list' => array(
         'label' => 'hidden',
         'module' => 'file',
         'settings' => array(),
@@ -3826,6 +4125,12 @@ function os2web_base_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 16,
       ),
+      'list' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 16,
+      ),
       'list_advanced' => array(
         'label' => 'above',
         'settings' => array(),
@@ -3898,6 +4203,12 @@ function os2web_base_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 7,
+      ),
+      'list' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -3982,6 +4293,12 @@ function os2web_base_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 14,
       ),
+      'list' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 14,
+      ),
       'list_advanced' => array(
         'label' => 'above',
         'settings' => array(),
@@ -4050,6 +4367,12 @@ function os2web_base_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 18,
+      ),
+      'list' => array(
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
@@ -4138,6 +4461,12 @@ function os2web_base_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 11,
       ),
+      'list' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 11,
+      ),
       'list_advanced' => array(
         'label' => 'above',
         'settings' => array(),
@@ -4204,6 +4533,13 @@ function os2web_base_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 1,
+      ),
+      'list' => array(
         'label' => 'hidden',
         'module' => 'text',
         'settings' => array(),
@@ -4297,6 +4633,15 @@ function os2web_base_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'hidden',
+        'module' => 'file_entity',
+        'settings' => array(
+          'file_view_mode' => 'default',
+        ),
+        'type' => 'file_rendered',
+        'weight' => 0,
+      ),
+      'list' => array(
         'label' => 'hidden',
         'module' => 'file_entity',
         'settings' => array(
@@ -4853,6 +5198,13 @@ function os2web_base_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 7,
       ),
+      'list' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 7,
+      ),
       'list_advanced' => array(
         'label' => 'above',
         'module' => 'text',
@@ -4918,6 +5270,13 @@ function os2web_base_field_default_field_instances() {
     'description' => 'Skriv den fuldstændige URL hvis det er et eksternt link. Interne links skrives som systemsti, alternativt søges destinationen frem via Søg funktionen.',
     'display' => array(
       'default' => array(
+        'label' => 'above',
+        'module' => 'link',
+        'settings' => array(),
+        'type' => 'link_default',
+        'weight' => 10,
+      ),
+      'list' => array(
         'label' => 'above',
         'module' => 'link',
         'settings' => array(),
@@ -5013,6 +5372,13 @@ function os2web_base_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 11,
       ),
+      'list' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 11,
+      ),
       'list_advanced' => array(
         'label' => 'above',
         'module' => 'text',
@@ -5092,6 +5458,24 @@ function os2web_base_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'hidden',
+        'module' => 'backstretch',
+        'settings' => array(
+          'center_x' => 1,
+          'center_y' => 1,
+          'delta' => '',
+          'duration' => 5000,
+          'element' => 'other',
+          'element_other' => '.content',
+          'fade' => 0,
+          'field' => '',
+          'image_style' => 'os2web_cover',
+          'random' => 0,
+        ),
+        'type' => 'backstretch',
+        'weight' => 1,
+      ),
+      'list' => array(
         'label' => 'hidden',
         'module' => 'backstretch',
         'settings' => array(
@@ -5224,6 +5608,12 @@ function os2web_base_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 3,
       ),
+      'list' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 3,
+      ),
       'list_advanced' => array(
         'label' => 'above',
         'settings' => array(),
@@ -5276,6 +5666,16 @@ function os2web_base_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'hidden',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => 'os2sub_normal_imagesize',
+        ),
+        'type' => 'image',
+        'weight' => 0,
+      ),
+      'list' => array(
         'label' => 'hidden',
         'module' => 'image',
         'settings' => array(
@@ -5384,6 +5784,24 @@ function os2web_base_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 5,
       ),
+      'list' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 5,
+      ),
+      'list_advanced' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 5,
+      ),
+      'list_simple' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 5,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -5426,6 +5844,24 @@ function os2web_base_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 10,
       ),
+      'list' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 10,
+      ),
+      'list_advanced' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 10,
+      ),
+      'list_simple' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 10,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -5459,6 +5895,24 @@ function os2web_base_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 14,
+      ),
+      'list' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 14,
+      ),
+      'list_advanced' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 14,
+      ),
+      'list_simple' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -5534,6 +5988,24 @@ function os2web_base_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 9,
       ),
+      'list' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 9,
+      ),
+      'list_advanced' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 9,
+      ),
+      'list_simple' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 9,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -5570,6 +6042,24 @@ function os2web_base_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 4,
+      ),
+      'list' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 4,
+      ),
+      'list_advanced' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 4,
+      ),
+      'list_simple' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -5640,6 +6130,24 @@ function os2web_base_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 8,
       ),
+      'list' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 8,
+      ),
+      'list_advanced' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 8,
+      ),
+      'list_simple' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 8,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -5673,6 +6181,36 @@ function os2web_base_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'hidden',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => 'svendborg_content_image',
+        ),
+        'type' => 'image',
+        'weight' => 0,
+      ),
+      'list' => array(
+        'label' => 'hidden',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => 'svendborg_content_image',
+        ),
+        'type' => 'image',
+        'weight' => 0,
+      ),
+      'list_advanced' => array(
+        'label' => 'hidden',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => 'svendborg_content_image',
+        ),
+        'type' => 'image',
+        'weight' => 0,
+      ),
+      'list_simple' => array(
         'label' => 'hidden',
         'module' => 'image',
         'settings' => array(
@@ -5766,6 +6304,24 @@ function os2web_base_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 7,
       ),
+      'list' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 7,
+      ),
+      'list_advanced' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 7,
+      ),
+      'list_simple' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 7,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -5800,6 +6356,24 @@ function os2web_base_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 13,
+      ),
+      'list' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 13,
+      ),
+      'list_advanced' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 13,
+      ),
+      'list_simple' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -5885,6 +6459,27 @@ function os2web_base_field_default_field_instances() {
         'type' => 'file_table',
         'weight' => 2,
       ),
+      'list' => array(
+        'label' => 'hidden',
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_table',
+        'weight' => 2,
+      ),
+      'list_advanced' => array(
+        'label' => 'hidden',
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_table',
+        'weight' => 2,
+      ),
+      'list_simple' => array(
+        'label' => 'hidden',
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_table',
+        'weight' => 2,
+      ),
       'teaser' => array(
         'label' => 'hidden',
         'module' => 'file',
@@ -5950,6 +6545,24 @@ function os2web_base_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 6,
       ),
+      'list' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 6,
+      ),
+      'list_advanced' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 6,
+      ),
+      'list_simple' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 6,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -5986,6 +6599,24 @@ function os2web_base_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 12,
+      ),
+      'list' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 12,
+      ),
+      'list_advanced' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 12,
+      ),
+      'list_simple' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -6032,6 +6663,24 @@ function os2web_base_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 11,
       ),
+      'list' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 11,
+      ),
+      'list_advanced' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 11,
+      ),
+      'list_simple' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 11,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -6072,6 +6721,24 @@ function os2web_base_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 3,
+      ),
+      'list' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 3,
+      ),
+      'list_advanced' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 3,
+      ),
+      'list_simple' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
