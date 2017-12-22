@@ -6,15 +6,22 @@ jQuery(function($) {
 
     // Show dropdowns on mouseover
     let $headers = $('.flexy-header'),
-        $dropdowns = $('.flexy-navigation__item--dropdown');
+        $dropdowns_link = $('.flexy-navigation__item--dropdown > a');
 
-    $dropdowns
-        .on('mouseenter', function(event) {
+    $dropdowns_link
+        .on('click', function(event) {
+            event.preventDefault();
+
             let $element = $(this),
                 $header = $element.parents('.flexy-header'),
                 $list_items = $header.find('.flexy-navigation__item--dropdown');
 
-            $list_items.addClass('hover');
+            if ($list_items.hasClass('hover')) {
+                $list_items.removeClass('hover');
+            }
+            else {
+                $list_items.addClass('hover');
+            }
         });
 
     // Remove dropdown on click outside
@@ -71,6 +78,9 @@ jQuery(function($) {
             let $header = $(this),
                 $dropdown_menus = $header.find('.flexy-navigation__item__dropdown-menu'),
                 tallest_dropdown = 0;
+
+            // Remove height temporarily, from the dropdowns so it can be set
+            $dropdown_menus.css('height', 'auto');
 
             // Find the tallest dropdown menu
             $dropdown_menus.each(function(index, value) {

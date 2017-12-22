@@ -92,7 +92,7 @@ $lg-flexy-header-static-row-second-height: 60px;
   .btn {
     position: absolute;
 
-    top: 3px;
+    top: 4px;
     right: 0;
 
     background-color: transparent;
@@ -115,6 +115,11 @@ $lg-flexy-header-static-row-second-height: 60px;
     }
 
   }
+}
+
+.flexy-header__sidebar-toggle {
+  border: 0;
+  background-color: transparent;
 }
 
 // --------------------------------------------------
