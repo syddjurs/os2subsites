@@ -1,6 +1,6 @@
 <li class="search-result">
   <div class="row">
-    <div class="hidden-xs col-sm-3">
+    <div class="hidden-xs col-sm-2">
       <?php if ($result['node']-> field_os2web_kulturnaut_slidesho): ?>
         <?php
         $search_image_uri = $result['node']-> field_os2web_kulturnaut_slidesho['und'][0]['uri'];
@@ -11,7 +11,7 @@
         </div>
       <?php endif; ?>
     </div>
-    <div class="col-sm-9">
+    <div class="col-sm-10">
       <h3 class="title">
         <?php print $url ? l($title, $url['path'], $url['options']) : check_plain($title); ?>
       </h3>
