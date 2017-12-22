@@ -1,9 +1,9 @@
 <li class="search-result">
   <div class="row">
     <div class="hidden-xs col-sm-2">
-      <?php if ($result['node']-> field_os2web_kulturnaut_slidesho): ?>
+      <?php if ($result['node']->field_os2web_kulturnaut_slidesho): ?>
         <?php
-        $search_image_uri = $result['node']-> field_os2web_kulturnaut_slidesho['und'][0]['uri'];
+        $search_image_uri = $result['node']->field_os2web_kulturnaut_slidesho['und'][0]['uri'];
         $search_image_filepath = file_create_url($search_image_uri);
         ?>
         <div class="search-image">
