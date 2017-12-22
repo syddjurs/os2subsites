@@ -55,6 +55,68 @@ $lg-flexy-header-static-row-second-height: 60px;
   }
 }
 
+.flexy-header__social-icons {
+
+  + .flexy-header__secondary-navigation {
+    margin-left: floor( ( $grid-gutter-width / 2 ) );
+  }
+}
+
+.flexy-header__secondary-navigation {
+
+  + .flexy-header__form {
+    margin-left: floor( ( $grid-gutter-width / 2 ) );
+  }
+
+  a {
+    color: $input-color-placeholder;
+  }
+}
+
+.flexy-header__form {
+
+  form {
+    position: relative;
+  }
+
+  .form-control {
+    @extend .input-lg;
+
+    padding-right: 40px; // The width of the button, so the text dont go underneath
+
+    border: 2px solid #393d5e;
+
+    font-size: $font-size-base;
+  }
+
+  .btn {
+    position: absolute;
+
+    top: 3px;
+    right: 0;
+
+    background-color: transparent;
+    border: 0;
+
+    font-size: 0;
+
+    color: $text-color;
+
+    @extend .btn-lg;
+
+    &:after {
+      @extend .fa;
+
+      display: inline-block;
+
+      font-size: $font-size-base;
+
+      content: $fa-var-search;
+    }
+
+  }
+}
+
 // --------------------------------------------------
 // Variants
 // --------------------------------------------------

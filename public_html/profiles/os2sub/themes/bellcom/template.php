@@ -31,7 +31,7 @@ function bellcom_preprocess_page(&$variables) {
   $secondary_navigation_name = variable_get('menu_secondary_links_source', 'user-menu');
 
   // Navigation
-  $variables['primary_navigation'] = _bellcom_generate_menu($primary_navigation_name, 'main-navigation', 1);
+  $variables['primary_navigation'] = _bellcom_generate_menu($primary_navigation_name, 'main-navigation', false, 1);
   $variables['secondary_navigation'] = _bellcom_generate_menu($secondary_navigation_name, 'main-navigation');
 
   $variables['sidebar_primary_navigation'] = _bellcom_generate_menu($primary_navigation_name, 'sidebar');
@@ -64,22 +64,26 @@ function bellcom_preprocess_page(&$variables) {
  * Implements template_preprocess_node().
  */
 function bellcom_preprocess_node(&$variables) {
+  $node = $variables['node'];
+  $view_mode = $variables['view_mode'];
+  $content_type = $node->type;
+
+  // Entity variables
+  $variables['classes_array'][] = drupal_html_class('entity-' . $view_mode);
+  $variables['classes_array'][] = drupal_html_class('entity-' . $view_mode . '--' . $content_type);
+
+  $variables['classes_array'][] = drupal_html_class('view-mode-' . $view_mode);
+  $variables['classes_array'][] = drupal_html_class('node--' . $content_type . '--' . $view_mode);
 
   // Add node--view_mode.tpl.php suggestions.
-  $variables['theme_hook_suggestions'][] = 'node__' . $variables['view_mode'];
+  $variables['theme_hook_suggestions'][] = 'node__' . $view_mode;
 
   // Make "node--NODETYPE--VIEWMODE.tpl.php" templates available for nodes.
-  $variables['theme_hook_suggestions'][] = 'node__' . $variables['type'] . '__' . $variables['view_mode'];
-
-  // Add a class for the view mode.
-  $variables['classes_array'][] = 'view-mode-' . $variables['view_mode'];
-
-  // Add css class "node--NODETYPE--VIEWMODE" to nodes.
-  $variables['classes_array'][] = 'node--' . $variables['type'] . '--' . $variables['view_mode'];
+  $variables['theme_hook_suggestions'][] = 'node__' . $content_type . '__' . $view_mode;
 
   // Optionally, run node-type-specific preprocess functions, like
   // foo_preprocess_node_page() or foo_preprocess_node_story().
-  $function = __FUNCTION__ . '__' . $variables['node']->type;
+  $function = __FUNCTION__ . '__' . $content_type;
   if (function_exists($function)) {
     $function($variables);
   }
@@ -134,12 +138,17 @@ function bellcom_preprocess_comment(&$variables) {
  * Implements template_preprocess_taxonomy_term().
  */
 function bellcom_preprocess_taxonomy_term(&$variables) {
+  $vocabulary_machine_name = $variables['vocabulary_machine_name'];
+  $view_mode = $variables['view_mode'];
 
   // Add node--view_mode.tpl.php suggestions.
-  $variables['theme_hook_suggestions'][] = 'taxonomy-term__' . $variables['view_mode'];
+  $variables['theme_hook_suggestions'][] = 'taxonomy-term__' . $view_mode;
 
-  // Add a class for the view mode.
-  $variables['classes_array'][] = 'view-mode-' . $variables['view_mode'];
+  // Entity variables
+  $variables['classes_array'][] = drupal_html_class('entity-' . $view_mode);
+  $variables['classes_array'][] = drupal_html_class('entity-' . $view_mode . '--' . $vocabulary_machine_name);
+
+  $variables['classes_array'][] = 'view-mode-' . $view_mode;
 }
 
 /*

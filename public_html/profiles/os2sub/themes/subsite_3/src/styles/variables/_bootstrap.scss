@@ -51,14 +51,14 @@ $font-family-base:        $font-family-sans-serif !default;
 
 $font-size-base:          16px;
 $font-size-large:         18px;
-$font-size-small:         12px;
+$font-size-small:         14px;
 
 $font-size-h1:            floor(($font-size-base * 2.6)) !default; // ~36px
 $font-size-h2:            floor(($font-size-base * 2.15)) !default; // ~30px
-$font-size-h3:            ceil(($font-size-base * 1.7)) !default; // ~24px
-$font-size-h4:            ceil(($font-size-base * 1.25)) !default; // ~18px
-$font-size-h5:            $font-size-base !default;
-$font-size-h6:            ceil(($font-size-base * 0.85)) !default; // ~12px
+$font-size-h3:            26px;
+$font-size-h4:            22px;
+$font-size-h5:            $font-size-large;
+$font-size-h6:            $font-size-base;
 
 //** Unit-less `line-height` for use in components like buttons.
 $line-height-base:        1.428571429 !default; // 20/14
@@ -208,7 +208,7 @@ $input-border-radius-small:      $border-radius-small !default;
 $input-border-focus:             #66afe9 !default;
 
 //** Placeholder text color
-$input-color-placeholder:        #999 !default;
+$input-color-placeholder:        #5c6569;
 
 //** Default `.form-control` height
 $input-height-base:              ($line-height-computed + ($padding-base-vertical * 2) + 2) !default;
