@@ -37,6 +37,18 @@ function os2sub_frontpage_strongarm() {
       'token' => array(
         'custom_settings' => FALSE,
       ),
+      'list' => array(
+        'custom_settings' => FALSE,
+      ),
+      'list_advanced' => array(
+        'custom_settings' => FALSE,
+      ),
+      'list_simple' => array(
+        'custom_settings' => FALSE,
+      ),
+      'diff_standard' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(

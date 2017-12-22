@@ -16,6 +16,7 @@ dependencies[] = node
 dependencies[] = options
 dependencies[] = os2web_base
 dependencies[] = os2web_taxonomies
+dependencies[] = photoswipe
 dependencies[] = strongarm
 dependencies[] = taxonomy
 dependencies[] = text
