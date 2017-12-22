@@ -33,15 +33,16 @@ function kultunaut_import_default_search_api_page() {
     "path" : "find",
     "name" : "Oplevsyddjurs",
     "machine_name" : "oplevsyddjurs",
-    "description" : null,
+    "description" : "",
     "options" : {
       "mode" : "terms",
       "fields" : [],
       "per_page" : "20",
-      "get_per_page" : 0,
       "result_page_search_form" : 1,
-      "view_mode" : "search_result",
-      "language_filter" : { "current" : "current" }
+      "get_per_page" : 0,
+      "view_mode" : "teaser",
+      "language_filter" : { "current" : "current" },
+      "empty_behavior" : "results"
     },
     "enabled" : "1"
   }');

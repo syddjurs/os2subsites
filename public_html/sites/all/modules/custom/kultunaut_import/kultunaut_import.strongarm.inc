@@ -425,7 +425,7 @@ function kultunaut_import_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'custom_search_blocks_1_search_api_page';
-  $strongarm->value = '1';
+  $strongarm->value = '3';
   $export['custom_search_blocks_1_search_api_page'] = $strongarm;
 
   $strongarm = new stdClass();
