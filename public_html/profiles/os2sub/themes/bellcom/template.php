@@ -22,12 +22,12 @@ function bellcom_preprocess_html(&$variables) {
   }
 
   // Panels display
-  if ($display = panels_get_current_page_display()) {
+  if ($page = page_manager_get_current_page()) {
 
     // Panels layout
     $variables['classes_array'][] = drupal_html_class('panels-layout');
-    $variables['classes_array'][] = drupal_html_class('panels-layout--' . $display->layout);
-    $variables['classes_array'][] = drupal_html_class('panels-variant--' . $display->renderer);
+    $variables['classes_array'][] = drupal_html_class('panels-layout--' . $page['handler']->conf['display']->layout);
+    $variables['classes_array'][] = drupal_html_class('panels-variant--' . $page['handler']->conf['name']);
   }
 }
 
