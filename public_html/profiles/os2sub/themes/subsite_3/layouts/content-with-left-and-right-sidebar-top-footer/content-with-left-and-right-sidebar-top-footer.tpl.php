@@ -13,7 +13,7 @@
 
           <?php if ($content['sidebar-left']): ?>
               <!-- Begin - left sidebar -->
-              <div class="col-sm-3">
+              <div class="col-sm-4">
                   <div class="panels-pane-region panels-pane-region--sidebar-left">
                     <?php print $content['sidebar-left']; ?>
                   </div>
@@ -25,7 +25,7 @@
           <?php if ($content['sidebar-left'] && $content['sidebar-right']): ?>
 
               <!-- Begin - content -->
-              <div class="col-sm-6">
+              <div class="col-sm-4">
                   <div class="panels-pane-region panels-pane-region--content">
                     <?php print $content['content']; ?>
                   </div>
@@ -35,7 +35,7 @@
           <?php elseif ($content['sidebar-left'] OR $content['sidebar-right']): ?>
 
               <!-- Begin - content -->
-              <div class="col-sm-9">
+              <div class="col-sm-8">
                   <div class="panels-pane-region panels-pane-region--content">
                     <?php print $content['content']; ?>
                   </div>
@@ -57,7 +57,7 @@
 
           <?php if ($content['sidebar-right']): ?>
               <!-- Begin - right sidebar -->
-              <div class="col-sm-3">
+              <div class="col-sm-4">
                   <div class="panels-pane-region panels-pane-region--sidebar-right">
                     <?php print $content['sidebar-right']; ?>
                   </div>
