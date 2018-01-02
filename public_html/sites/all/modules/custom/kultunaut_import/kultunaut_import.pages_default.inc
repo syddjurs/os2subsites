@@ -475,26 +475,16 @@ function kultunaut_import_default_page_manager_handlers() {
     $display->content['new-a19cdb81-242a-4351-9a09-14fbc71595df'] = $pane;
     $display->panels['sidebar-right'][8] = 'new-a19cdb81-242a-4351-9a09-14fbc71595df';
     $pane = new stdClass();
-    $pane->pid = 'new-d59cfbe8-951c-44ca-8832-53f40c186756';
+    $pane->pid = 'new-da0048ba-9676-46d2-9d66-3b2b26182785';
     $pane->panel = 'top';
-    $pane->type = 'entity_field';
-    $pane->subtype = 'taxonomy_term:field_os2web_base_field_banner';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'oplevsyddjurs_node_banner-panel_pane_1';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'label' => 'title',
-      'formatter' => 'image',
-      'delta_limit' => '1',
-      'delta_offset' => '0',
-      'delta_reversed' => 0,
-      'formatter_settings' => array(
-        'image_style' => 'os2sub_banner',
-        'image_link' => '',
+      'context' => array(
+        0 => 'argument_entity_id:node_1',
       ),
-      'context' => 'relationship_entity_from_field:field_os2web_kulturnaut_venue-node-taxonomy_term_1',
-      'override_title' => 1,
-      'override_title_text' => '',
-      'override_title_heading' => 'h2',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -504,9 +494,9 @@ function kultunaut_import_default_page_manager_handlers() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = 'd59cfbe8-951c-44ca-8832-53f40c186756';
-    $display->content['new-d59cfbe8-951c-44ca-8832-53f40c186756'] = $pane;
-    $display->panels['top'][0] = 'new-d59cfbe8-951c-44ca-8832-53f40c186756';
+    $pane->uuid = 'da0048ba-9676-46d2-9d66-3b2b26182785';
+    $display->content['new-da0048ba-9676-46d2-9d66-3b2b26182785'] = $pane;
+    $display->panels['top'][0] = 'new-da0048ba-9676-46d2-9d66-3b2b26182785';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-23ea6d7a-2c44-4cc5-815b-5ea2edaf2d2d';
   $handler->conf['display'] = $display;

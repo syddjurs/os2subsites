@@ -384,6 +384,186 @@ function kultunaut_import_views_default_views() {
   $export['oplevsyddjurs_forside_kalender'] = $view;
 
   $view = new view();
+  $view->name = 'oplevsyddjurs_node_banner';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'node';
+  $view->human_name = 'oplevsyddjurs node banner';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['default_row_class'] = FALSE;
+  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'views_bootstrap_carousel_plugin_rows';
+  $handler->display->display_options['row_options']['image'] = 'field_os2web_base_field_banner';
+  $handler->display->display_options['row_options']['title'] = 'field_banner_headline';
+  $handler->display->display_options['row_options']['description'] = 'field_banner_text';
+  /* Relationship: Content: Venue (field_os2web_kulturnaut_venue) */
+  $handler->display->display_options['relationships']['field_os2web_kulturnaut_venue_tid']['id'] = 'field_os2web_kulturnaut_venue_tid';
+  $handler->display->display_options['relationships']['field_os2web_kulturnaut_venue_tid']['table'] = 'field_data_field_os2web_kulturnaut_venue';
+  $handler->display->display_options['relationships']['field_os2web_kulturnaut_venue_tid']['field'] = 'field_os2web_kulturnaut_venue_tid';
+  $handler->display->display_options['relationships']['field_os2web_kulturnaut_venue_tid']['label'] = 'term fra field_os2web_kulturnaut_venue';
+  /* Relationship: Taxonomy term: Parent term */
+  $handler->display->display_options['relationships']['parent']['id'] = 'parent';
+  $handler->display->display_options['relationships']['parent']['table'] = 'taxonomy_term_hierarchy';
+  $handler->display->display_options['relationships']['parent']['field'] = 'parent';
+  $handler->display->display_options['relationships']['parent']['relationship'] = 'field_os2web_kulturnaut_venue_tid';
+  $handler->display->display_options['relationships']['parent']['label'] = 'Overordnet element';
+  /* Field: Taxonomy term: Banner */
+  $handler->display->display_options['fields']['field_os2web_base_field_banner_1']['id'] = 'field_os2web_base_field_banner_1';
+  $handler->display->display_options['fields']['field_os2web_base_field_banner_1']['table'] = 'field_data_field_os2web_base_field_banner';
+  $handler->display->display_options['fields']['field_os2web_base_field_banner_1']['field'] = 'field_os2web_base_field_banner';
+  $handler->display->display_options['fields']['field_os2web_base_field_banner_1']['relationship'] = 'parent';
+  $handler->display->display_options['fields']['field_os2web_base_field_banner_1']['label'] = '';
+  $handler->display->display_options['fields']['field_os2web_base_field_banner_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_base_field_banner_1']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_os2web_base_field_banner_1']['element_label_type'] = '0';
+  $handler->display->display_options['fields']['field_os2web_base_field_banner_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_base_field_banner_1']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_base_field_banner_1']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_os2web_base_field_banner_1']['settings'] = array(
+    'image_style' => 'os2sub_banner',
+    'image_link' => '',
+  );
+  $handler->display->display_options['fields']['field_os2web_base_field_banner_1']['delta_limit'] = '1';
+  $handler->display->display_options['fields']['field_os2web_base_field_banner_1']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_base_field_banner_1']['separator'] = ' ';
+  /* Field: Field: Banner overskrift */
+  $handler->display->display_options['fields']['field_banner_headline_1']['id'] = 'field_banner_headline_1';
+  $handler->display->display_options['fields']['field_banner_headline_1']['table'] = 'field_data_field_banner_headline';
+  $handler->display->display_options['fields']['field_banner_headline_1']['field'] = 'field_banner_headline';
+  $handler->display->display_options['fields']['field_banner_headline_1']['relationship'] = 'parent';
+  $handler->display->display_options['fields']['field_banner_headline_1']['label'] = '';
+  $handler->display->display_options['fields']['field_banner_headline_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_banner_headline_1']['element_type'] = 'span';
+  $handler->display->display_options['fields']['field_banner_headline_1']['element_class'] = 'headline';
+  $handler->display->display_options['fields']['field_banner_headline_1']['element_label_type'] = '0';
+  $handler->display->display_options['fields']['field_banner_headline_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_banner_headline_1']['element_default_classes'] = FALSE;
+  /* Field: Field: Banner text */
+  $handler->display->display_options['fields']['field_banner_text_1']['id'] = 'field_banner_text_1';
+  $handler->display->display_options['fields']['field_banner_text_1']['table'] = 'field_data_field_banner_text';
+  $handler->display->display_options['fields']['field_banner_text_1']['field'] = 'field_banner_text';
+  $handler->display->display_options['fields']['field_banner_text_1']['relationship'] = 'parent';
+  $handler->display->display_options['fields']['field_banner_text_1']['label'] = '';
+  $handler->display->display_options['fields']['field_banner_text_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_banner_text_1']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_banner_text_1']['element_label_type'] = '0';
+  $handler->display->display_options['fields']['field_banner_text_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_banner_text_1']['element_default_classes'] = FALSE;
+  /* Field: Taxonomy term: Banner */
+  $handler->display->display_options['fields']['field_os2web_base_field_banner']['id'] = 'field_os2web_base_field_banner';
+  $handler->display->display_options['fields']['field_os2web_base_field_banner']['table'] = 'field_data_field_os2web_base_field_banner';
+  $handler->display->display_options['fields']['field_os2web_base_field_banner']['field'] = 'field_os2web_base_field_banner';
+  $handler->display->display_options['fields']['field_os2web_base_field_banner']['relationship'] = 'field_os2web_kulturnaut_venue_tid';
+  $handler->display->display_options['fields']['field_os2web_base_field_banner']['label'] = '';
+  $handler->display->display_options['fields']['field_os2web_base_field_banner']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_os2web_base_field_banner']['element_label_type'] = '0';
+  $handler->display->display_options['fields']['field_os2web_base_field_banner']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_base_field_banner']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_base_field_banner']['empty'] = '[field_os2web_base_field_banner_1]';
+  $handler->display->display_options['fields']['field_os2web_base_field_banner']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_os2web_base_field_banner']['settings'] = array(
+    'image_style' => 'os2sub_banner',
+    'image_link' => '',
+  );
+  $handler->display->display_options['fields']['field_os2web_base_field_banner']['delta_limit'] = '1';
+  $handler->display->display_options['fields']['field_os2web_base_field_banner']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_base_field_banner']['separator'] = '';
+  /* Field: Field: Banner overskrift */
+  $handler->display->display_options['fields']['field_banner_headline']['id'] = 'field_banner_headline';
+  $handler->display->display_options['fields']['field_banner_headline']['table'] = 'field_data_field_banner_headline';
+  $handler->display->display_options['fields']['field_banner_headline']['field'] = 'field_banner_headline';
+  $handler->display->display_options['fields']['field_banner_headline']['relationship'] = 'field_os2web_kulturnaut_venue_tid';
+  $handler->display->display_options['fields']['field_banner_headline']['label'] = '';
+  $handler->display->display_options['fields']['field_banner_headline']['element_type'] = 'span';
+  $handler->display->display_options['fields']['field_banner_headline']['element_class'] = 'headline';
+  $handler->display->display_options['fields']['field_banner_headline']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_banner_headline']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_banner_headline']['empty'] = '[field_banner_headline_1]';
+  /* Field: Field: Banner text */
+  $handler->display->display_options['fields']['field_banner_text']['id'] = 'field_banner_text';
+  $handler->display->display_options['fields']['field_banner_text']['table'] = 'field_data_field_banner_text';
+  $handler->display->display_options['fields']['field_banner_text']['field'] = 'field_banner_text';
+  $handler->display->display_options['fields']['field_banner_text']['relationship'] = 'field_os2web_kulturnaut_venue_tid';
+  $handler->display->display_options['fields']['field_banner_text']['label'] = '';
+  $handler->display->display_options['fields']['field_banner_text']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_banner_text']['element_label_type'] = '0';
+  $handler->display->display_options['fields']['field_banner_text']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_banner_text']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_banner_text']['empty'] = '[field_banner_text_1]';
+  /* Sort criterion: Content: Post date */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'node';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Contextual filter: Content: Nid */
+  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['table'] = 'node';
+  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['nid']['exception']['title'] = 'Alle';
+  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'node';
+  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'os2web_kulturnaut_knactivity' => 'os2web_kulturnaut_knactivity',
+  );
+
+  /* Display: Content pane */
+  $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
+  $handler->display->display_options['argument_input'] = array(
+    'nid' => array(
+      'type' => 'context',
+      'context' => 'entity:node.nid',
+      'context_optional' => 0,
+      'panel' => '0',
+      'fixed' => '',
+      'label' => 'Indhold: Nid',
+    ),
+  );
+  $translatables['oplevsyddjurs_node_banner'] = array(
+    t('Master'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Items per page'),
+    t('- All -'),
+    t('Offset'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
+    t('term fra field_os2web_kulturnaut_venue'),
+    t('Overordnet element'),
+    t('[field_os2web_base_field_banner_1]'),
+    t('[field_banner_headline_1]'),
+    t('[field_banner_text_1]'),
+    t('Alle'),
+    t('Content pane'),
+    t('View panes'),
+  );
+  $export['oplevsyddjurs_node_banner'] = $view;
+
+  $view = new view();
   $view->name = 'oplevsyddjurs_term_nodes';
   $view->description = '';
   $view->tag = 'default';
