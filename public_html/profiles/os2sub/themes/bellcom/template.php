@@ -27,6 +27,7 @@ function bellcom_preprocess_html(&$variables) {
     // Panels layout
     $variables['classes_array'][] = drupal_html_class('panels-layout');
     $variables['classes_array'][] = drupal_html_class('panels-layout--' . $display->layout);
+    $variables['classes_array'][] = drupal_html_class('panels-variant--' . $display->renderer);
   }
 }
 
