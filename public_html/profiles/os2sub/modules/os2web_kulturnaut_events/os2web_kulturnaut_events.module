@@ -11,6 +11,7 @@ include_once 'os2web_kulturnaut_events.features.inc';
  * Implements hook_cron().
  */
 function os2web_kulturnaut_events_cron() {
+  /**
   watchdog('cron', 'Node unpublish task started');
 
   $type = 'os2web_kulturnaut_knactivity';
@@ -46,4 +47,5 @@ function os2web_kulturnaut_events_cron() {
     watchdog('cron', 'No publeshed nodes found');
   }
   watchdog('cron', 'Node unpublish task finished');
+*/
 }
