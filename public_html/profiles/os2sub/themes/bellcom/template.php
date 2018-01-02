@@ -20,6 +20,14 @@ function bellcom_preprocess_html(&$variables) {
   foreach($view_modes as $view_mode) {
     $variables['classes_array'] = array_merge($variables['classes_array'], _bellcom_sidebar_classes($view_mode));
   }
+
+  // Panels display
+  if ($display = panels_get_current_page_display()) {
+
+    // Panels layout
+    $variables['classes_array'][] = drupal_html_class('panels-layout');
+    $variables['classes_array'][] = drupal_html_class('panels-layout--' . $display->layout);
+  }
 }
 
 /*

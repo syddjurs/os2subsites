@@ -1,70 +1,78 @@
-<!-- content-with-left-and-right-sidebar.tpl.php -->
-<div class="container">
+<div class="panels-layout panels-layout--content-with-left-and-right-sidebar-top-footer">
 
   <?php if ($content['top']): ?>
       <!-- Begin - top -->
-      <div>
+      <div class="panels-pane-region panels-pane-region--top">
         <?php print $content['top']; ?>
       </div>
       <!-- End - top -->
   <?php endif ?>
 
-    <div class="row">
+    <div class="container">
+        <div class="row">
 
-      <?php if ($content['sidebar-left']): ?>
-          <!-- Begin - left sidebar -->
-          <div class="col-sm-3">
-            <?php print $content['sidebar-left']; ?>
-          </div>
-          <!-- End - left sidebar -->
-      <?php endif ?>
-
-
-      <?php if ($content['sidebar-left'] && $content['sidebar-right']): ?>
-
-          <!-- Begin - content -->
-          <div class="col-sm-6">
-            <?php print $content['content']; ?>
-          </div>
-          <!-- End - content -->
-
-      <?php elseif ($content['sidebar-left'] OR $content['sidebar-right']): ?>
-
-          <!-- Begin - content -->
-          <div class="col-sm-9">
-            <?php print $content['content']; ?>
-          </div>
-          <!-- End - content -->
-
-      <?php else : ?>
-
-          <!-- Begin - content -->
-          <div class="col-xs-12">
-            <?php print $content['content']; ?>
-          </div>
-          <!-- End - content -->
-
-      <?php endif ?>
+          <?php if ($content['sidebar-left']): ?>
+              <!-- Begin - left sidebar -->
+              <div class="col-sm-4">
+                  <div class="panels-pane-region panels-pane-region--sidebar-left">
+                    <?php print $content['sidebar-left']; ?>
+                  </div>
+              </div>
+              <!-- End - left sidebar -->
+          <?php endif ?>
 
 
-      <?php if ($content['sidebar-right']): ?>
-          <!-- Begin - right sidebar -->
-          <div class="col-sm-3">
-            <?php print $content['sidebar-right']; ?>
-          </div>
-          <!-- End - right sidebar -->
-      <?php endif; ?>
+          <?php if ($content['sidebar-left'] && $content['sidebar-right']): ?>
 
+              <!-- Begin - content -->
+              <div class="col-sm-4">
+                  <div class="panels-pane-region panels-pane-region--content">
+                    <?php print $content['content']; ?>
+                  </div>
+              </div>
+              <!-- End - content -->
+
+          <?php elseif ($content['sidebar-left'] OR $content['sidebar-right']): ?>
+
+              <!-- Begin - content -->
+              <div class="col-sm-8">
+                  <div class="panels-pane-region panels-pane-region--content">
+                    <?php print $content['content']; ?>
+                  </div>
+              </div>
+              <!-- End - content -->
+
+          <?php else : ?>
+
+              <!-- Begin - content -->
+              <div class="col-xs-12">
+                  <div class="panels-pane-region panels-pane-region--content">
+                    <?php print $content['content']; ?>
+                  </div>
+              </div>
+              <!-- End - content -->
+
+          <?php endif ?>
+
+
+          <?php if ($content['sidebar-right']): ?>
+              <!-- Begin - right sidebar -->
+              <div class="col-sm-4">
+                  <div class="panels-pane-region panels-pane-region--sidebar-right">
+                    <?php print $content['sidebar-right']; ?>
+                  </div>
+              </div>
+              <!-- End - right sidebar -->
+          <?php endif; ?>
+
+        </div>
     </div>
-
 
   <?php if ($content['footer']): ?>
       <!-- Begin - footer -->
-      <div>
+      <div class="panels-pane-region panels-pane-region--footer">
         <?php print $content['footer']; ?>
       </div>
       <!-- End - footer -->
   <?php endif ?>
-
 </div>
-
