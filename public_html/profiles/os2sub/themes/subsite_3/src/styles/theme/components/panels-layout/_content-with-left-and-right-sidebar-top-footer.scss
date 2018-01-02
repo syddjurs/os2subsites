@@ -1,0 +1,118 @@
+// |--------------------------------------------------------------------------
+// | Content with left and right sidebar with top and footer
+// |--------------------------------------------------------------------------
+// |
+// | This file contains styles for the following:
+// | - .panels-layout--content-with-left-and-right-sidebar-top-footer
+// |
+
+// --------------------------------------------------
+// Variables
+// --------------------------------------------------
+
+// --------------------------------------------------
+// Mixins
+// --------------------------------------------------
+
+@mixin panels-layout-content-with-left-and-right-sidebar-top-footer-mixin() {}
+
+// --------------------------------------------------
+// Styling
+// --------------------------------------------------
+
+.panels-layout--content-with-left-and-right-sidebar-top-footer {}
+
+// --------------------------------------------------
+// Variants
+// --------------------------------------------------
+
+.node-type-os2web-kulturnaut-knactivity,
+.panels-layout--variant-1 {
+
+  .panels-layout--content-with-left-and-right-sidebar-top-footer {
+
+    .panels-pane-region--sidebar-right {
+      @extend .boxy__body;
+
+      border: 0;
+
+      font-size: $font-size-large;
+
+      box-shadow: $boxy-shadow-body-box-shadow;
+      background-color: $boxy-shadow-body-background-color;
+
+      .pane-title {
+        margin: 0;
+        margin-bottom: 4px;
+
+        font-family: $font-family-base;
+        font-size: $font-size-small;
+        font-weight: $font-weight;
+
+        text-transform: uppercase;
+
+        color: $text-color-light;
+      }
+
+      .panel-separator {
+        height: 15px;
+      }
+    }
+  }
+}
+
+.panels-layout--variant-2 {
+
+  .panels-layout--content-with-left-and-right-sidebar-top-footer {}
+}
+
+.panels-layout--variant-3 {
+
+  .panels-layout--content-with-left-and-right-sidebar-top-footer {}
+}
+
+// --------------------------------------------------
+// Responsive
+// --------------------------------------------------
+
+// Mobile - and up
+@media #{$breakpoint-mobile-and-up} {}
+
+// Mobile - only
+@media #{$breakpoint-mobile-only} {}
+
+// Tablet - and up
+@media #{$breakpoint-tablet-and-up} {}
+
+// Tablet - only
+@media #{$breakpoint-tablet-only} {}
+
+// Desktop - and up
+@media #{$breakpoint-desktop-and-up} {
+
+  .node-type-os2web-kulturnaut-knactivity,
+  .panels-layout--variant-1 {
+
+    .panels-layout--content-with-left-and-right-sidebar-top-footer {
+
+      .panels-pane-region--sidebar-right {
+        margin-top: -150px;
+      }
+    }
+  }
+}
+
+// Desktop - only
+@media #{$breakpoint-desktop-only} {}
+
+// Large desktop - and up
+@media #{$breakpoint-large-desktop-and-up} {}
+
+// Print
+@media print {}
+
+// Touch
+.touchevents {}
+
+// No touch
+.no-touchevents {}
