@@ -103,6 +103,7 @@ function os2web_base_user_default_permissions() {
     'roles' => array(
       'Administrator' => 'Administrator',
       'anonymous user' => 'anonymous user',
+      'authenticated user' => 'authenticated user',
       'subsiteadmin' => 'subsiteadmin',
     ),
     'module' => 'search',

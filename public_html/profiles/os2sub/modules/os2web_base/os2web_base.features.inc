@@ -63,7 +63,7 @@ function os2web_base_image_default_styles() {
   $styles['cropped_400_x_320'] = array(
     'label' => 'Cropped - 400x320',
     'effects' => array(
-      2 => array(
+      1 => array(
         'name' => 'epsacrop_crop',
         'data' => array(
           'width' => 400,
@@ -74,12 +74,12 @@ function os2web_base_image_default_styles() {
             'aspect_ratio' => '',
             'bgcolor' => 'black',
             'bgopacity' => 0.6,
-            'fallback' => 0,
+            'fallback' => 1,
           ),
         ),
         'weight' => -10,
       ),
-      1 => array(
+      2 => array(
         'name' => 'image_scale_and_crop',
         'data' => array(
           'width' => 400,

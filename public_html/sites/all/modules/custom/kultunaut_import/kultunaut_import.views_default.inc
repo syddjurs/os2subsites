@@ -458,7 +458,6 @@ function kultunaut_import_views_default_views() {
   $handler->display->display_options['filters']['date_filter']['table'] = 'node';
   $handler->display->display_options['filters']['date_filter']['field'] = 'date_filter';
   $handler->display->display_options['filters']['date_filter']['operator'] = 'between';
-  $handler->display->display_options['filters']['date_filter']['exposed'] = TRUE;
   $handler->display->display_options['filters']['date_filter']['expose']['operator_id'] = 'date_filter_op';
   $handler->display->display_options['filters']['date_filter']['expose']['operator'] = 'date_filter_op';
   $handler->display->display_options['filters']['date_filter']['expose']['identifier'] = 'date_filter';
@@ -499,8 +498,46 @@ function kultunaut_import_views_default_views() {
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'entity';
-  $handler->display->display_options['row_options']['view_mode'] = 'spotbox';
+  $handler->display->display_options['row_options']['view_mode'] = 'list';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'os2web_kulturnaut_knactivity' => 'os2web_kulturnaut_knactivity',
+  );
+  /* Filter criterion: Date: Date (node) */
+  $handler->display->display_options['filters']['date_filter']['id'] = 'date_filter';
+  $handler->display->display_options['filters']['date_filter']['table'] = 'node';
+  $handler->display->display_options['filters']['date_filter']['field'] = 'date_filter';
+  $handler->display->display_options['filters']['date_filter']['operator'] = '>';
+  $handler->display->display_options['filters']['date_filter']['expose']['operator_id'] = 'date_filter_op';
+  $handler->display->display_options['filters']['date_filter']['expose']['operator'] = 'date_filter_op';
+  $handler->display->display_options['filters']['date_filter']['expose']['identifier'] = 'date_filter';
+  $handler->display->display_options['filters']['date_filter']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    6 => 0,
+    4 => 0,
+    5 => 0,
+    3 => 0,
+  );
+  $handler->display->display_options['filters']['date_filter']['form_type'] = 'date_popup';
+  $handler->display->display_options['filters']['date_filter']['default_date'] = 'today';
+  $handler->display->display_options['filters']['date_filter']['default_to_date'] = 'today +1 year';
+  $handler->display->display_options['filters']['date_filter']['date_fields'] = array(
+    'field_data_field_os2web_kulturnaut_date.field_os2web_kulturnaut_date_value' => 'field_data_field_os2web_kulturnaut_date.field_os2web_kulturnaut_date_value',
+  );
   $handler->display->display_options['argument_input'] = array(
     'term_node_tid_depth' => array(
       'type' => 'context',
@@ -764,6 +801,24 @@ function kultunaut_import_views_default_views() {
   $handler->display->display_options['filters']['machine_name']['value'] = array(
     'os2web_taxonomies_tax_places' => 'os2web_taxonomies_tax_places',
   );
+  /* Filter criterion: Taxonomy term: Parent term */
+  $handler->display->display_options['filters']['parent']['id'] = 'parent';
+  $handler->display->display_options['filters']['parent']['table'] = 'taxonomy_term_hierarchy';
+  $handler->display->display_options['filters']['parent']['field'] = 'parent';
+  $handler->display->display_options['filters']['parent']['operator'] = '!=';
+  $handler->display->display_options['filters']['parent']['value']['value'] = '125';
+  /* Filter criterion: Taxonomy term: Term ID */
+  $handler->display->display_options['filters']['tid_raw']['id'] = 'tid_raw';
+  $handler->display->display_options['filters']['tid_raw']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['filters']['tid_raw']['field'] = 'tid_raw';
+  $handler->display->display_options['filters']['tid_raw']['operator'] = '!=';
+  $handler->display->display_options['filters']['tid_raw']['value']['value'] = '125';
+  /* Filter criterion: Taxonomy term: Term ID */
+  $handler->display->display_options['filters']['tid_raw_1']['id'] = 'tid_raw_1';
+  $handler->display->display_options['filters']['tid_raw_1']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['filters']['tid_raw_1']['field'] = 'tid_raw';
+  $handler->display->display_options['filters']['tid_raw_1']['operator'] = '!=';
+  $handler->display->display_options['filters']['tid_raw_1']['value']['value'] = '127';
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
