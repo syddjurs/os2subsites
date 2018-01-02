@@ -260,6 +260,27 @@
             <?php print render($page['content']); ?>
         <?php endif; ?>
 
+        <br><br><br>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                    <div class="boxy">
+                        <div class="boxy__body">
+                            Default
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <div class="boxy boxy--bordered">
+                        <div class="boxy__body">
+                            Bordered
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </main>
     <!-- End - content -->
 
