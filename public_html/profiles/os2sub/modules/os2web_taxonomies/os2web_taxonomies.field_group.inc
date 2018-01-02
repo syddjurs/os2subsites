@@ -13,121 +13,123 @@ function os2web_taxonomies_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
-  $field_group->identifier = 'group_billeder|taxonomy_term|os2web_taxonomies_tax_portal_cat|form';
-  $field_group->group_name = 'group_billeder';
+  $field_group->identifier = 'group_banner|taxonomy_term|os2web_taxonomies_tax_places|form';
+  $field_group->group_name = 'group_banner';
   $field_group->entity_type = 'taxonomy_term';
-  $field_group->bundle = 'os2web_taxonomies_tax_portal_cat';
+  $field_group->bundle = 'os2web_taxonomies_tax_places';
   $field_group->mode = 'form';
-  $field_group->parent_name = 'group_term';
+  $field_group->parent_name = 'group_content';
   $field_group->data = array(
-    'label' => 'Billeder',
-    'weight' => '11',
+    'label' => 'Banner',
+    'weight' => '4',
     'children' => array(
-      0 => 'field_os2web_base_field_image',
-      1 => 'field_os2web_base_field_banner',
+      0 => 'field_os2web_base_field_banner',
+      1 => 'field_banner_text',
+      2 => 'field_banner_headline',
     ),
     'format_type' => 'htab',
     'format_settings' => array(
       'formatter' => 'closed',
       'instance_settings' => array(
         'description' => '',
-        'classes' => 'group-billeder field-group-htab',
+        'classes' => 'group-banner field-group-htab',
         'required_fields' => 1,
         'id' => '',
       ),
     ),
   );
-  $export['group_billeder|taxonomy_term|os2web_taxonomies_tax_portal_cat|form'] = $field_group;
+  $export['group_banner|taxonomy_term|os2web_taxonomies_tax_places|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
-  $field_group->identifier = 'group_indhold|taxonomy_term|os2web_taxonomies_tax_portal_cat|form';
-  $field_group->group_name = 'group_indhold';
+  $field_group->identifier = 'group_content|taxonomy_term|os2web_taxonomies_tax_places|form';
+  $field_group->group_name = 'group_content';
   $field_group->entity_type = 'taxonomy_term';
-  $field_group->bundle = 'os2web_taxonomies_tax_portal_cat';
-  $field_group->mode = 'form';
-  $field_group->parent_name = 'group_term';
-  $field_group->data = array(
-    'label' => 'Indhold',
-    'weight' => '10',
-    'children' => array(
-      0 => 'field_os2web_base_field_spotbox',
-      1 => 'field_os2web_base_field_selfserv',
-      2 => 'field_os2web_base_field_kle_ref',
-      3 => 'field_termtekst',
-    ),
-    'format_type' => 'htab',
-    'format_settings' => array(
-      'label' => 'Indhold',
-      'instance_settings' => array(
-        'required_fields' => 1,
-        'id' => '',
-        'classes' => 'group-indhold field-group-htab',
-        'description' => '',
-      ),
-      'formatter' => 'closed',
-    ),
-  );
-  $export['group_indhold|taxonomy_term|os2web_taxonomies_tax_portal_cat|form'] = $field_group;
-
-  $field_group = new stdClass();
-  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
-  $field_group->api_version = 1;
-  $field_group->identifier = 'group_indstillinger|taxonomy_term|os2web_taxonomies_tax_portal_cat|form';
-  $field_group->group_name = 'group_indstillinger';
-  $field_group->entity_type = 'taxonomy_term';
-  $field_group->bundle = 'os2web_taxonomies_tax_portal_cat';
-  $field_group->mode = 'form';
-  $field_group->parent_name = 'group_term';
-  $field_group->data = array(
-    'label' => 'Indstillinger',
-    'weight' => '12',
-    'children' => array(
-      0 => 'field_list_as_spotboks',
-      1 => 'field_ikon',
-      2 => 'field_os2web_base_field_contact',
-      3 => 'path',
-    ),
-    'format_type' => 'htab',
-    'format_settings' => array(
-      'formatter' => 'closed',
-      'instance_settings' => array(
-        'description' => '',
-        'classes' => 'group-indstillinger field-group-htab',
-        'required_fields' => 1,
-        'id' => '',
-      ),
-    ),
-  );
-  $export['group_indstillinger|taxonomy_term|os2web_taxonomies_tax_portal_cat|form'] = $field_group;
-
-  $field_group = new stdClass();
-  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
-  $field_group->api_version = 1;
-  $field_group->identifier = 'group_term|taxonomy_term|os2web_taxonomies_tax_portal_cat|form';
-  $field_group->group_name = 'group_term';
-  $field_group->entity_type = 'taxonomy_term';
-  $field_group->bundle = 'os2web_taxonomies_tax_portal_cat';
+  $field_group->bundle = 'os2web_taxonomies_tax_places';
   $field_group->mode = 'form';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'Term',
-    'weight' => '1',
+    'label' => 'Indhold',
+    'weight' => '4',
     'children' => array(
-      0 => 'group_indhold',
-      1 => 'group_billeder',
-      2 => 'group_indstillinger',
+      0 => 'group_banner',
+      1 => 'group_gis',
+      2 => 'group_tekst',
     ),
     'format_type' => 'htabs',
     'format_settings' => array(
       'formatter' => '',
       'instance_settings' => array(
-        'classes' => 'group-term field-group-htabs',
+        'classes' => 'group-content field-group-htabs',
       ),
     ),
   );
-  $export['group_term|taxonomy_term|os2web_taxonomies_tax_portal_cat|form'] = $field_group;
+  $export['group_content|taxonomy_term|os2web_taxonomies_tax_places|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_gis|taxonomy_term|os2web_taxonomies_tax_places|form';
+  $field_group->group_name = 'group_gis';
+  $field_group->entity_type = 'taxonomy_term';
+  $field_group->bundle = 'os2web_taxonomies_tax_places';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_content';
+  $field_group->data = array(
+    'label' => 'GIS',
+    'weight' => '5',
+    'children' => array(
+      0 => 'field_os2web_taxonomies_city',
+      1 => 'field_os2web_taxonomies_name',
+      2 => 'field_os2web_taxonomies_sys_id',
+      3 => 'field_os2web_taxonomies_type',
+      4 => 'field_os2web_taxonomies_maplink',
+      5 => 'field_os2web_taxonomies_address',
+      6 => 'field_os2web_taxonomies_website',
+    ),
+    'format_type' => 'htab',
+    'format_settings' => array(
+      'formatter' => 'closed',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-gis field-group-htab',
+        'required_fields' => 1,
+        'id' => '',
+      ),
+    ),
+  );
+  $export['group_gis|taxonomy_term|os2web_taxonomies_tax_places|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_tekst|taxonomy_term|os2web_taxonomies_tax_places|form';
+  $field_group->group_name = 'group_tekst';
+  $field_group->entity_type = 'taxonomy_term';
+  $field_group->bundle = 'os2web_taxonomies_tax_places';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_content';
+  $field_group->data = array(
+    'label' => 'Tekst og billede',
+    'weight' => '3',
+    'children' => array(
+      0 => 'field_os2web_base_field_image',
+      1 => 'field_os2web_taxonomies_disp_var',
+      2 => 'description',
+    ),
+    'format_type' => 'htab',
+    'format_settings' => array(
+      'formatter' => 'closed',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-tekst field-group-htab',
+        'required_fields' => 1,
+        'id' => '',
+      ),
+    ),
+  );
+  $export['group_tekst|taxonomy_term|os2web_taxonomies_tax_places|form'] = $field_group;
 
   return $export;
 }
