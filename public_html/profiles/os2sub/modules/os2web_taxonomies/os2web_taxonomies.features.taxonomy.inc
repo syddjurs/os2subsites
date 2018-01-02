@@ -45,7 +45,7 @@ function os2web_taxonomies_taxonomy_default_vocabularies() {
       'name' => 'Egennavne/stednavne',
       'machine_name' => 'os2web_taxonomies_tax_places',
       'description' => '',
-      'hierarchy' => 1,
+      'hierarchy' => 0,
       'module' => 'taxonomy',
       'weight' => 0,
     ),
