@@ -10,6 +10,9 @@
 // Variables
 // --------------------------------------------------
 
+$boxy-shadow-body-background-color: $body-bg;
+$boxy-shadow-body-box-shadow: 0 20px 40px 0 rgba(48, 55, 39, .05);
+
 // --------------------------------------------------
 // Mixins
 // --------------------------------------------------
@@ -25,8 +28,8 @@
   .boxy__body {
     border: 0;
 
-    box-shadow: 0 20px 40px 0 rgba(48, 55, 39, .05);
-    background-color: $body-bg;
+    box-shadow: $boxy-shadow-body-box-shadow;
+    background-color: $boxy-shadow-body-background-color;
   }
 }
 
