@@ -1,9 +1,9 @@
 // |--------------------------------------------------------------------------
-// | Places
+// | Map link
 // |--------------------------------------------------------------------------
 // |
 // | This file contains styles for the following:
-// | - .panels-layout--content-with-left-and-right-sidebar-top-footer
+// | - .field-name-field-os2web-taxonomies-maplink
 // |
 
 // --------------------------------------------------
@@ -14,51 +14,25 @@
 // Mixins
 // --------------------------------------------------
 
-@mixin panels-layout-content-with-left-and-right-sidebar-top-footer-mixin() {}
+@mixin field-name-field-os2web-taxonomies-maplink-mixin() {}
 
 // --------------------------------------------------
 // Styling
 // --------------------------------------------------
 
-.panels-layout--content-with-left-and-right-sidebar-top-footer {}
+.field-name-field-os2web-taxonomies-maplink {
+
+  a {
+    @extend .btn;
+    @extend .btn-primary;
+    @extend .btn-block;
+    @extend .btn-lg;
+  }
+}
 
 // --------------------------------------------------
 // Variants
 // --------------------------------------------------
-
-.page-taxonomy-term {
-
-  &.panels-layout--content-with-left-and-right-sidebar-top-footer {
-
-    &.panels-display--standard {}
-
-    &.panels-display--variant-1 {}
-
-    &.panels-display--variant-2 {
-
-      .panels-pane-region--content-secondary {
-        @extend .boxy__body;
-      }
-
-      .panels-pane-region--sidebar-right {
-        @extend .boxy__body;
-
-        padding-top: $boxy-spacing-left-right;
-
-        border: 0;
-
-        box-shadow: $boxy-shadow-body-box-shadow;
-        background-color: $boxy-shadow-body-background-color;
-
-        .panel-separator {
-          height: 20px;
-        }
-      }
-    }
-
-    &.panels-display--variant-3 {}
-  }
-}
 
 // --------------------------------------------------
 // Responsive
@@ -77,19 +51,7 @@
 @media #{$breakpoint-tablet-only} {}
 
 // Desktop - and up
-@media #{$breakpoint-desktop-and-up} {
-
-  .panels-layout--content-with-left-and-right-sidebar-top-footer {
-
-    &.panels-display--variant-2 {
-
-      .panels-pane-region--sidebar-right {
-        min-height: 200px;
-        margin-top: -150px;
-      }
-    }
-  }
-}
+@media #{$breakpoint-desktop-and-up} {}
 
 // Desktop - only
 @media #{$breakpoint-desktop-only} {}

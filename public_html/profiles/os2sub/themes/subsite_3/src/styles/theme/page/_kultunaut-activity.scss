@@ -24,6 +24,10 @@
 
   &.panels-layout--content-with-left-and-right-sidebar-top-footer {
 
+    .panels-pane-region--content-secondary {
+      @extend .boxy__body;
+    }
+
     .panels-pane-region--sidebar-right {
       @extend .boxy__body;
 
@@ -115,6 +119,7 @@
     &.panels-layout--content-with-left-and-right-sidebar-top-footer {
 
       .panels-pane-region--sidebar-right {
+        min-height: 200px;
         margin-top: -150px;
       }
     }

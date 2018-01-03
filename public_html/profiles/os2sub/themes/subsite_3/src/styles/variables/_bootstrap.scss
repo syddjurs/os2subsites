@@ -95,7 +95,7 @@ $icon-font-svg-id:        "glyphicons_halflingsregular" !default;
 $padding-base-vertical:     6px !default;
 $padding-base-horizontal:   12px !default;
 
-$padding-large-vertical:    10px !default;
+$padding-large-vertical:    13px;
 $padding-large-horizontal:  16px !default;
 
 $padding-small-vertical:    5px !default;
@@ -153,7 +153,7 @@ $btn-default-color:              #333 !default;
 $btn-default-bg:                 #fff !default;
 $btn-default-border:             #ccc !default;
 
-$btn-primary-color:              #fff !default;
+$btn-primary-color:              $text-color;
 $btn-primary-bg:                 $brand-primary !default;
 $btn-primary-border:             darken($btn-primary-bg, 5%) !default;
 
