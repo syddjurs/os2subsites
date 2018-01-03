@@ -1,9 +1,9 @@
 // |--------------------------------------------------------------------------
-// | Content with left and right sidebar with top and footer
+// | Kultunaut activity
 // |--------------------------------------------------------------------------
 // |
 // | This file contains styles for the following:
-// | - .panels-layout--content-with-left-and-right-sidebar-top-footer
+// | - .node-type-os2web-kulturnaut-knactivity
 // |
 
 // --------------------------------------------------
@@ -14,19 +14,49 @@
 // Mixins
 // --------------------------------------------------
 
-@mixin panels-layout-content-with-left-and-right-sidebar-top-footer-mixin() {}
+@mixin kultunaut-activity-mixin() {}
 
 // --------------------------------------------------
 // Styling
 // --------------------------------------------------
 
-.panels-layout--content-with-left-and-right-sidebar-top-footer {}
+.node-type-os2web-kulturnaut-knactivity {
+
+  &.panels-layout--content-with-left-and-right-sidebar-top-footer {
+
+    .panels-pane-region--sidebar-right {
+      @extend .boxy__body;
+
+      border: 0;
+
+      font-size: $font-size-large;
+
+      box-shadow: $boxy-shadow-body-box-shadow;
+      background-color: $boxy-shadow-body-background-color;
+
+      .pane-title {
+        margin: 0;
+        margin-bottom: 4px;
+
+        font-family: $font-family-base;
+        font-size: $font-size-small;
+        font-weight: $font-weight;
+
+        text-transform: uppercase;
+
+        color: $text-color-light;
+      }
+
+      .panel-separator {
+        height: 15px;
+      }
+    }
+  }
+}
 
 // --------------------------------------------------
 // Variants
 // --------------------------------------------------
-
-.panels-layout--content-with-left-and-right-sidebar-top-footer {}
 
 // --------------------------------------------------
 // Responsive
@@ -45,7 +75,18 @@
 @media #{$breakpoint-tablet-only} {}
 
 // Desktop - and up
-@media #{$breakpoint-desktop-and-up} {}
+@media #{$breakpoint-desktop-and-up} {
+
+  .node-type-os2web-kulturnaut-knactivity {
+
+    &.panels-layout--content-with-left-and-right-sidebar-top-footer {
+
+      .panels-pane-region--sidebar-right {
+        margin-top: -150px;
+      }
+    }
+  }
+}
 
 // Desktop - only
 @media #{$breakpoint-desktop-only} {}

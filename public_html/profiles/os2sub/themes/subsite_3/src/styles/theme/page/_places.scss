@@ -1,5 +1,5 @@
 // |--------------------------------------------------------------------------
-// | Content with left and right sidebar with top and footer
+// | Places
 // |--------------------------------------------------------------------------
 // |
 // | This file contains styles for the following:
@@ -26,7 +26,48 @@
 // Variants
 // --------------------------------------------------
 
-.panels-layout--content-with-left-and-right-sidebar-top-footer {}
+.page-taxonomy-term {
+
+  &.panels-layout--content-with-left-and-right-sidebar-top-footer {
+
+    &.panels-display--standard {}
+
+    &.panels-display--variant-1 {
+
+      .panels-pane-region--sidebar-right {
+        @extend .boxy__body;
+
+        border: 0;
+
+        font-size: $font-size-large;
+
+        box-shadow: $boxy-shadow-body-box-shadow;
+        background-color: $boxy-shadow-body-background-color;
+
+        .pane-title {
+          margin: 0;
+          margin-bottom: 4px;
+
+          font-family: $font-family-base;
+          font-size: $font-size-small;
+          font-weight: $font-weight;
+
+          text-transform: uppercase;
+
+          color: $text-color-light;
+        }
+
+        .panel-separator {
+          height: 15px;
+        }
+      }
+    }
+
+    &.panels-display--variant-2 {}
+
+    &.panels-display--variant-3 {}
+  }
+}
 
 // --------------------------------------------------
 // Responsive
@@ -45,7 +86,18 @@
 @media #{$breakpoint-tablet-only} {}
 
 // Desktop - and up
-@media #{$breakpoint-desktop-and-up} {}
+@media #{$breakpoint-desktop-and-up} {
+
+  .panels-layout--content-with-left-and-right-sidebar-top-footer {
+
+    &.panels-display--variant-1 {
+
+      .panels-pane-region--sidebar-right {
+        margin-top: -150px;
+      }
+    }
+  }
+}
 
 // Desktop - only
 @media #{$breakpoint-desktop-only} {}
