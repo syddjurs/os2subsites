@@ -80,6 +80,47 @@
 // Variants
 // --------------------------------------------------
 
+// When provided by views
+.views-bootstrap-carousel-plugin-style {
+
+  img {
+    width: 100%;
+  }
+
+  .carousel-caption {
+    top: 20px;
+    padding-top: 30px;
+
+    bottom: auto;
+
+    text-align: left;
+
+    h1, h2, h3, h4, h5, h6 {
+      font-size: $font-size-h1;
+
+      color: #fff;
+    }
+
+    p {
+      font-size: $font-size-h3;
+      font-family: $headings-font-family;
+      font-weight: $headings-font-weight-light;
+
+      color: #fff;
+    }
+
+    // If we'd like to make it having spacing on the left / right, comment out the following lines.
+    //
+    // The design wants us to obey the left/right buttons, but since we are limiting
+    // the carousel to 1 slide, this should not be needed.
+    @extend .container;
+
+    // Resets
+    left: 0;
+    right: 0;
+  }
+}
+
 // --------------------------------------------------
 // Responsive
 // --------------------------------------------------
@@ -108,6 +149,16 @@
   .carousel-indicators {
     text-align: right;
     padding-right: 90px;
+  }
+
+  .views-bootstrap-carousel-plugin-style {
+
+    .carousel-caption {
+
+      h1, h2, h3, h4, h5, h6 {
+        font-size: 70px;
+      }
+    }
   }
 }
 
