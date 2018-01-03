@@ -154,6 +154,36 @@ function kultunaut_import_default_page_manager_handlers() {
     $display->content['new-07452cc7-e949-4b61-b5da-b6d8b5b49cc5'] = $pane;
     $display->panels['content'][2] = 'new-07452cc7-e949-4b61-b5da-b6d8b5b49cc5';
     $pane = new stdClass();
+    $pane->pid = 'new-80ef33c2-c314-44c1-88b0-ad49c5f6b4cf';
+    $pane->panel = 'content';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:field_os2web_kulturnaut_descrip';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'title',
+      'formatter' => 'text_default',
+      'delta_limit' => 0,
+      'delta_offset' => '0',
+      'delta_reversed' => FALSE,
+      'formatter_settings' => array(),
+      'context' => 'argument_entity_id:node_1',
+      'override_title' => 1,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 3;
+    $pane->locks = array();
+    $pane->uuid = '80ef33c2-c314-44c1-88b0-ad49c5f6b4cf';
+    $display->content['new-80ef33c2-c314-44c1-88b0-ad49c5f6b4cf'] = $pane;
+    $display->panels['content'][3] = 'new-80ef33c2-c314-44c1-88b0-ad49c5f6b4cf';
+    $pane = new stdClass();
     $pane->pid = 'new-162d2a84-b65e-4d82-8694-8edc639fb003';
     $pane->panel = 'content';
     $pane->type = 'node_body';
@@ -172,11 +202,11 @@ function kultunaut_import_default_page_manager_handlers() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 3;
+    $pane->position = 4;
     $pane->locks = array();
     $pane->uuid = '162d2a84-b65e-4d82-8694-8edc639fb003';
     $display->content['new-162d2a84-b65e-4d82-8694-8edc639fb003'] = $pane;
-    $display->panels['content'][3] = 'new-162d2a84-b65e-4d82-8694-8edc639fb003';
+    $display->panels['content'][4] = 'new-162d2a84-b65e-4d82-8694-8edc639fb003';
     $pane = new stdClass();
     $pane->pid = 'new-94997ca7-342e-4e69-a754-b63d8fa1fea4';
     $pane->panel = 'content';
@@ -191,11 +221,11 @@ function kultunaut_import_default_page_manager_handlers() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 4;
+    $pane->position = 5;
     $pane->locks = array();
     $pane->uuid = '94997ca7-342e-4e69-a754-b63d8fa1fea4';
     $display->content['new-94997ca7-342e-4e69-a754-b63d8fa1fea4'] = $pane;
-    $display->panels['content'][4] = 'new-94997ca7-342e-4e69-a754-b63d8fa1fea4';
+    $display->panels['content'][5] = 'new-94997ca7-342e-4e69-a754-b63d8fa1fea4';
     $pane = new stdClass();
     $pane->pid = 'new-2cc6b48d-bdb7-45d6-abc8-a0cb83ac44d7';
     $pane->panel = 'sidebar-right';
