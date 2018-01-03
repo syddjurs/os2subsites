@@ -1544,7 +1544,7 @@ function kultunaut_import_default_page_manager_pages() {
     'name' => 'panel',
   );
   $display = new panels_display();
-  $display->layout = 'os2web-frontpage';
+  $display->layout = 'content-with-left-and-right-sidebar-top-footer';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
