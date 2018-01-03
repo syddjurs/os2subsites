@@ -24,8 +24,16 @@
 
           <!-- Begin - content -->
           <div class="col-sm-4">
-              <div class="panels-pane-region panels-pane-region--content">
+              <div class="panels-pane-region panels-pane-region--content-first">
                 <?php print $content['content']; ?>
+              </div>
+
+              <div class="panels-pane-region panels-pane-region--content-secondary">
+                <?php print $content['content-secondary']; ?>
+              </div>
+
+              <div class="panels-pane-region panels-pane-region--content-tertiary">
+                <?php print $content['content-tertiary']; ?>
               </div>
           </div>
           <!-- End - content -->
@@ -34,8 +42,16 @@
 
           <!-- Begin - content -->
           <div class="col-sm-8">
-              <div class="panels-pane-region panels-pane-region--content">
+              <div class="panels-pane-region panels-pane-region--content-first">
                 <?php print $content['content']; ?>
+              </div>
+
+              <div class="panels-pane-region panels-pane-region--content-secondary">
+                <?php print $content['content-secondary']; ?>
+              </div>
+
+              <div class="panels-pane-region panels-pane-region--content-tertiary">
+                <?php print $content['content-tertiary']; ?>
               </div>
           </div>
           <!-- End - content -->
@@ -44,8 +60,16 @@
 
           <!-- Begin - content -->
           <div class="col-xs-12">
-              <div class="panels-pane-region panels-pane-region--content">
+              <div class="panels-pane-region panels-pane-region--content-first">
                 <?php print $content['content']; ?>
+              </div>
+
+              <div class="panels-pane-region panels-pane-region--content-secondary">
+                <?php print $content['content-secondary']; ?>
+              </div>
+
+              <div class="panels-pane-region panels-pane-region--content-tertiary">
+                <?php print $content['content-tertiary']; ?>
               </div>
           </div>
           <!-- End - content -->

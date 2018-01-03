@@ -13,6 +13,8 @@ $plugin = array(
     'top' => t('Top'),
     'sidebar-left' => t('Left sidebar'),
     'sidebar-right' => t('Right sidebar'),
-    'content' => t('Content'),
+    'content' => t('Content - first'),
+    'content-secondary' => t('Content - secondary'),
+    'content-tertiary' => t('Content - tertiary'),
   ),
 );
