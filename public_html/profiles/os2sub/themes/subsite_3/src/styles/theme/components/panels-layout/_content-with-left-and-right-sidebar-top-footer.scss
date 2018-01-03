@@ -20,36 +20,7 @@
 // Styling
 // --------------------------------------------------
 
-.panels-layout--content-with-left-and-right-sidebar-top-footer {
-
-  .pane-node-terms {
-
-    // Tags
-    .links {
-      list-style: none;
-      padding: 0;
-
-      li {
-        display: inline-block;
-
-        margin-right: 10px;
-        padding-bottom: 10px;
-
-        a {
-          @extend .label;
-          @extend .label-default;
-        }
-      }
-    }
-  }
-
-  .pane-node-field-os2web-kulturnaut-slidesho {
-
-    img {
-      width: 100%;
-    }
-  }
-}
+.panels-layout--content-with-left-and-right-sidebar-top-footer {}
 
 // --------------------------------------------------
 // Variants
