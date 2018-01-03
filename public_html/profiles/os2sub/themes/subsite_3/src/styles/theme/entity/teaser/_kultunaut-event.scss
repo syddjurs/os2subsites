@@ -25,6 +25,11 @@ $entity-teaser-date-margin-top: 35px;
 .entity-teaser--os2web-kulturnaut-knactivity {
   position: relative;
 
+  display: flex;
+
+  flex-grow: 1;
+  flex-direction: column;
+
   margin-top: $entity-teaser-date-margin-top;
 
   background-position: center center;
@@ -46,7 +51,9 @@ $entity-teaser-date-margin-top: 35px;
   }
 
   .entity-teaser__image {
-    height: 220px;
+    min-height: 220px;
+
+    flex-grow: 1;
   }
 
   .flexy-list {
