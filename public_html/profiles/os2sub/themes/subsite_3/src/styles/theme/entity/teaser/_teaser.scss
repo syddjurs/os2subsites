@@ -25,11 +25,23 @@ $entity-teaser-body-padding-left-right: floor( ( $grid-gutter-width / 2 ) );
 // --------------------------------------------------
 
 .entity-teaser {
+  display: flex;
+
+  flex-grow: 1;
+  flex-direction: column;
+
   margin-bottom: $grid-gutter-width;
 
   border-radius: $border-radius-base;
 
   background-color: $entity-teaser-background-color;
+}
+
+.entity-teaser__inner {
+  display: flex;
+
+  flex-grow: 1;
+  flex-direction: column;
 }
 
 .entity-teaser__date {

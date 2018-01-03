@@ -10,55 +10,57 @@
 
     <!-- Begin - teaser -->
     <a href="<?php print $node_url; ?>" style="background-image: url('<?php print $image_url; ?>');" id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> element-wrapper-link clearfix"<?php print $attributes; ?>>
+        <div class="entity-teaser__inner">
 
-        <?php if ( isset( $content['field_os2web_kulturnaut_date'] ) ): ?>
-            <!-- Begin - date -->
-            <div class="entity-teaser__date">
+          <?php if ( isset( $content['field_os2web_kulturnaut_date'] ) ): ?>
+              <!-- Begin - date -->
+              <div class="entity-teaser__date">
                 <?php print render( $content['field_os2web_kulturnaut_date'] ); ?>
-            </div>
-            <!-- End - date -->
-        <?php endif; ?>
+              </div>
+              <!-- End - date -->
+          <?php endif; ?>
 
-        <!-- Begin - image (just an empty wrapper) -->
-        <div class="entity-teaser__image"></div>
-        <!-- End - image (just an empty wrapper) -->
+            <!-- Begin - image (just an empty wrapper) -->
+            <div class="entity-teaser__image"></div>
+            <!-- End - image (just an empty wrapper) -->
 
-        <!-- Begin - body -->
-        <div class="entity-teaser__body">
+            <!-- Begin - body -->
+            <div class="entity-teaser__body">
 
-            <!-- Begin - heading -->
-            <div class="entity-teaser__heading">
-                <h3 class="entity-teaser__heading__title">
-                  <?php print $node->title; ?>
-                </h3>
-            </div>
-            <!-- End - heading -->
+                <!-- Begin - heading -->
+                <div class="entity-teaser__heading">
+                    <h3 class="entity-teaser__heading__title">
+                      <?php print $node->title; ?>
+                    </h3>
+                </div>
+                <!-- End - heading -->
 
-            <!-- Begin - list -->
-            <div class="flexy-list">
-                
-                <?php if ( isset( $content['top_level_venue'] ) ): ?>
-                    <!-- Begin - top level venue -->
-                    <div class="entity-teaser__top-level-venue">
+                <!-- Begin - list -->
+                <div class="flexy-list">
+
+                  <?php if ( isset( $content['top_level_venue'] ) ): ?>
+                      <!-- Begin - top level venue -->
+                      <div class="entity-teaser__top-level-venue">
                         <?php print $content['top_level_venue']->name; ?>
-                    </div>
-                    <!-- End - top level venue -->
-                <?php endif; ?>
+                      </div>
+                      <!-- End - top level venue -->
+                  <?php endif; ?>
 
-                <?php if ( isset( $content['field_os2web_kulturnaut_venue'] ) ): ?>
-                    <!-- Begin - current venue -->
-                    <div class="entity-teaser__current-venue">
+                  <?php if ( isset( $content['field_os2web_kulturnaut_venue'] ) ): ?>
+                      <!-- Begin - current venue -->
+                      <div class="entity-teaser__current-venue">
                         <?php print render( $content['field_os2web_kulturnaut_venue'] ); ?>
-                    </div>
-                    <!-- End - current venue -->
-                <?php endif; ?>
+                      </div>
+                      <!-- End - current venue -->
+                  <?php endif; ?>
+
+                </div>
+                <!-- End - list -->
 
             </div>
-            <!-- End - list -->
+            <!-- End - body -->
 
         </div>
-        <!-- End - body -->
-
     </a>
     <!-- End - teaser -->
 <?php endif; ?>
