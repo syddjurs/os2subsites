@@ -79,7 +79,6 @@ function subsite_3_preprocess_node(&$variables) {
  */
 function subsite_3_preprocess_node__os2web_kulturnaut_knactivity(&$variables) {
   $node = $variables['node'];
-  $view_mode = $variables['view_mode'];
 
   if ($venue_target = field_get_items('node', $node, 'field_os2web_kulturnaut_venue')) {
     if ($venue = taxonomy_term_load($venue_target[0]['tid'])) {
