@@ -23,11 +23,13 @@ function bellcom_preprocess_html(&$variables) {
 
   // Panels display
   if ($page = page_manager_get_current_page()) {
+    $panels_layout = $page['handler']->conf['display']->layout;
+    $panels_display = ($page['handler']->conf['name'] == '') ? 'standard' : $page['handler']->conf['name'];
 
     // Panels layout
     $variables['classes_array'][] = drupal_html_class('panels-layout');
-    $variables['classes_array'][] = drupal_html_class('panels-layout--' . $page['handler']->conf['display']->layout);
-    $variables['classes_array'][] = drupal_html_class('panels-variant--' . $page['handler']->conf['name']);
+    $variables['classes_array'][] = drupal_html_class('panels-layout--' . $panels_layout);
+    $variables['classes_array'][] = drupal_html_class('panels-display--' . $panels_display);
   }
 }
 
