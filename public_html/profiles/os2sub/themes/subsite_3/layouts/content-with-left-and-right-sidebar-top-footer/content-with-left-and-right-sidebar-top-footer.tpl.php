@@ -1,9 +1,17 @@
 <?php if ($content['top']): ?>
-  <!-- Begin - top -->
-  <div class="panels-pane-region panels-pane-region--top">
-    <?php print $content['top']; ?>
-  </div>
-  <!-- End - top -->
+    <!-- Begin - top -->
+    <div class="panels-pane-region panels-pane-region--top">
+      <?php print $content['top']; ?>
+    </div>
+    <!-- End - top -->
+<?php endif ?>
+
+<?php if ($content['top-container']): ?>
+    <!-- Begin - top container -->
+    <div class="panels-pane-region panels-pane-region--top-container">
+      <?php print $content['top-container']; ?>
+    </div>
+    <!-- End - top container -->
 <?php endif ?>
 
 <div class="container">
