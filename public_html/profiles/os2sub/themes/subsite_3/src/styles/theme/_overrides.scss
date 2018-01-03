@@ -39,6 +39,21 @@ img {
     }
 }
 
+.label {
+    padding: 4px 16px;
+
+    border-radius: 12px;
+}
+
+.label-default {
+
+    &,
+    &:hover,
+    &:focus {
+        color: $text-color;
+    }
+}
+
 // --------------------------------------------------
 // Variants
 // --------------------------------------------------
