@@ -27,6 +27,14 @@
     @extend .btn-primary;
     @extend .btn-block;
     @extend .btn-lg;
+
+    &:before {
+      @extend .icon;
+
+      content: $fa-var-map-marker;
+
+      margin-right: 6px;
+    }
   }
 }
 
