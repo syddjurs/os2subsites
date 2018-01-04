@@ -32,8 +32,6 @@
 
     &.panels-display--standard {}
 
-    &.panels-display--variant-1 {}
-
     &.panels-display--variant-2 {
 
       .panels-pane-region--content-first {
@@ -69,7 +67,22 @@
       }
     }
   }
+
+  &.panels-layout--sectioned-top-light-dark-light-dark {
+
+    &.panels-display--variant-1 {
+
+      .breadcrumb {
+        margin-top: 0 - $xs-sectioned-inner-spacing;
+      }
+
+      .panels-pane-region--light-section-1 {
+        margin-bottom: 25px;
+      }
+    }
+  }
 }
+
 
 // --------------------------------------------------
 // Responsive
@@ -98,6 +111,20 @@
         }
       }
     }
+
+    &.panels-layout--sectioned-top-light-dark-light-dark {
+
+      &.panels-display--variant-1 {
+
+        .breadcrumb {
+          margin-top: 0 - $sm-sectioned-inner-spacing;
+        }
+
+        .panels-pane-region--light-section-1 {
+          margin-bottom: 40px;
+        }
+      }
+    }
   }
 }
 
@@ -123,14 +150,52 @@
         }
       }
     }
+
+    &.panels-layout--sectioned-top-light-dark-light-dark {
+
+      &.panels-display--variant-1 {
+
+        .panels-pane-region--light-section-1 {
+          margin-bottom: 60px;
+        }
+      }
+    }
   }
 }
 
 // Desktop - only
-@media #{$breakpoint-desktop-only} {}
+@media #{$breakpoint-desktop-only} {
+
+  .page-taxonomy-term {
+
+    &.panels-layout--sectioned-top-light-dark-light-dark {
+
+      &.panels-display--variant-1 {
+
+        .breadcrumb {
+          margin-top: 0 - $md-sectioned-inner-spacing;
+        }
+      }
+    }
+  }
+}
 
 // Large desktop - and up
-@media #{$breakpoint-large-desktop-and-up} {}
+@media #{$breakpoint-large-desktop-and-up} {
+
+  .page-taxonomy-term {
+
+    &.panels-layout--sectioned-top-light-dark-light-dark {
+
+      &.panels-display--variant-1 {
+
+        .breadcrumb {
+          margin-top: 0 - $lg-sectioned-inner-spacing;
+        }
+      }
+    }
+  }
+}
 
 // Print
 @media print {}

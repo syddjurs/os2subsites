@@ -936,7 +936,7 @@ function kultunaut_import_views_default_views() {
   );
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['style_plugin'] = 'default';
-  $handler->display->display_options['style_options']['row_class'] = 'col-xs-6 col-sm-4 col-lg-3';
+  $handler->display->display_options['style_options']['row_class'] = 'col-xs-6 col-sm-4';
   $handler->display->display_options['style_options']['row_class_special'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'entity';
   $handler->display->display_options['row_options']['view_mode'] = 'teaser';
@@ -1231,7 +1231,7 @@ function kultunaut_import_views_default_views() {
   $handler->display->display_options['fields']['field_os2web_taxonomies_type']['id'] = 'field_os2web_taxonomies_type';
   $handler->display->display_options['fields']['field_os2web_taxonomies_type']['table'] = 'field_data_field_os2web_taxonomies_type';
   $handler->display->display_options['fields']['field_os2web_taxonomies_type']['field'] = 'field_os2web_taxonomies_type';
-  /* Field: Taxonomy term: Systemid */
+  /* Field: Taxonomy term: GIS id */
   $handler->display->display_options['fields']['field_os2web_taxonomies_sys_id']['id'] = 'field_os2web_taxonomies_sys_id';
   $handler->display->display_options['fields']['field_os2web_taxonomies_sys_id']['table'] = 'field_data_field_os2web_taxonomies_sys_id';
   $handler->display->display_options['fields']['field_os2web_taxonomies_sys_id']['field'] = 'field_os2web_taxonomies_sys_id';
@@ -1328,7 +1328,7 @@ function kultunaut_import_views_default_views() {
     t('GIS navn'),
     t('GIS postby'),
     t('GIS type'),
-    t('Systemid'),
+    t('GIS id'),
     t('Term ID'),
     t('.'),
     t('Term Weight'),
