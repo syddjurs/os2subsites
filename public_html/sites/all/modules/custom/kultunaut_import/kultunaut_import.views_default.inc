@@ -954,7 +954,11 @@ function kultunaut_import_views_default_views() {
   $handler->display->display_options['empty']['area']['table'] = 'views';
   $handler->display->display_options['empty']['area']['field'] = 'area';
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
-  $handler->display->display_options['empty']['area']['content'] = '<div class="well well-sm">Der er ingen planlagte begivenheder i perioden</div>';
+  $handler->display->display_options['empty']['area']['content'] = '<div class="boxy">
+  <div class="boxy__body">
+    <strong>Der er ingen planlagte begivenheder i perioden</strong>
+  </div>
+</div>';
   $handler->display->display_options['empty']['area']['format'] = 'full_html';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
@@ -1057,7 +1061,11 @@ function kultunaut_import_views_default_views() {
     t('‹ previous'),
     t('next ›'),
     t('last »'),
-    t('<div class="well well-sm">Der er ingen planlagte begivenheder i perioden</div>'),
+    t('<div class="boxy">
+  <div class="boxy__body">
+    <strong>Der er ingen planlagte begivenheder i perioden</strong>
+  </div>
+</div>'),
     t('Alle'),
     t('Content pane'),
     t('View panes'),
