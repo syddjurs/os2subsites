@@ -9,7 +9,9 @@
 <?php if ($content['top-container']): ?>
   <!-- Begin - top container -->
   <div class="panels-pane-region panels-pane-region--top-container">
-    <?php print $content['top-container']; ?>
+    <div class="container">
+      <?php print $content['top-container']; ?>
+    </div>
   </div>
   <!-- End - top container -->
 <?php endif ?>
