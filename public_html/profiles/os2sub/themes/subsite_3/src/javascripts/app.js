@@ -30,4 +30,31 @@ jQuery(function($) {
     else {
         $('[data-toggle=tooltip]').tooltip();
     }
+
+    // Better exposed filter
+    let $checkboxes = $('.form-type-bef-checkbox input[type="checkbox"]');
+
+    $checkboxes.each(function(index, item) {
+        let $element = $(this),
+            $parent = $element.parents('.form-type-bef-checkbox');
+
+        // Add classes on document load
+        if ($element.is(':checked')) {
+            $parent.addClass('is-checked');
+        } else {
+            $parent.removeClass('is-checked');
+        }
+
+        // When checkbox value is changed
+        $element.on('change', function(event) {
+            let $element = $(this),
+                $parent = $element.parents('.form-type-bef-checkbox');
+
+            if ($element.is(':checked')) {
+                $parent.addClass('is-checked');
+            } else {
+                $parent.removeClass('is-checked');
+            }
+        });
+    });
 });
