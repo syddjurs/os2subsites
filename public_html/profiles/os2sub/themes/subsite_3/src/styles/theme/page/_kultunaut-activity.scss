@@ -24,6 +24,10 @@
 
   &.panels-layout--content-with-left-and-right-sidebar-top-footer {
 
+    .panels-pane-region--content-first {
+      margin-bottom: 0;
+    }
+
     .panels-pane-region--content-secondary {
       @extend .boxy__body;
     }

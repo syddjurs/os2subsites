@@ -36,6 +36,10 @@
 
     &.panels-display--variant-2 {
 
+      .panels-pane-region--content-first {
+        margin-bottom: 0;
+      }
+
       .panels-pane-region--content-secondary {
         @extend .boxy__body;
       }
