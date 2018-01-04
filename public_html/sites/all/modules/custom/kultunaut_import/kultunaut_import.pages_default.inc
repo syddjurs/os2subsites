@@ -1651,7 +1651,11 @@ function kultunaut_import_default_page_manager_pages() {
     $pane->subtype = 'oplevsyddjurs_forside_kalender-panel_pane_1';
     $pane->shown = TRUE;
     $pane->access = array();
-    $pane->configuration = array();
+    $pane->configuration = array(
+      'use_pager' => 0,
+      'pager_id' => '0',
+      'items_per_page' => '6',
+    );
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
