@@ -27,6 +27,7 @@ $lg-breadcrumb-padding-vertical: 45px;
 // --------------------------------------------------
 
 .breadcrumb {
+  margin: 0;
   padding: $xs-breadcrumb-padding-vertical $breadcrumb-padding-horizontal;
 
   > li {
