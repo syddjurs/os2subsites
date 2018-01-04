@@ -1544,7 +1544,7 @@ function kultunaut_import_default_page_manager_pages() {
     'name' => 'panel',
   );
   $display = new panels_display();
-  $display->layout = 'content-with-left-and-right-sidebar-top-footer';
+  $display->layout = 'sectioned-top-dark-light-dark-light';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -1563,7 +1563,7 @@ function kultunaut_import_default_page_manager_pages() {
   $display->panels = array();
     $pane = new stdClass();
     $pane->pid = 'new-dbba442a-8e78-4866-8484-70a5a233ae63';
-    $pane->panel = 'content';
+    $pane->panel = 'light_section_1';
     $pane->type = 'views_panes';
     $pane->subtype = 'oplevsyddjurs_forside_kalender-panel_pane_1';
     $pane->shown = TRUE;
@@ -1579,7 +1579,7 @@ function kultunaut_import_default_page_manager_pages() {
     $pane->locks = array();
     $pane->uuid = 'dbba442a-8e78-4866-8484-70a5a233ae63';
     $display->content['new-dbba442a-8e78-4866-8484-70a5a233ae63'] = $pane;
-    $display->panels['content'][0] = 'new-dbba442a-8e78-4866-8484-70a5a233ae63';
+    $display->panels['light_section_1'][0] = 'new-dbba442a-8e78-4866-8484-70a5a233ae63';
     $pane = new stdClass();
     $pane->pid = 'new-facdf032-e98d-4624-963f-5df7eccab516';
     $pane->panel = 'top';
