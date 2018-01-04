@@ -994,7 +994,7 @@ function kultunaut_import_default_page_manager_handlers() {
     $pane->panel = 'content-secondary';
     $pane->type = 'term_name';
     $pane->subtype = 'term_name';
-    $pane->shown = TRUE;
+    $pane->shown = FALSE;
     $pane->access = array();
     $pane->configuration = array(
       'link' => 0,
