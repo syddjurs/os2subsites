@@ -1,9 +1,9 @@
 // |--------------------------------------------------------------------------
-// | Sectioned top light/dark/light/dark
+// | Sectioned top dark/light/dark/light
 // |--------------------------------------------------------------------------
 // |
 // | This file contains styles for the following:
-// | - .panels-layout--sectioned-top-light-dark-light-dark
+// | - .panels-layout--sectioned-top-dark-light-dark-light
 // |
 
 // --------------------------------------------------
@@ -20,7 +20,14 @@
 // Styling
 // --------------------------------------------------
 
-.panels-layout--sectioned-top-light-dark-light-dark {}
+.panels-layout--sectioned-top-dark-light-dark-light {
+
+  .pane-title {
+    @extend .heading-h4;
+
+    margin: 0 0 5px 0;
+  }
+}
 
 // --------------------------------------------------
 // Variants

@@ -1,9 +1,9 @@
 // |--------------------------------------------------------------------------
-// | Sectioned top light/dark/light/dark
+// | Home
 // |--------------------------------------------------------------------------
 // |
 // | This file contains styles for the following:
-// | - .panels-layout--sectioned-top-light-dark-light-dark
+// | - .node-type-os2web-kulturnaut-knactivity
 // |
 
 // --------------------------------------------------
@@ -14,13 +14,51 @@
 // Mixins
 // --------------------------------------------------
 
-@mixin panels-layout-content-with-left-and-right-sidebar-top-footer-mixin() {}
+@mixin kultunaut-activity-mixin() {}
 
 // --------------------------------------------------
 // Styling
 // --------------------------------------------------
 
-.panels-layout--sectioned-top-light-dark-light-dark {}
+.page-front {
+
+  &.panels-layout--content-with-left-and-right-sidebar-top-footer {
+
+    .panels-pane-region--content-first {
+      margin-bottom: 0;
+    }
+
+    .panels-pane-region--content-secondary {
+      @extend .boxy__body;
+    }
+
+    .panels-pane-region--sidebar-right {
+      @extend .boxy__body;
+
+      padding-top: $boxy-spacing-left-right;
+
+      border: 0;
+
+      font-size: $font-size-large;
+
+      box-shadow: $boxy-shadow-body-box-shadow;
+      background-color: $boxy-shadow-body-background-color;
+
+      .pane-title {
+        margin: 0;
+        margin-bottom: 4px;
+
+        font-family: $font-family-base;
+        font-size: $font-size-small;
+        font-weight: $font-weight;
+
+        text-transform: uppercase;
+
+        color: $text-color-light;
+      }
+    }
+  }
+}
 
 // --------------------------------------------------
 // Variants
