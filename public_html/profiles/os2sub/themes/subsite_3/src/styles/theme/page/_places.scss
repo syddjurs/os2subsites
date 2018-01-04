@@ -51,7 +51,7 @@
         background-color: $boxy-shadow-body-background-color;
 
         .panel-separator {
-          height: 20px;
+          height: $panel-separator-height;
         }
       }
     }

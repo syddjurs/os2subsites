@@ -264,7 +264,7 @@
     <!-- End - content -->
 
     <!-- Begin - sitemap -->
-    <div class="sectioned sectioned--sitemap sectioned--small-inner-spacing">
+    <div class="sectioned sectioned--sitemap sectioned--large-inner-spacing">
         <div class="sectioned__inner">
             <div class="container">
                 <div class="row">
