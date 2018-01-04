@@ -32,6 +32,15 @@ $panel-separator-height: 25px;
       margin: 0 0 $panel-separator-height 0;
     }
   }
+
+  .panels-pane-region {
+    margin-bottom: $grid-gutter-width;
+
+    // Banner
+    &.panels-pane-region--top {
+      margin-bottom: 0;
+    }
+  }
 }
 
 // --------------------------------------------------
