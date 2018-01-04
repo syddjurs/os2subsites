@@ -10,6 +10,8 @@
 // Variables
 // --------------------------------------------------
 
+$panel-separator-height: 25px;
+
 // --------------------------------------------------
 // Mixins
 // --------------------------------------------------
@@ -20,7 +22,17 @@
 // Styling
 // --------------------------------------------------
 
-.panels-layout--content-with-left-and-right-sidebar-top-footer {}
+.panels-layout--content-with-left-and-right-sidebar-top-footer {
+
+  .pane-views-panes {
+
+    .pane-title {
+      @extend .heading-h3;
+
+      margin: 0 0 $panel-separator-height 0;
+    }
+  }
+}
 
 // --------------------------------------------------
 // Variants
