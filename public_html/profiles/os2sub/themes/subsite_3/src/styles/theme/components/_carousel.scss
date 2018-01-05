@@ -86,9 +86,14 @@ $carousel-overlay-color: #1b3e46;
 
 // When provided by views
 .views-bootstrap-carousel-plugin-style {
+  max-height: 410px;
+
+  overflow: hidden;
 
   img {
     width: 100%;
+
+    min-height: 270px;
   }
 
   .carousel-overlay {
