@@ -187,7 +187,7 @@ $carousel-overlay-color: #1b3e46;
     .carousel-caption {
 
       h1, h2, h3, h4, h5, h6 {
-        font-size: 70px;
+        font-size: 50px;
       }
     }
   }
@@ -197,7 +197,18 @@ $carousel-overlay-color: #1b3e46;
 @media #{$breakpoint-tablet-only} {}
 
 // Desktop - and up
-@media #{$breakpoint-desktop-and-up} {}
+@media #{$breakpoint-desktop-and-up} {
+
+  .views-bootstrap-carousel-plugin-style {
+
+    .carousel-caption {
+
+      h1, h2, h3, h4, h5, h6 {
+        font-size: 70px;
+      }
+    }
+  }
+}
 
 // Desktop - only
 @media #{$breakpoint-desktop-only} {}
