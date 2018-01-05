@@ -70,6 +70,8 @@
     &.btn-default,
     &.btn-info {
       @extend .btn-primary;
+
+      font-weight: $font-weight-bold;
     }
   }
 
@@ -282,6 +284,14 @@
 @media #{$breakpoint-desktop-and-up} {
 
   .views-exposed-form {
+
+    .views-widget-filter-date_filter {
+      flex-grow: 1;
+
+      .form-group {
+        max-width: 150px;
+      }
+    }
 
     .views-exposed-widgets {
       flex-direction: row;
