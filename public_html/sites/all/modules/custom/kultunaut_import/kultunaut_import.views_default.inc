@@ -332,6 +332,7 @@ function kultunaut_import_views_default_views() {
   );
   $handler->display->display_options['filters']['date_filter']['form_type'] = 'date_popup';
   $handler->display->display_options['filters']['date_filter']['default_date'] = 'today';
+  $handler->display->display_options['filters']['date_filter']['default_to_date'] = '+1 month';
   $handler->display->display_options['filters']['date_filter']['year_range'] = '-0:+10';
   $handler->display->display_options['filters']['date_filter']['date_fields'] = array(
     'field_data_field_os2web_kulturnaut_date.field_os2web_kulturnaut_date_value' => 'field_data_field_os2web_kulturnaut_date.field_os2web_kulturnaut_date_value',
@@ -643,7 +644,7 @@ function kultunaut_import_views_default_views() {
   $handler->display->display_options['fields']['field_os2web_base_field_banner']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_os2web_base_field_banner']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_os2web_base_field_banner']['settings'] = array(
-    'image_style' => 'os2sub_banner',
+    'image_style' => 'oplevbanner',
     'image_link' => '',
   );
   $handler->display->display_options['fields']['field_os2web_base_field_banner']['delta_offset'] = '0';

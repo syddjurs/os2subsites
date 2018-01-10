@@ -24,6 +24,38 @@ function kultunaut_import_views_api($module = NULL, $api = NULL) {
 }
 
 /**
+ * Implements hook_image_default_styles().
+ */
+function kultunaut_import_image_default_styles() {
+  $styles = array();
+
+  // Exported image style: oplevbanner.
+  $styles['oplevbanner'] = array(
+    'label' => 'oplevbanner',
+    'effects' => array(
+      3 => array(
+        'name' => 'epsacrop_crop_reuse',
+        'data' => array(
+          'jcrop_reuse' => 'os2sub_banner',
+        ),
+        'weight' => 1,
+      ),
+      5 => array(
+        'name' => 'image_crop',
+        'data' => array(
+          'width' => 1200,
+          'height' => 300,
+          'anchor' => 'center-center',
+        ),
+        'weight' => 3,
+      ),
+    ),
+  );
+
+  return $styles;
+}
+
+/**
  * Implements hook_default_search_api_page().
  */
 function kultunaut_import_default_search_api_page() {
