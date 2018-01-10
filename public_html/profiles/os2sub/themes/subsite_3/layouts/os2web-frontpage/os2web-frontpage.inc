@@ -4,7 +4,7 @@
  */
 $plugin = array(
   'title' => t('os2web-frontpage'),
-  'category' => t('OS2Web'),
+  'category' => t('OS2'),
   'icon' => 'os2web-frontpage.png',
   'theme' => 'os2web-frontpage',
   'css' => 'os2web-frontpage.css',

@@ -1,33 +1,63 @@
 // |--------------------------------------------------------------------------
-// | Layout
+// | Home
 // |--------------------------------------------------------------------------
 // |
 // | This file contains styles for the following:
-// | - .layout__content
+// | - .node-type-os2web-kulturnaut-knactivity
 // |
 
 // --------------------------------------------------
 // Variables
 // --------------------------------------------------
 
-// Responsive
-$xs-layout-content-padding-bottom: $xs-sectioned-inner-spacing;
-$sm-layout-content-padding-bottom: $sm-sectioned-inner-spacing;
-$md-layout-content-padding-bottom: $md-sectioned-inner-spacing;
-$lg-layout-content-padding-bottom: $lg-sectioned-inner-spacing;
-
 // --------------------------------------------------
 // Mixins
 // --------------------------------------------------
 
-@mixin layout-content-mixin() {}
+@mixin kultunaut-activity-mixin() {}
 
 // --------------------------------------------------
 // Styling
 // --------------------------------------------------
 
-.layout__content {
-  padding-bottom: $xs-layout-content-padding-bottom;
+.page-front {
+
+  &.panels-layout--content-with-left-and-right-sidebar-top-footer {
+
+    .panels-pane-region--content-first {
+      margin-bottom: 0;
+    }
+
+    .panels-pane-region--content-secondary {
+      @extend .boxy__body;
+    }
+
+    .panels-pane-region--sidebar-right {
+      @extend .boxy__body;
+
+      padding-top: $boxy-spacing-left-right;
+
+      border: 0;
+
+      font-size: $font-size-large;
+
+      box-shadow: $boxy-shadow-body-box-shadow;
+      background-color: $boxy-shadow-body-background-color;
+
+      .pane-title {
+        margin: 0;
+        margin-bottom: 4px;
+
+        font-family: $font-family-base;
+        font-size: $font-size-small;
+        font-weight: $font-weight;
+
+        text-transform: uppercase;
+
+        color: $text-color-light;
+      }
+    }
+  }
 }
 
 // --------------------------------------------------
@@ -48,31 +78,16 @@ $lg-layout-content-padding-bottom: $lg-sectioned-inner-spacing;
 @media #{$breakpoint-tablet-and-up} {}
 
 // Tablet - only
-@media #{$breakpoint-tablet-only} {
-
-  .layout__content {
-    padding-bottom: $sm-layout-content-padding-bottom;
-  }
-}
+@media #{$breakpoint-tablet-only} {}
 
 // Desktop - and up
 @media #{$breakpoint-desktop-and-up} {}
 
 // Desktop - only
-@media #{$breakpoint-desktop-only} {
-
-  .layout__content {
-    padding-bottom: $md-layout-content-padding-bottom;
-  }
-}
+@media #{$breakpoint-desktop-only} {}
 
 // Large desktop - and up
-@media #{$breakpoint-large-desktop-and-up} {
-
-  .layout__content {
-    padding-bottom: $lg-layout-content-padding-bottom;
-  }
-}
+@media #{$breakpoint-large-desktop-and-up} {}
 
 // Print
 @media print {}

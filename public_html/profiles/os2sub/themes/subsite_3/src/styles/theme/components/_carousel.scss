@@ -10,6 +10,8 @@
 // Variables
 // --------------------------------------------------
 
+$carousel-overlay-color: #1b3e46;
+
 // --------------------------------------------------
 // Mixins
 // --------------------------------------------------
@@ -76,22 +78,51 @@
   }
 }
 
+
+
 // --------------------------------------------------
 // Variants
 // --------------------------------------------------
 
 // When provided by views
 .views-bootstrap-carousel-plugin-style {
+  max-height: 410px;
+
+  overflow: hidden;
 
   img {
     width: 100%;
+
+    min-height: 270px;
+  }
+
+  .carousel-overlay {
+    position: absolute;
+
+    z-index: 250;
+
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    content: "";
+
+    background-color: transparent;
+    background-image: linear-gradient(
+                    to right,
+                    rgba(27, 62, 70, .6) 40%,
+                    transparent 65%
+    );
   }
 
   .carousel-caption {
     top: 20px;
-    padding-top: 30px;
-
     bottom: auto;
+
+    z-index: 500;
+
+    padding-top: 30px;
 
     text-align: left;
 
@@ -156,7 +187,7 @@
     .carousel-caption {
 
       h1, h2, h3, h4, h5, h6 {
-        font-size: 70px;
+        font-size: 50px;
       }
     }
   }
@@ -166,7 +197,18 @@
 @media #{$breakpoint-tablet-only} {}
 
 // Desktop - and up
-@media #{$breakpoint-desktop-and-up} {}
+@media #{$breakpoint-desktop-and-up} {
+
+  .views-bootstrap-carousel-plugin-style {
+
+    .carousel-caption {
+
+      h1, h2, h3, h4, h5, h6 {
+        font-size: 70px;
+      }
+    }
+  }
+}
 
 // Desktop - only
 @media #{$breakpoint-desktop-only} {}

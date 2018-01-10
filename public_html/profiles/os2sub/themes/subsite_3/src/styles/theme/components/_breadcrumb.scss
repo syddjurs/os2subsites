@@ -10,6 +10,12 @@
 // Variables
 // --------------------------------------------------
 
+// Responsive
+$xs-breadcrumb-padding-vertical: $breadcrumb-padding-vertical;
+$sm-breadcrumb-padding-vertical: 25px;
+$md-breadcrumb-padding-vertical: 35px;
+$lg-breadcrumb-padding-vertical: 40px;
+
 // --------------------------------------------------
 // Mixins
 // --------------------------------------------------
@@ -21,6 +27,8 @@
 // --------------------------------------------------
 
 .breadcrumb {
+  margin: 0;
+  padding: $xs-breadcrumb-padding-vertical $breadcrumb-padding-horizontal;
 
   > li {
     font-weight: $font-weight-bold;
@@ -61,16 +69,31 @@
 @media #{$breakpoint-tablet-and-up} {}
 
 // Tablet - only
-@media #{$breakpoint-tablet-only} {}
+@media #{$breakpoint-tablet-only} {
+
+  .breadcrumb {
+    padding: $sm-breadcrumb-padding-vertical $breadcrumb-padding-horizontal;
+  }
+}
 
 // Desktop - and up
 @media #{$breakpoint-desktop-and-up} {}
 
 // Desktop - only
-@media #{$breakpoint-desktop-only} {}
+@media #{$breakpoint-desktop-only} {
+
+  .breadcrumb {
+    padding: $md-breadcrumb-padding-vertical $breadcrumb-padding-horizontal;
+  }
+}
 
 // Large desktop - and up
-@media #{$breakpoint-large-desktop-and-up} {}
+@media #{$breakpoint-large-desktop-and-up} {
+
+  .breadcrumb {
+    padding: $lg-breadcrumb-padding-vertical $breadcrumb-padding-horizontal;
+  }
+}
 
 // Print
 @media print {}

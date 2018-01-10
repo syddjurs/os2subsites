@@ -1,33 +1,32 @@
 // |--------------------------------------------------------------------------
-// | Layout
+// | Sectioned top dark/light/dark/light
 // |--------------------------------------------------------------------------
 // |
 // | This file contains styles for the following:
-// | - .layout__content
+// | - .panels-layout--sectioned-top-dark-light-dark-light
 // |
 
 // --------------------------------------------------
 // Variables
 // --------------------------------------------------
 
-// Responsive
-$xs-layout-content-padding-bottom: $xs-sectioned-inner-spacing;
-$sm-layout-content-padding-bottom: $sm-sectioned-inner-spacing;
-$md-layout-content-padding-bottom: $md-sectioned-inner-spacing;
-$lg-layout-content-padding-bottom: $lg-sectioned-inner-spacing;
-
 // --------------------------------------------------
 // Mixins
 // --------------------------------------------------
 
-@mixin layout-content-mixin() {}
+@mixin panels-layout-content-with-left-and-right-sidebar-top-footer-mixin() {}
 
 // --------------------------------------------------
 // Styling
 // --------------------------------------------------
 
-.layout__content {
-  padding-bottom: $xs-layout-content-padding-bottom;
+.panels-layout--sectioned-top-dark-light-dark-light {
+
+  .pane-title {
+    @extend .heading-h4;
+
+    margin: 0 0 5px 0;
+  }
 }
 
 // --------------------------------------------------
@@ -48,31 +47,16 @@ $lg-layout-content-padding-bottom: $lg-sectioned-inner-spacing;
 @media #{$breakpoint-tablet-and-up} {}
 
 // Tablet - only
-@media #{$breakpoint-tablet-only} {
-
-  .layout__content {
-    padding-bottom: $sm-layout-content-padding-bottom;
-  }
-}
+@media #{$breakpoint-tablet-only} {}
 
 // Desktop - and up
 @media #{$breakpoint-desktop-and-up} {}
 
 // Desktop - only
-@media #{$breakpoint-desktop-only} {
-
-  .layout__content {
-    padding-bottom: $md-layout-content-padding-bottom;
-  }
-}
+@media #{$breakpoint-desktop-only} {}
 
 // Large desktop - and up
-@media #{$breakpoint-large-desktop-and-up} {
-
-  .layout__content {
-    padding-bottom: $lg-layout-content-padding-bottom;
-  }
-}
+@media #{$breakpoint-large-desktop-and-up} {}
 
 // Print
 @media print {}

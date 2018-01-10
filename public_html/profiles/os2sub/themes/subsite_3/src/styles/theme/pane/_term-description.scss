@@ -1,9 +1,9 @@
 // |--------------------------------------------------------------------------
-// | Content with left and right sidebar with top and footer
+// | Term description
 // |--------------------------------------------------------------------------
 // |
 // | This file contains styles for the following:
-// | - .panels-layout--content-with-left-and-right-sidebar-top-footer
+// | - .pane-term-description
 // |
 
 // --------------------------------------------------
@@ -14,19 +14,19 @@
 // Mixins
 // --------------------------------------------------
 
-@mixin panels-layout-content-with-left-and-right-sidebar-top-footer-mixin() {}
+@mixin pane-term-description-mixin() {}
 
 // --------------------------------------------------
 // Styling
 // --------------------------------------------------
 
-.panels-layout--content-with-left-and-right-sidebar-top-footer {}
+.pane-term-description {
+  font-size: 22px;
+}
 
 // --------------------------------------------------
 // Variants
 // --------------------------------------------------
-
-.panels-layout--content-with-left-and-right-sidebar-top-footer {}
 
 // --------------------------------------------------
 // Responsive
