@@ -20,7 +20,12 @@
 // Styling
 // --------------------------------------------------
 
-.panels-layout--sectioned-top-light-dark-light-dark {}
+.panels-layout--sectioned-top-light-dark-light-dark {
+
+  .layout__content {
+    padding-bottom: 0;
+  }
+}
 
 // --------------------------------------------------
 // Variants
