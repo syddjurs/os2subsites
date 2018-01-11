@@ -115,6 +115,16 @@ $entity-teaser-place-body-padding-left-right: floor( ( $grid-gutter-width / 2 ) 
   }
 }
 
+.sectioned--dark {
+
+  .entity-teaser--os2web-taxonomies-tax-places {
+
+    .entity-teaser__body {
+      background-color: #fff;
+    }
+  }
+}
+
 // --------------------------------------------------
 // Responsive
 // --------------------------------------------------
