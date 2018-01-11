@@ -116,10 +116,10 @@
               <div class="panels-pane-region panels-pane-region--light-section-3-1">
                 <?php echo $content['light_section_3_1']; ?>
               </div>
-              <div class="col-xs-12 col-md-8">
-                <div class="panels-pane-region panels-pane-region--light-section-3-2">
-                  <?php echo $content['light_section_3_2']; ?>
-                </div>
+            </div>
+            <div class="col-xs-12 col-md-8">
+              <div class="panels-pane-region panels-pane-region--light-section-3-2">
+                <?php echo $content['light_section_3_2']; ?>
               </div>
             </div>
           </div>
