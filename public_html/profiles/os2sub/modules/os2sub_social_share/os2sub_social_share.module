@@ -38,23 +38,20 @@ function os2sub_social_share_content() {
 // registered below
   if (isset($url)) {
     $current_object = array('url' => $url, 'title' => $title);
-    return theme('os2sub_social_share_content', array('current_node' => $current_object));
+
+    return theme('os2sub_social_share', array('current_node' => $current_object));
   }
 }
 
 //here you are registering your default tpl for the above block
 function os2sub_social_share_theme() {
-  $module_path = drupal_get_path('module', 'os2sub_social_share');
-  $base = array(
-    'path' => "$module_path/template",
-  );
-
   return array(
-    'os2sub_social_share_content' => $base + array(
-        'template' => 'os2sub_social_share', //leave off .tpl.php
-        'variables' => array(
-          'current_node' => NULL,
-        ),
+    'os2sub_social_share' => array(
+      'variables' => array(
+        'current_node' => NULL,
       ),
+      'template' => 'os2sub-social-share',
+      'path' => drupal_get_path('module', 'os2sub_social_share') . '/templates',
+    ),
   );
 }
