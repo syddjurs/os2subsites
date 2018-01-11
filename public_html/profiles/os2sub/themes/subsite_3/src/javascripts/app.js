@@ -25,11 +25,18 @@ jQuery(function($) {
 
     // Enable / disable Bootstrap tooltips, based upon touch events
     if(Modernizr.touchevents) {
-        $('[data-toggle=tooltip]').tooltip('hide');
+        $('[data-toggle="tooltip"]').tooltip('hide');
     }
     else {
-        $('[data-toggle=tooltip]').tooltip();
+        $('[data-toggle="tooltip"]').tooltip();
     }
+
+    // Share
+    $('.share__item__toggle').on('click', function(event) {
+        let $element = $(this);
+
+        $element.parents('.share__item').toggleClass('visible');
+    });
 
     // Better exposed filter
     let $checkboxes = $('.form-type-bef-checkbox input[type="checkbox"]');
