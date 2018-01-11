@@ -211,6 +211,29 @@ function kultunaut_import_default_page_manager_handlers() {
     $display->content['new-162d2a84-b65e-4d82-8694-8edc639fb003'] = $pane;
     $display->panels['content-secondary'][3] = 'new-162d2a84-b65e-4d82-8694-8edc639fb003';
     $pane = new stdClass();
+    $pane->pid = 'new-24c6c6f9-b18d-42f6-95dd-73ced9d0b678';
+    $pane->panel = 'content-secondary';
+    $pane->type = 'block';
+    $pane->subtype = 'os2sub_social_share-os2sub_social_share';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 1,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 4;
+    $pane->locks = array();
+    $pane->uuid = '24c6c6f9-b18d-42f6-95dd-73ced9d0b678';
+    $display->content['new-24c6c6f9-b18d-42f6-95dd-73ced9d0b678'] = $pane;
+    $display->panels['content-secondary'][4] = 'new-24c6c6f9-b18d-42f6-95dd-73ced9d0b678';
+    $pane = new stdClass();
     $pane->pid = 'new-94997ca7-342e-4e69-a754-b63d8fa1fea4';
     $pane->panel = 'content-tertiary';
     $pane->type = 'views_panes';
@@ -477,6 +500,29 @@ function kultunaut_import_default_page_manager_handlers() {
     $pane->uuid = 'a19cdb81-242a-4351-9a09-14fbc71595df';
     $display->content['new-a19cdb81-242a-4351-9a09-14fbc71595df'] = $pane;
     $display->panels['sidebar-right'][7] = 'new-a19cdb81-242a-4351-9a09-14fbc71595df';
+    $pane = new stdClass();
+    $pane->pid = 'new-5e2f7f32-2221-4493-9b44-b06d92230425';
+    $pane->panel = 'sidebar-right';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'add_to_calendar-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'context' => array(
+        0 => 'argument_entity_id:node_1',
+      ),
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 8;
+    $pane->locks = array();
+    $pane->uuid = '5e2f7f32-2221-4493-9b44-b06d92230425';
+    $display->content['new-5e2f7f32-2221-4493-9b44-b06d92230425'] = $pane;
+    $display->panels['sidebar-right'][8] = 'new-5e2f7f32-2221-4493-9b44-b06d92230425';
     $pane = new stdClass();
     $pane->pid = 'new-da0048ba-9676-46d2-9d66-3b2b26182785';
     $pane->panel = 'top';
@@ -1613,6 +1659,10 @@ function kultunaut_import_default_page_manager_pages() {
       'light_section_2' => NULL,
       'dark_section_1' => NULL,
       'dark_section_2' => NULL,
+      'light_section_3_1' => NULL,
+      'light_section_3_2' => NULL,
+      'dark_section_3_1' => NULL,
+      'dark_section_3_2' => NULL,
     ),
   );
   $display->cache = array();
@@ -1644,6 +1694,44 @@ function kultunaut_import_default_page_manager_pages() {
     $pane->uuid = '1a2c33fe-28a4-4d50-94a1-0b258561c08c';
     $display->content['new-1a2c33fe-28a4-4d50-94a1-0b258561c08c'] = $pane;
     $display->panels['dark_section_1'][0] = 'new-1a2c33fe-28a4-4d50-94a1-0b258561c08c';
+    $pane = new stdClass();
+    $pane->pid = 'new-08d4400d-0810-4624-a68c-8ad6661967ac';
+    $pane->panel = 'dark_section_3_1';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'os2sub_velkomst-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '08d4400d-0810-4624-a68c-8ad6661967ac';
+    $display->content['new-08d4400d-0810-4624-a68c-8ad6661967ac'] = $pane;
+    $display->panels['dark_section_3_1'][0] = 'new-08d4400d-0810-4624-a68c-8ad6661967ac';
+    $pane = new stdClass();
+    $pane->pid = 'new-a87ddc21-d002-4a0e-8779-88986b940c63';
+    $pane->panel = 'dark_section_3_2';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'oplevsyddjurs_promoted_frontpage-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'a87ddc21-d002-4a0e-8779-88986b940c63';
+    $display->content['new-a87ddc21-d002-4a0e-8779-88986b940c63'] = $pane;
+    $display->panels['dark_section_3_2'][0] = 'new-a87ddc21-d002-4a0e-8779-88986b940c63';
     $pane = new stdClass();
     $pane->pid = 'new-dbba442a-8e78-4866-8484-70a5a233ae63';
     $pane->panel = 'light_section_1';

@@ -5,6 +5,15 @@
  */
 
 /**
+ * Implements hook_entityqueue_api().
+ */
+function kultunaut_import_entityqueue_api($module = NULL, $api = NULL) {
+  if ($module == "entityqueue" && $api == "entityqueue_default") {
+    return array("version" => "1");
+  }
+}
+
+/**
  * Implements hook_ctools_plugin_api().
  */
 function kultunaut_import_ctools_plugin_api($module = NULL, $api = NULL) {
@@ -53,6 +62,39 @@ function kultunaut_import_image_default_styles() {
   );
 
   return $styles;
+}
+
+/**
+ * Implements hook_default_search_api_autocomplete_search().
+ */
+function kultunaut_import_default_search_api_autocomplete_search() {
+  $items = array();
+  $items['search_api_page_oplevelser'] = entity_import('search_api_autocomplete_search', '{
+    "machine_name" : "search_api_page_oplevelser",
+    "name" : "Oplevelser",
+    "index_id" : "oplevelser_og_steder",
+    "suggester_id" : "server",
+    "type" : "search_api_page",
+    "enabled" : "1",
+    "options" : {
+      "suggester_configuration" : { "fields" : [
+          "node:body:value",
+          "node:field_os2web_base_field_loca_ref:name",
+          "node:field_os2web_base_field_text",
+          "node:field_os2web_kulturnaut_descrip:value",
+          "node:field_os2web_kulturnaut_longdesc:value",
+          "node:title",
+          "taxonomy_term:name"
+        ]
+      },
+      "min_length" : "2",
+      "results" : 1,
+      "submit_button_selector" : ":submit",
+      "autosubmit" : 0,
+      "custom" : { "page_id" : "oplevelser" }
+    }
+  }');
+  return $items;
 }
 
 /**
@@ -309,23 +351,6 @@ function kultunaut_import_default_search_api_page() {
       "view_mode" : "search_api_page_result",
       "language_filter" : [],
       "empty_behavior" : "results"
-    },
-    "enabled" : "1"
-  }');
-  $items['oplevsyddjurs'] = entity_import('search_api_page', '{
-    "index_id" : "default_fuzzysearch_index",
-    "path" : "find",
-    "name" : "Oplevsyddjurs",
-    "machine_name" : "oplevsyddjurs",
-    "description" : null,
-    "options" : {
-      "mode" : "terms",
-      "fields" : [],
-      "per_page" : "20",
-      "get_per_page" : 0,
-      "result_page_search_form" : 1,
-      "view_mode" : "search_result",
-      "language_filter" : { "current" : "current" }
     },
     "enabled" : "1"
   }');
