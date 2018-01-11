@@ -64,7 +64,10 @@ $flexy-navigation-dropdown-menu-toggle-width: 60px;
 .flexy-navigation__item__dropdown-menu__toggle {
   position: absolute;
 
-  display: flex;
+  &,
+  &.fa {
+    display: flex;
+  }
 
   cursor: pointer;
   cursor: hand;
