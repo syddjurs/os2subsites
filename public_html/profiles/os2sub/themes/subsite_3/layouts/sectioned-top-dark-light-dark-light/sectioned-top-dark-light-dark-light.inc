@@ -12,7 +12,11 @@ $plugin = array(
     'top' => t('Top - full width'),
     'light_section_1' => t('Light section - with container'),
     'light_section_2' => t('Light section - with container'),
+    'light_section_3_1' => t('Light section - with container'),
+    'light_section_3_2' => t('Light section - with container'),
     'dark_section_1' => t('Dark section - with container'),
     'dark_section_2' => t('Dark section - with container'),
+    'dark_section_3_1' => t('Dark section - with container'),
+    'dark_section_3_2' => t('Dark section - with container'),
   ),
 );
