@@ -80,6 +80,7 @@
       </div>
     </div>
     <!-- End - light section no. 2 -->
+  <?php endif; ?>
 
   <?php if ($content['dark_section_3_1'] OR $content['dark_section_3_2']): ?>
     <!-- Begin - dark section no. 3 -->
