@@ -120,6 +120,7 @@
                 <div class="panels-pane-region panels-pane-region--light-section-3-2">
                   <?php echo $content['light_section_3_2']; ?>
                 </div>
+              </div>
             </div>
           </div>
         </div>
