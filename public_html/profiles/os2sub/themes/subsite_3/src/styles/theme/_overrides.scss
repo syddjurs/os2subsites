@@ -26,7 +26,10 @@ img {
 }
 
 .icon {
-    @extend .fa; // Extend Font Awesome, so .icon can be used instead (or switched out)
+
+    &:not(.glyphicon) {
+        @extend .fa; // Extend Font Awesome, so .icon can be used instead (or switched out)
+    }
 }
 
 .form-control {
