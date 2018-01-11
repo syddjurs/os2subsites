@@ -72,7 +72,7 @@ $lg-search-result-item-spacing: $grid-gutter-width;
 // Tablet - and up
 @media #{$breakpoint-tablet-and-up} {
 
-  .search-result {
+  .entity-list-advanced--search-result {
     padding: $sm-search-result-item-spacing 0;
   }
 }
@@ -83,7 +83,7 @@ $lg-search-result-item-spacing: $grid-gutter-width;
 // Desktop - and up
 @media #{$breakpoint-desktop-and-up} {
 
-  .search-result {
+  .entity-list-advanced--search-result {
     padding: $md-search-result-item-spacing 0;
   }
 }
@@ -94,7 +94,7 @@ $lg-search-result-item-spacing: $grid-gutter-width;
 // Large desktop - and up
 @media #{$breakpoint-large-desktop-and-up} {
 
-  .search-result {
+  .entity-list-advanced--search-result {
     padding: $lg-search-result-item-spacing 0;
   }
 }
