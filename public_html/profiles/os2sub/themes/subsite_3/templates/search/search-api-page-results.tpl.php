@@ -45,7 +45,7 @@
 
   <?php if ($result_count): ?>
 
-    <h2><?php print t('Search results');?></h2>
+    <h2 class="sr-only"><?php print t('Search results');?></h2>
 
     <?php print render($search_results); ?>
 

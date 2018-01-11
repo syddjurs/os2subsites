@@ -32,7 +32,7 @@ else if ($item->item_type == 'taxonomy_term') {
       <div class="entity-list-advanced__body">
 
         <div class="entity-list-advanced__heading">
-          <h3 class="entity-list-advanced__heading__title"><?php print check_plain($title); ?></h3>
+          <h3 class="entity-list-advanced__heading__title heading-h4"><?php print check_plain($title); ?></h3>
         </div>
 
         <?php if ($snippet OR $info) : ?>
