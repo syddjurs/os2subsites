@@ -79,10 +79,21 @@ $lg-flexy-header-static-row-second-height: 60px;
     position: relative;
   }
 
+  .input-group {
+
+    .form-control {
+      @include border-right-radius($border-radius-large);
+    }
+
+    .input-group-addon {
+      display: none;
+    }
+  }
+
   .form-control {
     @extend .input-lg;
 
-    padding-right: 40px; // The width of the button, so the text dont go underneath
+    padding-right: 50px; // The width of the button, so the text dont go underneath
 
     border: 2px solid #393d5e;
 
@@ -92,7 +103,9 @@ $lg-flexy-header-static-row-second-height: 60px;
   .btn {
     position: absolute;
 
-    top: 4px;
+    z-index: 2000;
+
+    top: 5px;
     right: 0;
 
     background-color: transparent;
@@ -113,7 +126,6 @@ $lg-flexy-header-static-row-second-height: 60px;
 
       content: $fa-var-search;
     }
-
   }
 }
 
