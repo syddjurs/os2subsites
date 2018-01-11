@@ -17,28 +17,47 @@ else if ($item->item_type == 'taxonomy_term') {
     $image_url = file_create_url(image_style_url($image_style, $uri));
   }
 }
+
 ?>
 
 <li class="search-result">
-  <div class="row">
 
-    <div class="hidden-xs col-sm-2">
-      <img src="<?php print $image_url; ?>" alt="" />
-    </div>
+  <a href="#" class="element-wrapper-link">
+    <div class="entity-list-advanced entity-list-advanced--search-result">
 
-    <div class="col-sm-10">
-      <h3 class="title">
-        <?php print $url ? l($title, $url['path'], $url['options']) : check_plain($title); ?>
-      </h3>
-      <div class="search-snippet-info">
-        <?php if ($snippet) : ?>
-          <p class="search-snippet"><?php print $snippet; ?></p>
+      <?php if(!empty($image_url)): ?>
+        <div class="entity-list-advanced__image">
+          <img src="<?php print $image_url; ?>" title="" alt="" />
+        </div>
+      <?php endif; ?>
+
+      <div class="entity-list-advanced__body">
+
+        <div class="entity-list-advanced__heading">
+          <h3 class="entity-list-advanced__heading__title"><?php print check_plain($title); ?></h3>
+        </div>
+
+        <?php if ($snippet OR $info) : ?>
+          <div class="entity-list-advanced__search-snippet">
+
+            <?php if ($snippet) : ?>
+              <p><?php print $snippet; ?></p>
+            <?php endif; ?>
+
+            <?php if ($info) : ?>
+              <p><?php print $info; ?></p>
+            <?php endif; ?>
+
+          </div>
         <?php endif; ?>
-        <?php if ($info) : ?>
-          <p class="search-info"><?php print $info; ?></p>
-        <?php endif; ?>
+
+        <span class="entity-list-advanced__path">
+          <?php print t('Located at: !path', array('!path' => drupal_get_path_alias($url['path']))); ?>
+        </span>
+
       </div>
 
     </div>
-  </div>
+
+  </a>
 </li>
