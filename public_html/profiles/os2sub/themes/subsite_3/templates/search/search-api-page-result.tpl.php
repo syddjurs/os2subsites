@@ -19,12 +19,11 @@ else if ($item->item_type == 'taxonomy_term') {
 }
 
 ?>
-<li class="search-result">
-
+<div class="search-results__list__item">
   <a href="<?php print url($url['path']); ?>" class="element-wrapper-link">
     <div class="entity-list-advanced entity-list-advanced--search-result">
 
-      <?php if(!empty($image_url)): ?>
+      <?php if( ! empty($image_url)): ?>
         <div class="entity-list-advanced__image">
           <img src="<?php print $image_url; ?>" title="" alt="" />
         </div>
@@ -59,4 +58,4 @@ else if ($item->item_type == 'taxonomy_term') {
     </div>
 
   </a>
-</li>
+</div>
