@@ -19,10 +19,9 @@ else if ($item->item_type == 'taxonomy_term') {
 }
 
 ?>
-
 <li class="search-result">
 
-  <a href="#" class="element-wrapper-link">
+  <a href="<?php print url($url['path']); ?>" class="element-wrapper-link">
     <div class="entity-list-advanced entity-list-advanced--search-result">
 
       <?php if(!empty($image_url)): ?>
