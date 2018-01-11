@@ -1,0 +1,105 @@
+<?php
+
+/**
+ * Implements hook_ctools_plugin_directory() to let the system know
+ * where our task and task_handler plugins are.
+ */
+function search_api_page_panels_ctools_plugin_directory($owner, $plugin_type) {
+  if ($owner == 'page_manager' || $owner == 'ctools') {
+    return 'plugins/' . $plugin_type;
+  }
+}
+
+/**
+ * Displays a search page. Copied from search_api_page_view but adds ability
+ * to override Search API page settings.
+ *
+ * @param $id
+ *   The search page's machine name.
+ * @param $keys
+ *   The keys to search for.
+ */
+function search_api_page_panels_view($id, $keys = NULL, $override_options = array()) {
+  $page = search_api_page_load($id);
+  if (!$page) {
+    return MENU_NOT_FOUND;
+  }
+
+  // Merge in overriden options.
+  $page->options = array_merge($page->options, $override_options);
+
+  // Pre-process keys (unescape \ and /).
+  $keys = explode("\\\\", $keys);
+  $keys = str_replace("\\", "/", $keys);
+  $keys = implode("\\", $keys);
+
+  $ret['#contextual_links']['search_api_page'] = array(
+    'admin/config/search/search_api/page',
+    array($page->machine_name),
+  );
+
+  if (!isset($page->options['result_page_search_form']) || $page->options['result_page_search_form']) {
+    $ret['form'] = drupal_get_form('search_api_page_search_form', $page, $keys);
+  }
+
+  if ($keys) {
+    // Override per_page setting with GET parameter.
+    $limit = $page->options['per_page'];
+    if (!empty($page->options['get_per_page'])
+        && !empty($_GET['per_page'])
+        && ((int) $_GET['per_page']) > 0) {
+      $limit = (int) $_GET['per_page'];
+    }
+
+    try {
+      $results = search_api_page_search_execute($page, $keys, $limit);
+    }
+    catch (SearchApiException $e) {
+      drupal_set_message(t('An error occurred while executing the search. Please try again, or contact the site administrator if the problem persists.'), 'error');
+      $link = l(t('search page'), $_GET['q'], array('query' => drupal_get_query_parameters()));
+      watchdog_exception('search_api_page', $e,
+          '%type while executing a search: !message in %function (line %line of %file).',
+          array(), WATCHDOG_ERROR, $link);
+      return $ret;
+    }
+
+    // If spellcheck results were returned then add them to the render array.
+    if (isset($results['search_api_spellcheck'])) {
+      $ret['results']['#spellcheck'] = array(
+        '#theme' => 'search_api_spellcheck',
+        '#spellcheck' => $results['search_api_spellcheck'],
+      // Let the theme function know where the key is stored by passing its arg
+      // number. We can work this out from the number of args in the page path.
+        '#options' => array(
+          'arg' => array(count(arg(NULL, $page->path))),
+        ),
+        '#prefix' => '<p class="search-api-spellcheck-suggestion">',
+        '#suffix' => '</p>',
+      );
+    }
+
+    $ret['results']['#theme'] = "search_api_page_results__{$page->machine_name}";
+    $ret['results']['#index'] = search_api_index_load($page->index_id);
+    $ret['results']['#results'] = $results;
+    $ret['results']['#view_mode'] = isset($page->options['view_mode']) ? $page->options['view_mode'] : 'search_api_page_result';
+    $ret['results']['#keys'] = $keys;
+    $ret['results']['#page'] = $page;
+
+    // Load pager.
+    if ($results['result count'] > $limit) {
+      pager_default_initialize($results['result count'], $limit);
+      $ret['results']['#pager']['#theme'] = 'pager';
+    }
+
+    if (!empty($results['ignored'])) {
+      drupal_set_message(t('The following search keys are too short or too common and were therefore ignored: "@list".', array('@list' => implode(t('", "'), $results['ignored']))), 'warning');
+    }
+    if (!empty($results['warnings'])) {
+      foreach ($results['warnings'] as $warning) {
+        drupal_set_message(check_plain($warning), 'warning');
+      }
+    }
+  }
+
+  return $ret;
+}
