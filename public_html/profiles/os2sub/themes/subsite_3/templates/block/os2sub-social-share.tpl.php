@@ -16,18 +16,26 @@ $url = $variables['current_node']['url'];
 
     <!-- Begin - popup -->
     <div class="share__item__popup">
-      <div class="share__item__social">
-        <a class="share__item__social__item share__item__social__item--twitter" href="http://twitter.com/intent/tweet?status=<?php print $title; ?>+<?php print $url; ?>" title="Del på Twitter" target="_blank">
+      <div class="share__item__social-list">
+
+        <!-- Begin - twitter -->
+        <a class="share__item__social-list__item share__item__social-list__item--twitter" href="http://twitter.com/intent/tweet?status=<?php print $title; ?>+<?php print $url; ?>" title="Del på Twitter" target="_blank">
           <span class="icon fa fa-twitter"></span>
         </a>
+        <!-- End - twitter -->
 
-        <a class="share__item__social__item share__item__social__item--facebook" href="http://www.facebook.com/sharer/sharer.php?u=<?php print $url; ?>&amp;title=<?php print $title; ?>" title="Del på Facebook" target="_blank">
+        <!-- Begin - facebook -->
+        <a class="share__item__social-list__item share__item__social-list__item--facebook" href="http://www.facebook.com/sharer/sharer.php?u=<?php print $url; ?>&amp;title=<?php print $title; ?>" title="Del på Facebook" target="_blank">
           <span class="icon fa fa-facebook"></span>
         </a>
+        <!-- End - facebook -->
 
-        <a class="share__item__social__item share__item__social__item--linkedin" href="http://www.linkedin.com/shareArticle?mini=true&amp;url=<?php print $url; ?>&amp;title=<?php print $title; ?>" title="Del på LinkedIn" target="_blank">
+        <!-- Begin - linkedin -->
+        <a class="share__item__social-list__item share__item__social-list__item--linkedin" href="http://www.linkedin.com/shareArticle?mini=true&amp;url=<?php print $url; ?>&amp;title=<?php print $title; ?>" title="Del på LinkedIn" target="_blank">
           <span class="icon fa fa-linkedin"></span>
         </a>
+        <!-- End - linkedin -->
+
       </div>
     </div>
     <!-- End - popup -->
