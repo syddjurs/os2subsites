@@ -38,25 +38,43 @@
   display: none;
   position: absolute;
 
+  left: 50%;
   bottom: 100%;
 
+  margin-left: -60px; // Half the width of the total social items
+
   margin-bottom: 20px;
-
-  overflow: hidden;
-
-  border-radius: $border-radius-base;
 
   .visible > & {
     display: block;
   }
+
+  // Arrow
+  &:after {
+    position: absolute;
+
+    top: 100%;
+    left: 50%;
+
+    content: "";
+
+    width: 0;
+    height: 0;
+
+    margin-left: -8px;
+
+    border-style: solid;
+    border-width: 8px 8px 0 8px;
+    border-color: $social-link-color-facebook transparent transparent
+  }
 }
 
 // Social
-.share__item__social {
+.share__item__social-list {
   display: flex;
 }
 
-.share__item__social__item {
+.share__item__social-list__item {
   display: flex;
 
   justify-content: center;
@@ -73,15 +91,23 @@
   .icon {
     color: #fff;
   }
+
+  &:first-child {
+    @include border-left-radius($border-radius-base);
+  }
+
+  &:last-child {
+    @include border-right-radius($border-radius-base);
+  }
 }
 
-.share__item__social__item--facebook {
+.share__item__social-list__item--facebook {
   background-color: $social-link-color-facebook;
 }
-.share__item__social__item--twitter {
+.share__item__social-list__item--twitter {
   background-color: $social-link-color-twitter;
 }
-.share__item__social__item--linkedin {
+.share__item__social-list__item--linkedin {
   background-color: $social-link-color-linkedin;
 }
 
