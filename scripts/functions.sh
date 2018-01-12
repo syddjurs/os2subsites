@@ -203,31 +203,48 @@ create_vhost() {
 install_drupal() {
   debug "Installing drupal ($SITENAME)"
   # Do a drush site install
-  /usr/bin/drush -q -y -r $MULTISITE site-install $PROFILE --locale=da --db-url="mysql://$DBUSER:$DBPASS@localhost/$DBNAME" --sites-subdir="$SITENAME" --account-mail="$EMAIL" --site-mail="$EMAIL" --site-name="$SITENAME" --account-pass="$ADMINPASS"
+  debug "site install started"
+  /usr/bin/drush -q -y -r $MULTISITE site-install $PROFILE --locale=da --db-url="mysql://$DBUSER:$DBPASS@localhost/$DBNAME" --sites-subdir="$SITENAME" --account-mail="$EMAIL" --site-mail="$EMAIL" --site-name="$SITENAME" --account-pass="$ADMINPASS" --verbose
+  debug "site install finished"
 
   # Set tmp
   /usr/bin/drush -q -y -r "$MULTISITE" --uri="$SITENAME" vset file_temporary_path "$TMPDIR"
+  debug "tmp set"
 
   # Do some drupal setup here. Could also be done in the install profile.
   /usr/bin/drush -q -y -r "$MULTISITE" --uri="$SITENAME" vset user_register 0
+  debug " vars user_register set"
   /usr/bin/drush -q -y -r "$MULTISITE" --uri="$SITENAME" vset error_level 1
+  debug " vars error_level set"
   /usr/bin/drush -q -y -r "$MULTISITE" --uri="$SITENAME" vset preprocess_css 1
+  debug " vars preprocess_css set"
   /usr/bin/drush -q -y -r "$MULTISITE" --uri="$SITENAME" vset preprocess_js 1
-  /usr/bin/drush -q -y -r "$MULTISITE" --uri="$SITENAME" vset cache 1
+  debug " vars preprocess_js set"
+  # /usr/bin/drush -q -y -r "$MULTISITE" --uri="$SITENAME" vset cache 1
+  debug " vars cache set"
   /usr/bin/drush -q -y -r "$MULTISITE" --uri="$SITENAME" vset page_cache_maximum_age 10800
+  debug " vars page_cache_maximum_age set"
   # translation updates - takes a long time
   #/usr/bin/drush -q -y -r "$MULTISITE" --uri="$SITENAME" l10n-update-refresh
   #/usr/bin/drush -q -y -r "$MULTISITE" --uri="$SITENAME" l10n-update
   /usr/bin/drush -q -y -r "$MULTISITE" --uri="$SITENAME" dis update
+  debug "module update disabled"
+
+  debug "all vars are set"
 }
 
 set_permissions() {
   debug "Setting correct permissions"
   /bin/chgrp -R www-data "$MULTISITE/sites/$SITENAME"
+  echo '/bin/chgrp -R www-data "$MULTISITE/sites/$SITENAME"' >> /var/www/test.subsites.syddjurs.dk/logs/mytest111
   /bin/chmod -R g+rwX "$MULTISITE/sites/$SITENAME"
+  echo '/bin/chmod -R g+rwX "$MULTISITE/sites/$SITENAME"' >> /var/www/test.subsites.syddjurs.dk/logs/mytest111
   /bin/chmod g-w "$MULTISITE/sites/$SITENAME" "$MULTISITE/sites/$SITENAME/settings.php"
+  echo '/bin/chmod g-w "$MULTISITE/sites/$SITENAME" "$MULTISITE/sites/$SITENAME/settings.php"' >> /var/www/test.subsites.syddjurs.dk/logs/mytest111
   /bin/chown -R www-data "$TMPDIR"
+  echo '/bin/chown -R www-data "$TMPDIR"' >> /var/www/test.subsites.syddjurs.dk/logs/mytest111
   /bin/chmod -R g+rwX "$TMPDIR"
+  echo '/bin/chmod -R g+rwX "$TMPDIR"' >> /var/www/test.subsites.syddjurs.dk/logs/mytest111
 }
 
 add_to_crontab() {
