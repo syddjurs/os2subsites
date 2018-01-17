@@ -13,6 +13,175 @@ function os2web_kulturnaut_events_feeds_importer_default() {
   $feeds_importer = new stdClass();
   $feeds_importer->disabled = FALSE; /* Edit this to true to make a default feeds_importer disabled initially */
   $feeds_importer->api_version = 1;
+  $feeds_importer->id = 'kulturnaut_begivenheder_oplevsyddjurs_';
+  $feeds_importer->config = array(
+    'name' => 'Kulturnaut begivenheder (oplevsyddjurs)',
+    'description' => 'os2web_kulturnaut_feeds_import_oplevsyddjurs',
+    'fetcher' => array(
+      'plugin_key' => 'OS2webKulturnaultOauth',
+      'config' => array(
+        'append_headers' => '',
+        'request_timeout' => '',
+        'get_token_url' => 'https://www.kultunaut.dk/perl/oauth2/token?username=fs@bellcom.dk&password=kodeordtilkultunaut&grant_type=password&client_id=fredericia&client_secret=NDE2YWI5N2RhNWJhMTg4OWY2MGU5NzQ3',
+      ),
+    ),
+    'parser' => array(
+      'plugin_key' => 'FeedsJSONPathParser',
+      'config' => array(
+        'context' => '$.*',
+        'sources' => array(
+          'jsonpath_parser:17' => 'EventId',
+          'jsonpath_parser:0' => 'EventTitle',
+          'jsonpath_parser:1' => 'EventShortdescription',
+          'jsonpath_parser:2' => 'LocationName',
+          'jsonpath_parser:16' => 'EventStarttime',
+          'jsonpath_parser:3' => 'EventStartdate',
+          'jsonpath_parser:13' => 'EventTime',
+          'jsonpath_parser:4' => 'EventLongdescription',
+          'jsonpath_parser:5' => 'EventFee',
+          'jsonpath_parser:6' => 'EventCategory',
+          'jsonpath_parser:7' => 'EventTicket',
+          'jsonpath_parser:8' => 'LocationAddress',
+          'jsonpath_parser:10' => 'EventEnddate',
+          'jsonpath_parser:12' => 'EventImage',
+          'jsonpath_parser:14' => '',
+          'jsonpath_parser:18' => '',
+        ),
+        'debug' => array(
+          'options' => array(
+            'context' => 0,
+            'jsonpath_parser:17' => 0,
+            'jsonpath_parser:0' => 0,
+            'jsonpath_parser:1' => 0,
+            'jsonpath_parser:2' => 0,
+            'jsonpath_parser:16' => 0,
+            'jsonpath_parser:3' => 0,
+            'jsonpath_parser:13' => 0,
+            'jsonpath_parser:4' => 0,
+            'jsonpath_parser:5' => 0,
+            'jsonpath_parser:6' => 0,
+            'jsonpath_parser:7' => 0,
+            'jsonpath_parser:8' => 0,
+            'jsonpath_parser:10' => 0,
+            'jsonpath_parser:12' => 0,
+            'jsonpath_parser:14' => 0,
+            'jsonpath_parser:18' => 0,
+          ),
+        ),
+        'allow_override' => 0,
+        'convert_four_byte' => 0,
+      ),
+    ),
+    'processor' => array(
+      'plugin_key' => 'FeedsNodeProcessor',
+      'config' => array(
+        'expire' => '31536000',
+        'author' => '1',
+        'mappings' => array(
+          0 => array(
+            'source' => 'jsonpath_parser:17',
+            'target' => 'field_os2web_kulturnaut_event_id',
+            'unique' => 1,
+          ),
+          1 => array(
+            'source' => 'jsonpath_parser:0',
+            'target' => 'title',
+            'unique' => 0,
+          ),
+          2 => array(
+            'source' => 'jsonpath_parser:1',
+            'target' => 'field_os2web_kulturnaut_descrip',
+            'unique' => FALSE,
+          ),
+          3 => array(
+            'source' => 'jsonpath_parser:2',
+            'target' => 'field_os2web_kulturnaut_venue',
+            'term_search' => '0',
+            'autocreate' => 1,
+          ),
+          4 => array(
+            'source' => 'jsonpath_parser:16',
+            'target' => 'field_os2web_kulturnaut_time',
+            'unique' => FALSE,
+          ),
+          5 => array(
+            'source' => 'jsonpath_parser:3',
+            'target' => 'field_os2web_kulturnaut_date:start',
+            'unique' => FALSE,
+          ),
+          6 => array(
+            'source' => 'jsonpath_parser:13',
+            'target' => 'field_os2web_kulturnaut_time',
+            'unique' => FALSE,
+          ),
+          7 => array(
+            'source' => 'jsonpath_parser:4',
+            'target' => 'field_os2web_kulturnaut_longdesc',
+            'unique' => FALSE,
+          ),
+          8 => array(
+            'source' => 'jsonpath_parser:5',
+            'target' => 'field_os2web_kulturnaut_price',
+            'unique' => FALSE,
+          ),
+          9 => array(
+            'source' => 'jsonpath_parser:6',
+            'target' => 'field_os2web_kulturnaut_tema',
+            'term_search' => '0',
+            'autocreate' => 1,
+          ),
+          10 => array(
+            'source' => 'jsonpath_parser:7',
+            'target' => 'field_os2web_kulturnaut_url',
+            'unique' => FALSE,
+          ),
+          11 => array(
+            'source' => 'jsonpath_parser:8',
+            'target' => 'field_os2web_kulturnaut_saddress',
+            'unique' => FALSE,
+          ),
+          12 => array(
+            'source' => 'jsonpath_parser:10',
+            'target' => 'field_os2web_kulturnaut_date:end',
+            'unique' => FALSE,
+          ),
+          13 => array(
+            'source' => 'jsonpath_parser:12',
+            'target' => 'field_os2web_kulturnaut_slidesho:uri',
+            'unique' => FALSE,
+          ),
+          14 => array(
+            'source' => 'jsonpath_parser:14',
+            'target' => 'field_os2web_kulturnaut_source',
+            'term_search' => '0',
+            'autocreate' => 1,
+          ),
+          15 => array(
+            'source' => 'jsonpath_parser:18',
+            'target' => 'url',
+            'unique' => FALSE,
+          ),
+        ),
+        'update_existing' => '2',
+        'input_format' => 'full_html',
+        'bundle' => 'os2web_kulturnaut_knactivity',
+        'authorize' => 1,
+        'update_non_existent' => 'skip',
+        'skip_hash_check' => 0,
+      ),
+    ),
+    'content_type' => '',
+    'update' => 0,
+    'import_period' => '3600',
+    'expire_period' => 3600,
+    'import_on_create' => 1,
+    'process_in_background' => 0,
+  );
+  $export['kulturnaut_begivenheder_oplevsyddjurs_'] = $feeds_importer;
+
+  $feeds_importer = new stdClass();
+  $feeds_importer->disabled = FALSE; /* Edit this to true to make a default feeds_importer disabled initially */
+  $feeds_importer->api_version = 1;
   $feeds_importer->id = 'os2web_kulturnaut_feeds_import_fredericiaxml';
   $feeds_importer->config = array(
     'name' => 'Kulturnaut begivenheder (fredericiaxml)',
