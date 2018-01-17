@@ -22,7 +22,7 @@ function os2web_kulturnaut_events_feeds_importer_default() {
       'config' => array(
         'append_headers' => '',
         'request_timeout' => '',
-        'get_token_url' => 'https://www.kultunaut.dk/perl/oauth2/token?username=fs@bellcom.dk&password=kodeordtilkultunaut&grant_type=password&client_id=fredericia&client_secret=NDE2YWI5N2RhNWJhMTg4OWY2MGU5NzQ3',
+        'get_token_url' => 'https://www.kultunaut.dk/perl/oauth2/token?username=fs@bellcom.dk&password=kodeordtilkultunaut&grant_type=password&client_id=syddjurs&client_secret=MTQ0MzA0OTQ2NmNjYjdjNWFhNDAzN2Q2',
       ),
     ),
     'parser' => array(
@@ -46,10 +46,11 @@ function os2web_kulturnaut_events_feeds_importer_default() {
           'jsonpath_parser:12' => 'EventImage',
           'jsonpath_parser:14' => '',
           'jsonpath_parser:18' => '',
+          'jsonpath_parser:19' => 'EventTarget',
         ),
         'debug' => array(
           'options' => array(
-            'context' => 0,
+            'context' => 'context',
             'jsonpath_parser:17' => 0,
             'jsonpath_parser:0' => 0,
             'jsonpath_parser:1' => 0,
@@ -66,6 +67,7 @@ function os2web_kulturnaut_events_feeds_importer_default() {
             'jsonpath_parser:12' => 0,
             'jsonpath_parser:14' => 0,
             'jsonpath_parser:18' => 0,
+            'jsonpath_parser:19' => 0,
           ),
         ),
         'allow_override' => 0,
@@ -159,6 +161,11 @@ function os2web_kulturnaut_events_feeds_importer_default() {
           15 => array(
             'source' => 'jsonpath_parser:18',
             'target' => 'url',
+            'unique' => FALSE,
+          ),
+          16 => array(
+            'source' => 'jsonpath_parser:19',
+            'target' => 'field_os2web_kulturnaut_target',
             'unique' => FALSE,
           ),
         ),
