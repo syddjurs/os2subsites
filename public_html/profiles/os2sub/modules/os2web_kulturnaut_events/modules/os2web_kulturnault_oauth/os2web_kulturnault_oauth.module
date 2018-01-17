@@ -10,7 +10,6 @@
  */
 function os2web_kulturnault_oauth_feeds_plugins() {
   $path = drupal_get_path('module', 'os2web_kulturnault_oauth') . '/plugins';
-  dpm($path);
   $info = array();
   $info['OS2webKulturnaultOauth'] = array(
     'name'        => t('OS2web Kulturnault Oauth'),
