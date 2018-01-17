@@ -64,6 +64,9 @@ function os2web_kulturnaut_events_strongarm() {
       'list_simple' => array(
         'custom_settings' => TRUE,
       ),
+      'print' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(

@@ -323,6 +323,99 @@ function os2web_kulturnaut_events_field_default_field_instances() {
   );
 
   // Exported field_instance:
+  // 'node-os2web_kulturnaut_knactivity-field_os2web_kulturnaut_event_id'.
+  $field_instances['node-os2web_kulturnaut_knactivity-field_os2web_kulturnaut_event_id'] = array(
+    'bundle' => 'os2web_kulturnaut_knactivity',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 4,
+      ),
+      'list' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'list_advanced' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'list_simple' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'search_result' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'spotbox' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_os2web_kulturnaut_event_id',
+    'label' => 'Event ID',
+    'required' => 0,
+    'settings' => array(
+      'better_formats' => array(
+        'allowed_formats' => array(
+          'full_html' => 'full_html',
+          'plain_text' => 'plain_text',
+        ),
+        'allowed_formats_toggle' => 0,
+        'default_order_toggle' => 0,
+        'default_order_wrapper' => array(
+          'formats' => array(
+            'full_html' => array(
+              'weight' => -10,
+            ),
+            'plain_text' => array(
+              'weight' => -9,
+            ),
+          ),
+        ),
+      ),
+      'linkit' => array(
+        'button_text' => 'Search',
+        'enable' => 0,
+        'profile' => '',
+      ),
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 23,
+    ),
+  );
+
+  // Exported field_instance:
   // 'node-os2web_kulturnaut_knactivity-field_os2web_kulturnaut_genre'.
   $field_instances['node-os2web_kulturnaut_knactivity-field_os2web_kulturnaut_genre'] = array(
     'bundle' => 'os2web_kulturnaut_knactivity',
@@ -743,7 +836,7 @@ function os2web_kulturnaut_events_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 8,
+        'weight' => 9,
       ),
       'list' => array(
         'label' => 'above',
@@ -1237,7 +1330,7 @@ function os2web_kulturnaut_events_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 5,
+        'weight' => 6,
       ),
       'list' => array(
         'label' => 'above',
@@ -1499,7 +1592,7 @@ function os2web_kulturnaut_events_field_default_field_instances() {
         'module' => 'taxonomy',
         'settings' => array(),
         'type' => 'taxonomy_term_reference_link',
-        'weight' => 21,
+        'weight' => 3,
       ),
       'list' => array(
         'label' => 'above',
@@ -1772,7 +1865,7 @@ function os2web_kulturnaut_events_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 3,
+        'weight' => 5,
       ),
       'list' => array(
         'label' => 'above',
@@ -1965,7 +2058,7 @@ function os2web_kulturnaut_events_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 7,
+        'weight' => 8,
       ),
       'list' => array(
         'label' => 'hidden',
@@ -2067,7 +2160,7 @@ function os2web_kulturnaut_events_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 6,
+        'weight' => 7,
       ),
       'list' => array(
         'label' => 'above',
@@ -2791,6 +2884,7 @@ function os2web_kulturnaut_events_field_default_field_instances() {
   t('Billeturl');
   t('Data source');
   t('Dato');
+  t('Event ID');
   t('Genre');
   t('Hjemmeside');
   t('Image');
