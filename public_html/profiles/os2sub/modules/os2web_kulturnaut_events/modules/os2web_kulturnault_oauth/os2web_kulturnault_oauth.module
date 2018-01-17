@@ -1,0 +1,26 @@
+<?php
+
+/**
+ * @file
+ * Feeds HTTPFetcher Append Headers - basic API functions and hook implementations.
+ */
+
+/**
+ * Implements hook_feeds_plugins().
+ */
+function os2web_kulturnault_oauth_feeds_plugins() {
+  $path = drupal_get_path('module', 'os2web_kulturnault_oauth') . '/plugins';
+  dpm($path);
+  $info = array();
+  $info['OS2webKulturnaultOauth'] = array(
+    'name'        => t('OS2web Kulturnault Oauth'),
+    'description' => t('HTTPFetcher with support for appending request headers.'),
+    'handler' => array(
+      'parent' => 'FeedsHTTPFetcher',
+      'class'  => 'OS2webKulturnaultOauth',
+      'file'   => 'OS2webKulturnaultOauth.inc',
+      'path'   => $path,
+    ),
+  );
+  return $info;
+}
