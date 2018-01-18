@@ -2247,6 +2247,67 @@ function os2web_kulturnaut_events_field_default_field_instances() {
   );
 
   // Exported field_instance:
+  // 'taxonomy_term-os2web_kulturnaut_tema-field_os2web_kult_tema_feed_exc'.
+  $field_instances['taxonomy_term-os2web_kulturnaut_tema-field_os2web_kult_tema_feed_exc'] = array(
+    'bundle' => 'os2web_kulturnaut_tema',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 2,
+      ),
+      'list' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'list_advanced' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'list_simple' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'taxonomy_term',
+    'field_name' => 'field_os2web_kult_tema_feed_exc',
+    'label' => 'Exclude from feed import',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 1,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 42,
+    ),
+  );
+
+  // Exported field_instance:
   // 'taxonomy_term-os2web_kulturnaut_tema-field_os2web_kult_tema_image'.
   $field_instances['taxonomy_term-os2web_kulturnaut_tema-field_os2web_kult_tema_image'] = array(
     'bundle' => 'os2web_kulturnaut_tema',
@@ -2885,6 +2946,7 @@ function os2web_kulturnaut_events_field_default_field_instances() {
   t('Data source');
   t('Dato');
   t('Event ID');
+  t('Exclude from feed import');
   t('Genre');
   t('Hjemmeside');
   t('Image');

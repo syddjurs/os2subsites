@@ -49,3 +49,38 @@ function os2web_kulturnaut_events_cron() {
   watchdog('cron', 'Node unpublish task finished');
 */
 }
+
+/**
+ * Implements hook_feeds_presave().
+ */
+
+function os2web_kulturnaut_events_feeds_presave(FeedsSource $source, $entity, $item) {
+
+  if ($source->importer->id == 'kulturnaut_begivenheder_oplevsyddjurs_') {
+    // Get excluded taxonomy terms names
+    $vocabulary_name = 'os2web_kulturnaut_tema';
+    $vocab = taxonomy_vocabulary_machine_name_load($vocabulary_name);
+    $query = new EntityFieldQuery();
+    $query
+        ->entityCondition('entity_type', 'taxonomy_term')
+        ->entityCondition('bundle', $vocabulary_name)
+        ->propertyCondition('vid', $vocab->vid)
+        ->fieldCondition('field_os2web_kult_tema_feed_exc', 'value', '1', '=');
+    $results = $query->execute();
+    if (!empty($results['taxonomy_term'])) {
+      foreach ($results['taxonomy_term'] as $tid) {
+        $term = taxonomy_term_load($tid->tid);
+        $name = $term->name;
+        $excluded_names[] = $name;
+      }
+    }
+    else {
+      $excluded_names = array();
+    }
+    // Do not import excluded event types
+    if (in_array($item['jsonpath_parser:6'], $excluded_names)) {
+      $entity->feeds_item->skip = TRUE;
+      drupal_set_message(t("Skipping event with '%tema' type", array('%tema' => $item['jsonpath_parser:6'])), 'warning');
+    }
+  }
+}

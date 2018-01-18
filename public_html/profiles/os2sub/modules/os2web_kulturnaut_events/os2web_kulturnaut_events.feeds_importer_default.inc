@@ -50,7 +50,7 @@ function os2web_kulturnaut_events_feeds_importer_default() {
         ),
         'debug' => array(
           'options' => array(
-            'context' => 'context',
+            'context' => 0,
             'jsonpath_parser:17' => 0,
             'jsonpath_parser:0' => 0,
             'jsonpath_parser:1' => 0,
