@@ -39,6 +39,36 @@ function os2web_kulturnaut_events_feeds_tamper_default() {
   $feeds_tamper = new stdClass();
   $feeds_tamper->disabled = FALSE; /* Edit this to true to make a default feeds_tamper disabled initially */
   $feeds_tamper->api_version = 2;
+  $feeds_tamper->id = 'kulturnaut_begivenheder_oplevsyddjurs_-jsonpath_parser_21-explode';
+  $feeds_tamper->importer = 'kulturnaut_begivenheder_oplevsyddjurs_';
+  $feeds_tamper->source = 'jsonpath_parser:21';
+  $feeds_tamper->plugin_id = 'explode';
+  $feeds_tamper->settings = array(
+    'separator' => ',',
+    'limit' => '',
+    'real_separator' => ',',
+  );
+  $feeds_tamper->weight = 1;
+  $feeds_tamper->description = 'Explode';
+  $export['kulturnaut_begivenheder_oplevsyddjurs_-jsonpath_parser_21-explode'] = $feeds_tamper;
+
+  $feeds_tamper = new stdClass();
+  $feeds_tamper->disabled = FALSE; /* Edit this to true to make a default feeds_tamper disabled initially */
+  $feeds_tamper->api_version = 2;
+  $feeds_tamper->id = 'kulturnaut_begivenheder_oplevsyddjurs_-jsonpath_parser_21-rewrite';
+  $feeds_tamper->importer = 'kulturnaut_begivenheder_oplevsyddjurs_';
+  $feeds_tamper->source = 'jsonpath_parser:21';
+  $feeds_tamper->plugin_id = 'rewrite';
+  $feeds_tamper->settings = array(
+    'text' => '[jsonpath_parser:22],[jsonpath_parser:20]',
+  );
+  $feeds_tamper->weight = 0;
+  $feeds_tamper->description = 'Rewrite';
+  $export['kulturnaut_begivenheder_oplevsyddjurs_-jsonpath_parser_21-rewrite'] = $feeds_tamper;
+
+  $feeds_tamper = new stdClass();
+  $feeds_tamper->disabled = FALSE; /* Edit this to true to make a default feeds_tamper disabled initially */
+  $feeds_tamper->api_version = 2;
   $feeds_tamper->id = 'kulturnaut_begivenheder_oplevsyddjurs_-jsonpath_parser_3-math';
   $feeds_tamper->importer = 'kulturnaut_begivenheder_oplevsyddjurs_';
   $feeds_tamper->source = 'jsonpath_parser:3';
@@ -78,6 +108,35 @@ function os2web_kulturnaut_events_feeds_tamper_default() {
   $feeds_tamper->weight = 1;
   $feeds_tamper->description = 'String to Unix timestamp';
   $export['kulturnaut_begivenheder_oplevsyddjurs_-jsonpath_parser_3-strtotime'] = $feeds_tamper;
+
+  $feeds_tamper = new stdClass();
+  $feeds_tamper->disabled = FALSE; /* Edit this to true to make a default feeds_tamper disabled initially */
+  $feeds_tamper->api_version = 2;
+  $feeds_tamper->id = 'kulturnaut_begivenheder_oplevsyddjurs_-jsonpath_parser_6-custom_term_hierarchy';
+  $feeds_tamper->importer = 'kulturnaut_begivenheder_oplevsyddjurs_';
+  $feeds_tamper->source = 'jsonpath_parser:6';
+  $feeds_tamper->plugin_id = 'custom_term_hierarchy';
+  $feeds_tamper->settings = array(
+    'vocab' => '15',
+    'separator' => '>>',
+  );
+  $feeds_tamper->weight = 2;
+  $feeds_tamper->description = '(Custom) Term Hierarchy';
+  $export['kulturnaut_begivenheder_oplevsyddjurs_-jsonpath_parser_6-custom_term_hierarchy'] = $feeds_tamper;
+
+  $feeds_tamper = new stdClass();
+  $feeds_tamper->disabled = FALSE; /* Edit this to true to make a default feeds_tamper disabled initially */
+  $feeds_tamper->api_version = 2;
+  $feeds_tamper->id = 'kulturnaut_begivenheder_oplevsyddjurs_-jsonpath_parser_6-rewrite';
+  $feeds_tamper->importer = 'kulturnaut_begivenheder_oplevsyddjurs_';
+  $feeds_tamper->source = 'jsonpath_parser:6';
+  $feeds_tamper->plugin_id = 'rewrite';
+  $feeds_tamper->settings = array(
+    'text' => '[jsonpath_parser:22]>>[jsonpath_parser:20]',
+  );
+  $feeds_tamper->weight = 0;
+  $feeds_tamper->description = 'Rewrite';
+  $export['kulturnaut_begivenheder_oplevsyddjurs_-jsonpath_parser_6-rewrite'] = $feeds_tamper;
 
   return $export;
 }
