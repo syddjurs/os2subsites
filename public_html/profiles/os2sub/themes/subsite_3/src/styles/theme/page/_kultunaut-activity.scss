@@ -24,6 +24,10 @@
 
   &.panels-layout--content-with-left-and-right-sidebar-top-footer {
 
+    .panel-separator {
+      height: $panel-separator-height;
+    }
+
     .panels-pane-region--content-first {
       margin-bottom: 0;
     }
@@ -55,10 +59,6 @@
         text-transform: uppercase;
 
         color: $text-color-light;
-      }
-
-      .panel-separator {
-        height: $panel-separator-height;
       }
 
       .pane-node-field-os2web-kulturnaut-slidesho {

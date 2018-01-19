@@ -30,6 +30,10 @@
 
   &.panels-layout--content-with-left-and-right-sidebar-top-footer {
 
+    .panel-separator {
+      height: $panel-separator-height;
+    }
+
     &.panels-display--standard {
 
       .panels-pane-region--top-container {
@@ -56,10 +60,6 @@
 
         box-shadow: $boxy-shadow-body-box-shadow;
         background-color: $boxy-shadow-body-background-color;
-
-        .panel-separator {
-          height: $panel-separator-height;
-        }
       }
     }
 
