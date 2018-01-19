@@ -28,20 +28,6 @@
     <!-- Begin - simple navigation -->
     <nav class="simple-navigation">
 
-      <!-- Begin - button list -->
-      <ul class="simple-navigation-list simple-navigation-list-left">
-
-        <!-- Begin - button -->
-        <li class="simple-navigation-button">
-          <a href="#" data-sidebar-toggle="left">
-            <span class="fa icon fa-bars"></span>
-          </a>
-        </li>
-        <!-- End - button -->
-
-      </ul>
-      <!-- End - button list -->
-
       <!-- Begin - logo -->
       <a href="<?php print $front_page; ?>" class="simple-navigation-logo-link">
         <?php if ($logo): ?>
@@ -82,7 +68,7 @@
             <?php if (!empty($page['header'])): ?>
               <?php print render($page['header']); ?>
             <?php endif; ?>
-            
+
             <nav class="toplinks">
                <?php print render($secondary_navigation); ?>
 
@@ -185,13 +171,13 @@
                       </div>
                     </div>
                   </div>
-                <?php else: ?>  
+                <?php else: ?>
                   <div class="searchbox">
                     <div class="searchbox-inner">
                       <div class="searchbox-title">
                         Hvad søger du?
                       </div>
-                      <?php print $search_box; ?>                      
+                      <?php print $search_box; ?>
                     </div>
                   </div>
                  <?php endif; ?>
@@ -200,9 +186,9 @@
           </section>
         </nav>
         <!-- End - main navigation -->
-        
 
-        
+
+
 
         <?php if (!empty($page['help'])): ?>
           <?php print render($page['help']); ?>
@@ -239,7 +225,7 @@
               <div class="os2sub-box-body">
                 <?php print render($page['content']); ?>
               </div>
-            </div>          
+            </div>
           </div>
 
         <?php else: ?>
@@ -258,7 +244,7 @@
       <div class=" <?php print $container_class; ?>">
       <footer class="footer">
         <div class="footer-inner">
-          
+
 	        <?php print render($page['footer']); ?>
 
 	        <?php if (!empty($theme_settings['contact_information'])): ?>
