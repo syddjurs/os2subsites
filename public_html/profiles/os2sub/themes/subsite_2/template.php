@@ -15,23 +15,11 @@ function subsite_2_preprocess_html(&$variables) {
   drupal_add_css($theme_path . '/dist/css/stylesheet.css', array(
     'group'      => CSS_THEME,
   ));
-  drupal_add_css($theme_path . '/dist/css/stylesheet-ie9-1.css', array(
-    'group'      => CSS_THEME,
-    'browsers'   => array('IE' => 'lte IE 9', '!IE' => FALSE),
-  ));
-  drupal_add_css($theme_path . '/dist/css/stylesheet-ie9-2.css', array(
-    'group'      => CSS_THEME,
-    'browsers'   => array('IE' => 'lte IE 9', '!IE' => FALSE),
-  ));
   drupal_add_js($theme_path . '/dist/js/modernizr.js', array(
     'group'      => JS_LIBRARY,
   ));
   drupal_add_js($theme_path . '/dist/js/app.js', array(
     'group'      => JS_THEME,
-  ));
-  drupal_add_js($theme_path . '/dist/js/ie9.js', array(
-    'group'      => JS_THEME,
-    'browsers'   => array('IE' => 'lte IE 9', '!IE' => FALSE),
   ));
 
   // Add out fonts from Google Fonts API.

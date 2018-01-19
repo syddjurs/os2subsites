@@ -1,26 +1,30 @@
 {
-    "name": "subsites.syddjurs.theme.2",
-    "version": "0.0.1",
-    "description": "Base Grunt setup.",
-    "main": "index.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "author": "Franz Skaaning <fs@bellcom.dk>",
-    "license": "MIT",
-    "dependencies": {
-        "grunt": "^0.4.5",
-        "grunt-autoprefixer": "~3.0.3",
-        "grunt-jscs": "~1.8.0",
-        "grunt-modernizr": "metaloha/grunt-modernizr#d6657bf302bd9288e25a513197fb0e30c64ce677",
-        "grunt-contrib-concat": "~0.5.1",
-        "grunt-contrib-compress": "~0.13.0",
-        "grunt-contrib-copy": "^0.8.0",
-        "grunt-contrib-csslint": "~0.5.0",
-        "grunt-contrib-clean": "~0.6.0",
-        "grunt-contrib-jshint": "~0.11.2",
-        "grunt-contrib-less": "^1.0.1",
-        "grunt-contrib-watch": "^0.6.1",
-        "grunt-sakugawa": "~0.*"
-    }
+  "private": true,
+  "scripts": {
+    "dev": "npm run development",
+    "development": "cross-env NODE_ENV=development gulp build",
+    "watch": "cross-env NODE_ENV=development gulp watch",
+    "prod": "npm run production",
+    "production": "cross-env NODE_ENV=production"
+  },
+  "dependencies": {
+    "babel-preset-es2015": "^6.24.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015-rollup": "^3.0.0",
+    "browser-sync": "^2.18.13",
+    "cross-env": "^5.1.1",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-babel": "^7.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-debug": "^3.1.0",
+    "gulp-less": "^3.3.2",
+    "gulp-modernizr": "^1.0.0-alpha",
+    "gulp-sourcemaps": "^2.6.1",
+    "run-sequence": "^2.2.0"
+  }
 }
