@@ -4,8 +4,14 @@
  * Implements theme_preprocess_html().
  */
 function subsite_2_preprocess_page(&$variables){
+  $current_theme = variable_get('theme_default','none');
+  $primary_navigation_name = variable_get('menu_main_links_source', 'main-menu');
+  $secondary_navigation_name = variable_get('menu_secondary_links_source', 'user-menu');
+  
   $search_box = drupal_render(drupal_get_form('search_form'));
   $variables['search_box'] = $search_box;
+
+  $variables['simple_navigation'] = _bellcom_generate_menu($primary_navigation_name, FALSE, 1);
 }
 
 function subsite_2_preprocess_html(&$variables) {

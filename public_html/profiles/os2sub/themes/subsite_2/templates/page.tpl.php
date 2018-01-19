@@ -212,6 +212,10 @@
 
         <a id="main-content"></a>
 
+        <div class="visible-xs simple-responsive-navigation">
+          <?php print render($simple_navigation); ?>
+        </div>
+
         <?php if (!panels_get_current_page_display()): ?>
           <div class="main-content-area">
             <div class="os2sub-box">

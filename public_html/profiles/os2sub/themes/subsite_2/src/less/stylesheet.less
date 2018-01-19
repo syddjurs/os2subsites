@@ -811,3 +811,39 @@ img.main-navigation-logo-image {
         }
     }
 }
+
+
+
+// Mobile - only
+@media @media-query-mobile-only {
+    
+    .header.row {
+        margin-bottom: 10px;
+    }
+    
+    .search-form {
+        
+        .form-group {
+            margin-bottom: 0;
+        }
+    }
+    
+    .simple-responsive-navigation {
+        margin-bottom: 10px;
+        
+        .menu {
+            
+            > li {
+                border-bottom: 1px solid #ddd;
+                
+                &:last-child {
+                    border-bottom: 0;
+                }
+                
+                > a {
+                    padding: 8px 10px;
+                }
+            }
+        }
+    }
+}
