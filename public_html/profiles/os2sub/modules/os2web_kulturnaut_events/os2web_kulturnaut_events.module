@@ -78,9 +78,10 @@ function os2web_kulturnaut_events_feeds_presave(FeedsSource $source, $entity, $i
       $excluded_names = array();
     }
     // Do not import excluded event types
-    if (in_array($item['jsonpath_parser:6'], $excluded_names)) {
+    if (array_intersect($item['jsonpath_parser:21'], $excluded_names)) {
       $entity->feeds_item->skip = TRUE;
-      drupal_set_message(t("Skipping event with '%tema' type", array('%tema' => $item['jsonpath_parser:6'])), 'warning');
+      drupal_set_message(t("Skipping event with '%tema / %subtema' type", array('%tema' => $item['jsonpath_parser:22'], '%subtema' => $item['jsonpath_parser:20'])), 'warning');
     }
   }
+  dpm($item);
 }
