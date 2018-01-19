@@ -676,7 +676,7 @@ function os2web_taxonomies_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 15,
+        'weight' => 8,
       ),
       'list' => array(
         'label' => 'above',
@@ -758,7 +758,7 @@ function os2web_taxonomies_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 14,
+        'weight' => 7,
       ),
       'list' => array(
         'label' => 'above',
@@ -842,7 +842,7 @@ function os2web_taxonomies_field_default_field_instances() {
           'image_style' => '',
         ),
         'type' => 'image',
-        'weight' => 9,
+        'weight' => 2,
       ),
       'list' => array(
         'label' => 'above',
@@ -949,7 +949,7 @@ function os2web_taxonomies_field_default_field_instances() {
           'image_style' => '',
         ),
         'type' => 'image',
-        'weight' => 8,
+        'weight' => 1,
       ),
       'list' => array(
         'label' => 'above',
@@ -1046,6 +1046,67 @@ function os2web_taxonomies_field_default_field_instances() {
   );
 
   // Exported field_instance:
+  // 'taxonomy_term-os2web_taxonomies_tax_places-field_os2web_kult_tema_feed_exc'.
+  $field_instances['taxonomy_term-os2web_taxonomies_tax_places-field_os2web_kult_tema_feed_exc'] = array(
+    'bundle' => 'os2web_taxonomies_tax_places',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 9,
+      ),
+      'list' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'list_advanced' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'list_simple' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'taxonomy_term',
+    'field_name' => 'field_os2web_kult_tema_feed_exc',
+    'label' => 'Exclude from feed import',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 1,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 14,
+    ),
+  );
+
+  // Exported field_instance:
   // 'taxonomy_term-os2web_taxonomies_tax_places-field_os2web_taxonomies_address'.
   $field_instances['taxonomy_term-os2web_taxonomies_tax_places-field_os2web_taxonomies_address'] = array(
     'bundle' => 'os2web_taxonomies_tax_places',
@@ -1058,7 +1119,7 @@ function os2web_taxonomies_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 12,
+        'weight' => 5,
       ),
       'list' => array(
         'label' => 'above',
@@ -1142,7 +1203,7 @@ function os2web_taxonomies_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 7,
+        'weight' => 13,
       ),
       'list' => array(
         'label' => 'above',
@@ -1201,7 +1262,7 @@ function os2web_taxonomies_field_default_field_instances() {
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 10,
+        'weight' => 3,
       ),
       'list' => array(
         'label' => 'above',
@@ -1262,7 +1323,7 @@ function os2web_taxonomies_field_default_field_instances() {
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_default',
-        'weight' => 11,
+        'weight' => 4,
       ),
       'list' => array(
         'label' => 'above',
@@ -1345,7 +1406,7 @@ function os2web_taxonomies_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 5,
+        'weight' => 12,
       ),
       'list' => array(
         'label' => 'above',
@@ -1403,7 +1464,7 @@ function os2web_taxonomies_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 3,
+        'weight' => 10,
       ),
       'list' => array(
         'label' => 'hidden',
@@ -1462,7 +1523,7 @@ function os2web_taxonomies_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 4,
+        'weight' => 11,
       ),
       'list' => array(
         'label' => 'above',
@@ -1521,7 +1582,7 @@ function os2web_taxonomies_field_default_field_instances() {
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_default',
-        'weight' => 13,
+        'weight' => 6,
       ),
       'list' => array(
         'label' => 'above',
@@ -2016,6 +2077,7 @@ function os2web_taxonomies_field_default_field_instances() {
   t('Banner text');
   t('Billede');
   t('Dagsordensvisning');
+  t('Exclude from feed import');
   t('GIS adresse');
   t('GIS id');
   t('GIS maplink');
