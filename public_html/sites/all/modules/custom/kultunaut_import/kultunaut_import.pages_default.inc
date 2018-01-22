@@ -505,7 +505,7 @@ function kultunaut_import_default_page_manager_handlers() {
     $pane->panel = 'sidebar-right';
     $pane->type = 'views_panes';
     $pane->subtype = 'add_to_calendar-panel_pane_1';
-    $pane->shown = TRUE;
+    $pane->shown = FALSE;
     $pane->access = array();
     $pane->configuration = array(
       'context' => array(
