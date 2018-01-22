@@ -56,6 +56,7 @@ features[field_group][] = group_tekst|taxonomy_term|os2web_taxonomies_tax_places
 features[field_instance][] = taxonomy_term-os2web_taxonomies_tax_comittee-field_os2web_taxonomies_dep_id
 features[field_instance][] = taxonomy_term-os2web_taxonomies_tax_comittee-field_os2web_taxonomies_dep_name
 features[field_instance][] = taxonomy_term-os2web_taxonomies_tax_comittee-field_os2web_taxonomies_sys_id
+features[field_instance][] = taxonomy_term-os2web_taxonomies_tax_editor_tag-field_os2web_kult_tema_feed_exc
 features[field_instance][] = taxonomy_term-os2web_taxonomies_tax_kle-field_os2web_taxonomies_cue_word
 features[field_instance][] = taxonomy_term-os2web_taxonomies_tax_kle-field_os2web_taxonomies_dis_con
 features[field_instance][] = taxonomy_term-os2web_taxonomies_tax_kle-field_os2web_taxonomies_dis_cont

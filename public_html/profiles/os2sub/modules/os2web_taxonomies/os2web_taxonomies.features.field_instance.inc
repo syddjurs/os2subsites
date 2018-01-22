@@ -192,6 +192,67 @@ function os2web_taxonomies_field_default_field_instances() {
   );
 
   // Exported field_instance:
+  // 'taxonomy_term-os2web_taxonomies_tax_editor_tag-field_os2web_kult_tema_feed_exc'.
+  $field_instances['taxonomy_term-os2web_taxonomies_tax_editor_tag-field_os2web_kult_tema_feed_exc'] = array(
+    'bundle' => 'os2web_taxonomies_tax_editor_tag',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 1,
+      ),
+      'list' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'list_advanced' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'list_simple' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'taxonomy_term',
+    'field_name' => 'field_os2web_kult_tema_feed_exc',
+    'label' => 'Exclude from feed import',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 1,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 42,
+    ),
+  );
+
+  // Exported field_instance:
   // 'taxonomy_term-os2web_taxonomies_tax_kle-field_os2web_taxonomies_cue_word'.
   $field_instances['taxonomy_term-os2web_taxonomies_tax_kle-field_os2web_taxonomies_cue_word'] = array(
     'bundle' => 'os2web_taxonomies_tax_kle',

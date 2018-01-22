@@ -11,6 +11,76 @@ function os2web_kulturnaut_events_field_default_field_instances() {
   $field_instances = array();
 
   // Exported field_instance:
+  // 'node-os2web_kulturnaut_knactivity-field_os2web_base_field_edi_tags'.
+  $field_instances['node-os2web_kulturnaut_knactivity-field_os2web_base_field_edi_tags'] = array(
+    'bundle' => 'os2web_kulturnaut_knactivity',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 21,
+      ),
+      'list' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'list_advanced' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'list_simple' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'search_result' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'spotbox' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_os2web_base_field_edi_tags',
+    'label' => 'Stikord',
+    'required' => FALSE,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'taxonomy',
+      'settings' => array(
+        'autocomplete_path' => 'taxonomy/autocomplete',
+        'size' => 60,
+      ),
+      'type' => 'taxonomy_autocomplete',
+      'weight' => 25,
+    ),
+  );
+
+  // Exported field_instance:
   // 'node-os2web_kulturnaut_knactivity-field_os2web_kulturnaut_date'.
   $field_instances['node-os2web_kulturnaut_knactivity-field_os2web_kulturnaut_date'] = array(
     'bundle' => 'os2web_kulturnaut_knactivity',
@@ -2961,6 +3031,7 @@ function os2web_kulturnaut_events_field_default_field_instances() {
   t('Sted arrang');
   t('Sted homepage');
   t('Sted navn');
+  t('Stikord');
   t('Stort billede');
   t('Supplerende tekst');
   t('Tema');

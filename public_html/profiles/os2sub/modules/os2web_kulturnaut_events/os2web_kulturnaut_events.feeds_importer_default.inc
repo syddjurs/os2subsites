@@ -49,6 +49,7 @@ function os2web_kulturnaut_events_feeds_importer_default() {
           'jsonpath_parser:12' => 'EventImage',
           'jsonpath_parser:14' => '',
           'jsonpath_parser:19' => 'EventTarget',
+          'jsonpath_parser:23' => 'EventTags',
         ),
         'debug' => array(
           'options' => array(
@@ -72,6 +73,7 @@ function os2web_kulturnaut_events_feeds_importer_default() {
             'jsonpath_parser:12' => 0,
             'jsonpath_parser:14' => 0,
             'jsonpath_parser:19' => 0,
+            'jsonpath_parser:23' => 0,
           ),
         ),
         'allow_override' => 0,
@@ -183,6 +185,12 @@ function os2web_kulturnaut_events_feeds_importer_default() {
             'source' => 'jsonpath_parser:19',
             'target' => 'field_os2web_kulturnaut_target',
             'unique' => FALSE,
+          ),
+          19 => array(
+            'source' => 'jsonpath_parser:23',
+            'target' => 'field_os2web_base_field_edi_tags',
+            'term_search' => '0',
+            'autocreate' => 1,
           ),
         ),
         'update_existing' => '2',

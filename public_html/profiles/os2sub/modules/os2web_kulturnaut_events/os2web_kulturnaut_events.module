@@ -72,6 +72,14 @@ function os2web_kulturnaut_events_feeds_presave(FeedsSource $source, $entity, $i
       $entity->feeds_item->skip = TRUE;
       drupal_set_message(t("Skipping event with '%venue' location", array('%venue' => $item['jsonpath_parser:2'])), 'warning');
     }
+        
+    // Get excluded taxonomy Stikord names
+      $excluded_names = _os2web_kulturnaut_events_get_excluded_names('os2web_taxonomies_tax_editor_tag');
+    // Do not import excluded event locations
+    if (array_intersect($item['jsonpath_parser:23'], $excluded_names)) {
+      $entity->feeds_item->skip = TRUE;
+      drupal_set_message(t("Skipping event with '%tag' tag(s)", array('%tag' => implode(', ', $item['jsonpath_parser:23']))), 'warning');
+    }
     
   }
 }
@@ -83,7 +91,7 @@ function os2web_kulturnaut_events_feeds_presave(FeedsSource $source, $entity, $i
  * @return array $excluded_names
  */
 function _os2web_kulturnaut_events_get_excluded_names($vocabulary_name) {
-dpm($vocabulary_name);
+
   $vocab = taxonomy_vocabulary_machine_name_load($vocabulary_name);
   $query = new EntityFieldQuery();
   $query
