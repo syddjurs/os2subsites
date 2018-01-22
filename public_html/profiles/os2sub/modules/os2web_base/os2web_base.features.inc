@@ -32,23 +32,14 @@ function os2web_base_image_default_styles() {
   $styles['cropped_400_x_220'] = array(
     'label' => 'Cropped - 400x220',
     'effects' => array(
-      2 => array(
-        'name' => 'epsacrop_crop',
+      8 => array(
+        'name' => 'epsacrop_crop_reuse',
         'data' => array(
-          'width' => 400,
-          'height' => 220,
-          'anchor' => 'center-center',
-          'disable_scale' => 0,
-          'jcrop_settings' => array(
-            'aspect_ratio' => '',
-            'bgcolor' => 'black',
-            'bgopacity' => 0.6,
-            'fallback' => 0,
-          ),
+          'jcrop_reuse' => 'os2sub_normal_imagesize',
         ),
         'weight' => -10,
       ),
-      1 => array(
+      7 => array(
         'name' => 'image_scale_and_crop',
         'data' => array(
           'width' => 400,
