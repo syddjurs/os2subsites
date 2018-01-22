@@ -57,30 +57,58 @@ function os2web_kulturnaut_events_cron() {
 function os2web_kulturnaut_events_feeds_presave(FeedsSource $source, $entity, $item) {
 
   if ($source->importer->id == 'kulturnaut_begivenheder_oplevsyddjurs_') {
-    // Get excluded taxonomy terms names
-    $vocabulary_name = 'os2web_kulturnaut_tema';
-    $vocab = taxonomy_vocabulary_machine_name_load($vocabulary_name);
-    $query = new EntityFieldQuery();
-    $query
-        ->entityCondition('entity_type', 'taxonomy_term')
-        ->entityCondition('bundle', $vocabulary_name)
-        ->propertyCondition('vid', $vocab->vid)
-        ->fieldCondition('field_os2web_kult_tema_feed_exc', 'value', '1', '=');
-    $results = $query->execute();
-    if (!empty($results['taxonomy_term'])) {
-      foreach ($results['taxonomy_term'] as $tid) {
-        $term = taxonomy_term_load($tid->tid);
-        $name = $term->name;
-        $excluded_names[] = $name;
-      }
-    }
-    else {
-      $excluded_names = array();
-    }
+    // Get excluded taxonomy Tema names
+      $excluded_names = _os2web_kulturnaut_events_get_excluded_names('os2web_kulturnaut_tema');
     // Do not import excluded event types
-    if (in_array($item['jsonpath_parser:6'], $excluded_names)) {
+    if (array_intersect($item['jsonpath_parser:21'], $excluded_names)) {
       $entity->feeds_item->skip = TRUE;
-      drupal_set_message(t("Skipping event with '%tema' type", array('%tema' => $item['jsonpath_parser:6'])), 'warning');
+      drupal_set_message(t("Skipping event with '%tema>>%subtema' tema", array('%tema' => $item['jsonpath_parser:22'], '%subtema' => $item['jsonpath_parser:20'])), 'warning');
+    }
+    
+    // Get excluded taxonomy Venue names
+      $excluded_names = _os2web_kulturnaut_events_get_excluded_names('os2web_taxonomies_tax_places');
+    // Do not import excluded event locations
+    if (in_array($item['jsonpath_parser:2'], $excluded_names)) {
+      $entity->feeds_item->skip = TRUE;
+      drupal_set_message(t("Skipping event with '%venue' location", array('%venue' => $item['jsonpath_parser:2'])), 'warning');
+    }
+        
+    // Get excluded taxonomy Stikord names
+      $excluded_names = _os2web_kulturnaut_events_get_excluded_names('os2web_taxonomies_tax_editor_tag');
+    // Do not import excluded event locations
+    if (array_intersect($item['jsonpath_parser:23'], $excluded_names)) {
+      $entity->feeds_item->skip = TRUE;
+      drupal_set_message(t("Skipping event with '%tag' tag(s)", array('%tag' => implode(', ', $item['jsonpath_parser:23']))), 'warning');
+    }
+    
+  }
+}
+
+/**
+ * Get excluded term names by vocabulary
+ * 
+ * @param string $vocabulary_name
+ * @return array $excluded_names
+ */
+function _os2web_kulturnaut_events_get_excluded_names($vocabulary_name) {
+
+  $vocab = taxonomy_vocabulary_machine_name_load($vocabulary_name);
+  $query = new EntityFieldQuery();
+  $query
+      ->entityCondition('entity_type', 'taxonomy_term')
+      ->entityCondition('bundle', $vocabulary_name)
+      ->propertyCondition('vid', $vocab->vid)
+      ->fieldCondition('field_os2web_kult_tema_feed_exc', 'value', '1', '=');
+  $results = $query->execute();
+  if (!empty($results['taxonomy_term'])) {
+    foreach ($results['taxonomy_term'] as $tid) {
+      $term = taxonomy_term_load($tid->tid);
+      $name = $term->name;
+      $excluded_names[] = $name;
     }
   }
+  else {
+    $excluded_names = array();
+  }
+  return $excluded_names;
 }

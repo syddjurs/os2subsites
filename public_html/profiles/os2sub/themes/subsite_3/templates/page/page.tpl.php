@@ -280,7 +280,7 @@
                         <?php if (!empty($theme_settings['layout']['footer']['description'])) : ?>
                             <!-- Begin - description -->
                             <div class="sectioned--sitemap__description">
-                                <h3 class="heading-h4"><?php print $theme_settings['layout']['footer']['description']; ?></h3>
+                                <h3 class="heading-h5"><?php print $theme_settings['layout']['footer']['description']; ?></h3>
                             </div>
                             <!-- End - description -->
                         <?php endif; ?>

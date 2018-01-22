@@ -39,14 +39,17 @@ function os2web_kulturnaut_events_feeds_importer_default() {
           'jsonpath_parser:13' => 'EventTime',
           'jsonpath_parser:4' => 'EventLongdescription',
           'jsonpath_parser:5' => 'EventFee',
-          'jsonpath_parser:6' => 'EventCategory',
+          'jsonpath_parser:20' => 'EventSubcategory',
+          'jsonpath_parser:22' => 'EventCategory',
+          'jsonpath_parser:6' => '',
+          'jsonpath_parser:21' => '',
           'jsonpath_parser:7' => 'EventTicket',
           'jsonpath_parser:8' => 'LocationAddress',
           'jsonpath_parser:10' => 'EventEnddate',
           'jsonpath_parser:12' => 'EventImage',
           'jsonpath_parser:14' => '',
-          'jsonpath_parser:18' => '',
           'jsonpath_parser:19' => 'EventTarget',
+          'jsonpath_parser:23' => 'EventTags',
         ),
         'debug' => array(
           'options' => array(
@@ -60,14 +63,17 @@ function os2web_kulturnaut_events_feeds_importer_default() {
             'jsonpath_parser:13' => 0,
             'jsonpath_parser:4' => 0,
             'jsonpath_parser:5' => 0,
+            'jsonpath_parser:20' => 0,
+            'jsonpath_parser:22' => 0,
             'jsonpath_parser:6' => 0,
+            'jsonpath_parser:21' => 0,
             'jsonpath_parser:7' => 0,
             'jsonpath_parser:8' => 0,
             'jsonpath_parser:10' => 0,
             'jsonpath_parser:12' => 0,
             'jsonpath_parser:14' => 0,
-            'jsonpath_parser:18' => 0,
             'jsonpath_parser:19' => 0,
+            'jsonpath_parser:23' => 0,
           ),
         ),
         'allow_override' => 0,
@@ -119,7 +125,7 @@ function os2web_kulturnaut_events_feeds_importer_default() {
           7 => array(
             'source' => 'jsonpath_parser:4',
             'target' => 'field_os2web_kulturnaut_longdesc',
-            'unique' => FALSE,
+            'format' => 'full_html',
           ),
           8 => array(
             'source' => 'jsonpath_parser:5',
@@ -127,46 +133,64 @@ function os2web_kulturnaut_events_feeds_importer_default() {
             'unique' => FALSE,
           ),
           9 => array(
+            'source' => 'jsonpath_parser:20',
+            'target' => 'field_os2web_kulturnaut_tema',
+            'term_search' => '0',
+            'autocreate' => 0,
+          ),
+          10 => array(
+            'source' => 'jsonpath_parser:22',
+            'target' => 'field_os2web_kulturnaut_tema',
+            'unique' => FALSE,
+          ),
+          11 => array(
             'source' => 'jsonpath_parser:6',
             'target' => 'field_os2web_kulturnaut_tema',
             'term_search' => '0',
-            'autocreate' => 1,
+            'autocreate' => 0,
           ),
-          10 => array(
+          12 => array(
+            'source' => 'jsonpath_parser:21',
+            'target' => 'field_os2web_kulturnaut_tema',
+            'term_search' => '0',
+            'autocreate' => 0,
+          ),
+          13 => array(
             'source' => 'jsonpath_parser:7',
             'target' => 'field_os2web_kulturnaut_url',
             'unique' => FALSE,
           ),
-          11 => array(
+          14 => array(
             'source' => 'jsonpath_parser:8',
             'target' => 'field_os2web_kulturnaut_saddress',
             'unique' => FALSE,
           ),
-          12 => array(
+          15 => array(
             'source' => 'jsonpath_parser:10',
             'target' => 'field_os2web_kulturnaut_date:end',
             'unique' => FALSE,
           ),
-          13 => array(
+          16 => array(
             'source' => 'jsonpath_parser:12',
             'target' => 'field_os2web_kulturnaut_slidesho:uri',
             'unique' => FALSE,
           ),
-          14 => array(
+          17 => array(
             'source' => 'jsonpath_parser:14',
             'target' => 'field_os2web_kulturnaut_source',
             'term_search' => '0',
             'autocreate' => 1,
           ),
-          15 => array(
-            'source' => 'jsonpath_parser:18',
-            'target' => 'url',
-            'unique' => FALSE,
-          ),
-          16 => array(
+          18 => array(
             'source' => 'jsonpath_parser:19',
             'target' => 'field_os2web_kulturnaut_target',
             'unique' => FALSE,
+          ),
+          19 => array(
+            'source' => 'jsonpath_parser:23',
+            'target' => 'field_os2web_base_field_edi_tags',
+            'term_search' => '0',
+            'autocreate' => 1,
           ),
         ),
         'update_existing' => '2',

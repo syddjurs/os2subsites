@@ -29,7 +29,7 @@
 
                 <!-- Begin - heading -->
                 <div class="entity-teaser__heading">
-                    <h3 class="entity-teaser__heading__title">
+                    <h3 class="entity-teaser__heading__title heading-h4">
                       <?php print $node->title; ?>
                     </h3>
                 </div>

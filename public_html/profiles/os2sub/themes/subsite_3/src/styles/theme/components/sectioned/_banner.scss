@@ -81,14 +81,31 @@
 // Tablet - and up
 @media #{$breakpoint-tablet-and-up} {
 
-  .sectioned--banner {
+  .front {
 
-    .sectioned__inner {
-      min-height: 400px;
+    .sectioned--banner {
+
+      .sectioned__inner {
+        min-height: 400px;
+      }
+
+      .field-name-field-banner-headline {
+        font-size: 70px;
+      }
     }
+  }
 
-    .field-name-field-banner-headline {
-      font-size: 70px;
+  .not-front {
+
+    .sectioned--banner {
+
+      .sectioned__inner {
+        min-height: 400px;
+      }
+
+      .field-name-field-banner-headline {
+        font-size: 56px;
+      }
     }
   }
 }

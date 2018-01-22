@@ -182,12 +182,28 @@ $carousel-overlay-color: #1b3e46;
     padding-right: 90px;
   }
 
-  .views-bootstrap-carousel-plugin-style {
+  .front {
 
-    .carousel-caption {
+    .views-bootstrap-carousel-plugin-style {
 
-      h1, h2, h3, h4, h5, h6 {
-        font-size: 50px;
+      .carousel-caption {
+
+        h1, h2, h3, h4, h5, h6 {
+          font-size: 50px;
+        }
+      }
+    }
+  }
+
+  .not-front {
+
+    .views-bootstrap-carousel-plugin-style {
+
+      .carousel-caption {
+
+        h1, h2, h3, h4, h5, h6 {
+          font-size: 40px;
+        }
       }
     }
   }
@@ -199,12 +215,28 @@ $carousel-overlay-color: #1b3e46;
 // Desktop - and up
 @media #{$breakpoint-desktop-and-up} {
 
-  .views-bootstrap-carousel-plugin-style {
+  .front {
 
-    .carousel-caption {
+    .views-bootstrap-carousel-plugin-style {
 
-      h1, h2, h3, h4, h5, h6 {
-        font-size: 70px;
+      .carousel-caption {
+
+        h1, h2, h3, h4, h5, h6 {
+          font-size: 70px;
+        }
+      }
+    }
+  }
+
+  .not-front {
+
+    .views-bootstrap-carousel-plugin-style {
+
+      .carousel-caption {
+
+        h1, h2, h3, h4, h5, h6 {
+          font-size: 56px;
+        }
       }
     }
   }
