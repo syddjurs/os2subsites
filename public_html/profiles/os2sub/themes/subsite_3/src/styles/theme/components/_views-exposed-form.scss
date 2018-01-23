@@ -168,9 +168,10 @@
       border: 2px solid #d8d8d8;
 
       &:after {
-        display: none;
-
         @extend .icon;
+
+        display: none !important; // Use !important, because @extend .icon contains a display: inline-block which overrides the display: none without !important. Sorry
+
         content: $fa-var-check;
 
         color: $text-color;
@@ -181,7 +182,7 @@
       &:checked {
 
         &:after {
-          display: block;
+          display: inline-block !important; // Use !important, because @extend .icon contains a display: inline-block which overrides the display: none without !important. Sorry
 
           color: #fff;
         }
