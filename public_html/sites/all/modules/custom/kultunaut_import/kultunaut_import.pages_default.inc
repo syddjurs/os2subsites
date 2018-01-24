@@ -480,7 +480,7 @@ function kultunaut_import_default_page_manager_handlers() {
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'vid' => '0',
+      'vid' => '15',
       'term_format' => 'term-links',
       'link' => 1,
       'term_delimiter' => ', ',

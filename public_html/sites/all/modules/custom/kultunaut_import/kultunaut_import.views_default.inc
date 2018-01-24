@@ -43,7 +43,7 @@ function kultunaut_import_views_default_views() {
   $handler->display->display_options['pager']['options']['tags']['last'] = 'sidste »';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Relationship: Content: Venue (field_os2web_kulturnaut_venue) */
+  /* Relationship: Content: Sted (field_os2web_kulturnaut_venue) */
   $handler->display->display_options['relationships']['field_os2web_kulturnaut_venue_tid']['id'] = 'field_os2web_kulturnaut_venue_tid';
   $handler->display->display_options['relationships']['field_os2web_kulturnaut_venue_tid']['table'] = 'field_data_field_os2web_kulturnaut_venue';
   $handler->display->display_options['relationships']['field_os2web_kulturnaut_venue_tid']['field'] = 'field_os2web_kulturnaut_venue_tid';
@@ -142,11 +142,10 @@ function kultunaut_import_views_default_views() {
   $handler->display->display_options['fields']['field_os2web_kulturnaut_scity']['table'] = 'field_data_field_os2web_kulturnaut_scity';
   $handler->display->display_options['fields']['field_os2web_kulturnaut_scity']['field'] = 'field_os2web_kulturnaut_scity';
   $handler->display->display_options['fields']['field_os2web_kulturnaut_scity']['exclude'] = TRUE;
-  /* Field: Content: Venue */
+  /* Field: Content: Sted */
   $handler->display->display_options['fields']['field_os2web_kulturnaut_venue']['id'] = 'field_os2web_kulturnaut_venue';
   $handler->display->display_options['fields']['field_os2web_kulturnaut_venue']['table'] = 'field_data_field_os2web_kulturnaut_venue';
   $handler->display->display_options['fields']['field_os2web_kulturnaut_venue']['field'] = 'field_os2web_kulturnaut_venue';
-  $handler->display->display_options['fields']['field_os2web_kulturnaut_venue']['label'] = 'Sted';
   $handler->display->display_options['fields']['field_os2web_kulturnaut_venue']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_os2web_kulturnaut_venue']['type'] = 'taxonomy_term_reference_plain';
   /* Field: Global: Custom text */
@@ -676,7 +675,7 @@ function kultunaut_import_views_default_views() {
   $handler->display->display_options['row_options']['image'] = 'field_os2web_base_field_banner';
   $handler->display->display_options['row_options']['title'] = 'field_banner_headline';
   $handler->display->display_options['row_options']['description'] = 'field_banner_text';
-  /* Relationship: Content: Venue (field_os2web_kulturnaut_venue) */
+  /* Relationship: Content: Sted (field_os2web_kulturnaut_venue) */
   $handler->display->display_options['relationships']['field_os2web_kulturnaut_venue_tid']['id'] = 'field_os2web_kulturnaut_venue_tid';
   $handler->display->display_options['relationships']['field_os2web_kulturnaut_venue_tid']['table'] = 'field_data_field_os2web_kulturnaut_venue';
   $handler->display->display_options['relationships']['field_os2web_kulturnaut_venue_tid']['field'] = 'field_os2web_kulturnaut_venue_tid';
@@ -706,29 +705,6 @@ function kultunaut_import_views_default_views() {
   $handler->display->display_options['fields']['field_os2web_base_field_banner_1']['delta_limit'] = '1';
   $handler->display->display_options['fields']['field_os2web_base_field_banner_1']['delta_offset'] = '0';
   $handler->display->display_options['fields']['field_os2web_base_field_banner_1']['separator'] = ' ';
-  /* Field: Field: Banner overskrift */
-  $handler->display->display_options['fields']['field_banner_headline_1']['id'] = 'field_banner_headline_1';
-  $handler->display->display_options['fields']['field_banner_headline_1']['table'] = 'field_data_field_banner_headline';
-  $handler->display->display_options['fields']['field_banner_headline_1']['field'] = 'field_banner_headline';
-  $handler->display->display_options['fields']['field_banner_headline_1']['relationship'] = 'parent';
-  $handler->display->display_options['fields']['field_banner_headline_1']['label'] = '';
-  $handler->display->display_options['fields']['field_banner_headline_1']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_banner_headline_1']['element_type'] = 'span';
-  $handler->display->display_options['fields']['field_banner_headline_1']['element_class'] = 'headline';
-  $handler->display->display_options['fields']['field_banner_headline_1']['element_label_type'] = '0';
-  $handler->display->display_options['fields']['field_banner_headline_1']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_banner_headline_1']['element_default_classes'] = FALSE;
-  /* Field: Field: Banner text */
-  $handler->display->display_options['fields']['field_banner_text_1']['id'] = 'field_banner_text_1';
-  $handler->display->display_options['fields']['field_banner_text_1']['table'] = 'field_data_field_banner_text';
-  $handler->display->display_options['fields']['field_banner_text_1']['field'] = 'field_banner_text';
-  $handler->display->display_options['fields']['field_banner_text_1']['relationship'] = 'parent';
-  $handler->display->display_options['fields']['field_banner_text_1']['label'] = '';
-  $handler->display->display_options['fields']['field_banner_text_1']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_banner_text_1']['element_type'] = '0';
-  $handler->display->display_options['fields']['field_banner_text_1']['element_label_type'] = '0';
-  $handler->display->display_options['fields']['field_banner_text_1']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_banner_text_1']['element_default_classes'] = FALSE;
   /* Field: Taxonomy term: Banner */
   $handler->display->display_options['fields']['field_os2web_base_field_banner']['id'] = 'field_os2web_base_field_banner';
   $handler->display->display_options['fields']['field_os2web_base_field_banner']['table'] = 'field_data_field_os2web_base_field_banner';
@@ -758,7 +734,7 @@ function kultunaut_import_views_default_views() {
   $handler->display->display_options['fields']['field_banner_headline']['element_class'] = 'headline';
   $handler->display->display_options['fields']['field_banner_headline']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_banner_headline']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['field_banner_headline']['empty'] = '[field_banner_headline_1]';
+  $handler->display->display_options['fields']['field_banner_headline']['hide_empty'] = TRUE;
   /* Field: Field: Banner text */
   $handler->display->display_options['fields']['field_banner_text']['id'] = 'field_banner_text';
   $handler->display->display_options['fields']['field_banner_text']['table'] = 'field_data_field_banner_text';
@@ -769,7 +745,7 @@ function kultunaut_import_views_default_views() {
   $handler->display->display_options['fields']['field_banner_text']['element_label_type'] = '0';
   $handler->display->display_options['fields']['field_banner_text']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_banner_text']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['field_banner_text']['empty'] = '[field_banner_text_1]';
+  $handler->display->display_options['fields']['field_banner_text']['hide_empty'] = TRUE;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -823,8 +799,6 @@ function kultunaut_import_views_default_views() {
     t('term fra field_os2web_kulturnaut_venue'),
     t('Overordnet element'),
     t('[field_os2web_base_field_banner_1]'),
-    t('[field_banner_headline_1]'),
-    t('[field_banner_text_1]'),
     t('Alle'),
     t('Content pane'),
     t('View panes'),
