@@ -266,7 +266,7 @@ function kultunaut_import_default_page_manager_handlers() {
       'delta_offset' => '0',
       'delta_reversed' => 0,
       'formatter_settings' => array(
-        'image_style' => 'os2sub_small_imagesize',
+        'image_style' => '',
         'image_link' => '',
       ),
       'context' => 'argument_entity_id:node_1',
