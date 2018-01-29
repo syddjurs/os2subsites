@@ -13,9 +13,7 @@
         <!-- End - logo -->
 
         <!-- Begin - navigation -->
-        <nav class="slinky-menu" role="navigation">
-            <?php print render($menu_slinky__primary); ?>
-        </nav>
+        <?php print render($sidebar_primary_navigation); ?>
         <!-- End - navigation -->
 
     </aside>
