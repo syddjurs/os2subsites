@@ -29,6 +29,9 @@ function subsite_3_preprocess_html(&$variables) {
   // Add fonts from Google fonts API.
   drupal_add_css('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600',
     ['type' => 'external']);
+
+  // Load jQuery UI
+  drupal_add_library('system', 'ui');
 }
 
 /**
