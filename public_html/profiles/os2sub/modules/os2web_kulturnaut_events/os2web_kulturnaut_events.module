@@ -92,14 +92,17 @@ function os2web_kulturnaut_events_feeds_presave(FeedsSource $source, $entity, $i
   elseif (!empty(explode('til ca.', $event_time_feed)[1])) {
     $end_time_str = trim(explode('til ca.', $event_time_feed)[1]);
   }
+  elseif (!empty(explode('kursusdage kl.', $event_time_feed)[1])) {
+    $end_time_str = trim(explode('kursusdage kl.', $event_time_feed)[1]);
+  }
   else {
-    $end_time_str = trim(str_replace('kl.', '', $event_time_feed));
+    $end_time_str = trim(str_ireplace('Fra kl.', '', $event_time_feed));
+    $end_time_str = trim(str_ireplace('kl.', '', $event_time_feed));
   }
 
   if (strlen($end_time_str) == '2') {
     $end_time_str = $end_time_str . ':00';
-  }
-  elseif (strlen($end_time_str) == '5') {
+  }elseif (strlen($end_time_str) == '5') {
     $end_time_str = str_replace('.', ':', $end_time_str);
   }
 //Add seconds
