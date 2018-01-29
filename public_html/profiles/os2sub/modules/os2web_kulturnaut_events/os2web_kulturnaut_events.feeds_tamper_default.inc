@@ -13,12 +13,26 @@ function os2web_kulturnaut_events_feeds_tamper_default() {
   $feeds_tamper = new stdClass();
   $feeds_tamper->disabled = FALSE; /* Edit this to true to make a default feeds_tamper disabled initially */
   $feeds_tamper->api_version = 2;
+  $feeds_tamper->id = 'kulturnaut_begivenheder_oplevsyddjurs_-jsonpath_parser_10-rewrite';
+  $feeds_tamper->importer = 'kulturnaut_begivenheder_oplevsyddjurs_';
+  $feeds_tamper->source = 'jsonpath_parser:10';
+  $feeds_tamper->plugin_id = 'rewrite';
+  $feeds_tamper->settings = array(
+    'text' => '[jsonpath_parser:10] [jsonpath_parser:16]',
+  );
+  $feeds_tamper->weight = 1;
+  $feeds_tamper->description = 'Rewrite';
+  $export['kulturnaut_begivenheder_oplevsyddjurs_-jsonpath_parser_10-rewrite'] = $feeds_tamper;
+
+  $feeds_tamper = new stdClass();
+  $feeds_tamper->disabled = FALSE; /* Edit this to true to make a default feeds_tamper disabled initially */
+  $feeds_tamper->api_version = 2;
   $feeds_tamper->id = 'kulturnaut_begivenheder_oplevsyddjurs_-jsonpath_parser_10-strtotime';
   $feeds_tamper->importer = 'kulturnaut_begivenheder_oplevsyddjurs_';
   $feeds_tamper->source = 'jsonpath_parser:10';
   $feeds_tamper->plugin_id = 'strtotime';
   $feeds_tamper->settings = array();
-  $feeds_tamper->weight = 0;
+  $feeds_tamper->weight = 2;
   $feeds_tamper->description = 'String to Unix timestamp';
   $export['kulturnaut_begivenheder_oplevsyddjurs_-jsonpath_parser_10-strtotime'] = $feeds_tamper;
 
