@@ -82,6 +82,33 @@ function os2web_kulturnaut_events_feeds_presave(FeedsSource $source, $entity, $i
     }
     
   }
+  
+  //Parse event end time from human friendly string format
+  $event_time_feed = $item['jsonpath_parser:13'];
+
+  if (!empty(explode('-', $event_time_feed)[1])) {
+    $end_time_str = trim(explode('-', $event_time_feed)[1]);
+  }
+  elseif (!empty(explode('til ca.', $event_time_feed)[1])) {
+    $end_time_str = trim(explode('til ca.', $event_time_feed)[1]);
+  }
+  else {
+    $end_time_str = trim(str_replace('kl.', '', $event_time_feed));
+  }
+
+  if (strlen($end_time_str) == '2') {
+    $end_time_str = $end_time_str . ':00';
+  }
+  elseif (strlen($end_time_str) == '5') {
+    $end_time_str = str_replace('.', ':', $end_time_str);
+  }
+//Add seconds
+  $end_time_str = $end_time_str . ':00';
+
+//If parsing successful use it
+  if (\DateTime::createFromFormat('H:i:s', $end_time_str)) {
+    $entity->field_os2web_kulturnaut_date['und'][0]['value2'] = trim(substr_replace($entity->field_os2web_kulturnaut_date['und'][0]['value2'], $end_time_str, -8));
+  }
 }
 
 /**
