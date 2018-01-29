@@ -76,7 +76,75 @@ function os2web_kulturnaut_events_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'taxonomy_autocomplete',
-      'weight' => 25,
+      'weight' => 11,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-os2web_kulturnaut_knactivity-field_os2web_base_field_promote'.
+  $field_instances['node-os2web_kulturnaut_knactivity-field_os2web_base_field_promote'] = array(
+    'bundle' => 'os2web_kulturnaut_knactivity',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 22,
+      ),
+      'list' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'list_advanced' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'list_simple' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'search_result' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'spotbox' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_os2web_base_field_promote',
+    'label' => 'Forfrem til',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 17,
     ),
   );
 
@@ -272,8 +340,8 @@ function os2web_kulturnaut_events_field_default_field_instances() {
         'text_parts' => array(),
         'year_range' => '-3:+3',
       ),
-      'type' => 'date_select',
-      'weight' => 1,
+      'type' => 'date_popup',
+      'weight' => 2,
     ),
   );
 
@@ -388,7 +456,7 @@ function os2web_kulturnaut_events_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => 3,
+      'weight' => 4,
     ),
   );
 
@@ -481,7 +549,7 @@ function os2web_kulturnaut_events_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 23,
+      'weight' => 22,
     ),
   );
 
@@ -581,7 +649,7 @@ function os2web_kulturnaut_events_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 22,
+      'weight' => 30,
     ),
   );
 
@@ -681,7 +749,7 @@ function os2web_kulturnaut_events_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 21,
+      'weight' => 29,
     ),
   );
 
@@ -790,7 +858,7 @@ function os2web_kulturnaut_events_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => 2,
+      'weight' => 5,
     ),
   );
 
@@ -890,7 +958,7 @@ function os2web_kulturnaut_events_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 6,
+      'weight' => 7,
     ),
   );
 
@@ -985,7 +1053,7 @@ function os2web_kulturnaut_events_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'node_reference_autocomplete',
-      'weight' => 9,
+      'weight' => 20,
     ),
   );
 
@@ -1085,7 +1153,7 @@ function os2web_kulturnaut_events_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 14,
+      'weight' => 25,
     ),
   );
 
@@ -1185,7 +1253,7 @@ function os2web_kulturnaut_events_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 15,
+      'weight' => 23,
     ),
   );
 
@@ -1285,7 +1353,7 @@ function os2web_kulturnaut_events_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 16,
+      'weight' => 27,
     ),
   );
 
@@ -1385,7 +1453,7 @@ function os2web_kulturnaut_events_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 19,
+      'weight' => 28,
     ),
   );
 
@@ -1496,55 +1564,38 @@ function os2web_kulturnaut_events_field_default_field_instances() {
     'label' => 'Slideshow',
     'required' => 0,
     'settings' => array(
-      'alt_field' => 0,
-      'default_image' => 1080,
+      'alt_field' => 1,
+      'default_image' => 0,
       'epsacrop' => array(
         'styles' => array(
+          'cropped_400_x_220' => 0,
+          'cropped_400_x_320' => 0,
+          'oplevbanner' => 0,
           'os2sub_220x130' => 0,
           'os2sub_300x175' => 0,
-          'os2sub_banner' => 'os2sub_banner',
-          'os2sub_full_width' => 'os2sub_full_width',
-          'os2sub_normal_imagesize' => 0,
-          'os2sub_page_slideshow' => 0,
-          'os2sub_spotbox_image' => 0,
-          'os2sub_spotbox_mini_image' => 'os2sub_spotbox_mini_image',
-          'os2sub_spotbox_single_image' => 'os2sub_spotbox_single_image',
-          'os2sub_teaser_mini_image' => 'os2sub_teaser_mini_image',
+          'os2sub_banner' => 0,
+          'os2sub_normal_imagesize' => 'os2sub_normal_imagesize',
+          'os2sub_small_imagesize' => 0,
           'os2web_spotbox_image' => 0,
         ),
       ),
-      'file_directory' => '',
+      'file_directory' => 'kultunautfiler',
       'file_extensions' => 'png gif jpg jpeg',
       'max_filesize' => '',
       'max_resolution' => '',
       'min_resolution' => '',
-      'title_field' => 0,
+      'title_field' => 1,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'media',
+      'module' => 'image',
       'settings' => array(
-        'allowed_schemes' => array(
-          'public' => 'public',
-          'youtube' => 0,
-        ),
-        'allowed_types' => array(
-          'audio' => 0,
-          'document' => 0,
-          'image' => 'image',
-          'video' => 0,
-        ),
-        'browser_plugins' => array(
-          'media_default--media_browser_1' => 0,
-          'media_default--media_browser_my_files' => 0,
-          'media_internet' => 0,
-          'upload' => 0,
-        ),
+        'preview_image_style' => 'thumbnail',
         'progress_indicator' => 'throbber',
       ),
-      'type' => 'media_generic',
-      'weight' => 8,
+      'type' => 'image_image',
+      'weight' => 9,
     ),
   );
 
@@ -1645,7 +1696,7 @@ function os2web_kulturnaut_events_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 18,
+      'weight' => 24,
     ),
   );
 
@@ -1719,7 +1770,7 @@ function os2web_kulturnaut_events_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'taxonomy_autocomplete',
-      'weight' => 12,
+      'weight' => 21,
     ),
   );
 
@@ -1819,7 +1870,7 @@ function os2web_kulturnaut_events_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 17,
+      'weight' => 26,
     ),
   );
 
@@ -1906,9 +1957,32 @@ function os2web_kulturnaut_events_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_os2web_kulturnaut_target',
-    'label' => 'Maalgruppe',
+    'label' => 'Målgruppe',
     'required' => 0,
     'settings' => array(
+      'better_formats' => array(
+        'allowed_formats' => array(
+          'full_html' => 'full_html',
+          'plain_text' => 'plain_text',
+        ),
+        'allowed_formats_toggle' => 0,
+        'default_order_toggle' => 0,
+        'default_order_wrapper' => array(
+          'formats' => array(
+            'full_html' => array(
+              'weight' => -10,
+            ),
+            'plain_text' => array(
+              'weight' => -9,
+            ),
+          ),
+        ),
+      ),
+      'linkit' => array(
+        'button_text' => 'Søg',
+        'enable' => 0,
+        'profile' => '',
+      ),
       'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
@@ -1919,7 +1993,7 @@ function os2web_kulturnaut_events_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 4,
+      'weight' => 6,
     ),
   );
 
@@ -2000,7 +2074,7 @@ function os2web_kulturnaut_events_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_os2web_kulturnaut_tema',
-    'label' => 'Tema',
+    'label' => 'Kategori',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -2012,7 +2086,7 @@ function os2web_kulturnaut_events_field_default_field_instances() {
         'content_taxonomy_opt_groups' => 0,
       ),
       'type' => 'options_select',
-      'weight' => 11,
+      'weight' => 9,
     ),
   );
 
@@ -2112,7 +2186,7 @@ function os2web_kulturnaut_events_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 20,
+      'weight' => 18,
     ),
   );
 
@@ -2214,7 +2288,7 @@ function os2web_kulturnaut_events_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 5,
+      'weight' => 19,
     ),
   );
 
@@ -2300,7 +2374,7 @@ function os2web_kulturnaut_events_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_os2web_kulturnaut_venue',
-    'label' => 'Venue',
+    'label' => 'Sted',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -2312,7 +2386,7 @@ function os2web_kulturnaut_events_field_default_field_instances() {
         'content_taxonomy_opt_groups' => 0,
       ),
       'type' => 'options_select',
-      'weight' => 10,
+      'weight' => 8,
     ),
   );
 
@@ -3017,14 +3091,17 @@ function os2web_kulturnaut_events_field_default_field_instances() {
   t('Dato');
   t('Event ID');
   t('Exclude from feed import');
+  t('Forfrem til');
   t('Genre');
   t('Hjemmeside');
   t('Image');
+  t('Kategori');
   t('Lang Beskrivelse');
-  t('Maalgruppe');
+  t('Målgruppe');
   t('Pris');
   t('Related activities');
   t('Slideshow');
+  t('Sted');
   t('Sted Adresse');
   t('Sted Postby');
   t('Sted Postnr');
@@ -3036,7 +3113,6 @@ function os2web_kulturnaut_events_field_default_field_instances() {
   t('Supplerende tekst');
   t('Tema');
   t('Tid');
-  t('Venue');
   t('Vis på siden Steder');
 
   return $field_instances;
