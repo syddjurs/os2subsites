@@ -64,20 +64,17 @@ function os2web_kulturnaut_events_strongarm() {
       'list_simple' => array(
         'custom_settings' => TRUE,
       ),
-      'print' => array(
-        'custom_settings' => FALSE,
-      ),
     ),
     'extra_fields' => array(
       'form' => array(
         'metatags' => array(
-          'weight' => '13',
+          'weight' => '14',
         ),
         'title' => array(
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '7',
+          'weight' => '8',
         ),
       ),
       'display' => array(),
