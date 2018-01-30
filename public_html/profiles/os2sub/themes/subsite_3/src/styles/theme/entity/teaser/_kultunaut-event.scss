@@ -12,6 +12,12 @@
 
 $entity-teaser-date-margin-top: 35px;
 
+// Responsive
+$xs-entity-teaser-kultunaut-event-heading-min-height: 50px;
+$sm-entity-teaser-kultunaut-event-heading-min-height: 50px;
+$md-entity-teaser-kultunaut-event-heading-min-height: 50px;
+$lg-entity-teaser-kultunaut-event-heading-min-height: 50px;
+
 // --------------------------------------------------
 // Mixins
 // --------------------------------------------------
@@ -47,6 +53,7 @@ $entity-teaser-date-margin-top: 35px;
   }
 
   .entity-teaser__heading {
+    min-height: $xs-entity-teaser-kultunaut-event-heading-min-height;
 
     + .flexy-list {
       margin-top: 10px;
@@ -155,16 +162,40 @@ $entity-teaser-date-margin-top: 35px;
 @media #{$breakpoint-tablet-and-up} {}
 
 // Tablet - only
-@media #{$breakpoint-tablet-only} {}
+@media #{$breakpoint-tablet-only} {
+
+  .entity-teaser--os2web-kulturnaut-knactivity {
+
+    .entity-teaser__heading {
+      min-height: $sm-entity-teaser-kultunaut-event-heading-min-height;
+    }
+  }
+}
 
 // Desktop - and up
 @media #{$breakpoint-desktop-and-up} {}
 
 // Desktop - only
-@media #{$breakpoint-desktop-only} {}
+@media #{$breakpoint-desktop-only} {
+
+  .entity-teaser--os2web-kulturnaut-knactivity {
+
+    .entity-teaser__heading {
+      min-height: $md-entity-teaser-kultunaut-event-heading-min-height;
+    }
+  }
+}
 
 // Large desktop - and up
-@media #{$breakpoint-large-desktop-and-up} {}
+@media #{$breakpoint-large-desktop-and-up} {
+
+  .entity-teaser--os2web-kulturnaut-knactivity {
+
+    .entity-teaser__heading {
+      min-height: $lg-entity-teaser-kultunaut-event-heading-min-height;
+    }
+  }
+}
 
 // Print
 @media print {}
