@@ -9,6 +9,7 @@
     "node_modules/sidr/dist/jquery.sidr.js",
     "node_modules/jquery-slinky/dist/jquery.slinky.js",
     "node_modules/pace-progress/pace.js",
+    "src/javascripts/bs3-sidebar.js",
     "src/javascripts/flexy-navigation.js",
     "src/javascripts/app.js"
   ],

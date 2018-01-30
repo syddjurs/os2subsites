@@ -5,10 +5,6 @@ jQuery(function($) {
     flexy_header.init();
 
     // Sidr
-    $('.slinky-menu')
-        .find('ul, li, a')
-        .removeClass();
-
     $('.sidr-toggle--right').sidr({
         name: 'sidr-main',
         side: 'right',
@@ -17,11 +13,8 @@ jQuery(function($) {
         source: '.sidr-source-provider'
     });
 
-    // Slinky
-    $('.sidr .slinky-menu').slinky({
-        title: true,
-        label: ''
-    });
+    // Enable BS3 sidebar
+    bs3Sidebar.init();
 
     // Enable / disable Bootstrap tooltips, based upon touch events
     if(Modernizr.touchevents) {
