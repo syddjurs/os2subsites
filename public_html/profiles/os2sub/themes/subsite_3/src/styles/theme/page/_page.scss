@@ -1,0 +1,72 @@
+// |--------------------------------------------------------------------------
+// | Page
+// |--------------------------------------------------------------------------
+// |
+// | This file contains styles for the following:
+// | - .node-type-os2web-kulturnaut-knactivity
+// |
+
+// --------------------------------------------------
+// Variables
+// --------------------------------------------------
+
+// --------------------------------------------------
+// Mixins
+// --------------------------------------------------
+
+@mixin kultunaut-activity-mixin() {}
+
+// --------------------------------------------------
+// Styling
+// --------------------------------------------------
+
+// --------------------------------------------------
+// Variants
+// --------------------------------------------------
+
+// --------------------------------------------------
+// Responsive
+// --------------------------------------------------
+
+// Mobile - and up
+@media #{$breakpoint-mobile-and-up} {}
+
+// Mobile - only
+@media #{$breakpoint-mobile-only} {}
+
+// Tablet - and up
+@media #{$breakpoint-tablet-and-up} {}
+
+// Tablet - only
+@media #{$breakpoint-tablet-only} {}
+
+// Desktop - and up
+@media #{$breakpoint-desktop-and-up} {}
+
+// Desktop - only
+@media #{$breakpoint-desktop-only} {}
+
+// Large desktop - and up
+@media #{$breakpoint-large-desktop-and-up} {}
+
+// Print
+@media print {
+
+  .flexy-header {
+    display: none;
+  }
+
+  .sectioned--sitemap {
+    display: none;
+  }
+
+  .layout__footer {
+    display: none;
+  }
+}
+
+// Touch
+.touchevents {}
+
+// No touch
+.no-touchevents {}

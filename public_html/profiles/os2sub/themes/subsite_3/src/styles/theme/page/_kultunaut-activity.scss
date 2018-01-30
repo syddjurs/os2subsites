@@ -161,7 +161,35 @@
 }
 
 // Print
-@media print {}
+@media print {
+
+  .node-type-os2web-kulturnaut-knactivity {
+
+    .panels-pane-region--top {
+      display: none;
+    }
+
+    .panels-pane-region--content-secondary {
+      border: 0;
+      padding: 0;
+
+      .pane-os12sub-social-share-os2sub-social-share {
+        display: none;
+      }
+    }
+
+    .panels-pane-region--content-tertiary {
+      display: none;
+    }
+
+    .panels-pane-region--sidebar-right {
+
+      .pane-node-field-os2web-kulturnaut-slidesho {
+        display: none;
+      }
+    }
+  }
+}
 
 // Touch
 .touchevents {}
