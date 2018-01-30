@@ -245,3 +245,17 @@
   -o-transition: all 0.25s ease-in-out;
   transition: all 0.25s ease-in-out;
 }
+
+.sidebar-navigation {
+
+  .flexy-navigation__item--primary,
+  .flexy-navigation__item--secondary,
+  .flexy-navigation__item--tertiary,
+  .flexy-navigation__item--quaternary {
+
+    &,
+    &:hover {
+      background-color: transparent;
+    }
+  }
+}
