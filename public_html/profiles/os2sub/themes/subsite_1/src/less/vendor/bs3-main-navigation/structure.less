@@ -162,42 +162,46 @@
   .main-navigation-list {
 
     > .main-navigation-list-dropdown {
-
-      > a {
-        display: block;
-        background-color: @bs3-main-navigation-nav-link-background-color;
-        font-family: @bs3-main-navigation-nav-link-font-family;
-        font-weight: @bs3-main-navigation-nav-link-font-weight;
-        font-size: @bs3-main-navigation-nav-link-font-size;
-        color: @bs3-main-navigation-nav-link-font-color;
-        padding: @bs3-main-navigation-nav-link-top-bottom-padding @bs3-main-navigation-nav-link-left-right-padding;
-        text-decoration: @bs3-main-navigation-nav-link-text-decoration;
-        .transition(all @bs3-designer-transition-time);
-      }
-
-      &:hover {
-
+      
+      &,
+      > .menu {
+  
         > a {
-          background-color: @bs3-main-navigation-nav-link-hover-background-color;
-          color: @bs3-main-navigation-nav-link-hover-font-color;
-          text-decoration: @bs3-main-navigation-nav-link-hover-text-decoration;
+          display: block;
+          background-color: @bs3-main-navigation-nav-link-background-color;
+          font-family: @bs3-main-navigation-nav-link-font-family;
+          font-weight: @bs3-main-navigation-nav-link-font-weight;
+          font-size: @bs3-main-navigation-nav-link-font-size;
+          color: @bs3-main-navigation-nav-link-font-color;
+          padding: @bs3-main-navigation-nav-link-top-bottom-padding @bs3-main-navigation-nav-link-left-right-padding;
+          text-decoration: @bs3-main-navigation-nav-link-text-decoration;
+          .transition(all @bs3-designer-transition-time);
         }
-      }
-
-      &.active {
-
-        > a {
-          background-color: @bs3-main-navigation-nav-link-active-background-color;
-          color: @bs3-main-navigation-nav-link-active-font-color;
-          text-decoration: @bs3-main-navigation-nav-link-active-text-decoration;
-        }
-
+  
         &:hover {
-
+    
           > a {
-            background-color: @bs3-main-navigation-nav-link-active-hover-background-color;
-            color: @bs3-main-navigation-nav-link-active-hover-font-color;
-            text-decoration: @bs3-main-navigation-nav-link-active-hover-text-decoration;
+            background-color: @bs3-main-navigation-nav-link-hover-background-color;
+            color: @bs3-main-navigation-nav-link-hover-font-color;
+            text-decoration: @bs3-main-navigation-nav-link-hover-text-decoration;
+          }
+        }
+  
+        &.active {
+    
+          > a {
+            background-color: @bs3-main-navigation-nav-link-active-background-color;
+            color: @bs3-main-navigation-nav-link-active-font-color;
+            text-decoration: @bs3-main-navigation-nav-link-active-text-decoration;
+          }
+    
+          &:hover {
+      
+            > a {
+              background-color: @bs3-main-navigation-nav-link-active-hover-background-color;
+              color: @bs3-main-navigation-nav-link-active-hover-font-color;
+              text-decoration: @bs3-main-navigation-nav-link-active-hover-text-decoration;
+            }
           }
         }
       }
@@ -271,7 +275,7 @@
 
   .main-navigation-list {
 
-    .main-navigation-list-dropdown {
+    .main-navigation-list-dropdown0 {
 
       > .main-navigation-list-dropdown-menu {
         display: block;
@@ -300,10 +304,14 @@
       }
     }
 
-    > .main-navigation-list-dropdown {
-
-      > .main-navigation-list-dropdown-menu {
-        min-width: 100%;
+    &,
+    > .menu {
+  
+      > .main-navigation-list-dropdown {
+    
+        > .main-navigation-list-dropdown-menu {
+          min-width: 100%;
+        }
       }
     }
   }
@@ -314,21 +322,25 @@
 
   .main-navigation-list {
 
-    > .main-navigation-list-dropdown {
-
-      > .main-navigation-list-dropdown-menu {
-        top: 100%;
-        .border-bottom-radius(@bs3-main-navigation-nav-dropdown-menu-border-radius);
-
-        .main-navigation-list-dropdown {
-
-          .main-navigation-list-dropdown-menu {
-            top: 0;
-            left: 100%;
-            margin-top: floor( ( 0 - (@bs3-main-navigation-nav-dropdown-menu-inner-spacing + @bs3-main-navigation-nav-dropdown-menu-border-width)) );
-            border-top-right-radius: @bs3-main-navigation-nav-dropdown-menu-border-radius;
-            border-bottom-right-radius: @bs3-main-navigation-nav-dropdown-menu-border-radius;
-            border-bottom-left-radius: @bs3-main-navigation-nav-dropdown-menu-border-radius;
+    &,
+    > .menu {
+  
+      > .main-navigation-list-dropdown {
+    
+        > .main-navigation-list-dropdown-menu {
+          top: 100%;
+          .border-bottom-radius(@bs3-main-navigation-nav-dropdown-menu-border-radius);
+      
+          .main-navigation-list-dropdown {
+        
+            .main-navigation-list-dropdown-menu {
+              top: 0;
+              left: 100%;
+              margin-top: floor( ( 0 - (@bs3-main-navigation-nav-dropdown-menu-inner-spacing + @bs3-main-navigation-nav-dropdown-menu-border-width)) );
+              border-top-right-radius: @bs3-main-navigation-nav-dropdown-menu-border-radius;
+              border-bottom-right-radius: @bs3-main-navigation-nav-dropdown-menu-border-radius;
+              border-bottom-left-radius: @bs3-main-navigation-nav-dropdown-menu-border-radius;
+            }
           }
         }
       }
@@ -408,48 +420,52 @@
       }
     }
 
-    > .main-navigation-list-dropdown {
-
-      > a {
-
-        &:before,
-        &:after {
-          left: 50%;
-          bottom: @bs3-main-navigation-nav-dropdown-arrow-bottom-start-position;
-          width: @bs3-main-navigation-nav-dropdown-arrow-size;
-          background-color: @bs3-main-navigation-nav-dropdown-arrow-color;
-        }
-      }
-
-      &:hover {
-
+    &,
+    > .menu {
+  
+      > .main-navigation-list-dropdown {
+    
         > a {
-
+      
           &:before,
           &:after {
-            bottom: @bs3-main-navigation-nav-dropdown-arrow-bottom-end-position;
-            background-color: @bs3-main-navigation-nav-dropdown-hover-arrow-color;
+            left: 50%;
+            bottom: @bs3-main-navigation-nav-dropdown-arrow-bottom-start-position;
+            width: @bs3-main-navigation-nav-dropdown-arrow-size;
+            background-color: @bs3-main-navigation-nav-dropdown-arrow-color;
           }
         }
-      }
-
-      &.active {
-
-        > a {
-
-          &:before,
-          &:after {
-            background-color: @bs3-main-navigation-nav-dropdown-active-arrow-color;
-          }
-        }
-
+    
         &:hover {
-
+      
           > a {
-
+        
             &:before,
             &:after {
-              background-color: @bs3-main-navigation-nav-dropdown-active-hover-arrow-color;
+              bottom: @bs3-main-navigation-nav-dropdown-arrow-bottom-end-position;
+              background-color: @bs3-main-navigation-nav-dropdown-hover-arrow-color;
+            }
+          }
+        }
+    
+        &.active {
+      
+          > a {
+        
+            &:before,
+            &:after {
+              background-color: @bs3-main-navigation-nav-dropdown-active-arrow-color;
+            }
+          }
+      
+          &:hover {
+        
+            > a {
+          
+              &:before,
+              &:after {
+                background-color: @bs3-main-navigation-nav-dropdown-active-hover-arrow-color;
+              }
             }
           }
         }
