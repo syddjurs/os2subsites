@@ -1107,6 +1107,62 @@ function os2web_taxonomies_field_default_field_instances() {
   );
 
   // Exported field_instance:
+  // 'taxonomy_term-os2web_taxonomies_tax_places-field_os2web_base_field_promote'.
+  $field_instances['taxonomy_term-os2web_taxonomies_tax_places-field_os2web_base_field_promote'] = array(
+    'bundle' => 'os2web_taxonomies_tax_places',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 15,
+      ),
+      'list' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'list_advanced' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'list_simple' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'taxonomy_term',
+    'field_name' => 'field_os2web_base_field_promote',
+    'label' => 'Forfrem til',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 19,
+    ),
+  );
+
+  // Exported field_instance:
   // 'taxonomy_term-os2web_taxonomies_tax_places-field_os2web_kult_tema_feed_exc'.
   $field_instances['taxonomy_term-os2web_taxonomies_tax_places-field_os2web_kult_tema_feed_exc'] = array(
     'bundle' => 'os2web_taxonomies_tax_places',
@@ -1163,7 +1219,63 @@ function os2web_taxonomies_field_default_field_instances() {
         'display_label' => 1,
       ),
       'type' => 'options_onoff',
-      'weight' => 14,
+      'weight' => 21,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'taxonomy_term-os2web_taxonomies_tax_places-field_os2web_kulturnaut_tema'.
+  $field_instances['taxonomy_term-os2web_taxonomies_tax_places-field_os2web_kulturnaut_tema'] = array(
+    'bundle' => 'os2web_taxonomies_tax_places',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Vis arrangementer fra følgende kategorier',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 14,
+      ),
+      'list' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'list_advanced' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'list_simple' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'taxonomy_term',
+    'field_name' => 'field_os2web_kulturnaut_tema',
+    'label' => 'Kategorier (er)',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 20,
     ),
   );
 
@@ -2139,6 +2251,7 @@ function os2web_taxonomies_field_default_field_instances() {
   t('Billede');
   t('Dagsordensvisning');
   t('Exclude from feed import');
+  t('Forfrem til');
   t('GIS adresse');
   t('GIS id');
   t('GIS maplink');
@@ -2148,11 +2261,13 @@ function os2web_taxonomies_field_default_field_instances() {
   t('GIS website');
   t('Indholdstekst');
   t('KLE stikord');
+  t('Kategorier (er)');
   t('Lovhenvisninger');
   t('Priority');
   t('Systemid');
   t('Søgeord');
   t('Udgået');
+  t('Vis arrangementer fra følgende kategorier');
   t('Visning');
 
   return $field_instances;

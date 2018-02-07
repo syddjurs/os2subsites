@@ -35,7 +35,7 @@ function kultunaut_import_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'page_manager_term_view_disabled';
-  $strongarm->value = TRUE;
+  $strongarm->value = FALSE;
   $export['page_manager_term_view_disabled'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -230,14 +230,14 @@ function kultunaut_import_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'taxonomy_menu_rebuild_os2web_taxonomies_tax_places';
-  $strongarm->value = 1;
+  $strongarm->value = 0;
   $export['taxonomy_menu_rebuild_os2web_taxonomies_tax_places'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'taxonomy_menu_sync_os2web_taxonomies_tax_places';
-  $strongarm->value = 1;
+  $strongarm->value = 0;
   $export['taxonomy_menu_sync_os2web_taxonomies_tax_places'] = $strongarm;
 
   $strongarm = new stdClass();

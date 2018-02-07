@@ -142,6 +142,7 @@ function os2sub_uses_and_tools_user_default_permissions() {
     'name' => 'add media from remote sources',
     'roles' => array(
       'Editor' => 'Editor',
+      'authenticated user' => 'authenticated user',
       'subsiteadmin' => 'subsiteadmin',
     ),
     'module' => 'media_internet',
@@ -263,6 +264,7 @@ function os2sub_uses_and_tools_user_default_permissions() {
     'name' => 'administer menu',
     'roles' => array(
       'Editor' => 'Editor',
+      'Webmaster' => 'Webmaster',
       'subsiteadmin' => 'subsiteadmin',
     ),
     'module' => 'menu',
@@ -397,6 +399,8 @@ function os2sub_uses_and_tools_user_default_permissions() {
   $permissions['administer taxonomy'] = array(
     'name' => 'administer taxonomy',
     'roles' => array(
+      'Administrator' => 'Administrator',
+      'Webmaster' => 'Webmaster',
       'subsiteadmin' => 'subsiteadmin',
     ),
     'module' => 'taxonomy',
@@ -508,6 +512,7 @@ function os2sub_uses_and_tools_user_default_permissions() {
     'name' => 'create files',
     'roles' => array(
       'Editor' => 'Editor',
+      'authenticated user' => 'authenticated user',
       'subsiteadmin' => 'subsiteadmin',
     ),
     'module' => 'file_entity',
@@ -1159,6 +1164,7 @@ function os2sub_uses_and_tools_user_default_permissions() {
     'name' => 'edit meta tags',
     'roles' => array(
       'Editor' => 'Editor',
+      'authenticated user' => 'authenticated user',
       'subsiteadmin' => 'subsiteadmin',
     ),
     'module' => 'metatag',
@@ -1411,6 +1417,7 @@ function os2sub_uses_and_tools_user_default_permissions() {
     'name' => 'epsacrop create crops',
     'roles' => array(
       'Editor' => 'Editor',
+      'authenticated user' => 'authenticated user',
       'subsiteadmin' => 'subsiteadmin',
     ),
     'module' => 'epsacrop',
@@ -1431,6 +1438,7 @@ function os2sub_uses_and_tools_user_default_permissions() {
     'name' => 'epsacrop edit all crops',
     'roles' => array(
       'Editor' => 'Editor',
+      'authenticated user' => 'authenticated user',
       'subsiteadmin' => 'subsiteadmin',
     ),
     'module' => 'epsacrop',
@@ -1525,6 +1533,7 @@ function os2sub_uses_and_tools_user_default_permissions() {
     'name' => 'use text format full_html',
     'roles' => array(
       'Editor' => 'Editor',
+      'authenticated user' => 'authenticated user',
       'subsiteadmin' => 'subsiteadmin',
     ),
     'module' => 'filter',

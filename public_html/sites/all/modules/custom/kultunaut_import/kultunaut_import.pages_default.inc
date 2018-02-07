@@ -413,23 +413,16 @@ function kultunaut_import_default_page_manager_handlers() {
     $display->content['new-7fa6fe85-f801-4961-a038-56d954427937'] = $pane;
     $display->panels['sidebar-right'][4] = 'new-7fa6fe85-f801-4961-a038-56d954427937';
     $pane = new stdClass();
-    $pane->pid = 'new-2d7d8409-50de-4c43-89a4-73dc3dfd8265';
+    $pane->pid = 'new-b71cf656-901c-41bf-b707-70b9c091f541';
     $pane->panel = 'sidebar-right';
-    $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_os2web_kulturnaut_url';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'oplevsyddjurs_term_all_nodes_filtered-panel_pane_2';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'label' => 'title',
-      'formatter' => 'text_default',
-      'delta_limit' => 0,
-      'delta_offset' => '0',
-      'delta_reversed' => FALSE,
-      'formatter_settings' => array(),
-      'context' => 'argument_entity_id:node_1',
-      'override_title' => 0,
-      'override_title_text' => '',
-      'override_title_heading' => 'h2',
+      'context' => array(
+        0 => 'argument_entity_id:node_1',
+      ),
     );
     $pane->cache = array();
     $pane->style = array(
@@ -439,9 +432,9 @@ function kultunaut_import_default_page_manager_handlers() {
     $pane->extras = array();
     $pane->position = 5;
     $pane->locks = array();
-    $pane->uuid = '2d7d8409-50de-4c43-89a4-73dc3dfd8265';
-    $display->content['new-2d7d8409-50de-4c43-89a4-73dc3dfd8265'] = $pane;
-    $display->panels['sidebar-right'][5] = 'new-2d7d8409-50de-4c43-89a4-73dc3dfd8265';
+    $pane->uuid = 'b71cf656-901c-41bf-b707-70b9c091f541';
+    $display->content['new-b71cf656-901c-41bf-b707-70b9c091f541'] = $pane;
+    $display->panels['sidebar-right'][5] = 'new-b71cf656-901c-41bf-b707-70b9c091f541';
     $pane = new stdClass();
     $pane->pid = 'new-47d3f590-0a0e-40ea-b61d-e8a5899c7899';
     $pane->panel = 'sidebar-right';
@@ -558,7 +551,7 @@ function kultunaut_import_default_page_manager_handlers() {
   $handler->task = 'term_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -26;
+  $handler->weight = -25;
   $handler->conf = array(
     'title' => 'Steder',
     'no_blocks' => 0,
@@ -730,7 +723,16 @@ function kultunaut_import_default_page_manager_handlers() {
     'css_id' => '',
     'css' => '',
     'contexts' => array(),
-    'relationships' => array(),
+    'relationships' => array(
+      0 => array(
+        'identifier' => 'Ord i ordforråd fra Ord i ordforråd (på Ord i ordforråd: Kategori [field_os2web_kulturnaut_tema])',
+        'keyword' => 'taxonomy_term',
+        'name' => 'entity_from_field:field_os2web_kulturnaut_tema-taxonomy_term-taxonomy_term',
+        'delta' => '0',
+        'context' => 'argument_term_1',
+        'id' => 1,
+      ),
+    ),
     'name' => 'variant-1',
     'access' => array(
       'plugins' => array(
@@ -1714,10 +1716,10 @@ function kultunaut_import_default_page_manager_pages() {
     $display->content['new-08d4400d-0810-4624-a68c-8ad6661967ac'] = $pane;
     $display->panels['dark_section_3_1'][0] = 'new-08d4400d-0810-4624-a68c-8ad6661967ac';
     $pane = new stdClass();
-    $pane->pid = 'new-a87ddc21-d002-4a0e-8779-88986b940c63';
+    $pane->pid = 'new-7d12120b-54fe-4ebc-9fb4-d8c6d561e2b8';
     $pane->panel = 'dark_section_3_2';
     $pane->type = 'views_panes';
-    $pane->subtype = 'oplevsyddjurs_promoted_frontpage-panel_pane_1';
+    $pane->subtype = 'oplev_forfremmet_til_forside-panel_pane_1';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array();
@@ -1725,13 +1727,17 @@ function kultunaut_import_default_page_manager_pages() {
     $pane->style = array(
       'settings' => NULL,
     );
-    $pane->css = array();
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => '',
+      'template_suggestion' => 'plain',
+    );
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = 'a87ddc21-d002-4a0e-8779-88986b940c63';
-    $display->content['new-a87ddc21-d002-4a0e-8779-88986b940c63'] = $pane;
-    $display->panels['dark_section_3_2'][0] = 'new-a87ddc21-d002-4a0e-8779-88986b940c63';
+    $pane->uuid = '7d12120b-54fe-4ebc-9fb4-d8c6d561e2b8';
+    $display->content['new-7d12120b-54fe-4ebc-9fb4-d8c6d561e2b8'] = $pane;
+    $display->panels['dark_section_3_2'][0] = 'new-7d12120b-54fe-4ebc-9fb4-d8c6d561e2b8';
     $pane = new stdClass();
     $pane->pid = 'new-dbba442a-8e78-4866-8484-70a5a233ae63';
     $pane->panel = 'light_section_1';

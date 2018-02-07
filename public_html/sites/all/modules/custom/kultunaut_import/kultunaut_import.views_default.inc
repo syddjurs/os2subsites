@@ -288,11 +288,10 @@ function kultunaut_import_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Sort criterion: Content: Post date */
-  $handler->display->display_options['sorts']['created']['id'] = 'created';
-  $handler->display->display_options['sorts']['created']['table'] = 'node';
-  $handler->display->display_options['sorts']['created']['field'] = 'created';
-  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Sort criterion: Content: Dato -  start date (field_os2web_kulturnaut_date) */
+  $handler->display->display_options['sorts']['field_os2web_kulturnaut_date_value']['id'] = 'field_os2web_kulturnaut_date_value';
+  $handler->display->display_options['sorts']['field_os2web_kulturnaut_date_value']['table'] = 'field_data_field_os2web_kulturnaut_date';
+  $handler->display->display_options['sorts']['field_os2web_kulturnaut_date_value']['field'] = 'field_os2web_kulturnaut_date_value';
   /* Contextual filter: Content: Has taxonomy term ID */
   $handler->display->display_options['arguments']['tid']['id'] = 'tid';
   $handler->display->display_options['arguments']['tid']['table'] = 'taxonomy_index';
@@ -329,6 +328,13 @@ function kultunaut_import_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'os2web_kulturnaut_knactivity' => 'os2web_kulturnaut_knactivity',
   );
+  /* Filter criterion: Content: Dato -  start date (field_os2web_kulturnaut_date) */
+  $handler->display->display_options['filters']['field_os2web_kulturnaut_date_value']['id'] = 'field_os2web_kulturnaut_date_value';
+  $handler->display->display_options['filters']['field_os2web_kulturnaut_date_value']['table'] = 'field_data_field_os2web_kulturnaut_date';
+  $handler->display->display_options['filters']['field_os2web_kulturnaut_date_value']['field'] = 'field_os2web_kulturnaut_date_value';
+  $handler->display->display_options['filters']['field_os2web_kulturnaut_date_value']['operator'] = '>';
+  $handler->display->display_options['filters']['field_os2web_kulturnaut_date_value']['form_type'] = 'date_text';
+  $handler->display->display_options['filters']['field_os2web_kulturnaut_date_value']['default_date'] = 'today';
 
   /* Display: Content pane */
   $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
