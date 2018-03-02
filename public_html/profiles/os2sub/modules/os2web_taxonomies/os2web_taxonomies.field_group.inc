@@ -113,11 +113,11 @@ function os2web_taxonomies_field_group_info() {
     'children' => array(
       0 => 'field_os2web_taxonomies_city',
       1 => 'field_os2web_taxonomies_name',
-      2 => 'field_os2web_taxonomies_sys_id',
-      3 => 'field_os2web_taxonomies_type',
-      4 => 'field_os2web_taxonomies_maplink',
-      5 => 'field_os2web_taxonomies_address',
-      6 => 'field_os2web_taxonomies_website',
+      2 => 'field_os2web_taxonomies_type',
+      3 => 'field_os2web_taxonomies_maplink',
+      4 => 'field_os2web_taxonomies_address',
+      5 => 'field_os2web_taxonomies_website',
+      6 => 'field_os2web_taxonomies_sys_uid',
     ),
     'format_type' => 'htab',
     'format_settings' => array(
