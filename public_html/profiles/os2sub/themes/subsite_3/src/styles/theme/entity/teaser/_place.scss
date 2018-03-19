@@ -56,6 +56,8 @@ $entity-teaser-place-body-padding-left-right: floor( ( $grid-gutter-width / 2 ) 
   }
 
   .entity-teaser__body {
+    flex-grow: 1;
+
     padding: $entity-teaser-place-body-padding-top-bottom $entity-teaser-place-body-padding-left-right;
   }
 }
