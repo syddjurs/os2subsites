@@ -129,6 +129,14 @@ $lg-flexy-header-static-row-second-height: 60px;
   }
 }
 
+.flexy-header__link {
+  padding: 5px;
+
+  &, &:hover, &:focus {
+    color: $text-color;
+  }
+}
+
 .flexy-header__sidebar-toggle {
   border: 0;
   background-color: transparent;
@@ -146,7 +154,12 @@ $lg-flexy-header-static-row-second-height: 60px;
 @media #{$breakpoint-mobile-and-up} {}
 
 // Mobile - only
-@media #{$breakpoint-mobile-only} {}
+@media #{$breakpoint-mobile-only} {
+
+  .flexy-header__social-icons {
+    margin-right: 10px;
+  }
+}
 
 // Tablet - and up
 @media #{$breakpoint-tablet-and-up} {}

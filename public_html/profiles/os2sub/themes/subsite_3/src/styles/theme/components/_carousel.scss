@@ -160,12 +160,7 @@ $carousel-overlay-color: #1b3e46;
 @media #{$breakpoint-mobile-and-up} {}
 
 // Mobile - only
-@media #{$breakpoint-mobile-only} {
-
-  .carousel-control {
-    display: none;
-  }
-}
+@media #{$breakpoint-mobile-only} {}
 
 // Tablet - and up
 @media #{$breakpoint-tablet-and-up} {
@@ -175,6 +170,10 @@ $carousel-overlay-color: #1b3e46;
     .container {
       max-width: calc(100% - 30%);
     }
+  }
+
+  .carousel-control {
+    font-size: 140px;
   }
 
   .carousel-indicators {
