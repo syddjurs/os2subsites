@@ -30,10 +30,6 @@ function subsite_3_preprocess_html(&$variables) {
   drupal_add_css('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600',
     ['type' => 'external']);
 
-  // Add Font Awesome
-  drupal_add_css('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css',
-    ['type' => 'external']);
-
   // Load jQuery UI
   drupal_add_library('system', 'ui');
 }
