@@ -11,7 +11,6 @@ include_once 'os2web_kulturnaut_events.features.inc';
  * Implements hook_cron().
  */
 function os2web_kulturnaut_events_cron() {
-  /**
   watchdog('cron', 'Node unpublish task started');
 
   $type = 'os2web_kulturnaut_knactivity';
@@ -47,7 +46,6 @@ function os2web_kulturnaut_events_cron() {
     watchdog('cron', 'No publeshed nodes found');
   }
   watchdog('cron', 'Node unpublish task finished');
-*/
 }
 
 /**
@@ -64,7 +62,7 @@ function os2web_kulturnaut_events_feeds_presave(FeedsSource $source, $entity, $i
       $entity->feeds_item->skip = TRUE;
       drupal_set_message(t("Skipping event with '%tema>>%subtema' tema", array('%tema' => $item['jsonpath_parser:22'], '%subtema' => $item['jsonpath_parser:20'])), 'warning');
     }
-    
+
     // Get excluded taxonomy Venue names
       $excluded_names = _os2web_kulturnaut_events_get_excluded_names('os2web_taxonomies_tax_places');
     // Do not import excluded event locations
@@ -72,7 +70,7 @@ function os2web_kulturnaut_events_feeds_presave(FeedsSource $source, $entity, $i
       $entity->feeds_item->skip = TRUE;
       drupal_set_message(t("Skipping event with '%venue' location", array('%venue' => $item['jsonpath_parser:2'])), 'warning');
     }
-        
+
     // Get excluded taxonomy Stikord names
       $excluded_names = _os2web_kulturnaut_events_get_excluded_names('os2web_taxonomies_tax_editor_tag');
     // Do not import excluded event locations
@@ -80,9 +78,9 @@ function os2web_kulturnaut_events_feeds_presave(FeedsSource $source, $entity, $i
       $entity->feeds_item->skip = TRUE;
       drupal_set_message(t("Skipping event with '%tag' tag(s)", array('%tag' => implode(', ', $item['jsonpath_parser:23']))), 'warning');
     }
-    
+
   }
-  
+
   //Parse event end time from human friendly string format
   $event_time_feed = $item['jsonpath_parser:13'];
 
@@ -116,7 +114,7 @@ function os2web_kulturnaut_events_feeds_presave(FeedsSource $source, $entity, $i
 
 /**
  * Get excluded term names by vocabulary
- * 
+ *
  * @param string $vocabulary_name
  * @return array $excluded_names
  */
