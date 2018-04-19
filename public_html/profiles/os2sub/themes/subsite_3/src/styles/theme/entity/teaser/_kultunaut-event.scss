@@ -39,10 +39,11 @@ $lg-entity-teaser-kultunaut-event-heading-min-height: 50px;
     top: $entity-teaser-body-padding-left-right;
     right: $entity-teaser-body-padding-left-right;
 
-    border-color: #fff;
+    background-color: rgba($entity-teaser-background-color, .7);
+
+    border: 0;
 
     .field {
-      color: #fff;
     }
   }
 
@@ -91,7 +92,44 @@ $lg-entity-teaser-kultunaut-event-heading-min-height: 50px;
   }
 
   .entity-teaser__body {
-    background-color: rgba($entity-teaser-background-color, .8);
+    background-color: rgba($entity-teaser-background-color, .7);
+  }
+
+
+
+  &:hover {
+
+    .entity-teaser__date {
+      background-color: rgba(0, 0, 0, .4);
+
+      border-color: #fff;
+
+      .field {
+        color: #fff;
+      }
+    }
+
+    .entity-teaser__heading__title {
+      color: #fff;
+    }
+
+    .entity-teaser__body {
+      background-color: transparent;
+      background-image: linear-gradient(
+                      rgba(0, 0, 0, 0),
+                      rgba(0, 0, 0, .27),
+                      rgba(0, 0, 0, .34),
+                      rgba(0, 0, 0, .45),
+                      rgba(0, 0, 0, .5)
+      );
+    }
+
+    .entity-teaser__top-level-venue {
+      color: #fff;
+    }
+    .entity-teaser__current-venue {
+      color: #fff;
+    }
   }
 }
 
