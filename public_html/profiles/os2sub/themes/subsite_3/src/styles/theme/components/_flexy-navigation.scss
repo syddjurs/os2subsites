@@ -191,7 +191,10 @@ $flexy-navigation-dropdown-menu-toggle-width: 60px;
   }
 
   &:hover {
-    background-color: $brand-primary;
+
+    > a {
+      background-color: $brand-primary;
+    }
 
     .flexy-navigation__item__dropdown-menu {
       background-color: $brand-primary;
@@ -211,7 +214,10 @@ $flexy-navigation-dropdown-menu-toggle-width: 60px;
   }
 
   &:hover {
-    background-color: $brand-secondary;
+
+    > a {
+      background-color: $brand-secondary;
+    }
 
     .flexy-navigation__item__dropdown-menu {
       background-color: $brand-secondary;
@@ -231,7 +237,10 @@ $flexy-navigation-dropdown-menu-toggle-width: 60px;
   }
 
   &:hover {
-    background-color: $brand-tertiary;
+
+    > a {
+      background-color: $brand-tertiary;
+    }
 
     .flexy-navigation__item__dropdown-menu {
       background-color: $brand-tertiary;
@@ -251,7 +260,10 @@ $flexy-navigation-dropdown-menu-toggle-width: 60px;
   }
 
   &:hover {
-    background-color: $brand-quaternary;
+
+    > a {
+      background-color: $brand-quaternary;
+    }
 
     .flexy-navigation__item__dropdown-menu {
       background-color: $brand-quaternary;
