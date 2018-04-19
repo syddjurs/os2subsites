@@ -17,7 +17,6 @@ else if ($item->item_type == 'taxonomy_term') {
     $image_url = file_create_url(image_style_url($image_style, $uri));
   }
 }
-
 ?>
 <div class="search-results__list__item">
   <a href="<?php print url($url['path']); ?>" class="element-wrapper-link">
@@ -39,11 +38,11 @@ else if ($item->item_type == 'taxonomy_term') {
           <div class="entity-list-advanced__search-snippet">
 
             <?php if ($snippet) : ?>
-              <p><?php print $snippet; ?></p>
+              <p><?php print strip_tags($snippet, '<br>'); ?></p>
             <?php endif; ?>
 
             <?php if ($info) : ?>
-              <p><?php print $info; ?></p>
+              <p><?php print strip_tags($info, '<br>'); ?></p>
             <?php endif; ?>
 
           </div>
