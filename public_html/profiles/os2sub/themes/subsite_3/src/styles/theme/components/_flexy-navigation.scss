@@ -286,7 +286,18 @@ $flexy-navigation-dropdown-menu-toggle-width: 60px;
 @media #{$breakpoint-tablet-and-up} {}
 
 // Tablet - only
-@media #{$breakpoint-tablet-only} {}
+@media #{$breakpoint-tablet-only} {
+
+  .flexy-navigation__item {
+
+    > a {
+      padding-left: 5px;
+      padding-right: 5px;
+
+      font-size: $font-size-base;
+    }
+  }
+}
 
 // Desktop - and up
 @media #{$breakpoint-desktop-and-up} {}

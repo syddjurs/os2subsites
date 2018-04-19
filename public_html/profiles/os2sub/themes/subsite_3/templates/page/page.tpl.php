@@ -36,7 +36,7 @@
                     <div class="flexy-spacer"></div>
 
                     <!-- Begin - navigation -->
-                    <nav class="flexy-header__secondary-navigation hidden-xs hidden-sm" role="navigation">
+                    <nav class="flexy-header__secondary-navigation hidden-xs" role="navigation">
                       <?php print render($menu_header__row_first__secondary); ?>
                     </nav>
                     <!-- End - navigation -->
@@ -159,7 +159,7 @@
                     <!-- End - social icons -->
 
                     <!-- Begin - search -->
-                    <div class="flexy-header__form hidden-xs hidden-sm">
+                    <div class="flexy-header__form hidden-xs">
                         <div class="form-inline">
                             <?php if (!empty($page['search'])): ?>
                                 <?php print render($page['search']); ?>
@@ -171,13 +171,13 @@
                     <!-- End - search -->
 
                     <!-- Begin - search link -->
-                    <a href="/oplev" class="flexy-header__link visible-xs visible-sm">
+                    <a href="/oplev" class="flexy-header__link visible-xs">
                         <span class="icon fa fa-search"></span>
                     </a>
                     <!-- End - search link -->
 
                     <!-- Begin - responsive toggle -->
-                    <button class="flexy-header__sidebar-toggle sidr-toggle--right visible-xs visible-sm">
+                    <button class="flexy-header__sidebar-toggle sidr-toggle--right visible-xs">
                         <span class="icon fa fa-bars"></span>
                     </button>
                     <!-- End - responsive toggle -->
@@ -185,7 +185,7 @@
                 </div>
             </div>
         </div>
-        <div class="flexy-header__row flexy-header__row--second hidden-xs hidden-sm">
+        <div class="flexy-header__row flexy-header__row--second hidden-xs">
             <div class="container">
 
                 <!-- Begin - navigation -->
