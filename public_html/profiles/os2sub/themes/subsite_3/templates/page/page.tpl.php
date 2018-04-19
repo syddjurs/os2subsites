@@ -391,13 +391,25 @@
         <a id="main-content"></a>
 
         <?php if (!panels_get_current_page_display()): ?>
-            <div class="container">
-                <?php print $breadcrumb; ?>
+          <div class="container">
+            <?php print $breadcrumb; ?>
 
-                <?php print render($page['content']); ?>
-            </div>
+              <?php if (!empty($page['sidebar__left'])): ?>
+                <div class="row">
+                    <aside class="hidden-xs col-sm-4" role="complementary">
+                      <?php print render($page['sidebar__left']); ?>
+                    </aside>
+
+                    <section class="col-sm-8">
+                      <?php print render($page['content']); ?>
+                    </section>
+                </div>
+            <?php else: ?>
+              <?php print render($page['content']); ?>
+            <?php endif; ?>
+          </div>
         <?php else: ?>
-            <?php print render($page['content']); ?>
+          <?php print render($page['content']); ?>
         <?php endif; ?>
 
     </main>
