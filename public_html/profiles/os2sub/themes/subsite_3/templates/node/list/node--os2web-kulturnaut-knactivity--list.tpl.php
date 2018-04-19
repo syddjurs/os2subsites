@@ -12,10 +12,10 @@
         <!-- Begin - body -->
         <div class="entity-list__body">
 
-          <?php if ( isset( $content['field_os2web_kulturnaut_date'] ) ): ?>
+          <?php if (isset($content['field_os2web_kulturnaut_date'])): ?>
               <!-- Begin - date -->
               <div class="entity-list__date">
-                <?php print render( $content['field_os2web_kulturnaut_date'] ); ?>
+                <?php print render($content['field_os2web_kulturnaut_date']); ?>
               </div>
               <!-- End - date -->
           <?php endif; ?>
@@ -27,6 +27,14 @@
                 </h3>
             </div>
             <!-- End - heading -->
+
+          <?php if (isset($content['field_os2web_kulturnaut_venue'])): ?>
+              <!-- Begin - venue -->
+              <div class="entity-list__venue">
+                <?php print render($content['field_os2web_kulturnaut_venue']); ?>
+              </div>
+              <!-- End - venue -->
+          <?php endif; ?>
 
         </div>
         <!-- End - body -->
