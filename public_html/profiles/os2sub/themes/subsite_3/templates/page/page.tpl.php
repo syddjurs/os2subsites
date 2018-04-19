@@ -394,15 +394,15 @@
           <div class="container">
             <?php print $breadcrumb; ?>
 
-              <?php if (!empty($page['sidebar__left'])): ?>
+              <?php if (!empty($page['sidebar__right'])): ?>
                 <div class="row">
-                    <aside class="hidden-xs col-sm-4" role="complementary">
-                      <?php print render($page['sidebar__left']); ?>
-                    </aside>
-
                     <section class="col-sm-8">
                       <?php print render($page['content']); ?>
                     </section>
+
+                    <aside class="hidden-xs col-sm-4" role="complementary">
+                      <?php print render($page['sidebar__right']); ?>
+                    </aside>
                 </div>
             <?php else: ?>
               <?php print render($page['content']); ?>
