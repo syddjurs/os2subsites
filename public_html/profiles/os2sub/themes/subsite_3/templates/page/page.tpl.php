@@ -35,6 +35,12 @@
                     <!-- Push navigation to the right -->
                     <div class="flexy-spacer"></div>
 
+                    <!-- Begin - navigation -->
+                    <nav class="flexy-header__secondary-navigation hidden-xs hidden-sm" role="navigation">
+                      <?php print render($menu_header__row_first__secondary); ?>
+                    </nav>
+                    <!-- End - navigation -->
+
                     <!-- Begin - social icons -->
                     <nav class="flexy-header__social-icons" role="navigation">
                         <ul class="flexy-list">
@@ -151,12 +157,6 @@
                         </ul>
                     </nav>
                     <!-- End - social icons -->
-
-                    <!-- Begin - navigation -->
-                    <nav class="flexy-header__secondary-navigation hidden-xs hidden-sm" role="navigation">
-                        <?php print render($menu_header__row_first__secondary); ?>
-                    </nav>
-                    <!-- End - navigation -->
 
                     <!-- Begin - search -->
                     <div class="flexy-header__form hidden-xs hidden-sm">

@@ -55,14 +55,14 @@ $lg-flexy-header-static-row-second-height: 60px;
   }
 }
 
-.flexy-header__social-icons {
+.flexy-header__secondary-navigation {
 
-  + .flexy-header__secondary-navigation {
+  + .flexy-header__social-icons {
     margin-left: floor( ( $grid-gutter-width / 2 ) );
   }
 }
 
-.flexy-header__secondary-navigation {
+.flexy-header__social-icons {
 
   + .flexy-header__form {
     margin-left: floor( ( $grid-gutter-width / 2 ) );
