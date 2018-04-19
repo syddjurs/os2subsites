@@ -214,11 +214,31 @@
       color: $text-color-light;
     }
 
+    .form-item-date-filter-min-date,
+    .form-item-date-filter-max-date {
+      position: relative;
+
+      &:after {
+        @extend .icon;
+
+        position: absolute;
+
+        right: 5px;
+        top: 10px;
+
+        font-size: $font-size-base;
+        content: $fa-var-angle-down;
+
+        color: $text-color;
+      }
+    }
+
     .form-control {
       padding-left: 0;
+      padding-right: 20px; // the width of the icon
 
       font-weight: $font-weight-bold;
-      font-size: $font-size-large;
+      font-size: $font-size-base;
       color: $text-color-dark;
 
       background-color: transparent;
@@ -290,7 +310,7 @@
       flex-grow: 1;
 
       .form-group {
-        max-width: 150px;
+        max-width: 120px;
       }
     }
 
