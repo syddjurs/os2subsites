@@ -223,7 +223,7 @@
 
         position: absolute;
 
-        right: 5px;
+        right: 20px;
         top: 10px;
 
         font-size: $font-size-base;
@@ -238,7 +238,7 @@
       padding-right: 20px; // the width of the icon
 
       font-weight: $font-weight-bold;
-      font-size: $font-size-base;
+      font-size: $font-size-large;
       color: $text-color-dark;
 
       background-color: transparent;
@@ -293,24 +293,39 @@
 
 // Mobile - only
 @media #{$breakpoint-mobile-only} {
+
+  .views-exposed-form {
+
+    .bef-checkboxes {
+      flex-direction: column;
+
+      .form-type-bef-checkbox {
+        flex-grow: 1;
+        flex-direction: row;
+      }
+
+      label {
+        margin: 0 0 0 8px;
+      }
+    }
+  }
 }
 
 // Tablet - and up
-@media #{$breakpoint-tablet-and-up} {}
-
-// Tablet - only
-@media #{$breakpoint-tablet-only} {}
-
-// Desktop - and up
-@media #{$breakpoint-desktop-and-up} {
+@media #{$breakpoint-tablet-and-up} {
 
   .views-exposed-form {
+    margin-top: 10px;
+    padding: 10px 15px;
+
+    border: 2px solid $border-color-dark;
+    border-radius: $border-radius-base;
 
     .views-widget-filter-date_filter {
       flex-grow: 1;
 
       .form-group {
-        max-width: 120px;
+        max-width: 130px;
       }
     }
 
@@ -326,6 +341,54 @@
     }
   }
 }
+
+// Tablet - only
+@media #{$breakpoint-tablet-only} {
+
+  .views-exposed-form {
+
+    .bef-checkboxes {
+
+      .form-type-bef-checkbox {
+        margin: 2px 4px 0 2px;
+        padding: 7px 4px;
+      }
+
+      label {
+        margin: 0 8px 0 0;
+
+        font-size: $font-size-base;
+      }
+
+      // Resets
+      input[type="checkbox"].form-control {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    .views-widget-filter-date_filter {
+
+      .views-widget {
+        display: flex;
+      }
+
+      .form-group {
+        max-width: 120px;
+      }
+
+      .form-control {
+        padding-left: 0;
+        padding-right: 20px; // the width of the icon
+
+        font-size: $font-size-base;
+      }
+    }
+  }
+}
+
+// Desktop - and up
+@media #{$breakpoint-desktop-and-up} {}
 
 // Desktop - only
 @media #{$breakpoint-desktop-only} {}
