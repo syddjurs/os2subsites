@@ -96,25 +96,25 @@ $carousel-overlay-color: #1b3e46;
     min-height: 270px;
   }
 
-  .carousel-overlay {
-    position: absolute;
-
-    z-index: 250;
-
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-
-    content: "";
-
-    background-color: transparent;
-    background-image: linear-gradient(
-                    to right,
-                    rgba(27, 62, 70, .6) 40%,
-                    transparent 65%
-    );
-  }
+  //.carousel-overlay {
+  //  position: absolute;
+  //
+  //  z-index: 250;
+  //
+  //  top: 0;
+  //  left: 0;
+  //  right: 0;
+  //  bottom: 0;
+  //
+  //  content: "";
+  //
+  //  background-color: transparent;
+  //  background-image: linear-gradient(
+  //                  to right,
+  //                  rgba(27, 62, 70, .6) 40%,
+  //                  transparent 65%
+  //  );
+  //}
 
   .carousel-caption {
     top: 20px;
