@@ -10,8 +10,6 @@
 // Variables
 // --------------------------------------------------
 
-$entity-teaser-date-margin-top: 35px;
-
 // Responsive
 $xs-entity-teaser-kultunaut-event-heading-min-height: 50px;
 $sm-entity-teaser-kultunaut-event-heading-min-height: 50px;
@@ -31,25 +29,21 @@ $lg-entity-teaser-kultunaut-event-heading-min-height: 50px;
 .entity-teaser--os2web-kulturnaut-knactivity {
   position: relative;
 
-  margin-top: $entity-teaser-date-margin-top;
-
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
 
-  .entity-teaser__inner {
-    background-image: radial-gradient(
-                    circle at top right,
-                    rgba(255, 255, 255, .8) 0%,
-                    transparent 45%
-    );
-  }
-
   .entity-teaser__date {
     position: absolute;
 
-    top: (0 - $entity-teaser-date-margin-top);
+    top: $entity-teaser-body-padding-left-right;
     right: $entity-teaser-body-padding-left-right;
+
+    border-color: #fff;
+
+    .field {
+      color: #fff;
+    }
   }
 
   .entity-teaser__heading {
@@ -97,50 +91,7 @@ $lg-entity-teaser-kultunaut-event-heading-min-height: 50px;
   }
 
   .entity-teaser__body {
-    background-color: $entity-teaser-background-color;
-  }
-
-  &:hover {
-
-    .entity-teaser__inner {
-      background-image: radial-gradient(
-                      circle at top right,
-                      rgba(0, 0, 0, .45) 0%,
-                      transparent 40%
-      );
-    }
-
-    .entity-teaser__date {
-      top: $entity-teaser-body-padding-top-bottom;
-
-      border-color: #fff;
-
-      .field {
-        color: #fff;
-      }
-    }
-
-    .entity-teaser__heading__title {
-      color: #fff;
-    }
-
-    .entity-teaser__body {
-      background-color: transparent;
-      background-image: linear-gradient(
-                      rgba(0, 0, 0, 0),
-                      rgba(0, 0, 0, .17),
-                      rgba(0, 0, 0, .3),
-                      rgba(0, 0, 0, .4),
-                      rgba(0, 0, 0, .45)
-      );
-    }
-
-    .entity-teaser__top-level-venue {
-      color: #fff;
-    }
-    .entity-teaser__current-venue {
-      color: #fff;
-    }
+    background-color: rgba($entity-teaser-background-color, .8);
   }
 }
 
