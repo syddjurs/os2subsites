@@ -215,7 +215,9 @@
     }
 
     .form-item-date-filter-min-date,
-    .form-item-date-filter-max-date {
+    .form-item-dato-min-date,
+    .form-item-date-filter-max-date,
+    .form-item-dato-max-date {
       position: relative;
 
       &:after {
