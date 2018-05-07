@@ -1,0 +1,65 @@
+<?php
+/**
+ * @file
+ * Create tables for entity and entity bundles.
+ */
+
+/**
+ * Implements hook_schema().
+ * 
+    
+    search URL
+    text before link
+    link text
+    text after link
+
+ */
+function os2web_search_suggestions_schema() {
+  $schema = array();
+
+  // Table for storing data of entities.
+  $schema['os2web_search_suggestions'] = array(
+    'description' => 'The base table for subsites_search.',
+    'fields' => array(
+      'id' => array(
+        'description' => 'The primary identifier.',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'sitename' => array(
+        'description' => 'Site name',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'search_url' => array(
+        'description' => 'Search URL',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'text_before_link' => array(
+        'description' => 'Text before link',
+        'type' => 'text',        
+        'length' => 255,
+      ),
+      'link_text' => array(
+        'status' => 'Link text',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => ''
+      ),
+      'text_after_link' => array(
+        'filepath' => 'Text after link.',
+        'type' => 'varchar',
+        'length' => 255,
+      ),
+    ),
+    'primary key' => array('id'),
+  );
+return $schema;
+}

@@ -1,0 +1,293 @@
+<?php
+
+/**
+ * @file
+ * Code for the OS2Web Search feature.
+ */
+
+/**
+ * Implements hook_entity_info().
+ */
+function os2web_search_suggestions_entity_info() {
+
+  $info = array();
+
+  $info['search_suggestion'] = array(
+    'label' => t('Searches'),
+    'base table' => 'os2web_search_suggestions',
+    'entity keys' => array(
+      'id' => 'id',
+      'label' => 'sitename',
+    ),
+    'module' => 'os2web_search_suggestions',
+    'entity class' => 'Entity',
+    'controller class' => 'EntityAPIController',
+  );
+
+  return $info;
+}
+
+function os2web_search_suggestions_menu() {
+  $items = array();
+  // URI for viewing entity bundles
+  $items['admin/structure/os2web_search_suggestions'] = array(
+    'title' => t('Search suggestions'),
+    'description' => t('Manage search suggestions'),
+    'page callback' => 'os2web_search_suggestions_view_search_suggestion',
+    'access arguments' => array('administer os2web'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+  $items['admin/structure/os2web_search_suggestions/add'] = array(
+    'title' => t('Add search suggestion'),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('os2web_search_suggestions_entity_form'),
+    'access arguments' => array('administer os2web'),
+    'type' => MENU_LOCAL_ACTION,
+  );
+  $items['admin/structure/os2web_search_suggestions/%/edit'] = array(
+    'title' => t('Edit search suggestion'),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('os2web_search_suggestions_entity_form', 3),
+    'access arguments' => array('administer os2web')
+  );
+  $items['admin/structure/os2web_search_suggestions/%/delete'] = array(
+    'title' => t('Delete search suggestion'),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('os2web_search_suggestions_delete_form', 3),
+    'access arguments' => array('administer os2web')
+  );
+  return $items;
+}
+
+function os2web_search_suggestions_entity_form($form, &$form_state, $entity_id = NULL) {
+  drupal_set_title(t('Edit search suggestion'));
+  if (!isset($entity_id)) {
+    $entity = entity_create('search_suggestion', array());
+    drupal_set_title(t('Create search suggestion'));
+  }
+  else {
+    $entity = reset(entity_load('search_suggestion', array($entity_id)));
+     $wrapper = entity_metadata_wrapper('search_suggestion', $entity_id);
+  }
+  $form_state['entity'] = $entity;
+
+  $form['sitename'] = array(
+    '#type' => 'textfield',
+    '#required' => TRUE,
+    '#title' => t('Site name'),
+    '#default_value' => isset($wrapper) ? $wrapper->sitename->value() : "",
+  );
+  $form['search_url'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Search URL'),
+    '#required' => TRUE,
+    '#default_value' => isset($wrapper) ? $wrapper->search_url->value() : "",
+  );
+  $form['text_before_link'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Text before link'),
+    '#default_value' => isset($wrapper) ? $wrapper->text_before_link->value() : "",
+  );
+  $form['link_text'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Link text'),
+    '#required' => TRUE,
+    '#default_value' => isset($wrapper) ? $wrapper->link_text->value() : "",
+  );
+  $form['text_after_link'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Text after link'),
+    '#required' => TRUE,
+    '#default_value' => isset($wrapper) ? $wrapper->text_after_link->value() : "",
+  );
+  $form['available_variables'] = array(
+    '#type' => 'fieldset',
+    '#collapsible' => TRUE,
+    '#collapsed' => TRUE,
+    '#value' => t('Can be used in all text fields') . '<br/>
+    <b>!search_text</b> - ' . t('Search phrase') . '<br/>',
+    '#title' => t('Available variables'),
+  );
+
+  $form['actions'] = array(
+    '#weight' => 100,
+  );
+  $form['actions']['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Save'),
+    '#submit' => array('os2web_search_suggestions_entity_form_submit'),
+  );
+
+  return $form;
+}
+
+function os2web_search_suggestions_entity_form_submit($form, &$form_state) {
+  // Automatically get edited entity from the form and save it.
+  // @see entity_form_submit_build_entity()
+  if (isset($form_state['entity'])) {
+    $entity = $form_state['entity'];
+    entity_form_submit_build_entity('search_suggestion', $entity, $form, $form_state);
+    entity_save('search_suggestion', $entity);
+  };
+
+  drupal_set_message(t('Entity saved.'));
+  $form_state['redirect'] = 'admin/structure/os2web_search_suggestions';
+}
+
+function os2web_search_suggestions_view_search_suggestion() {
+  $query = new EntityFieldQuery();
+
+  $query->entityCondition('entity_type', 'search_suggestion', '=');
+  $result = $query->execute();
+
+  $form['searches'] = array(
+    '#prefix' => '<table class="views-table table table-hover table-striped table-responsive-stacked">',
+    '#suffix' => '</table>',
+  );
+  $form['searches']['header'] = array(
+    '#markup' => '<thead>
+      <tr>
+        <th>' . t('Title') . '</th>
+        <th>' . t('Edit') . '</th>
+        <th>' . t('Delete') . '</th>
+      </tr>
+    </thead>',
+  );
+  foreach ($result['search_suggestion'] as $search) {
+    $entity = reset(entity_load('search_suggestion', array($search->id)));
+    $form['searches'][$search->id] = array(
+      '#prefix' => '<tr>',
+      '#suffix' => '</tr>',
+      '#markup' => '
+        <td>' . $entity->sitename . '</td>
+        <td><a href="/admin/structure/os2web_search_suggestions/' . $entity->id . '/edit">' . t('Edit') . '</a></td>
+        <td><a href="/admin/structure/os2web_search_suggestions/' . $entity->id . '/delete">' . t('Delete') . '</a></td>
+      ',
+    );
+  }
+  return $form;
+}
+
+/**
+ * Form constructor for the entity delete confirmation form.
+ *
+ * @param object $entity
+ *   Entity to delete.
+ *
+ * @return array
+ *   Confirmation form.
+ */
+function os2web_search_suggestions_delete_form($form, &$form_state, $entity) {
+  // Store the entity in the form.
+  $form_state['entity'] = $entity;
+  $wrapper = entity_metadata_wrapper('search_suggestion', $entity);
+  // Show confirm dialog.
+  $entity_uri = entity_uri('os2intra_bi', $entity);
+  $message = t('Are you sure you want to delete entity %title?', array('%title' => $wrapper->sitename->value()));
+  return confirm_form(
+      $form, $message, '/admin/structure/os2web_search_suggestions/', t('This action cannot be undone.'), t('Delete'), t('Cancel')
+  );
+}
+
+/**
+ * Entity "Confirm delete" form submit handler.
+ */
+function os2web_search_suggestions_delete_form_submit($form, &$form_state) {
+  // Delete the entity.
+  $entity = $form_state['entity'];
+  entity_delete('search_suggestion', $form_state['entity']);
+
+  // Redirect user.
+  drupal_set_message(t('Entity  deleted.'));
+  $form_state['redirect'] = '/admin/structure/os2web_search_suggestions';
+}
+
+function os2web_search_suggestions_block_info() {
+  $blocks['os2web_search_suggestions'] = array(
+    // info: The name of the block.
+    'info' => t('OS2Web Search suggestions'),
+  );
+
+  return $blocks;
+}
+/**
+ * Implements hook_block_configure().
+ * all examples are for a module named myproject_blocks
+ */
+
+function os2web_search_suggestions_block_configure($delta = '') {
+  $form = array();
+  switch ($delta) {
+    case 'os2web_search_suggestions':
+     $form['text_before_links'] = array(
+        '#type' => 'text_format',
+        '#title' => t('Text before links'),
+        '#format' => 'filtered_html',
+        '#default_value' => variable_get('os2web_search_suggestions_text_before_links', ''),
+      );
+      $form['text_after_links'] = array(
+        '#type' => 'text_format',
+        '#title' => t('Text after links'),
+        '#format' => 'filtered_html',
+        '#default_value' => variable_get('os2web_search_suggestions_text_after_links', ''),
+      );
+      $form['available_variables'] = array(
+        '#type' => 'fieldset',
+        '#collapsible' => TRUE,
+        '#collapsed' => TRUE,
+        '#value' => t('Can be used in all text fields') . '<br/>
+        <b>!search_text</b> - ' . t('Search phrase') . '<br/>',
+        '#title' => t('Available variables')
+      );
+      break;
+  }
+   /** add other cases for additional blocks **/
+  return $form;
+}
+
+/**
+ * Implements hook_block_save($delta = '', $edit = array().
+ * all examples are for a module named myproject_blocks
+ */
+function os2web_search_suggestions_block_save($delta = '', $edit = array()) {
+  switch ($delta) {
+    case 'os2web_search_suggestions':
+      variable_set('os2web_search_suggestions_text_after_links', $edit['text_after_links']['value']);
+      variable_set('os2web_search_suggestions_text_before_links', $edit['text_before_links']['value']);
+      break;
+  }
+  /** It's best to create on module per block so that you can turn on/off blocks 1 by 1.  But this will also work if you combine blocks together in one module. **/
+}
+function os2web_search_suggestions_block_view($delta = '') {
+  // The $delta parameter tells us which block is being requested.
+  $content = "";
+  switch ($delta) {
+    case 'os2web_search_suggestions':
+
+      // Create your block content here
+      $block['subject'] = t('Search suggestions');
+      $url = request_uri();
+      $search_key = end(explode("/", request_uri()));
+      $tokens = array('!search_text');
+      $replace = array($search_key);
+      $query = new EntityFieldQuery();
+      $query->entityCondition('entity_type', 'search_suggestion', '=');
+      $result = $query->execute();
+      if (is_array($result['search_suggestion'])) {
+        $content .= str_replace( $tokens, $replace, variable_get('os2web_search_suggestions_text_before_links', ''));
+        $content .= "<ul>";
+        foreach ($result['search_suggestion'] as $search) {
+          $entity = reset(entity_load('search_suggestion', array($search->id)));
+          $content .= '<li>' . str_replace( $tokens, $replace, $entity->text_before_link) . ' <a href = "' . $entity->search_url . $search_key . '" target="_blank">' . str_replace($tokens, $replace, $entity->link_text) . '</a> ' . str_replace($tokens, $replace, $entity->text_after_link) . '</li>';
+        }
+        $content .= "</ul>";
+        $content .= str_replace( $tokens, $replace, variable_get('os2web_search_suggestions_text_after_links', ''));
+      }
+
+      $block['content'] = $content;
+      break;
+
+   }
+
+  return $block;
+}

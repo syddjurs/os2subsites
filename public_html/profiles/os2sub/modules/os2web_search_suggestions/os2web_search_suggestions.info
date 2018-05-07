@@ -1,0 +1,8 @@
+name = OS2Web Search Suggestions
+core = 7.x
+package = OS2Web - Backend
+php = 5.2.4
+version = 7.x-1.0-beta1
+project = os2web_search
+dependencies[] = ctools
+dependencies[] = entity
