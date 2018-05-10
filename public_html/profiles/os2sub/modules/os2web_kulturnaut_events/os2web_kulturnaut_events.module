@@ -29,7 +29,7 @@ function os2web_kulturnaut_events_cron() {
     foreach ($nodes as $node) {
       $node_end_date_str = $node->field_os2web_kulturnaut_date['und'][0]['value2'];
 
-      $node_end_date = DateTime::createFromFormat('Y-m-d h:i:s', $node_end_date_str);
+      $node_end_date = DateTime::createFromFormat('Y-m-d H:i:s', $node_end_date_str);
       $current_date = new DateTime('now');
 
       if ($current_date > $node_end_date) {
