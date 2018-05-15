@@ -9,14 +9,6 @@
  */
 function os2web_kulturnaut_events_taxonomy_default_vocabularies() {
   return array(
-    'event_target' => array(
-      'name' => 'Event target',
-      'machine_name' => 'event_target',
-      'description' => '',
-      'hierarchy' => 0,
-      'module' => 'taxonomy',
-      'weight' => 0,
-    ),
     'feeds' => array(
       'name' => 'Feeds',
       'machine_name' => 'feeds',
@@ -33,9 +25,9 @@ function os2web_kulturnaut_events_taxonomy_default_vocabularies() {
       'module' => 'taxonomy',
       'weight' => 0,
     ),
-    'os2web_kulturnaut_venue' => array(
-      'name' => 'Steder',
-      'machine_name' => 'os2web_kulturnaut_venue',
+    'target_group' => array(
+      'name' => 'Målgruppe',
+      'machine_name' => 'target_group',
       'description' => '',
       'hierarchy' => 0,
       'module' => 'taxonomy',
