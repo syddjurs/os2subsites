@@ -13,6 +13,34 @@ function os2web_kulturnaut_events_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'diff_enable_revisions_page_node_os2web_kulturnaut_knactivity';
+  $strongarm->value = 1;
+  $export['diff_enable_revisions_page_node_os2web_kulturnaut_knactivity'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'diff_show_preview_changes_node_os2web_kulturnaut_knactivity';
+  $strongarm->value = 1;
+  $export['diff_show_preview_changes_node_os2web_kulturnaut_knactivity'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'diff_view_mode_preview_node_os2web_kulturnaut_knactivity';
+  $strongarm->value = 'full';
+  $export['diff_view_mode_preview_node_os2web_kulturnaut_knactivity'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'feeds_process_limit';
+  $strongarm->value = 20;
+  $export['feeds_process_limit'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'field_bundle_settings_node__os2web_kulturnaut_knactivity';
   $strongarm->value = array(
     'view_modes' => array(
