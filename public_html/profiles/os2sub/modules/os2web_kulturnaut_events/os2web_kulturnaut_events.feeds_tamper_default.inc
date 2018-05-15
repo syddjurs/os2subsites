@@ -83,23 +83,6 @@ function os2web_kulturnaut_events_feeds_tamper_default() {
   $feeds_tamper = new stdClass();
   $feeds_tamper->disabled = FALSE; /* Edit this to true to make a default feeds_tamper disabled initially */
   $feeds_tamper->api_version = 2;
-  $feeds_tamper->id = 'kulturnaut_begivenheder_oplevsyddjurs_-jsonpath_parser_3-math';
-  $feeds_tamper->importer = 'kulturnaut_begivenheder_oplevsyddjurs_';
-  $feeds_tamper->source = 'jsonpath_parser:3';
-  $feeds_tamper->plugin_id = 'math';
-  $feeds_tamper->settings = array(
-    'operation' => 'subtraction',
-    'flip' => 0,
-    'value' => '3600',
-    'log' => 0,
-  );
-  $feeds_tamper->weight = 2;
-  $feeds_tamper->description = 'Mathematical operation';
-  $export['kulturnaut_begivenheder_oplevsyddjurs_-jsonpath_parser_3-math'] = $feeds_tamper;
-
-  $feeds_tamper = new stdClass();
-  $feeds_tamper->disabled = FALSE; /* Edit this to true to make a default feeds_tamper disabled initially */
-  $feeds_tamper->api_version = 2;
   $feeds_tamper->id = 'kulturnaut_begivenheder_oplevsyddjurs_-jsonpath_parser_3-rewrite';
   $feeds_tamper->importer = 'kulturnaut_begivenheder_oplevsyddjurs_';
   $feeds_tamper->source = 'jsonpath_parser:3';
