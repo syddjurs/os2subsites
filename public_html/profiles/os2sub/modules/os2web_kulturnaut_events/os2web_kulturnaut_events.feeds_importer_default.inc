@@ -197,7 +197,8 @@ function os2web_kulturnaut_events_feeds_importer_default() {
           20 => array(
             'source' => 'jsonpath_parser:24',
             'target' => 'field_os2web_kulturnaut_targroup',
-            'unique' => FALSE,
+            'term_search' => '0',
+            'autocreate' => 1,
           ),
         ),
         'update_existing' => '2',

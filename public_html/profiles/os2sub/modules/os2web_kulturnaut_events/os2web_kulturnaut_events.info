@@ -41,7 +41,6 @@ features[feeds_tamper][] = kulturnaut_begivenheder_oplevsyddjurs_-jsonpath_parse
 features[feeds_tamper][] = kulturnaut_begivenheder_oplevsyddjurs_-jsonpath_parser_14-rewrite
 features[feeds_tamper][] = kulturnaut_begivenheder_oplevsyddjurs_-jsonpath_parser_21-explode
 features[feeds_tamper][] = kulturnaut_begivenheder_oplevsyddjurs_-jsonpath_parser_21-rewrite
-features[feeds_tamper][] = kulturnaut_begivenheder_oplevsyddjurs_-jsonpath_parser_3-math
 features[feeds_tamper][] = kulturnaut_begivenheder_oplevsyddjurs_-jsonpath_parser_3-rewrite
 features[feeds_tamper][] = kulturnaut_begivenheder_oplevsyddjurs_-jsonpath_parser_3-strtotime
 features[feeds_tamper][] = kulturnaut_begivenheder_oplevsyddjurs_-jsonpath_parser_6-custom_term_hierarchy
