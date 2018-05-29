@@ -651,6 +651,28 @@ function kultunaut_import_views_default_views() {
   $handler->display->display_options['filters']['term_node_tid_depth_1']['vocabulary'] = 'os2web_kulturnaut_tema';
   $handler->display->display_options['filters']['term_node_tid_depth_1']['error_message'] = FALSE;
   $handler->display->display_options['filters']['term_node_tid_depth_1']['depth'] = '4';
+  /* Filter criterion: Content: Has taxonomy terms (with depth) */
+  $handler->display->display_options['filters']['term_node_tid_depth_2']['id'] = 'term_node_tid_depth_2';
+  $handler->display->display_options['filters']['term_node_tid_depth_2']['table'] = 'node';
+  $handler->display->display_options['filters']['term_node_tid_depth_2']['field'] = 'term_node_tid_depth';
+  $handler->display->display_options['filters']['term_node_tid_depth_2']['group'] = 2;
+  $handler->display->display_options['filters']['term_node_tid_depth_2']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['term_node_tid_depth_2']['expose']['operator_id'] = 'term_node_tid_depth_2_op';
+  $handler->display->display_options['filters']['term_node_tid_depth_2']['expose']['operator'] = 'term_node_tid_depth_2_op';
+  $handler->display->display_options['filters']['term_node_tid_depth_2']['expose']['identifier'] = 'target_group';
+  $handler->display->display_options['filters']['term_node_tid_depth_2']['expose']['multiple'] = TRUE;
+  $handler->display->display_options['filters']['term_node_tid_depth_2']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    6 => 0,
+    4 => 0,
+    5 => 0,
+    3 => 0,
+  );
+  $handler->display->display_options['filters']['term_node_tid_depth_2']['type'] = 'select';
+  $handler->display->display_options['filters']['term_node_tid_depth_2']['vocabulary'] = 'target_group';
+  $handler->display->display_options['filters']['term_node_tid_depth_2']['error_message'] = FALSE;
+  $handler->display->display_options['filters']['term_node_tid_depth_2']['depth'] = '4';
 
   /* Display: Content pane */
   $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');

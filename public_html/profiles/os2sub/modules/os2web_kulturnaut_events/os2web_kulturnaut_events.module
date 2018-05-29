@@ -150,13 +150,18 @@ function os2web_kulturnaut_events_form_alter(&$form, &$form_state, $form_id) {
   // We need to tune oplevsyddjurs_forside_kalender view filter form
   if ($form['#id'] == "views-exposed-form-oplevsyddjurs-forside-kalender-panel-pane-1") {
     $form['kategori']['#access'] = FALSE;
+    $form['target_group']['#access'] = FALSE;
     if (!empty($form_state['input']['egennavne_stednavne'])) {
       $taxonomnyQuery = new EntityFieldQuery();
       $egennavne_stednavne_terms = taxonomy_term_load_multiple(array(), array('tid' => $form_state['input']['egennavne_stednavne']));
       $kategori_arr = array();
-
       if (isset($egennavne_stednavne_terms)) {
         foreach ($egennavne_stednavne_terms as $egennavne_stednavne_term) {
+          // 'For Børn' from egennavne_stednavne vocabulary is a signal to search by 'Børn' term from 'target_group' vocabulary. 
+          if($egennavne_stednavne_term->name == 'For Børn'){
+            $target_group_term = taxonomy_get_term_by_name('Børn', 'target_group');
+            $form['target_group']['#value'] = array(array_shift($target_group_term)->tid);
+          }
           if (!empty($egennavne_stednavne_term->field_os2web_kulturnaut_tema)) {
             foreach ($egennavne_stednavne_term->field_os2web_kulturnaut_tema['und'] as $category) {
               $kategori_arr[] = $category['tid'];
