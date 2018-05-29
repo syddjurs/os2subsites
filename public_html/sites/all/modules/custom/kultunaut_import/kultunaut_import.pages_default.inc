@@ -551,7 +551,7 @@ function kultunaut_import_default_page_manager_handlers() {
   $handler->task = 'term_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -25;
+  $handler->weight = -23;
   $handler->conf = array(
     'title' => 'Steder',
     'no_blocks' => 0,
@@ -713,7 +713,7 @@ function kultunaut_import_default_page_manager_handlers() {
   $handler->task = 'term_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -30;
+  $handler->weight = -29;
   $handler->conf = array(
     'title' => 'Variant 1',
     'no_blocks' => 0,
@@ -947,7 +947,7 @@ function kultunaut_import_default_page_manager_handlers() {
   $handler->task = 'term_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -29;
+  $handler->weight = -28;
   $handler->conf = array(
     'title' => 'Variant 2',
     'no_blocks' => 0,
@@ -1090,6 +1090,36 @@ function kultunaut_import_default_page_manager_handlers() {
     $display->content['new-106ba0fd-3a46-4022-83c6-296379e996e0'] = $pane;
     $display->panels['content-secondary'][1] = 'new-106ba0fd-3a46-4022-83c6-296379e996e0';
     $pane = new stdClass();
+    $pane->pid = 'new-037936d1-8ab2-4de6-8e36-07b59041c9e8';
+    $pane->panel = 'content-secondary';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'taxonomy_term:field_termtekst';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'title',
+      'formatter' => 'text_default',
+      'delta_limit' => 0,
+      'delta_offset' => '0',
+      'delta_reversed' => FALSE,
+      'formatter_settings' => array(),
+      'context' => 'argument_term_1',
+      'override_title' => 1,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 2;
+    $pane->locks = array();
+    $pane->uuid = '037936d1-8ab2-4de6-8e36-07b59041c9e8';
+    $display->content['new-037936d1-8ab2-4de6-8e36-07b59041c9e8'] = $pane;
+    $display->panels['content-secondary'][2] = 'new-037936d1-8ab2-4de6-8e36-07b59041c9e8';
+    $pane = new stdClass();
     $pane->pid = 'new-5985352f-deaa-43c0-b43e-99cf20c885d2';
     $pane->panel = 'sidebar-right';
     $pane->type = 'entity_field';
@@ -1180,7 +1210,7 @@ function kultunaut_import_default_page_manager_handlers() {
   $handler->task = 'term_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -28;
+  $handler->weight = -27;
   $handler->conf = array(
     'title' => 'Variant 3',
     'no_blocks' => 0,
@@ -1382,7 +1412,7 @@ function kultunaut_import_default_page_manager_handlers() {
   $handler->task = 'term_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -27;
+  $handler->weight = -26;
   $handler->conf = array(
     'title' => 'Variant 4',
     'no_blocks' => 0,
@@ -1596,6 +1626,36 @@ function kultunaut_import_default_page_manager_handlers() {
     $pane->uuid = '106ba0fd-3a46-4022-83c6-296379e996e0';
     $display->content['new-106ba0fd-3a46-4022-83c6-296379e996e0'] = $pane;
     $display->panels['top-container'][2] = 'new-106ba0fd-3a46-4022-83c6-296379e996e0';
+    $pane = new stdClass();
+    $pane->pid = 'new-dd42e35c-529e-4b8f-9643-55a1eebcde51';
+    $pane->panel = 'top-container';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'taxonomy_term:field_termtekst';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'title',
+      'formatter' => 'text_default',
+      'delta_limit' => 0,
+      'delta_offset' => '0',
+      'delta_reversed' => FALSE,
+      'formatter_settings' => array(),
+      'context' => 'argument_term_1',
+      'override_title' => 1,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 3;
+    $pane->locks = array();
+    $pane->uuid = 'dd42e35c-529e-4b8f-9643-55a1eebcde51';
+    $display->content['new-dd42e35c-529e-4b8f-9643-55a1eebcde51'] = $pane;
+    $display->panels['top-container'][3] = 'new-dd42e35c-529e-4b8f-9643-55a1eebcde51';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
@@ -1613,7 +1673,7 @@ function kultunaut_import_default_page_manager_pages() {
   $page->api_version = 1;
   $page->name = 'olevsyddjurs_forside';
   $page->task = 'page';
-  $page->admin_title = 'OlevSyddjurs Forside';
+  $page->admin_title = 'OplevSyddjurs Forside';
   $page->admin_description = '';
   $page->path = 'kalenderforside';
   $page->access = array(

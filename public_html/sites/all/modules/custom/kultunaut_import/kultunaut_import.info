@@ -55,7 +55,6 @@ features[variable][] = custom_search_advanced_language_da_display
 features[variable][] = page_manager_term_view_disabled
 features[variable][] = pathauto_node_os2web_kulturnaut_knactivity_pattern
 features[variable][] = pathauto_taxonomy_term_os2web_base_tax_site_structure_pattern
-features[variable][] = pathauto_taxonomy_term_os2web_kulturnaut_venue_pattern
 features[variable][] = search_api_page_search_api_page_disabled_oplevelser
 features[variable][] = search_config
 features[variable][] = site_frontpage

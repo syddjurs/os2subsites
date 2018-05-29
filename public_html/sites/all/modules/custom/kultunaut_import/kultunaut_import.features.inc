@@ -79,11 +79,16 @@ function kultunaut_import_default_search_api_autocomplete_search() {
     "options" : {
       "suggester_configuration" : { "fields" : [
           "node:body:value",
+          "node:field_os2web_base_field_loca_ref:description",
           "node:field_os2web_base_field_loca_ref:name",
           "node:field_os2web_base_field_text",
           "node:field_os2web_kulturnaut_descrip:value",
           "node:field_os2web_kulturnaut_longdesc:value",
+          "node:field_os2web_kulturnaut_saddress",
+          "node:field_os2web_kulturnaut_sarrang",
+          "node:field_os2web_kulturnaut_sname",
           "node:title",
+          "taxonomy_term:description",
           "taxonomy_term:name"
         ]
       },
@@ -113,15 +118,11 @@ function kultunaut_import_default_search_api_index() {
       "index_directly" : 1,
       "cron_limit" : "50",
       "fields" : {
+        "item_label" : { "type" : "text" },
         "item_type" : { "type" : "string" },
         "node:body:value" : { "type" : "text" },
-        "node:field_os2web_base_field_loca_ref" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
-        "node:field_os2web_base_field_loca_ref:description" : { "type" : "list\\u003Ctext\\u003E" },
-        "node:field_os2web_base_field_loca_ref:name" : { "type" : "list\\u003Ctext\\u003E" },
-        "node:field_os2web_base_field_loca_ref:parents_all" : {
-          "type" : "list\\u003Clist\\u003Cinteger\\u003E\\u003E",
-          "entity_type" : "taxonomy_term"
-        },
+        "node:field_os2web_base_field_loca_ref:description" : { "type" : "list\\u003Ctext\\u003E", "boost" : "0.1" },
+        "node:field_os2web_base_field_loca_ref:name" : { "type" : "list\\u003Ctext\\u003E", "boost" : "0.5" },
         "node:field_os2web_base_field_text" : { "type" : "text" },
         "node:field_os2web_kulturnaut_date:duration" : { "type" : "duration" },
         "node:field_os2web_kulturnaut_date:value" : { "type" : "date" },
@@ -136,13 +137,11 @@ function kultunaut_import_default_search_api_index() {
         "node:field_os2web_kulturnaut_szip" : { "type" : "text" },
         "node:status" : { "type" : "integer" },
         "node:title" : { "type" : "text", "boost" : "21.0" },
-        "node:url" : { "type" : "uri" },
         "search_api_language" : { "type" : "string" },
         "search_api_url" : { "type" : "uri" },
-        "taxonomy_term:name" : { "type" : "text", "boost" : "0.1" },
-        "taxonomy_term:parents_all" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
-        "taxonomy_term:parents_all:name" : { "type" : "list\\u003Ctext\\u003E" },
-        "taxonomy_term:url" : { "type" : "uri" }
+        "taxonomy_term:field_termtekst:value" : { "type" : "text" },
+        "taxonomy_term:name" : { "type" : "text", "boost" : "21.0" },
+        "taxonomy_term:parents_all:name" : { "type" : "list\\u003Ctext\\u003E" }
       },
       "data_alter_callbacks" : {
         "search_api_alter_bundle_filter" : {
@@ -178,13 +177,13 @@ function kultunaut_import_default_search_api_index() {
           "settings" : { "fields" : {
               "taxonomy_term:name" : true,
               "node:title" : true,
-              "node:field_os2web_base_field_text" : true,
               "node:field_os2web_kulturnaut_price" : true,
               "node:field_os2web_kulturnaut_saddress" : true,
               "node:field_os2web_kulturnaut_sarrang" : true,
               "node:field_os2web_kulturnaut_scity" : true,
               "node:field_os2web_kulturnaut_sname" : true,
               "node:field_os2web_kulturnaut_szip" : true,
+              "node:field_os2web_base_field_text" : true,
               "taxonomy_term:parents_all:name" : true,
               "node:body:value" : true,
               "node:field_os2web_base_field_loca_ref:name" : true,
@@ -201,13 +200,13 @@ function kultunaut_import_default_search_api_index() {
             "fields" : {
               "taxonomy_term:name" : true,
               "node:title" : true,
-              "node:field_os2web_base_field_text" : true,
               "node:field_os2web_kulturnaut_price" : true,
               "node:field_os2web_kulturnaut_saddress" : true,
               "node:field_os2web_kulturnaut_sarrang" : true,
               "node:field_os2web_kulturnaut_scity" : true,
               "node:field_os2web_kulturnaut_sname" : true,
               "node:field_os2web_kulturnaut_szip" : true,
+              "node:field_os2web_base_field_text" : true,
               "taxonomy_term:parents_all:name" : true,
               "node:body:value" : true,
               "node:field_os2web_base_field_loca_ref:name" : true,
@@ -224,14 +223,15 @@ function kultunaut_import_default_search_api_index() {
           "settings" : { "fields" : {
               "taxonomy_term:name" : true,
               "node:title" : true,
-              "node:field_os2web_base_field_text" : true,
               "node:field_os2web_kulturnaut_price" : true,
               "node:field_os2web_kulturnaut_saddress" : true,
               "node:field_os2web_kulturnaut_sarrang" : true,
               "node:field_os2web_kulturnaut_scity" : true,
               "node:field_os2web_kulturnaut_sname" : true,
               "node:field_os2web_kulturnaut_szip" : true,
+              "node:field_os2web_base_field_text" : true,
               "taxonomy_term:parents_all:name" : true,
+              "taxonomy_term:field_termtekst:value" : true,
               "node:body:value" : true,
               "node:field_os2web_base_field_loca_ref:name" : true,
               "node:field_os2web_base_field_loca_ref:description" : true,
@@ -247,13 +247,13 @@ function kultunaut_import_default_search_api_index() {
             "fields" : {
               "taxonomy_term:name" : true,
               "node:title" : true,
-              "node:field_os2web_base_field_text" : true,
               "node:field_os2web_kulturnaut_price" : true,
               "node:field_os2web_kulturnaut_saddress" : true,
               "node:field_os2web_kulturnaut_sarrang" : true,
               "node:field_os2web_kulturnaut_scity" : true,
               "node:field_os2web_kulturnaut_sname" : true,
               "node:field_os2web_kulturnaut_szip" : true,
+              "node:field_os2web_base_field_text" : true,
               "taxonomy_term:parents_all:name" : true,
               "node:body:value" : true,
               "node:field_os2web_base_field_loca_ref:name" : true,
@@ -268,18 +268,9 @@ function kultunaut_import_default_search_api_index() {
           "weight" : "30",
           "settings" : {
             "fields" : {
-              "taxonomy_term:name" : true,
-              "node:title" : true,
-              "node:field_os2web_base_field_text" : true,
-              "node:field_os2web_kulturnaut_price" : true,
-              "node:field_os2web_kulturnaut_saddress" : true,
-              "node:field_os2web_kulturnaut_sarrang" : true,
-              "node:field_os2web_kulturnaut_scity" : true,
-              "node:field_os2web_kulturnaut_sname" : true,
               "node:field_os2web_kulturnaut_szip" : true,
-              "taxonomy_term:parents_all:name" : true,
+              "node:field_os2web_base_field_text" : true,
               "node:body:value" : true,
-              "node:field_os2web_base_field_loca_ref:name" : true,
               "node:field_os2web_base_field_loca_ref:description" : true,
               "node:field_os2web_kulturnaut_descrip:value" : true,
               "node:field_os2web_kulturnaut_longdesc:value" : true
@@ -295,13 +286,13 @@ function kultunaut_import_default_search_api_index() {
             "fields" : {
               "taxonomy_term:name" : true,
               "node:title" : true,
-              "node:field_os2web_base_field_text" : true,
               "node:field_os2web_kulturnaut_price" : true,
               "node:field_os2web_kulturnaut_saddress" : true,
               "node:field_os2web_kulturnaut_sarrang" : true,
               "node:field_os2web_kulturnaut_scity" : true,
               "node:field_os2web_kulturnaut_sname" : true,
               "node:field_os2web_kulturnaut_szip" : true,
+              "node:field_os2web_base_field_text" : true,
               "taxonomy_term:parents_all:name" : true,
               "node:body:value" : true,
               "node:field_os2web_base_field_loca_ref:name" : true,
@@ -383,22 +374,10 @@ function kultunaut_import_default_search_api_server() {
             "type" : "text",
             "boost" : "21.0"
           },
-          "node:url" : {
-            "table" : "search_api_db_oplevelser_og_steder",
-            "column" : "node_url",
-            "type" : "uri",
-            "boost" : "1.0"
-          },
           "node:status" : {
             "table" : "search_api_db_oplevelser_og_steder",
             "column" : "node_status",
             "type" : "integer",
-            "boost" : "1.0"
-          },
-          "node:field_os2web_base_field_loca_ref" : {
-            "table" : "search_api_db_oplevelser_og_steder_node_field_os2web_base_fiel",
-            "column" : "value",
-            "type" : "list\\u003Cinteger\\u003E",
             "boost" : "1.0"
           },
           "node:field_os2web_base_field_text" : {
@@ -439,19 +418,7 @@ function kultunaut_import_default_search_api_server() {
           "taxonomy_term:name" : {
             "table" : "search_api_db_oplevelser_og_steder_text",
             "type" : "text",
-            "boost" : "0.1"
-          },
-          "taxonomy_term:url" : {
-            "table" : "search_api_db_oplevelser_og_steder",
-            "column" : "taxonomy_term_url",
-            "type" : "uri",
-            "boost" : "1.0"
-          },
-          "taxonomy_term:parents_all" : {
-            "table" : "search_api_db_oplevelser_og_steder_taxonomy_term_parents_all",
-            "column" : "value",
-            "type" : "list\\u003Cinteger\\u003E",
-            "boost" : "1.0"
+            "boost" : "21.0"
           },
           "node:body:value" : {
             "table" : "search_api_db_oplevelser_og_steder_text",
@@ -461,18 +428,12 @@ function kultunaut_import_default_search_api_server() {
           "node:field_os2web_base_field_loca_ref:name" : {
             "table" : "search_api_db_oplevelser_og_steder_text",
             "type" : "list\\u003Ctext\\u003E",
-            "boost" : "1.0"
+            "boost" : "0.5"
           },
           "node:field_os2web_base_field_loca_ref:description" : {
             "table" : "search_api_db_oplevelser_og_steder_text",
             "type" : "list\\u003Ctext\\u003E",
-            "boost" : "1.0"
-          },
-          "node:field_os2web_base_field_loca_ref:parents_all" : {
-            "table" : "search_api_db_oplevelser_og_steder_node_field_os2web_base_fi_1",
-            "column" : "value",
-            "type" : "list\\u003Clist\\u003Cinteger\\u003E\\u003E",
-            "boost" : "1.0"
+            "boost" : "0.1"
           },
           "node:field_os2web_kulturnaut_date:value" : {
             "table" : "search_api_db_oplevelser_og_steder",
@@ -515,6 +476,16 @@ function kultunaut_import_default_search_api_server() {
             "boost" : "1.0"
           },
           "node:field_os2web_kulturnaut_longdesc:value" : {
+            "table" : "search_api_db_oplevelser_og_steder_text",
+            "type" : "text",
+            "boost" : "1.0"
+          },
+          "item_label" : {
+            "table" : "search_api_db_oplevelser_og_steder_text",
+            "type" : "text",
+            "boost" : "1.0"
+          },
+          "taxonomy_term:field_termtekst:value" : {
             "table" : "search_api_db_oplevelser_og_steder_text",
             "type" : "text",
             "boost" : "1.0"

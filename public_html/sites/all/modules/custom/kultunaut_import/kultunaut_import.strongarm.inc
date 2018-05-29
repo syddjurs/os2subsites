@@ -55,13 +55,6 @@ function kultunaut_import_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'pathauto_taxonomy_term_os2web_kulturnaut_venue_pattern';
-  $strongarm->value = '';
-  $export['pathauto_taxonomy_term_os2web_kulturnaut_venue_pattern'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'search_api_page_search_api_page_disabled_oplevelser';
   $strongarm->value = TRUE;
   $export['search_api_page_search_api_page_disabled_oplevelser'] = $strongarm;
