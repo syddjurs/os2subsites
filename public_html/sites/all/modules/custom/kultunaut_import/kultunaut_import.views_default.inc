@@ -556,6 +556,10 @@ function kultunaut_import_views_default_views() {
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  $handler->display->display_options['filter_groups']['groups'] = array(
+    1 => 'AND',
+    2 => 'OR',
+  );
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -570,11 +574,13 @@ function kultunaut_import_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'os2web_kulturnaut_knactivity' => 'os2web_kulturnaut_knactivity',
   );
+  $handler->display->display_options['filters']['type']['group'] = 1;
   /* Filter criterion: Date: Date (node) */
   $handler->display->display_options['filters']['date_filter']['id'] = 'date_filter';
   $handler->display->display_options['filters']['date_filter']['table'] = 'node';
   $handler->display->display_options['filters']['date_filter']['field'] = 'date_filter';
   $handler->display->display_options['filters']['date_filter']['operator'] = 'between';
+  $handler->display->display_options['filters']['date_filter']['group'] = 1;
   $handler->display->display_options['filters']['date_filter']['exposed'] = TRUE;
   $handler->display->display_options['filters']['date_filter']['expose']['operator_id'] = 'date_filter_op';
   $handler->display->display_options['filters']['date_filter']['expose']['operator'] = 'date_filter_op';
@@ -604,10 +610,11 @@ function kultunaut_import_views_default_views() {
     116 => '116',
     104 => '104',
   );
+  $handler->display->display_options['filters']['term_node_tid_depth']['group'] = 2;
   $handler->display->display_options['filters']['term_node_tid_depth']['exposed'] = TRUE;
   $handler->display->display_options['filters']['term_node_tid_depth']['expose']['operator_id'] = 'term_node_tid_depth_op';
   $handler->display->display_options['filters']['term_node_tid_depth']['expose']['operator'] = 'term_node_tid_depth_op';
-  $handler->display->display_options['filters']['term_node_tid_depth']['expose']['identifier'] = 'kat';
+  $handler->display->display_options['filters']['term_node_tid_depth']['expose']['identifier'] = 'egennavne_stednavne';
   $handler->display->display_options['filters']['term_node_tid_depth']['expose']['multiple'] = TRUE;
   $handler->display->display_options['filters']['term_node_tid_depth']['expose']['remember_roles'] = array(
     2 => '2',
@@ -622,6 +629,28 @@ function kultunaut_import_views_default_views() {
   $handler->display->display_options['filters']['term_node_tid_depth']['vocabulary'] = 'os2web_taxonomies_tax_places';
   $handler->display->display_options['filters']['term_node_tid_depth']['error_message'] = FALSE;
   $handler->display->display_options['filters']['term_node_tid_depth']['depth'] = '4';
+  /* Filter criterion: Content: Has taxonomy terms (with depth) */
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['id'] = 'term_node_tid_depth_1';
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['table'] = 'node';
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['field'] = 'term_node_tid_depth';
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['group'] = 2;
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['expose']['operator_id'] = 'term_node_tid_depth_1_op';
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['expose']['operator'] = 'term_node_tid_depth_1_op';
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['expose']['identifier'] = 'kategori';
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['expose']['multiple'] = TRUE;
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    6 => 0,
+    4 => 0,
+    5 => 0,
+    3 => 0,
+  );
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['type'] = 'select';
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['vocabulary'] = 'os2web_kulturnaut_tema';
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['error_message'] = FALSE;
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['depth'] = '4';
 
   /* Display: Content pane */
   $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
