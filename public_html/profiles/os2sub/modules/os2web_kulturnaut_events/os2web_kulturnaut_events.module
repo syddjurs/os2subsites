@@ -140,3 +140,61 @@ function _os2web_kulturnaut_events_get_excluded_names($vocabulary_name) {
   }
   return $excluded_names;
 }
+
+/**
+ * Implements hook_form_alter().
+ */
+function os2web_kulturnaut_events_form_alter(&$form, &$form_state, $form_id) {
+
+
+  // We need to tune oplevsyddjurs_forside_kalender view filter form
+  if ($form['#id'] == "views-exposed-form-oplevsyddjurs-forside-kalender-panel-pane-1") {
+    $form['kategori']['#access'] = FALSE;
+    if (!empty($form_state['input']['egennavne_stednavne'])) {
+      $taxonomnyQuery = new EntityFieldQuery();
+      $egennavne_stednavne_terms = taxonomy_term_load_multiple(array(), array('tid' => $form_state['input']['egennavne_stednavne']));
+      $kategori_arr = array();
+
+      if (isset($egennavne_stednavne_terms)) {
+        foreach ($egennavne_stednavne_terms as $egennavne_stednavne_term) {
+          if (!empty($egennavne_stednavne_term->field_os2web_kulturnaut_tema)) {
+            foreach ($egennavne_stednavne_term->field_os2web_kulturnaut_tema['und'] as $category) {
+              $kategori_arr[] = $category['tid'];
+            }
+          }
+          // Get childrens of the 'egennavne_stednavne' terms.
+          $childrens = taxonomy_get_children($term->tid, $term->vid);
+          if (!empty($childrens)) {
+            foreach ($childrens as $children) {
+              if (!empty($children->field_os2web_kulturnaut_tema)) {
+                foreach ($children->field_os2web_kulturnaut_tema['und'] as $category) {
+                  $kategori_arr[] = $category['tid'];
+                }
+              }
+            }
+          }
+        }
+      }
+      $kategori_arr = array_unique($kategori_arr);
+      // Get childrens of kategori terms
+      if (!empty($kategori_arr)) {
+        $kategori_children_arr = array();
+        $taxonomnyQuery = new EntityFieldQuery();
+        $kategori_terms = taxonomy_term_load_multiple(array(), array('tid' => $kategori_arr));
+        if (isset($kategori_terms)) {
+          foreach ($kategori_terms as $kategori_term) {
+            $kategori_childrens = taxonomy_get_children($kategori_term->tid, $kategori_term->vid);
+            foreach ($kategori_childrens as $kategori_children) {
+              $kategori_children_arr[] = $kategori_children->tid;
+            }
+          }
+          $kategori_arr = array_merge($kategori_arr, $kategori_children_arr);
+          $kategori_arr = array_unique($kategori_arr);
+
+          $form['kategori']['#value'] = $kategori_arr;
+
+        }
+      }
+    }
+  }
+}
