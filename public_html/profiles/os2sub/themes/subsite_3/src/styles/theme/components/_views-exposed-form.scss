@@ -75,6 +75,10 @@
     }
   }
 
+  .help-block {
+    @extend .sr-only;
+  }
+
   // The wrapper around all the checkboxes
   .form-control.form-checkboxes {
     height: auto;
