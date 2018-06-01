@@ -18,5 +18,6 @@ $plugin = array(
     'dark_section_2' => t('Dark section - with container'),
     'dark_section_3_1' => t('Dark section - with container'),
     'dark_section_3_2' => t('Dark section - with container'),
+    'dark_section_4' => t('Dark section - with container'),
   ),
 );
