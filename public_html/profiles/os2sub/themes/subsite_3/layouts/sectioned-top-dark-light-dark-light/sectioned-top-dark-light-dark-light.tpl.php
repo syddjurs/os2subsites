@@ -126,23 +126,24 @@
         </div>
       </div>
     </div>
-    <!-- End - light section no. 4 -->
+    <!-- End - light section no. 3 -->
   <?php endif; ?>
-  <?php if ($content['dark_section_4'] : ?>
-    <!-- Begin - dark section no. 3 -->
-    <div class="sectioned sectioned--dark">
+  <?php if ($content['light_section_4']): ?>
+    <!-- Begin - light section no. 3 -->
+    <div class="sectioned sectioned--light">
       <div class="sectioned__inner">
         <div class="container">
           <div class="row">
             <div class="col-xs-12">
-              <div class="panels-pane-region panels-pane-region--dark-section-4">
-                <?php echo $content['dark_section_4']; ?>
+              <div class="panels-pane-region panels-pane-region--light-section-4">
+                <?php echo $content['light_section_4']; ?>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <!-- End - dark section no. 4 -->
+    <!-- End - light section no. 3 -->
   <?php endif; ?>
+
 </div>
