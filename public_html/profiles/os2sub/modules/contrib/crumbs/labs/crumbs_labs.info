@@ -4,9 +4,9 @@ core = 7.x
 
 dependencies[] = crumbs
 
-; Information added by Drupal.org packaging script on 2014-01-05
-version = "7.x-2.0-beta13"
+; Information added by Drupal.org packaging script on 2017-09-30
+version = "7.x-2.6"
 core = "7.x"
 project = "crumbs"
-datestamp = "1388883813"
+datestamp = "1506737952"
 

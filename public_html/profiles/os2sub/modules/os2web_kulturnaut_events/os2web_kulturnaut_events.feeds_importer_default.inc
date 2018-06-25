@@ -54,7 +54,8 @@ function os2web_kulturnaut_events_feeds_importer_default() {
         ),
         'debug' => array(
           'options' => array(
-            'context' => 0,
+            'context' => 'context',
+            'jsonpath_parser:12' => 'jsonpath_parser:12',
             'jsonpath_parser:17' => 0,
             'jsonpath_parser:0' => 0,
             'jsonpath_parser:1' => 0,
@@ -71,7 +72,6 @@ function os2web_kulturnaut_events_feeds_importer_default() {
             'jsonpath_parser:7' => 0,
             'jsonpath_parser:8' => 0,
             'jsonpath_parser:10' => 0,
-            'jsonpath_parser:12' => 0,
             'jsonpath_parser:14' => 0,
             'jsonpath_parser:19' => 0,
             'jsonpath_parser:23' => 0,
@@ -207,6 +207,8 @@ function os2web_kulturnaut_events_feeds_importer_default() {
         'authorize' => 1,
         'update_non_existent' => 'skip',
         'skip_hash_check' => 0,
+        'insert_new' => 1,
+        'language' => 'und',
       ),
     ),
     'content_type' => '',
