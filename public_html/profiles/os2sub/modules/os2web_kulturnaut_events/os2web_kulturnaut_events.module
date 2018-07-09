@@ -109,6 +109,9 @@ function os2web_kulturnaut_events_feeds_presave(FeedsSource $source, $entity, $i
 //If parsing successful use it
   if (\DateTime::createFromFormat('H:i:s', $end_time_str)) {
     $entity->field_os2web_kulturnaut_date['und'][0]['value2'] = trim(substr_replace($entity->field_os2web_kulturnaut_date['und'][0]['value2'], $end_time_str, -8));
+  }else{
+    drupal_set_message(t("Can not parse '%str' use 00:00:00 instead", array('%str' => $item['jsonpath_parser:13'], 'warning')));
+    $entity->field_os2web_kulturnaut_date['und'][0]['value2'] = trim(substr_replace($entity->field_os2web_kulturnaut_date['und'][0]['value2'], '00:00:00', -8));
   }
 }
 
