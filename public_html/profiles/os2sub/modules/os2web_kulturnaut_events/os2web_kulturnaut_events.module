@@ -11,20 +11,19 @@ include_once 'os2web_kulturnaut_events.features.inc';
  * Implements hook_cron().
  */
 function os2web_kulturnaut_events_cron() {
-  watchdog('cron', 'Node unpublish task started');
+  watchdog('cron', 'Node deleting task started');
 
   $type = 'os2web_kulturnaut_knactivity';
   $query = new \EntityFieldQuery();
   $result = $query->entityCondition('entity_type', 'node')
       ->entityCondition('bundle', $type)
-      ->propertyCondition('status', NODE_PUBLISHED)
       ->execute();
 
   if (!empty($result['node'])) {
     $nids = array_keys($result['node']);
     $nodes = node_load_multiple($nids);
     $i = 0;
-    $unpublished_nodes = array();
+    $deleted_nodes = array();
 
     foreach ($nodes as $node) {
       $node_end_date_str = $node->field_os2web_kulturnaut_date['und'][0]['value2'];
@@ -33,19 +32,18 @@ function os2web_kulturnaut_events_cron() {
       $current_date = new DateTime('now');
 
       if ($current_date > $node_end_date) {
-        $node->status = NODE_NOT_PUBLISHED;
-        node_save($node);
         $i++;
-        $unpublished_nodes[] = $node->nid;
-        watchdog('cron', 'Node ' . $node->nid . ' unpublished');
+        $deleted_nodes[] = $node->nid;
+        watchdog('cron', 'Node ' . $node->nid . ' deleted');
+        node_delete($node->nid);
       }
     }
-    watchdog('cron', 'Nodes unpublished: '. $i . ' ('. implode(',', $unpublished_nodes) . ')');
+    watchdog('cron', 'Nodes deleted: '. $i . ' ('. implode(',', $deleted_nodes) . ')');
   }
   else{
     watchdog('cron', 'No publeshed nodes found');
   }
-  watchdog('cron', 'Node unpublish  task finished');
+  watchdog('cron', 'Node deleting task finished');
 }
 
 /**
