@@ -45,40 +45,38 @@ function os2web_kulturnaut_events_cron() {
   else{
     watchdog('cron', 'No publeshed nodes found');
   }
-  watchdog('cron', 'Node unpublish task finished');
+  watchdog('cron', 'Node unpublish  task finished');
 }
 
 /**
  * Implements hook_feeds_presave().
  */
-
 function os2web_kulturnaut_events_feeds_presave(FeedsSource $source, $entity, $item) {
 
   if ($source->importer->id == 'kulturnaut_begivenheder_oplevsyddjurs_') {
     // Get excluded taxonomy Tema names
-      $excluded_names = _os2web_kulturnaut_events_get_excluded_names('os2web_kulturnaut_tema');
+    $excluded_names = _os2web_kulturnaut_events_get_excluded_names('os2web_kulturnaut_tema');
     // Do not import excluded event types
     if (array_intersect($item['jsonpath_parser:21'], $excluded_names)) {
       $entity->feeds_item->skip = TRUE;
-      drupal_set_message(t("Skipping event with '%tema>>%subtema' tema", array('%tema' => $item['jsonpath_parser:22'], '%subtema' => $item['jsonpath_parser:20'])), 'warning');
+      drupal_set_message(t("Skipping event with '%tema>>%subtema' tema. Title: '%title'", array('%title' => $item['jsonpath_parser:0'], '%tema' => $item['jsonpath_parser:22'], '%subtema' => $item['jsonpath_parser:20'])), 'warning');
     }
 
     // Get excluded taxonomy Venue names
-      $excluded_names = _os2web_kulturnaut_events_get_excluded_names('os2web_taxonomies_tax_places');
+    $excluded_names = _os2web_kulturnaut_events_get_excluded_names('os2web_taxonomies_tax_places');
     // Do not import excluded event locations
     if (in_array($item['jsonpath_parser:2'], $excluded_names)) {
       $entity->feeds_item->skip = TRUE;
-      drupal_set_message(t("Skipping event with '%venue' location", array('%venue' => $item['jsonpath_parser:2'])), 'warning');
+      drupal_set_message(t("Skipping event with '%venue' location. Title: '%title'", array('%title' => $item['jsonpath_parser:0'], '%venue' => $item['jsonpath_parser:2'])), 'warning');
     }
 
     // Get excluded taxonomy Stikord names
-      $excluded_names = _os2web_kulturnaut_events_get_excluded_names('os2web_taxonomies_tax_editor_tag');
+    $excluded_names = _os2web_kulturnaut_events_get_excluded_names('os2web_taxonomies_tax_editor_tag');
     // Do not import excluded event locations
     if (array_intersect($item['jsonpath_parser:23'], $excluded_names)) {
       $entity->feeds_item->skip = TRUE;
-      drupal_set_message(t("Skipping event with '%tag' tag(s)", array('%tag' => implode(', ', $item['jsonpath_parser:23']))), 'warning');
+      drupal_set_message(t("Skipping event with '%tag' tag(s). Title: '%title'", array('%title' => $item['jsonpath_parser:0'], '%tag' => implode(', ', $item['jsonpath_parser:23']))), 'warning');
     }
-
   }
 
   //Parse event end time from human friendly string format
@@ -100,19 +98,35 @@ function os2web_kulturnaut_events_feeds_presave(FeedsSource $source, $entity, $i
 
   if (strlen($end_time_str) == '2') {
     $end_time_str = $end_time_str . ':00';
-  }elseif (strlen($end_time_str) == '5') {
+  }
+  elseif (strlen($end_time_str) == '5') {
     $end_time_str = str_replace('.', ':', $end_time_str);
   }
 //Add seconds
   $end_time_str = $end_time_str . ':00';
 
+  if ($end_time_str == '24:00:00') {
+    drupal_set_message(t("Non standart endtime on event '%title', use '23:59:00' instead", array('%title' => $item['jsonpath_parser:0'])), 'warning');
+    $end_time_str = '23:59:00';
+  }
+
 //If parsing successful use it
   if (\DateTime::createFromFormat('H:i:s', $end_time_str)) {
     $entity->field_os2web_kulturnaut_date['und'][0]['value2'] = trim(substr_replace($entity->field_os2web_kulturnaut_date['und'][0]['value2'], $end_time_str, -8));
-  }else{
-    drupal_set_message(t("Can not parse '%str' use 00:00:00 instead", array('%str' => $item['jsonpath_parser:13'], 'warning')));
+  }
+  else {
+    drupal_set_message(t("Can not parse endtime '%str' use 00:00:00 instead on event '%event'"), array('%str' => $item['jsonpath_parser:13'], '%event' => $item['jsonpath_parser:0']), 'warning');
     $entity->field_os2web_kulturnaut_date['und'][0]['value2'] = trim(substr_replace($entity->field_os2web_kulturnaut_date['und'][0]['value2'], '00:00:00', -8));
   }
+
+  if (strlen($item['jsonpath_parser:16']) == 5) {
+    $entity->field_os2web_kulturnaut_date['und'][0]['value'] = trim(substr_replace($entity->field_os2web_kulturnaut_date['und'][0]['value'], $item['jsonpath_parser:16'] . ':00', -8));
+  }
+  else {
+    $entity->field_os2web_kulturnaut_date['und'][0]['value'] = trim(substr_replace($entity->field_os2web_kulturnaut_date['und'][0]['value'], '00:00:00', -8));
+    drupal_set_message(t("Non standart starttime on event '%title', use '00:00:00' instead", array('%title' => $item['jsonpath_parser:0'])), 'warning');
+  }
+  drupal_set_message(t("Startdate: '%start_v', Enddate: '%end_v', Title: '%title'", array('%title' => $item['jsonpath_parser:0'], '%end_v' => $entity->field_os2web_kulturnaut_date['und'][0]['value2'], '%start_v' => $entity->field_os2web_kulturnaut_date['und'][0]['value'])), 'warning');
 }
 
 /**

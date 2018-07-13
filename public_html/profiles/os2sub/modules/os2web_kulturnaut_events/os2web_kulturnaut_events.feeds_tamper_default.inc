@@ -18,7 +18,7 @@ function os2web_kulturnaut_events_feeds_tamper_default() {
   $feeds_tamper->source = 'jsonpath_parser:10';
   $feeds_tamper->plugin_id = 'rewrite';
   $feeds_tamper->settings = array(
-    'text' => '[jsonpath_parser:10] [jsonpath_parser:16]',
+    'text' => '[jsonpath_parser:10]',
   );
   $feeds_tamper->weight = 1;
   $feeds_tamper->description = 'Rewrite';
@@ -88,7 +88,7 @@ function os2web_kulturnaut_events_feeds_tamper_default() {
   $feeds_tamper->source = 'jsonpath_parser:3';
   $feeds_tamper->plugin_id = 'rewrite';
   $feeds_tamper->settings = array(
-    'text' => '[jsonpath_parser:3] [jsonpath_parser:16]',
+    'text' => '[jsonpath_parser:3]',
   );
   $feeds_tamper->weight = 0;
   $feeds_tamper->description = 'Rewrite';
