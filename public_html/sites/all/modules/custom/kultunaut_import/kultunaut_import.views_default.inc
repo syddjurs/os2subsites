@@ -783,7 +783,6 @@ function kultunaut_import_views_default_views() {
   $handler->display->display_options['fields']['field_os2web_base_field_banner']['element_label_type'] = '0';
   $handler->display->display_options['fields']['field_os2web_base_field_banner']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_os2web_base_field_banner']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['field_os2web_base_field_banner']['empty'] = '[field_os2web_base_field_banner_1]';
   $handler->display->display_options['fields']['field_os2web_base_field_banner']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_os2web_base_field_banner']['settings'] = array(
     'image_style' => 'oplevbanner',
