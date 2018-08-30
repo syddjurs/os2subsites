@@ -77,6 +77,21 @@
     height: 50px;
   }
 
+  + .sectioned--sitemap__kultunaut-logo {
+    margin-top: $grid-gutter-width;
+  }
+
+  + .sectioned--sitemap__description {
+    margin-top: $grid-gutter-width;
+  }
+}
+
+.sectioned--sitemap__kultunaut-logo {
+
+  img {
+    height: 38px;
+  }
+
   + .sectioned--sitemap__description {
     margin-top: $grid-gutter-width;
   }

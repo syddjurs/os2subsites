@@ -330,6 +330,16 @@
             </nav>
             <!-- End - social icons -->
 
+            <!-- Begin - kultunaut logo -->
+            <div class="sectioned--sitemap__kultunaut-logo">
+              <a href="http://kultunaut.dk/" target="_blank">
+                <img
+                  src="<?php print $theme_path; ?>/dist/images/logo__kultunaut.png"
+                  alt="<?php print t('Data leveret af Kultunaut'); ?>"/>
+              </a>
+            </div>
+            <!-- End - kultunaut logo -->
+
             <?php if (!empty($theme_settings['layout']['footer']['description'])) : ?>
               <!-- Begin - description -->
               <div class="sectioned--sitemap__description">
