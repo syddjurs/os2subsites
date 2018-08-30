@@ -86,6 +86,13 @@
   }
 }
 
+.social-icons {
+
+  + .sectioned--sitemap__kultunaut-logo {
+    margin-top: $grid-gutter-width;
+  }
+}
+
 .sectioned--sitemap__kultunaut-logo {
 
   img {
