@@ -271,6 +271,7 @@ function kultunaut_import_views_default_views() {
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['distinct'] = TRUE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '2';
@@ -292,28 +293,16 @@ function kultunaut_import_views_default_views() {
   $handler->display->display_options['sorts']['field_os2web_kulturnaut_date_value']['id'] = 'field_os2web_kulturnaut_date_value';
   $handler->display->display_options['sorts']['field_os2web_kulturnaut_date_value']['table'] = 'field_data_field_os2web_kulturnaut_date';
   $handler->display->display_options['sorts']['field_os2web_kulturnaut_date_value']['field'] = 'field_os2web_kulturnaut_date_value';
-  /* Contextual filter: Content: Has taxonomy term ID */
-  $handler->display->display_options['arguments']['tid']['id'] = 'tid';
-  $handler->display->display_options['arguments']['tid']['table'] = 'taxonomy_index';
-  $handler->display->display_options['arguments']['tid']['field'] = 'tid';
-  $handler->display->display_options['arguments']['tid']['default_action'] = 'not found';
-  $handler->display->display_options['arguments']['tid']['exception']['title'] = 'Alle';
-  $handler->display->display_options['arguments']['tid']['default_argument_type'] = 'fixed';
-  $handler->display->display_options['arguments']['tid']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['tid']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['tid']['summary_options']['items_per_page'] = '25';
-  $handler->display->display_options['arguments']['tid']['break_phrase'] = TRUE;
-  /* Contextual filter: Content: Nid */
-  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
-  $handler->display->display_options['arguments']['nid']['table'] = 'node';
-  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
-  $handler->display->display_options['arguments']['nid']['default_action'] = 'default';
-  $handler->display->display_options['arguments']['nid']['exception']['title'] = 'Alle';
-  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'node';
-  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
-  $handler->display->display_options['arguments']['nid']['not'] = TRUE;
+  /* Contextual filter: Field: Kategorier (er) (field_os2web_kulturnaut_tema) */
+  $handler->display->display_options['arguments']['field_os2web_kulturnaut_tema_tid']['id'] = 'field_os2web_kulturnaut_tema_tid';
+  $handler->display->display_options['arguments']['field_os2web_kulturnaut_tema_tid']['table'] = 'field_data_field_os2web_kulturnaut_tema';
+  $handler->display->display_options['arguments']['field_os2web_kulturnaut_tema_tid']['field'] = 'field_os2web_kulturnaut_tema_tid';
+  $handler->display->display_options['arguments']['field_os2web_kulturnaut_tema_tid']['default_action'] = 'not found';
+  $handler->display->display_options['arguments']['field_os2web_kulturnaut_tema_tid']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['field_os2web_kulturnaut_tema_tid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_os2web_kulturnaut_tema_tid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_os2web_kulturnaut_tema_tid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['field_os2web_kulturnaut_tema_tid']['break_phrase'] = TRUE;
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';

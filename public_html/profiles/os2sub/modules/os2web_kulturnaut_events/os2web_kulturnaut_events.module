@@ -219,3 +219,20 @@ function os2web_kulturnaut_events_form_alter(&$form, &$form_state, $form_id) {
     }
   }
 }
+
+/**
+ * Implements hook_views_pre_view().
+ */
+function os2web_kulturnaut_events_views_pre_view(&$view, &$display_id, &$args) {
+
+  if ('oplevsyddjurs_andre_events' == $view->name && 'panel_pane_1' == $view->current_display) {
+    $args = array();
+    if ($node = menu_get_object()) {
+      foreach($node->field_os2web_kulturnaut_tema['und'] as $term_id){
+        $args[] =  $term_id['tid'];
+      } 
+    }
+  $args = implode('+' , $args);  
+  $args = array($args);
+  }
+}
