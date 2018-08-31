@@ -118,6 +118,10 @@ function os2web_kulturnaut_events_feeds_presave(FeedsSource $source, $entity, $i
   }
 
   if (strlen($item['jsonpath_parser:16']) == 5) {
+    if($item['jsonpath_parser:16'] == '24:00'){
+      drupal_set_message(t("Non standart starttime on event '%title', use '23:59:00' instead", array('%title' => $item['jsonpath_parser:0'])), 'warning');
+      $item['jsonpath_parser:16'] = '23:59';
+    }
     $entity->field_os2web_kulturnaut_date['und'][0]['value'] = trim(substr_replace($entity->field_os2web_kulturnaut_date['und'][0]['value'], $item['jsonpath_parser:16'] . ':00', -8));
   }
   else {
