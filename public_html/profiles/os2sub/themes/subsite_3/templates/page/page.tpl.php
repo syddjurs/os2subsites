@@ -36,6 +36,14 @@
           <!-- Push navigation to the right -->
           <div class="flexy-spacer"></div>
 
+          <!-- Begin - kultunaut logo -->
+          <a href="http://kultunaut.dk/" target="_blank" class="flexy-header__kultunaut-logo">
+            <img
+              src="<?php print $theme_path; ?>/dist/images/logo__kultunaut.png"
+              alt="<?php print t('Data leveret af Kultunaut'); ?>"/>
+          </a>
+          <!-- End - kultunaut logo -->
+
           <!-- Begin - navigation -->
           <nav class="flexy-header__secondary-navigation hidden-xs"
                role="navigation">

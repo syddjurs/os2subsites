@@ -131,6 +131,21 @@ $lg-flexy-header-static-row-second-height: 60px;
   background-color: transparent;
 }
 
+.flexy-header__kultunaut-logo {
+  display: block;
+
+  img {
+
+    .flexy-header--static & {
+      height: 26px;
+    }
+
+    .flexy-header--sticky & {
+      height: 26px;
+    }
+  }
+}
+
 // --------------------------------------------------
 // Variants
 // --------------------------------------------------
