@@ -144,6 +144,10 @@ $lg-flexy-header-static-row-second-height: 60px;
       height: 26px;
     }
   }
+
+  + .flexy-header__secondary-navigation {
+    margin-left: floor( ( $grid-gutter-width / 2 ) );
+  }
 }
 
 // --------------------------------------------------
