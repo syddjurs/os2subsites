@@ -8,7 +8,7 @@
  * Implements hook_field_group_info().
  */
 function os2web_taxonomies_field_group_info() {
-  $export = array();
+  $field_groups = array();
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -38,7 +38,7 @@ function os2web_taxonomies_field_group_info() {
       ),
     ),
   );
-  $export['group_banner|taxonomy_term|os2web_taxonomies_tax_places|form'] = $field_group;
+  $field_groups['group_banner|taxonomy_term|os2web_taxonomies_tax_places|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -66,7 +66,7 @@ function os2web_taxonomies_field_group_info() {
       ),
     ),
   );
-  $export['group_content|taxonomy_term|os2web_taxonomies_tax_places|form'] = $field_group;
+  $field_groups['group_content|taxonomy_term|os2web_taxonomies_tax_places|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -96,7 +96,7 @@ function os2web_taxonomies_field_group_info() {
       ),
     ),
   );
-  $export['group_diverse|taxonomy_term|os2web_taxonomies_tax_places|form'] = $field_group;
+  $field_groups['group_diverse|taxonomy_term|os2web_taxonomies_tax_places|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -130,7 +130,7 @@ function os2web_taxonomies_field_group_info() {
       ),
     ),
   );
-  $export['group_gis|taxonomy_term|os2web_taxonomies_tax_places|form'] = $field_group;
+  $field_groups['group_gis|taxonomy_term|os2web_taxonomies_tax_places|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -147,7 +147,8 @@ function os2web_taxonomies_field_group_info() {
     'children' => array(
       0 => 'field_os2web_base_field_image',
       1 => 'field_os2web_taxonomies_disp_var',
-      2 => 'description',
+      2 => 'field_termtekst',
+      3 => 'description',
     ),
     'format_type' => 'htab',
     'format_settings' => array(
@@ -160,7 +161,15 @@ function os2web_taxonomies_field_group_info() {
       ),
     ),
   );
-  $export['group_tekst|taxonomy_term|os2web_taxonomies_tax_places|form'] = $field_group;
+  $field_groups['group_tekst|taxonomy_term|os2web_taxonomies_tax_places|form'] = $field_group;
 
-  return $export;
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Banner');
+  t('Diverse');
+  t('GIS');
+  t('Indhold');
+  t('Tekst og billede');
+
+  return $field_groups;
 }

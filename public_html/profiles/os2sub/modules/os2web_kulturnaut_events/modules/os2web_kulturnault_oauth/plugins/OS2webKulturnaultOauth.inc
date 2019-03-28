@@ -48,6 +48,40 @@ class OS2webKulturnaultOauthResult extends FeedsFetcherResult {
 }
 
 /**
+ * Result of FeedsHTTPFetcherAppendHeaders::fetch().
+ */
+class OS2webKulturnaultOauthResultWithPaging extends OS2webKulturnaultOauthResult {
+
+  /**
+   * Overrides FeedsFetcherResult::getRaw();
+   */
+  public function getRaw() {
+    feeds_include_library('http_request.inc', 'http_request');
+    module_load_include('inc', 'os2web_kulturnault_oauth', 'libraries/os2web_kulturnault_oauth_request');
+    $page = 0;
+    $data = '{}';
+    do {
+      $page++;
+      $url = $this->url . '&page=' . $page;
+      $result = os2web_kulturnault_oauth_request_get($url, NULL, NULL, TRUE, $this->timeout, $this->append_headers);
+      if (!in_array($result->code, array(200, 201, 202, 203, 204, 205, 206))) {
+        throw new Exception(t('Download of @url failed with code !code.', array('@url' => $this->url, '!code' => $result->code)));
+      }
+
+      $new_data = json_decode($result->data, TRUE);
+      if (!empty($new_data)) {
+        $current_data = json_decode($data, TRUE);
+        $merged_data = $current_data + $new_data;
+        $data = json_encode($merged_data, JSON_FORCE_OBJECT);
+      }
+    } while (!empty($new_data));
+
+    return $this->sanitizeRaw($data);
+  }
+
+}
+
+/**
  * Fetches data via HTTP and appending custom headers.
  */
 class OS2webKulturnaultOauth extends FeedsFetcher {
@@ -58,7 +92,12 @@ class OS2webKulturnaultOauth extends FeedsFetcher {
   public function fetch(FeedsSource $source) {
     $source_config = $source->getConfigFor($this);
     $append_headers = $this->prepareAppendHeaders($this->config['get_token_url']);
-    $fetcher_result = new OS2webKulturnaultOauthResult($source_config['source'], $append_headers);
+    if ($this->config['use_pagination']) {
+      $fetcher_result = new OS2webKulturnaultOauthResultWithPaging($source_config['source'], $append_headers);
+    }
+    else {
+      $fetcher_result = new OS2webKulturnaultOauthResult($source_config['source'], $append_headers);
+    }
     // When request_timeout is empty, the global value is used.
     $fetcher_result->setTimeout($this->config['request_timeout']);
     return $fetcher_result;
@@ -101,6 +140,8 @@ class OS2webKulturnaultOauth extends FeedsFetcher {
       'append_headers' => '',
       'request_timeout' => NULL,
       'get_token_url' => NULL,
+      'use_pagination' => FALSE,
+      'page_key' => FALSE,
     );
   }
 
@@ -135,6 +176,22 @@ class OS2webKulturnaultOauth extends FeedsFetcher {
       '#element_validate' => array('element_validate_integer_positive'),
       '#maxlength' => 3,
       '#size' => 30,
+    );
+    $form['use_pagination'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Use pagination'),
+      '#default_value' => $this->config['use_pagination'],
+    );
+    $form['page_key'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Page argument key'),
+      '#description' => t('Specify page argument that is using in URL-request to define page.'),
+      '#default_value' => $this->config['page_key'],
+      '#states' => array(
+        'invisible' => array(
+          ':input[name="use_pagination"]' => array('checked' => FALSE),
+        ),
+      ),
     );
     return $form;
   }

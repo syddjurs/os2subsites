@@ -176,7 +176,7 @@ function os2web_kulturnaut_events_form_alter(&$form, &$form_state, $form_id) {
       $kategori_arr = array();
       if (isset($egennavne_stednavne_terms)) {
         foreach ($egennavne_stednavne_terms as $egennavne_stednavne_term) {
-          // 'For Børn' from egennavne_stednavne vocabulary is a signal to search by 'Børn' term from 'target_group' vocabulary. 
+          // 'For Børn' from egennavne_stednavne vocabulary is a signal to search by 'Børn' term from 'target_group' vocabulary.
           if($egennavne_stednavne_term->name == 'For Børn'){
             $target_group_term = taxonomy_get_term_by_name('Børn', 'target_group');
             $form['target_group']['#value'] = array(array_shift($target_group_term)->tid);
@@ -234,9 +234,102 @@ function os2web_kulturnaut_events_views_pre_view(&$view, &$display_id, &$args) {
     if ($node = menu_get_object()) {
       foreach($node->field_os2web_kulturnaut_tema['und'] as $term_id){
         $args[] =  $term_id['tid'];
-      } 
+      }
     }
-  $args = implode('+' , $args);  
+  $args = implode('+' , $args);
   $args = array($args);
   }
+}
+
+/**
+ * Implements hook_feeds_processor_targets_alter().
+ */
+function os2web_kulturnaut_events_feeds_processor_targets_alter(&$targets, $type, $bundle) {
+  if ($type == 'taxonomy_term' && isset($targets['field_os2web_taxonomies_loc_id'])) {
+    $targets['field_os2web_taxonomies_loc_id']['optional_unique'] = TRUE;
+    $targets['field_os2web_taxonomies_loc_id']['unique_callbacks'] = array('os2web_kulturnaut_events_feeds_check_term');
+  }
+
+  if ($type == 'node' && $bundle == 'os2web_kulturnaut_knactivity' && isset($targets['field_os2web_kulturnaut_venue'])) {
+    $targets['field_os2web_kulturnaut_venue']['summary_callbacks'] = array('os2web_kulturnaut_events_field_os2web_kulturnaut_venue_summary_callback');
+    $targets['field_os2web_kulturnaut_venue']['callback'] = 'os2web_kulturnaut_events_field_os2web_kulturnaut_venue_set_target';
+  }
+}
+
+/**
+ * Unique_callbacks specified in hook_feeds_processor_targets().
+ *
+ * @param FeedsSource $source
+ *   The Feed source.
+ * @param string $entity_type
+ *   Entity type for the entity to be processed.
+ * @param string $bundle
+ *   Bundle name for the entity to be processed.
+ * @param string $target
+ *   A string identifying the unique target on the entity.
+ * @param array $values
+ *   The unique values to be checked.
+ *
+ * @return int|null
+ *   The existing entity id, or NULL if no existing entity is found.
+ *
+ * @see hook_feeds_processor_targets()
+ * @see FeedsProcessor::existingEntityId()
+ */
+function os2web_kulturnaut_events_feeds_check_term(FeedsSource $source, $entity_type, $bundle, $target, array $values) {
+  list($field_name, $column) = explode(':', $target . ':value');
+  // Example for if the target is a field.
+  $query = new EntityFieldQuery();
+  $result = $query
+    ->entityCondition('entity_type', $entity_type)
+    ->entityCondition('bundle', $bundle)
+    ->fieldCondition($field_name, $column, $values)
+    ->execute();
+
+  if (!empty($result[$entity_type])) {
+    return key($result[$entity_type]);
+  }
+}
+
+/**
+ * Mapping callback.
+ */
+function os2web_kulturnaut_events_field_os2web_kulturnaut_venue_set_target($source, $entity, $target, array $values, array $mapping) {
+  if (empty($entity->is_new)) {
+    $original_entity = node_load($entity->nid, NULL, TRUE);
+    $target_values = field_get_items('node', $original_entity, $target);
+    if (!empty($target_values)) {
+      $term = taxonomy_term_load($target_values[0]['tid']);
+      $field_os2web_taxonomies_loc_id_values = empty($term) ? NULL : field_get_items('taxonomy_term', $term, 'field_os2web_taxonomies_loc_id');
+      if (empty($field_os2web_taxonomies_loc_id_values)) {
+        $field_os2web_taxonomies_loc_id_language = field_language('taxonomy_term', $term, 'field_os2web_taxonomies_loc_id');
+        $term->field_os2web_taxonomies_loc_id[$field_os2web_taxonomies_loc_id_language][] = array('value' => $values[0]);
+        taxonomy_term_save($term);
+      }
+    }
+  }
+
+  $query = new EntityFieldQuery();
+  $tids = $query->entityCondition('entity_type', 'taxonomy_term')
+    ->entityCondition('bundle', 'os2web_taxonomies_tax_places')
+    ->fieldCondition('field_os2web_taxonomies_loc_id', 'value', $values[0])
+    ->range(0, 1)->execute();
+
+  if (!empty($tids['taxonomy_term'])) {
+    $tid = reset(array_keys($tids['taxonomy_term']));
+  }
+
+  $language = $mapping['language'];
+  $field = isset($entity->$target) ? $entity->$target : array($language => array());
+  if (!empty($tid)) {
+    $field[$language][] = array('tid' => $tid);
+  }
+  $entity->$target = $field;
+}
+
+/**
+ * Mapping configuration summary callback.
+ */
+function os2web_kulturnaut_events_field_os2web_kulturnaut_venue_summary_callback(array $mapping, $target, array $form, array $form_state) {
+  return 'Proceccing is overriden by os2web_kulturnaut_events module.';
 }

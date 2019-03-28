@@ -36,6 +36,7 @@ features[features_api][] = api:2
 features[feeds_importer][] = kulturnaut_begivenheder_oplevsyddjurs_
 features[feeds_importer][] = os2web_kulturnaut_feeds_import_fredericiaxml
 features[feeds_importer][] = os2web_kulturnaut_feeds_import_syddjursxml
+features[feeds_importer][] = os2web_kulturnaut_location_importer
 features[feeds_tamper][] = kulturnaut_begivenheder_oplevsyddjurs_-jsonpath_parser_10-rewrite
 features[feeds_tamper][] = kulturnaut_begivenheder_oplevsyddjurs_-jsonpath_parser_10-strtotime
 features[feeds_tamper][] = kulturnaut_begivenheder_oplevsyddjurs_-jsonpath_parser_14-rewrite
