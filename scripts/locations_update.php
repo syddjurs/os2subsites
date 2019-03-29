@@ -56,4 +56,4 @@ foreach ($data as $location_id => $location_data) {
 }
 
 print_r('To update '.  count($to_update) . ' terms' . "\n");
-print_r($to_clean);
+print_r($to_update);
