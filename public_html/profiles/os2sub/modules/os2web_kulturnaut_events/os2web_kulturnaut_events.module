@@ -333,3 +333,12 @@ function os2web_kulturnaut_events_field_os2web_kulturnaut_venue_set_target($sour
 function os2web_kulturnaut_events_field_os2web_kulturnaut_venue_summary_callback(array $mapping, $target, array $form, array $form_state) {
   return 'Proceccing is overriden by os2web_kulturnaut_events module.';
 }
+
+/**
+ * Implements hook_ctools_plugin_directory().
+ */
+function os2web_kulturnaut_events_ctools_plugin_directory($owner, $plugin_type) {
+  if ($owner == 'ctools' && $plugin_type == 'content_types') {
+    return 'plugins/content_types';
+  }
+}
