@@ -17,8 +17,9 @@ function kultunaut_import_strongarm() {
   $strongarm->value = array(
     'crumbs.home_title' => 1,
     'path' => 2,
-    'taxonomy.termReference.*' => 3,
+    'taxonomy.termParent.*' => 3,
     '*' => 4,
+    'taxonomy.termReference.*' => FALSE,
     'search.*' => FALSE,
     'search.node.result' => FALSE,
   );
