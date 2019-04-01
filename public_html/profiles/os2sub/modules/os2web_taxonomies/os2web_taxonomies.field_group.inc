@@ -54,9 +54,9 @@ function os2web_taxonomies_field_group_info() {
     'weight' => '4',
     'children' => array(
       0 => 'group_banner',
-      1 => 'group_gis',
-      2 => 'group_tekst',
-      3 => 'group_diverse',
+      1 => 'group_diverse',
+      2 => 'group_gis',
+      3 => 'group_tekst',
     ),
     'format_type' => 'htabs',
     'format_settings' => array(
@@ -148,7 +148,8 @@ function os2web_taxonomies_field_group_info() {
       0 => 'field_os2web_base_field_image',
       1 => 'field_os2web_taxonomies_disp_var',
       2 => 'field_termtekst',
-      3 => 'description',
+      3 => 'field_kulturnaut_desprition',
+      4 => 'description',
     ),
     'format_type' => 'htab',
     'format_settings' => array(

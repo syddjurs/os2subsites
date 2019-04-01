@@ -600,7 +600,7 @@ function os2web_kulturnaut_events_feeds_importer_default() {
           ),
           1 => array(
             'source' => 'jsonpath_parser:0',
-            'target' => 'description',
+            'target' => 'field_kulturnaut_desprition',
             'unique' => FALSE,
             'language' => 'und',
           ),
