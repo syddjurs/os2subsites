@@ -1,10 +1,14 @@
 <?php
 
 /**
+ * @file
+ * Install and update hook implementations of the fuzzysearch module.
+ */
+
+/**
  * Implements hook_install().
  */
 function fuzzysearch_install() {
-//  drupal_set_message(st('Fuzzy Search has been installed and a basic server and index created. Please run cron to index your site. You must add a Search Page or a View to use Fuzzy search.'));
   // Create default server and index.
   $file = DRUPAL_ROOT . '/' . drupal_get_path('module', 'fuzzysearch') . "/includes/fuzzysearch.default.inc";
   if (is_file($file)) {
@@ -65,23 +69,25 @@ function fuzzysearch_disable() {
  * Implements hook_enable().
  */
 function fuzzysearch_enable() {
-//  $servers = search_api_get_service_info(FALSE);
-//  foreach ($servers as $server) {
-//    if ($server->class == 'FuzzySearchService') {
-//      // Enable the servers.
-//      search_api_server_enable($server->id);
-//      // Enable indexes.
-//      $indexes = search_api_index_load_multiple(FALSE, $conditions = array('server' => $server->machine_name));
-//      foreach ($indexes as $index) {
-//        search_api_index_enable($index->id);
-//        // Enable any search pages.
-//        if (module_exists('search_api_page')) {
-//          db_update('search_api_page')
-//              ->condition('index_id', $index->machine_name)
-//              ->fields(array('enabled' => 1))
-//              ->execute();
-//        }
-//      }
-//    }
-//  }
+  // @codingStandardsIgnoreStart
+  // $servers = search_api_get_service_info(FALSE);
+  //  foreach ($servers as $server) {
+  //    if ($server->class == 'FuzzySearchService') {
+  //      // Enable the servers.
+  //      search_api_server_enable($server->id);
+  //      // Enable indexes.
+  //      $indexes = search_api_index_load_multiple(FALSE, $conditions = array('server' => $server->machine_name));
+  //      foreach ($indexes as $index) {
+  //        search_api_index_enable($index->id);
+  //        // Enable any search pages.
+  //        if (module_exists('search_api_page')) {
+  //          db_update('search_api_page')
+  //              ->condition('index_id', $index->machine_name)
+  //              ->fields(array('enabled' => 1))
+  //              ->execute();
+  //        }
+  //      }
+  //    }
+  //  }
+  // @codingStandardsIgnoreEnd
 }

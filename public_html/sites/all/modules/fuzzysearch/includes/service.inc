@@ -5,11 +5,14 @@
  */
 class FuzzySearchService extends SearchApiAbstractService {
 
-  protected $previous_db;
-  protected $query_options = array();
+  protected $previousDb;
+  protected $queryOptions = array();
   protected $ignored = array();
   protected $warnings = array();
 
+  /**
+   * {@inheritdoc}
+   */
   public function configurationForm(array $form, array &$form_state) {
     if (empty($this->options)) {
       global $databases;
@@ -22,8 +25,7 @@ class FuzzySearchService extends SearchApiAbstractService {
         $form['database'] = array(
           '#type' => 'select',
           '#title' => t('Database'),
-          '#description' => t('Select the database key and target to use for storing indexing information in. ' .
-              'Cannot be changed after creation.'),
+          '#description' => t('Select the database key and target to use for storing indexing information in. Cannot be changed after creation.'),
           '#options' => $options,
           '#default_value' => 'default:default',
           '#required' => TRUE,
@@ -47,7 +49,8 @@ class FuzzySearchService extends SearchApiAbstractService {
       $form = array(
         'database' => array(
           '#type' => 'value',
-          '#title' => t('Database'), // Slight hack for the "View server" page.
+      // Slight hack for the "View server" page.
+          '#title' => t('Database'),
           '#value' => $this->options['database'],
         ),
         'database_text' => array(
@@ -68,14 +71,23 @@ class FuzzySearchService extends SearchApiAbstractService {
     return $form;
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function supportsFeature($feature) {
-    return $feature == 'fuzzysearch';
+    return $feature == 'fuzzysearch' || $feature == 'search_api_facets';
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function postUpdate() {
     return $this->server->options != $this->server->original->options;
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function preDelete() {
     if (empty($this->options['indexes'])) {
       return;
@@ -87,11 +99,15 @@ class FuzzySearchService extends SearchApiAbstractService {
     }
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function addIndex(SearchApiIndex $index) {
     $this->options += array('indexes' => array());
     $indexes = &$this->options['indexes'];
     if (isset($indexes[$index->machine_name])) {
-      // Easiest and safest method to ensure all of the index' data is properly re-added.
+      // Easiest and safest method to ensure all of the index' data is
+      // properly re-added.
       $this->removeIndex($index);
     }
     if (empty($index->options['fields']) || !is_array($index->options['fields'])) {
@@ -101,13 +117,13 @@ class FuzzySearchService extends SearchApiAbstractService {
       return $this;
     }
 
-    $prefix = 'fuzzysearch_' . $index->machine_name. '_';
+    $prefix = 'fuzzysearch_' . $index->machine_name . '_';
     $indexes[$index->machine_name] = array();
     foreach ($index->getFields() as $name => $field) {
       $table = $this->findFreeTable($prefix, $name);
       $this->createFieldTable($index, $field, $table);
       $indexes[$index->machine_name][$name]['table'] = $table;
-      $indexes[$index->machine_name][$name]['type']  = $field['type'];
+      $indexes[$index->machine_name][$name]['type'] = $field['type'];
       $indexes[$index->machine_name][$name]['boost'] = $field['boost'];
     }
 
@@ -215,18 +231,25 @@ class FuzzySearchService extends SearchApiAbstractService {
     }
   }
 
+  /**
+   * Helper to match Search API types to SQL types.
+   */
   protected function sqlType($type) {
     $type = search_api_extract_inner_type($type);
     switch ($type) {
       case 'string':
       case 'uri':
         return array('type' => 'varchar', 'length' => 255);
+
       case 'integer':
       case 'duration':
-      case 'date': // 'datetime' sucks. This way, we just convert every input into a timestamp.
+        // Convert dates into a timestamp.
+      case 'date':
         return array('type' => 'int');
+
       case 'decimal':
         return array('type' => 'float');
+
       case 'boolean':
         return array('type' => 'int', 'size' => 'tiny');
 
@@ -235,6 +258,9 @@ class FuzzySearchService extends SearchApiAbstractService {
     }
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function fieldsUpdated(SearchApiIndex $index) {
     $fields = &$this->options['indexes'][$index->machine_name];
     $new_fields = $index->getFields();
@@ -268,31 +294,33 @@ class FuzzySearchService extends SearchApiAbstractService {
           $this->createFieldTable($index, $new_fields[$name], $field['table']);
         }
         elseif ($this->sqlType($old_inner_type) != $this->sqlType($new_inner_type)) {
-          // There is a change in SQL type. We don't have to clear the index, since types can be converted.
+          // There is a change in SQL type. We don't have to clear the
+          // index, since types can be converted.
           db_change_field($field['table'], 'value', 'value', $this->sqlType($new_type) + array('description' => "The field's value for this item."));
           $reindex = TRUE;
         }
         elseif ($old_inner_type == 'date' || $new_inner_type == 'date') {
-          // Even though the SQL type stays the same, we have to reindex since conversion rules change.
+          // Even though the SQL type stays the same, we have to reindex
+          // since conversion rules change.
           $reindex = TRUE;
         }
       }
       elseif (!$reindex && $new_inner_type == 'text' && $field['boost'] != $new_fields[$name]['boost']) {
         $multiplier = $new_fields[$name]['boost'] / $field['boost'];
-        db_update($field['table'], $this->query_options)
+        db_update($field['table'], $this->queryOptions)
           ->expression('score', 'score * :mult', array(':mult' => $multiplier))
           ->execute();
       }
       unset($new_fields[$name]);
     }
-    $prefix = 'fuzzysearch_' . $index->machine_name. '_';
+    $prefix = 'fuzzysearch_' . $index->machine_name . '_';
     // These are new fields that were previously not indexed.
     foreach ($new_fields as $name => $field) {
       $reindex = TRUE;
       $table = $this->findFreeTable($prefix, $name);
       $this->createFieldTable($index, $field, $table);
       $fields[$name]['table'] = $table;
-      $fields[$name]['type']  = $field['type'];
+      $fields[$name]['type'] = $field['type'];
       $fields[$name]['boost'] = $field['boost'];
     }
     if ($set) {
@@ -303,6 +331,9 @@ class FuzzySearchService extends SearchApiAbstractService {
     return $reindex;
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function removeIndex($index) {
     $id = is_object($index) ? $index->machine_name : $index;
     if (!isset($this->options['indexes'][$id])) {
@@ -319,6 +350,9 @@ class FuzzySearchService extends SearchApiAbstractService {
     $this->server->save();
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function indexItems(SearchApiIndex $index, array $items) {
     if (empty($this->options['indexes'][$index->machine_name])) {
       throw new SearchApiException(t('No field settings for index with id !id.', array('!id' => $index->machine_name)));
@@ -342,16 +376,37 @@ class FuzzySearchService extends SearchApiAbstractService {
     return $indexed;
   }
 
+  /**
+   * Helper method to index a given item.
+   *
+   * @param SearchApiIndex $index
+   *   The search index for which the item should be indexed.
+   * @param int|string $id
+   *   Item ID.
+   * @param array $item
+   *   Associative array containing information about the item to be indexed:
+   *   - type: One of the data types recognized by the Search API, or the
+   *     special type "tokens" for fulltext fields.
+   *   - original_type: The original type of the property, as defined by the
+   *     datasource controller for the index's item type.
+   *   - value: The value to index.
+   *
+   * @return bool
+   *   TRUE on success, FALSE otherwise.
+   *
+   * @throws Exception
+   *   If indexing was prevented by a fundamental configuration error.
+   */
   protected function indexItem(SearchApiIndex $index, $id, array $item) {
     $fields = $this->options['indexes'][$index->machine_name];
-    $txn = db_transaction('search_api_indexing', $this->query_options);
+    $txn = db_transaction('search_api_indexing', $this->queryOptions);
     try {
       foreach ($item as $name => $field) {
         $table = $fields[$name]['table'];
         $boost = $fields[$name]['boost'];
-        db_delete($table, $this->query_options)
-            ->condition('item_id', $id)
-            ->execute();
+        db_delete($table, $this->queryOptions)
+          ->condition('item_id', $id)
+          ->execute();
         $type = $field['type'];
         $value = $this->convert($field['value'], $type, $field['original_type'], $index);
         $word_id = NULL;
@@ -383,11 +438,17 @@ class FuzzySearchService extends SearchApiAbstractService {
             }
           }
           if ($words) {
-            $query = db_insert($table, $this->query_options)
-              ->fields(array('item_id', 'word_id', 'ngram', 'completeness', 'score'));
+            $query = db_insert($table, $this->queryOptions)
+              ->fields(array(
+                'item_id',
+                'word_id',
+                'ngram',
+                'completeness',
+                'score',
+              ));
             foreach ($words as $word) {
               // Don't index if not preprocessed by fuzzysearch.
-              if(!isset($word['ngrams'])) {
+              if (!isset($word['ngrams'])) {
                 continue;
               }
               if (!isset($word_id)) {
@@ -402,7 +463,7 @@ class FuzzySearchService extends SearchApiAbstractService {
                   'score'        => $word['score'] * $boost,
                 ));
               }
-            $word_id = $query->execute();
+              $word_id = $query->execute();
             }
           }
         }
@@ -420,7 +481,7 @@ class FuzzySearchService extends SearchApiAbstractService {
             $values[] = $value;
           }
           if ($values) {
-            $insert = db_insert($table, $this->query_options)
+            $insert = db_insert($table, $this->queryOptions)
               ->fields(array('item_id', 'value'));
             foreach ($values as $v) {
               $insert->values(array(
@@ -432,7 +493,7 @@ class FuzzySearchService extends SearchApiAbstractService {
           }
         }
         else {
-          db_insert($table, $this->query_options)
+          db_insert($table, $this->queryOptions)
             ->fields(array(
               'item_id' => $id,
               'value'   => $value,
@@ -448,16 +509,19 @@ class FuzzySearchService extends SearchApiAbstractService {
     return TRUE;
   }
 
+  /**
+   * Helper for converting data to be indexed.
+   */
   protected function convert($value, $type, $original_type, SearchApiIndex $index) {
     if (search_api_is_list_type($type)) {
       $type = substr($type, 5, -1);
       $original_type = search_api_extract_inner_type($original_type);
       $ret = array();
       if (is_array($value)) {
-      foreach ($value as $v) {
+        foreach ($value as $v) {
           $v = $this->convert($v, $type, $original_type, $index);
-        $ret = array_merge($ret, is_array($v) ? $v : array($v));
-      }
+          $ret = array_merge($ret, is_array($v) ? $v : array($v));
+        }
       }
       return $ret;
     }
@@ -486,23 +550,19 @@ class FuzzySearchService extends SearchApiAbstractService {
                 // Overlong token is due to bad tokenizing.
                 // Check for "Tokenizer" preprocessor on index.
                 if (empty($index->options['processors']['search_api_tokenizer']['status'])) {
-                  watchdog('search_api_db', 'An overlong word (more than 50 characters) was encountered while indexing, due to bad tokenizing. ' .
-                      'It is recommended to enable the "Tokenizer" preprocessor for indexes using database servers. ' .
-                      'Otherwise, the service class has to use its own, fixed tokenizing.', array(), WATCHDOG_WARNING);
+                  watchdog('search_api_db', 'An overlong word (more than 50 characters) was encountered while indexing, due to bad tokenizing. It is recommended to enable the "Tokenizer" preprocessor for indexes using database servers. Otherwise, the service class has to use its own, fixed tokenizing.', array(), WATCHDOG_WARNING);
                 }
                 else {
-                  watchdog('search_api_db', 'An overlong word (more than 50 characters) was encountered while indexing, due to bad tokenizing. ' .
-                      'Please check your settings for the "Tokenizer" preprocessor to ensure that data is tokenized correctly.',
-                      array(), WATCHDOG_WARNING);
+                  watchdog('search_api_db', 'An overlong word (more than 50 characters) was encountered while indexing, due to bad tokenizing. Please check your settings for the "Tokenizer" preprocessor to ensure that data is tokenized correctly.', array(), WATCHDOG_WARNING);
                 }
               }
 
               $tokens = array();
               foreach ($words as $word) {
                 if (drupal_strlen($word) > 50) {
-                  watchdog('search_api_db', 'An overlong word (more than 50 characters) was encountered while indexing: %word.<br />' .
-                      'Database search servers currently cannot index such words correctly – the word was therefore trimmed to the allowed length.',
-                      array('%word' => $word), WATCHDOG_WARNING);
+                  watchdog('search_api_db', 'An overlong word (more than 50 characters) was encountered while indexing: %word.<br />Database search servers currently cannot index such words correctly – the word was therefore trimmed to the allowed length.', array(
+                    '%word' => $word,
+                  ), WATCHDOG_WARNING);
                   $word = drupal_substr($word, 0, 50);
                 }
                 $tokens[] = array(
@@ -520,13 +580,12 @@ class FuzzySearchService extends SearchApiAbstractService {
 
       case 'string':
       case 'uri':
-        // For non-dates, PHP can handle this well enough
+        // For non-dates, PHP can handle this well enough.
         if ($original_type == 'date') {
           return date('%c', $value);
         }
         if (drupal_strlen($value) > 255) {
-          throw new SearchApiException(t('A string value longer than 255 characters was encountered. ' .
-              "Such values currently aren't supported by the database backend."));
+          throw new SearchApiException(t("A string value longer than 255 characters was encountered. Such values currently aren't supported by the database backend."));
         }
         return $value;
 
@@ -549,6 +608,9 @@ class FuzzySearchService extends SearchApiAbstractService {
     }
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function deleteItems($ids = 'all', SearchApiIndex $index = NULL) {
     if (!$index) {
       if (empty($this->options['indexes'])) {
@@ -557,15 +619,16 @@ class FuzzySearchService extends SearchApiAbstractService {
       $set = $this->setDb();
       foreach ($this->options['indexes'] as $index) {
         foreach ($index as $fields) {
-          // If you are using one or default fuzzysearch server it will execuite here.
+          // If you are using one or default fuzzysearch server it will
+          // execute here.
           if (isset($fields['table']) && !empty($fields['table'])) {
-            db_truncate($fields['table'], $this->query_options)->execute();
+            db_truncate($fields['table'], $this->queryOptions)->execute();
           }
           else {
             // More than one server hits here.
             foreach ($fields as $field) {
               if (isset($field['table']) && !empty($field['table'])) {
-                db_truncate($field['table'], $this->query_options)->execute();
+                db_truncate($field['table'], $this->queryOptions)->execute();
               }
             }
           }
@@ -583,12 +646,12 @@ class FuzzySearchService extends SearchApiAbstractService {
     $set = $this->setDb();
     foreach ($this->options['indexes'][$index->machine_name] as $field) {
       if (is_array($ids)) {
-        db_delete($field['table'], $this->query_options)
+        db_delete($field['table'], $this->queryOptions)
           ->condition('item_id', $ids, 'IN')
           ->execute();
       }
       else {
-        db_truncate($field['table'], $this->query_options)->execute();
+        db_truncate($field['table'], $this->queryOptions)->execute();
       }
     }
     if ($set) {
@@ -596,6 +659,9 @@ class FuzzySearchService extends SearchApiAbstractService {
     }
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function search(SearchApiQueryInterface $query) {
     $time_method_called = microtime(TRUE);
     $set = $this->setDb();
@@ -647,7 +713,7 @@ class FuzzySearchService extends SearchApiAbstractService {
     $filter = $query->getFilter();
     if ($filter->getFilters()) {
       if (!isset($db_query)) {
-        $db_query = db_select($fields['search_api_language']['table'], 't', $this->query_options);
+        $db_query = db_select($fields['search_api_language']['table'], 't', $this->queryOptions);
         $db_query->addField('t', 'item_id', 'item_id');
         $db_query->addExpression(':score', 'score', array(':score' => 1));
       }
@@ -658,7 +724,7 @@ class FuzzySearchService extends SearchApiAbstractService {
     }
 
     if (!isset($db_query)) {
-      $db_query = db_select($fields['search_api_language']['table'], 't', $this->query_options);
+      $db_query = db_select($fields['search_api_language']['table'], 't', $this->queryOptions);
       $db_query->addField('t', 'item_id', 'item_id');
       $db_query->addExpression(':score', 'score', array(':score' => 1));
     }
@@ -666,7 +732,7 @@ class FuzzySearchService extends SearchApiAbstractService {
     $time_processing_done = microtime(TRUE);
     $results = array();
     $count_query = $db_query->countQuery();
-    // See @todo below
+    // See @todo below.
     $results['result count'] = $count_query->execute()->fetchField();
 
     if ($results['result count']) {
@@ -712,16 +778,17 @@ class FuzzySearchService extends SearchApiAbstractService {
         }
       }
       else {
-        // If there isn't a "percent" alias already, see if we can find the completeness field to add the expression.
-        if ( ($expressions = $db_query->getExpressions()) != FALSE && !array_key_exists('percent', $expressions ) ) {
-          foreach( $db_query->getTables() as $alias => $tdata ) {
-            if ( isset($tdata['table']) && is_string($tdata['table']) && db_field_exists($tdata['table'], 'completeness') ) {
+        // If there isn't a "percent" alias already, see if we can find the
+        // completeness field to add the expression.
+        if (($expressions = $db_query->getExpressions()) != FALSE && !array_key_exists('percent', $expressions)) {
+          foreach ($db_query->getTables() as $alias => $tdata) {
+            if (isset($tdata['table']) && is_string($tdata['table']) && db_field_exists($tdata['table'], 'completeness')) {
               $db_query->addExpression('SUM(t.completeness)', 'percent');
             }
           }
         }
         // Check for the expression before attempting to sort by it.
-        if ( ($expressions = $db_query->getExpressions()) != FALSE && array_key_exists('percent', $expressions ) ) {
+        if (($expressions = $db_query->getExpressions()) != FALSE && array_key_exists('percent', $expressions)) {
           // If "sort by score" is selected, score before percent.
           if ($fuzzy['sort_score']) {
             $db_query->orderBy('score', 'DESC');
@@ -733,7 +800,8 @@ class FuzzySearchService extends SearchApiAbstractService {
             $db_query->orderBy('score', 'DESC');
           }
         }
-        // If there is a failure to find a percent expression to sort by, don't try!
+        // If there is a failure to find a percent expression to sort by,
+        // don't try!
         else {
           $db_query->orderBy('score', 'DESC');
         }
@@ -746,7 +814,9 @@ class FuzzySearchService extends SearchApiAbstractService {
         $results['results'][$row->item_id] = array(
           'id' => $row->item_id,
           'score' => $row->score,
-          'percent' => isset($row->percent) ? $row->percent : '', // Have to check because in a views search we return results by default, even without keys.
+          // Have to check because in a views search we return results by
+          // default, even without keys.
+          'percent' => isset($row->percent) ? $row->percent : '',
         );
       }
     }
@@ -791,7 +861,7 @@ class FuzzySearchService extends SearchApiAbstractService {
       if (is_array($nested)) {
         $nested = $this->prepareKeys($nested);
         if ($neg == !empty($nested['#negation'])) {
-          if ($nested['#conjunction'] == $conj) {
+          if (isset($nested['#conjunction']) && $nested['#conjunction'] == $conj) {
             unset($nested['#conjunction'], $nested['#negation']);
             foreach ($nested as $renested) {
               $keys[] = $renested;
@@ -820,13 +890,16 @@ class FuzzySearchService extends SearchApiAbstractService {
   protected function splitKeys($keys) {
     if (is_scalar($keys)) {
       $proc = drupal_strtolower(trim($keys));
+
       if (is_numeric($proc)) {
-        return ltrim($proc, '-0');
+        $proc = ltrim($proc, '-');
       }
-      elseif (drupal_strlen($proc) < $this->options['min_chars']) {
+
+      if (drupal_strlen($proc) < $this->options['min_chars']) {
         $this->ignored[$keys] = 1;
         return NULL;
       }
+
       $words = preg_split('/[^\p{L}\p{N}]+/u', $proc, -1, PREG_SPLIT_NO_EMPTY);
       if (count($words) > 1) {
         $proc = $this->splitKeys($words);
@@ -876,7 +949,7 @@ class FuzzySearchService extends SearchApiAbstractService {
     if (!is_array($keys)) {
       $keys = array(
         '#conjunction' => 'AND',
-        $keys,
+        0 => $keys,
       );
     }
 
@@ -889,7 +962,9 @@ class FuzzySearchService extends SearchApiAbstractService {
     $negated = array();
     $db_query = NULL;
     $mul_words = FALSE;
-    $not_nested = FALSE; // If the query will nest UNIONed subqueries or just leave them that way.
+    // Whether the query will nest UNIONed subqueries (FALSE)
+    // or just leave them that way (TRUE).
+    $not_nested = FALSE;
 
     foreach ($keys as $i => $key) {
       if (!element_child($i)) {
@@ -929,9 +1004,9 @@ class FuzzySearchService extends SearchApiAbstractService {
         $word = array_shift($words);
       }
 
-      foreach ($fields as $name => $field) {
+      foreach ($fields as $field) {
         $table = $field['table'];
-        $query = db_select($table, 't', $this->query_options);
+        $query = db_select($table, 't', $this->queryOptions);
         if ($neg) {
           $query->fields('t', array('item_id'));
         }
@@ -964,7 +1039,7 @@ class FuzzySearchService extends SearchApiAbstractService {
         }
         // Clone the query for search excerpting.
         fuzzysearch_static_search_query(clone $db_query);
-        // Group by word and then entity
+        // Group by word and then entity.
         $query->groupBy('t.word_id');
         $query->groupBY('t.item_id');
         $query->addExpression('SUM(t.completeness)', 'percent');
@@ -994,7 +1069,7 @@ class FuzzySearchService extends SearchApiAbstractService {
     }
 
     if (isset($db_query) && !$not_nested) {
-      $db_query = db_select($db_query, 't', $this->query_options);
+      $db_query = db_select($db_query, 't', $this->queryOptions);
       $db_query->addField('t', 'item_id', 'item_id');
       if (!$neg) {
         $db_query->addExpression('SUM(t.score)', 'score');
@@ -1006,19 +1081,22 @@ class FuzzySearchService extends SearchApiAbstractService {
         if (!$db_query->getGroupBy()) {
           $db_query->groupBy('t.item_id');
         }
-        if ($mul_words) {
+// @codingStandardsIgnoreStart
+//        if ($mul_words) {
 //          $db_query->having('COUNT(DISTINCT t.word) >= ' . $var, array($var => $subs));
-        }
-        else {
- //         $db_query->having('COUNT(DISTINCT t.word) >= ' . $var, array($var => $subs));
-        }
+//        }
+//        else {
+//          $db_query->having('COUNT(DISTINCT t.word) >= ' . $var, array($var => $subs));
+//        }
+// @codingStandardsIgnoreEnd
       }
     }
 
     if ($negated) {
       if (!isset($db_query) || $conj == 'OR') {
         if (isset($all_fields['search_api_language'])) {
-          // We use this table because all items should be contained exactly once.
+          // We use this table because all items should be contained exactly
+          // once.
           $table = $all_fields['search_api_language']['table'];
         }
         else {
@@ -1032,10 +1110,11 @@ class FuzzySearchService extends SearchApiAbstractService {
           }
         }
         if (isset($db_query)) {
-          // We are in a rather bizarre case where the keys are something like "a OR (NOT b)".
+          // We are in a rather bizarre case where the keys are something like
+          // "a OR (NOT b)".
           $old_query = $db_query;
         }
-        $db_query = db_select($table, 't', $this->query_options);
+        $db_query = db_select($table, 't', $this->queryOptions);
         $db_query->addField('t', 'item_id', 'item_id');
         if (!$neg) {
           $db_query->addExpression(':score', 'score', array(':score' => 1));
@@ -1088,6 +1167,7 @@ class FuzzySearchService extends SearchApiAbstractService {
    * Helper method for creating a condition for filtering search results.
    *
    * @return QueryConditionInterface
+   *   Search results filter condition.
    */
   protected function createFilterCondition(SearchApiQueryFilterInterface $filter, array $fields, SelectQueryInterface $db_query) {
     $cond = db_condition($filter->getConjunction());
@@ -1135,18 +1215,21 @@ class FuzzySearchService extends SearchApiAbstractService {
    *   name to which a join should be made.
    * @param SelectQueryInterface $db_query
    *   The database query used.
-   * @param $newjoin
+   * @param bool $newjoin
    *   If TRUE, a join is done even if the table was already joined to in the
    *   query.
+   *
+   * @return string
+   *   The unique alias that was assigned for this table.
    */
   protected function getTableAlias(array $field, SelectQueryInterface $db_query, $newjoin = FALSE) {
-    if(!$newjoin) {
-    foreach ($db_query->getTables() as $alias => $info) {
-      $table = $info['table'];
-      if (is_scalar($table) && $table == $field['table']) {
-        return $alias;
+    if (!$newjoin) {
+      foreach ($db_query->getTables() as $alias => $info) {
+        $table = $info['table'];
+        if (is_scalar($table) && $table == $field['table']) {
+          return $alias;
+        }
       }
-    }
     }
     return $db_query->join($field['table'], 't', 't.item_id = %alias.item_id');
   }
@@ -1172,7 +1255,7 @@ class FuzzySearchService extends SearchApiAbstractService {
       return array();
     }
     $args = $db_query->getArguments();
-    $table = db_query_temporary((string) $db_query, $args, $this->query_options);
+    $table = db_query_temporary((string) $db_query, $args, $this->queryOptions);
 
     $fields = $this->options['indexes'][$query->getIndex()->machine_name];
     $ret = array();
@@ -1242,11 +1325,11 @@ class FuzzySearchService extends SearchApiAbstractService {
    * Helper method for setting the database to the one selected by the user.
    */
   protected function setDb() {
-    if (!isset($this->previous_db)) {
+    if (!isset($this->previousDb)) {
       list($key, $target) = explode(':', $this->options['database'], 2);
-      $this->previous_db = db_set_active($key);
-      if (!isset($this->query_options)) {
-        $this->query_options = array('target' => $target);
+      $this->previousDb = db_set_active($key);
+      if (!isset($this->queryOptions)) {
+        $this->queryOptions = array('target' => $target);
       }
       return TRUE;
     }
@@ -1257,9 +1340,9 @@ class FuzzySearchService extends SearchApiAbstractService {
    * Helper method for resetting the original database.
    */
   protected function resetDb() {
-    if (isset($this->previous_db)) {
-      db_set_active($this->previous_db);
-      $this->previous_db = NULL;
+    if (isset($this->previousDb)) {
+      db_set_active($this->previousDb);
+      $this->previousDb = NULL;
       return TRUE;
     }
     return FALSE;
