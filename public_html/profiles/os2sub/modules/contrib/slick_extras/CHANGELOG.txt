@@ -1,4 +1,8 @@
 
+Slick extras 7.x-2.0-dev, 2018-12-19
+------------------------------------
+- Updated and refined samples.
+
 Slick extras 7.x-2.0-dev, 2016-06-10
 ------------------------------------
 - Added "Use CSS background" option to block_fullscreen to simplify the
