@@ -10,6 +10,15 @@
 class SlickViews extends views_plugin_style {
 
   /**
+   * {@inheritdoc}
+   */
+  public function init(&$view, &$display, $options = NULL) {
+    parent::init($view, $display, $options);
+    // Even empty active to call render; where library is attached if required.
+    $this->definition['even empty'] = TRUE;
+  }
+
+  /**
    * Provides default options.
    */
   public function option_definition() {
@@ -122,8 +131,14 @@ class SlickViews extends views_plugin_style {
 
         // Build the thumbnail+/text navigation Slick.
         $thumbs = $this->buildElements($rows, $settings, TRUE);
-        $slick[1] = slick_build($thumbs, $js, $settings, array(), $thumb_id, $optionset_thumbnail);
+        $slick[1] = slick_build($thumbs, $js, $settings, array(), $id, $optionset_thumbnail);
         unset($thumbs, $optionset_thumbnail);
+      }
+
+      // Attach library if there is no results and ajax is active,
+      // otherwise library will not be attached on ajax callback.
+      if (empty($view->result) && $view->use_ajax) {
+        $slick[0]['#attached'] = $attachments;
       }
 
       // Build the Slick.
@@ -171,16 +186,6 @@ class SlickViews extends views_plugin_style {
       );
 
       $settings['delta'] = $index;
-
-      if (!empty($class)) {
-        if ($this->get_field($index, $class) && $classes = $this->getFieldValue($row, $class, $index)) {
-          $classes = array_filter($classes);
-          $settings['slide_classes'] = empty($classes[$index]) ? '' : $classes[$index];
-        }
-        else {
-          $settings['slide_classes'] = '';
-        }
-      }
 
       // Uses all Views markups, ignoring Slick markups.
       if (empty($settings['slide_field_wrapper'])) {
@@ -274,6 +279,16 @@ class SlickViews extends views_plugin_style {
             $thumb['slide'] = array();
             $settings['type'] = 'text';
           }
+        }
+      }
+
+      if (!empty($class)) {
+        if ($this->get_field($index, $class) && $classes = $this->getFieldValue($row, $class, $index)) {
+          $classes = array_filter($classes);
+          $settings['slide_classes'] = empty($classes[$index]) ? '' : $classes[$index];
+        }
+        else {
+          $settings['slide_classes'] = '';
         }
       }
 

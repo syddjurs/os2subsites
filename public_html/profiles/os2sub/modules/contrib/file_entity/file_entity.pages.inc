@@ -56,6 +56,10 @@ function file_entity_download_page($file) {
     // For local files, transfer the file and do not reveal the actual URL.
     file_transfer($file->uri, $headers);
   }
+  else if (file_uri_scheme($file->uri) == 's3') {
+    $url = file_create_url($file->uri);
+    drupal_goto($url);
+  }
   else {
     // For remote files, just redirect the user to that file's actual URL.
     $headers['Location'] = file_create_url($file->uri);
@@ -282,8 +286,26 @@ function file_entity_usage_page($file) {
         $entity_uri = empty($entities[$entity_id]) ? NULL : entity_uri($entity_type, $entities[$entity_id]);
 
         // Link the label to the URI when possible.
-        if (!empty($entity_uri['path'])) {
+        if (!empty($entity_uri['path']) && $entity_type != 'paragraphs_item') {
           $entity_label = l($label, $entity_uri['path']);
+        }
+        // For paragraphs items, we are searching for usages in nodes.
+        elseif ($entity_type == 'paragraphs_item') {
+          $paragraph_fields = field_read_fields(array('type' => 'paragraphs'));
+          foreach ($paragraph_fields as $paragraph_field) {
+            $field_name = $paragraph_field['field_name'];
+            $query = new EntityFieldQuery();
+            $query->entityCondition('entity_type', 'node')
+              ->fieldCondition($field_name, 'value', $entity_id, '=');
+            $nid = $query->execute();
+            if (!empty($nid)) {
+              $nid = implode(array_keys($nid['node']));
+              if ($nid) {
+                $node = node_load($nid);
+                $entity_label = l($node->title, 'node/' . $nid);
+              }
+            }
+          }
         }
         else {
           $entity_label = check_plain($label);
@@ -435,6 +457,8 @@ function file_entity_add_upload_submit($form, &$form_state) {
       // Save the file with blanks fields.
       $save = TRUE;
     }
+    // Allow other modules to choose to skip or complete step 4.
+    drupal_alter('file_entity_file_upload_skip_fields', $save, $form_state);
   }
 
   // Form id's can vary depending on how many other forms are displayed, so we
@@ -520,7 +544,7 @@ function file_entity_upload_destination_uri(array $params, array $data = array()
   $destination = trim($params['file_directory'], '/');
 
   // Replace tokens.
-  $destination = token_replace($destination, $data);
+  $destination = decode_entities(token_replace($destination, $data));
 
   return $params['uri_scheme'] . '://' . $destination;
 }
@@ -652,12 +676,15 @@ function file_entity_edit($form, &$form_state, $file) {
   // Add a 'replace this file' upload field if the file is writeable.
   if (file_entity_file_is_writeable($file)) {
     // Set up replacement file validation.
-    $replacement_options = array();
+    $replacement_options = !empty($form_state['#upload_options']) ? $form_state['#upload_options'] : array();
 
     // The replacement file must have an extension valid for the original type.
     $file_extensions = array();
     $file_type_name = isset($file->type) ? $file->type : file_get_type($file);
-    if ($file_type_name && ($file_type = file_type_load($file_type_name))) {
+    if (!empty($replacement_options['file_extensions'])) {
+      $file_extensions = explode(' ', $replacement_options['file_extensions']);
+    }
+    elseif ($file_type_name && ($file_type = file_type_load($file_type_name))) {
       $file_extensions = file_type_get_valid_extensions($file_type);
     }
 
@@ -750,7 +777,7 @@ function file_entity_edit($form, &$form_state, $file) {
     '#title' => t('Associated with'),
     '#maxlength' => 60,
     '#autocomplete_path' => 'user/autocomplete',
-    '#default_value' => !empty($file->uid) ? user_load($file->uid)->name : '',
+    '#default_value' => (!empty($file->uid) && $user = user_load($file->uid)) ? $user->name : '',
     '#weight' => -1,
     '#description' => t('Leave blank for %anonymous.', array('%anonymous' => variable_get('anonymous', t('Anonymous')))),
   );
@@ -834,35 +861,37 @@ function file_entity_edit_submit($form, &$form_state) {
   // Check if a replacement file has been uploaded.
   if (!empty($form_state['values']['replace_upload'])) {
     $replacement = $form_state['values']['replace_upload'];
-    // Move file from temp to permanent home.
-    if (pathinfo($replacement->uri, PATHINFO_EXTENSION) == pathinfo($file->uri, PATHINFO_EXTENSION)) {
-      if ($new_file_uri = file_unmanaged_copy($replacement->uri, $file->uri, FILE_EXISTS_REPLACE)) {
-        // Remove temporary file.
-        file_delete($replacement);
-      }
-    } else {
-      if (!empty($form_state['values']['replace_keep_original_filename'])
-      && $form_state['values']['replace_keep_original_filename']) {
-        $destination_uri = rtrim($file->uri, drupal_basename($file->uri)) . drupal_basename($file->uri);
-      }
-      else {
-        $destination_uri = rtrim($file->uri, drupal_basename($file->uri)) . drupal_basename($replacement->uri);
-      }
-      $replace_mode = $destination_uri == $file->uri ? FILE_EXISTS_REPLACE : FILE_EXISTS_RENAME;
-      if ($new_file_uri = file_unmanaged_copy($replacement->uri, $destination_uri, $replace_mode)) {
-        // @todo Add watchdog() about replaced file here?
-
-        // Remove temporary file.
-        file_delete($replacement);
-
-        // Update if the uri target has changed.
-        if ($new_file_uri != $file->uri) {
-          // Store the original file uri to delete if save is successful.
-          $orphaned_uri = $file->uri;
-
-          // Update file entity uri.
-          $file->uri = $new_file_uri;
+    // Existing image metadata is stored in $file->height and $file->width.
+    // Loop through the replacement metadata and update existing values.
+    if (!empty($replacement->metadata)) {
+      foreach ($replacement->metadata as $metadata_key => $metadata_value) {
+        if (isset($file->{$metadata_key})) {
+          $file->{$metadata_key} = $metadata_value;
         }
+      }
+    }
+    // Move file from temp to permanent home.
+    if (!empty($form_state['values']['replace_keep_original_filename'])
+    && $form_state['values']['replace_keep_original_filename']) {
+      $destination_uri = rtrim($file->uri, drupal_basename($file->uri)) . drupal_basename($file->uri);
+    }
+    else {
+      $destination_uri = rtrim($file->uri, drupal_basename($file->uri)) . drupal_basename($replacement->uri);
+    }
+    $replace_mode = $destination_uri == $file->uri ? FILE_EXISTS_REPLACE : FILE_EXISTS_RENAME;
+    if ($new_file_uri = file_unmanaged_copy($replacement->uri, $destination_uri, $replace_mode)) {
+      // @todo Add watchdog() about replaced file here?
+
+      // Remove temporary file.
+      file_delete($replacement);
+
+      // Update if the uri target has changed.
+      if ($new_file_uri != $file->uri) {
+        // Store the original file uri to delete if save is successful.
+        $orphaned_uri = $file->uri;
+
+        // Update file entity uri.
+        $file->uri = $new_file_uri;
       }
     }
   }
@@ -1183,7 +1212,7 @@ function file_entity_upload_archive_form_submit($form, &$form_state) {
       $extract_dir = file_default_scheme() . '://' . pathinfo($archive->filename, PATHINFO_FILENAME);
       $extract_dir = file_destination($extract_dir, FILE_EXISTS_RENAME);
       if (!file_prepare_directory($extract_dir, FILE_MODIFY_PERMISSIONS | FILE_CREATE_DIRECTORY)) {
-        throw new Exception(t('Unable to prepar, e directory %dir for extraction.', array('%dir' => $extract_dir)));
+        throw new Exception(t('Unable to prepare directory %dir for extraction.', array('%dir' => $extract_dir)));
       }
 
       $archiver->extract($extract_dir);

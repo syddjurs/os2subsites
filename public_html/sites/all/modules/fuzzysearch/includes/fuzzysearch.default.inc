@@ -1,8 +1,11 @@
 <?php
 
 /**
+ * @file
  * Default server and index for FuzzySearchService.
  */
+
+drupal_static_reset('search_api_get_service_info');
 
 $name = st('Default fuzzysearch server');
 $values = array(
@@ -137,7 +140,7 @@ if ($id = search_api_index_insert($values)) {
   $path = drupal_get_path('module', 'fuzzysearch') . "/README.txt";
   drupal_set_message(st('Fuzzy Search default index created. !edit this index. Read the !readme if you are not sure what to do next.', array(
     '!edit' => l(st('Edit'), 'admin/config/search/search_api/index/default_fuzzysearch_index/edit'),
-    '!readme' => l(t('README.txt'), $path)
+    '!readme' => l(t('README.txt'), $path),
   )));
 }
 else {
