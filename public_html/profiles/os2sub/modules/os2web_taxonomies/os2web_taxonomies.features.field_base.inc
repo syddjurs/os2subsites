@@ -10,6 +10,25 @@
 function os2web_taxonomies_field_default_field_bases() {
   $field_bases = array();
 
+  // Exported field_base: 'field_kulturnaut_desprition'.
+  $field_bases['field_kulturnaut_desprition'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_kulturnaut_desprition',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(),
+    'translatable' => 0,
+    'type' => 'text_long',
+  );
+
   // Exported field_base: 'field_os2web_taxonomies_address'.
   $field_bases['field_os2web_taxonomies_address'] = array(
     'active' => 1,
@@ -202,6 +221,7 @@ function os2web_taxonomies_field_default_field_bases() {
         'var3' => 'Variant 3',
         'var4' => 'Variant 4',
         'var5' => 'Variant 5',
+        'var6' => 'Variant 6',
       ),
       'allowed_values_function' => '',
     ),
@@ -236,6 +256,21 @@ function os2web_taxonomies_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'link_field',
+  );
+
+  // Exported field_base: 'field_os2web_taxonomies_loc_id'.
+  $field_bases['field_os2web_taxonomies_loc_id'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_os2web_taxonomies_loc_id',
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'number',
+    'settings' => array(),
+    'translatable' => 0,
+    'type' => 'number_integer',
   );
 
   // Exported field_base: 'field_os2web_taxonomies_maplink'.

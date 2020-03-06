@@ -43,11 +43,11 @@ function kultunaut_import_views_default_views() {
   $handler->display->display_options['pager']['options']['tags']['last'] = 'sidste »';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Relationship: Content: Sted (field_os2web_kulturnaut_venue) */
+  /* Forbindelse: Indhold: Sted (field_os2web_kulturnaut_venue) */
   $handler->display->display_options['relationships']['field_os2web_kulturnaut_venue_tid']['id'] = 'field_os2web_kulturnaut_venue_tid';
   $handler->display->display_options['relationships']['field_os2web_kulturnaut_venue_tid']['table'] = 'field_data_field_os2web_kulturnaut_venue';
   $handler->display->display_options['relationships']['field_os2web_kulturnaut_venue_tid']['field'] = 'field_os2web_kulturnaut_venue_tid';
-  /* Field: Content: Title */
+  /* Felt: Indhold: Titel */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -57,13 +57,13 @@ function kultunaut_import_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  /* Field: Content: Beskrivelse */
+  /* Felt: Indhold: Beskrivelse */
   $handler->display->display_options['fields']['field_os2web_kulturnaut_descrip']['id'] = 'field_os2web_kulturnaut_descrip';
   $handler->display->display_options['fields']['field_os2web_kulturnaut_descrip']['table'] = 'field_data_field_os2web_kulturnaut_descrip';
   $handler->display->display_options['fields']['field_os2web_kulturnaut_descrip']['field'] = 'field_os2web_kulturnaut_descrip';
   $handler->display->display_options['fields']['field_os2web_kulturnaut_descrip']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_os2web_kulturnaut_descrip']['alter']['strip_tags'] = TRUE;
-  /* Field: Content: Dato */
+  /* Felt: Indhold: Dato */
   $handler->display->display_options['fields']['field_os2web_kulturnaut_date']['id'] = 'field_os2web_kulturnaut_date';
   $handler->display->display_options['fields']['field_os2web_kulturnaut_date']['table'] = 'field_data_field_os2web_kulturnaut_date';
   $handler->display->display_options['fields']['field_os2web_kulturnaut_date']['field'] = 'field_os2web_kulturnaut_date';
@@ -80,7 +80,7 @@ function kultunaut_import_views_default_views() {
     'multiple_to' => '',
     'show_remaining_days' => 0,
   );
-  /* Field: Slutdato */
+  /* Felt: Slutdato */
   $handler->display->display_options['fields']['field_os2web_kulturnaut_date_1']['id'] = 'field_os2web_kulturnaut_date_1';
   $handler->display->display_options['fields']['field_os2web_kulturnaut_date_1']['table'] = 'field_data_field_os2web_kulturnaut_date';
   $handler->display->display_options['fields']['field_os2web_kulturnaut_date_1']['field'] = 'field_os2web_kulturnaut_date';
@@ -99,19 +99,19 @@ function kultunaut_import_views_default_views() {
     'multiple_to' => '',
     'show_remaining_days' => 0,
   );
-  /* Field: Content: Lang Beskrivelse */
+  /* Felt: Indhold: Lang Beskrivelse */
   $handler->display->display_options['fields']['field_os2web_kulturnaut_longdesc']['id'] = 'field_os2web_kulturnaut_longdesc';
   $handler->display->display_options['fields']['field_os2web_kulturnaut_longdesc']['table'] = 'field_data_field_os2web_kulturnaut_longdesc';
   $handler->display->display_options['fields']['field_os2web_kulturnaut_longdesc']['field'] = 'field_os2web_kulturnaut_longdesc';
   $handler->display->display_options['fields']['field_os2web_kulturnaut_longdesc']['label'] = '';
   $handler->display->display_options['fields']['field_os2web_kulturnaut_longdesc']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_os2web_kulturnaut_longdesc']['element_label_colon'] = FALSE;
-  /* Field: Content: Sted homepage */
+  /* Felt: Indhold: Sted homepage */
   $handler->display->display_options['fields']['field_os2web_kulturnaut_shomepag']['id'] = 'field_os2web_kulturnaut_shomepag';
   $handler->display->display_options['fields']['field_os2web_kulturnaut_shomepag']['table'] = 'field_data_field_os2web_kulturnaut_shomepag';
   $handler->display->display_options['fields']['field_os2web_kulturnaut_shomepag']['field'] = 'field_os2web_kulturnaut_shomepag';
   $handler->display->display_options['fields']['field_os2web_kulturnaut_shomepag']['exclude'] = TRUE;
-  /* Field: Broken/missing handler */
+  /* Felt: Handler mangler eller er i stykker */
   $handler->display->display_options['fields']['field_os2web_kult_venue_address']['id'] = 'field_os2web_kult_venue_address';
   $handler->display->display_options['fields']['field_os2web_kult_venue_address']['table'] = 'field_data_field_os2web_kult_venue_address';
   $handler->display->display_options['fields']['field_os2web_kult_venue_address']['field'] = 'field_os2web_kult_venue_address';
@@ -119,7 +119,7 @@ function kultunaut_import_views_default_views() {
   $handler->display->display_options['fields']['field_os2web_kult_venue_address']['label'] = '';
   $handler->display->display_options['fields']['field_os2web_kult_venue_address']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_os2web_kult_venue_address']['element_label_colon'] = FALSE;
-  /* Field: Content: Sted Adresse */
+  /* Felt: Indhold: Sted Adresse */
   $handler->display->display_options['fields']['field_os2web_kulturnaut_saddress']['id'] = 'field_os2web_kulturnaut_saddress';
   $handler->display->display_options['fields']['field_os2web_kulturnaut_saddress']['table'] = 'field_data_field_os2web_kulturnaut_saddress';
   $handler->display->display_options['fields']['field_os2web_kulturnaut_saddress']['field'] = 'field_os2web_kulturnaut_saddress';
@@ -127,28 +127,28 @@ function kultunaut_import_views_default_views() {
   $handler->display->display_options['fields']['field_os2web_kulturnaut_saddress']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_os2web_kulturnaut_saddress']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_os2web_kulturnaut_saddress']['empty'] = '[field_os2web_kult_venue_address]';
-  /* Field: Content: Sted arrang */
+  /* Felt: Indhold: Sted arrang */
   $handler->display->display_options['fields']['field_os2web_kulturnaut_sarrang']['id'] = 'field_os2web_kulturnaut_sarrang';
   $handler->display->display_options['fields']['field_os2web_kulturnaut_sarrang']['table'] = 'field_data_field_os2web_kulturnaut_sarrang';
   $handler->display->display_options['fields']['field_os2web_kulturnaut_sarrang']['field'] = 'field_os2web_kulturnaut_sarrang';
   $handler->display->display_options['fields']['field_os2web_kulturnaut_sarrang']['exclude'] = TRUE;
-  /* Field: Content: Sted navn */
+  /* Felt: Indhold: Sted navn */
   $handler->display->display_options['fields']['field_os2web_kulturnaut_sname']['id'] = 'field_os2web_kulturnaut_sname';
   $handler->display->display_options['fields']['field_os2web_kulturnaut_sname']['table'] = 'field_data_field_os2web_kulturnaut_sname';
   $handler->display->display_options['fields']['field_os2web_kulturnaut_sname']['field'] = 'field_os2web_kulturnaut_sname';
   $handler->display->display_options['fields']['field_os2web_kulturnaut_sname']['exclude'] = TRUE;
-  /* Field: Content: Sted Postby */
+  /* Felt: Indhold: Sted Postby */
   $handler->display->display_options['fields']['field_os2web_kulturnaut_scity']['id'] = 'field_os2web_kulturnaut_scity';
   $handler->display->display_options['fields']['field_os2web_kulturnaut_scity']['table'] = 'field_data_field_os2web_kulturnaut_scity';
   $handler->display->display_options['fields']['field_os2web_kulturnaut_scity']['field'] = 'field_os2web_kulturnaut_scity';
   $handler->display->display_options['fields']['field_os2web_kulturnaut_scity']['exclude'] = TRUE;
-  /* Field: Content: Sted */
+  /* Felt: Indhold: Sted */
   $handler->display->display_options['fields']['field_os2web_kulturnaut_venue']['id'] = 'field_os2web_kulturnaut_venue';
   $handler->display->display_options['fields']['field_os2web_kulturnaut_venue']['table'] = 'field_data_field_os2web_kulturnaut_venue';
   $handler->display->display_options['fields']['field_os2web_kulturnaut_venue']['field'] = 'field_os2web_kulturnaut_venue';
   $handler->display->display_options['fields']['field_os2web_kulturnaut_venue']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_os2web_kulturnaut_venue']['type'] = 'taxonomy_term_reference_plain';
-  /* Field: Global: Custom text */
+  /* Felt: Global: Tilpasset tekst */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
@@ -166,12 +166,12 @@ function kultunaut_import_views_default_views() {
 	    <span class="all_day_event">false</span>
 	</div>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
-  /* Sort criterion: Content: Post date */
+  /* Sorteringskriterie: Indhold: Oprettelsesdato */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Contextual filter: Content: Nid */
+  /* Kontekstuelt filter: Indhold: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
   $handler->display->display_options['arguments']['nid']['table'] = 'node';
   $handler->display->display_options['arguments']['nid']['field'] = 'nid';
@@ -181,14 +181,14 @@ function kultunaut_import_views_default_views() {
   $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
-  /* Filter criterion: Content: Published */
+  /* Filterkriterie: Indhold: Udgivet */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
+  /* Filterkriterie: Indhold: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -223,7 +223,7 @@ function kultunaut_import_views_default_views() {
     t('‹ forrige'),
     t('næste ›'),
     t('sidste »'),
-    t('term from field_os2web_kulturnaut_venue'),
+    t('term fra field_os2web_kulturnaut_venue'),
     t('Beskrivelse'),
     t('Dato'),
     t('[field_os2web_kulturnaut_date-value]'),
@@ -248,7 +248,6 @@ function kultunaut_import_views_default_views() {
 	</div>'),
     t('Alle'),
     t('Content pane'),
-    t('more'),
     t('View panes'),
   );
   $export['add_to_calendar'] = $view;
@@ -268,11 +267,17 @@ function kultunaut_import_views_default_views() {
   $handler->display->display_options['title'] = 'Andre events';
   $handler->display->display_options['css_class'] = 'row row--equal-height-columns';
   $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['use_more_text'] = 'mere';
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['query']['options']['distinct'] = TRUE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Udfør';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Gendan';
+  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sortér efter';
+  $handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Stigende';
+  $handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Faldende';
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '2';
   $handler->display->display_options['pager']['options']['offset'] = '0';
@@ -282,42 +287,43 @@ function kultunaut_import_views_default_views() {
   $handler->display->display_options['style_options']['row_class_special'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'entity';
   $handler->display->display_options['row_options']['view_mode'] = 'teaser';
-  /* Field: Content: Title */
+  /* Felt: Indhold: Titel */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Sort criterion: Content: Dato -  start date (field_os2web_kulturnaut_date) */
+  /* Sorteringskriterie: Indhold: Dato -  startdato (field_os2web_kulturnaut_date) */
   $handler->display->display_options['sorts']['field_os2web_kulturnaut_date_value']['id'] = 'field_os2web_kulturnaut_date_value';
   $handler->display->display_options['sorts']['field_os2web_kulturnaut_date_value']['table'] = 'field_data_field_os2web_kulturnaut_date';
   $handler->display->display_options['sorts']['field_os2web_kulturnaut_date_value']['field'] = 'field_os2web_kulturnaut_date_value';
-  /* Contextual filter: Field: Kategorier (er) (field_os2web_kulturnaut_tema) */
+  /* Kontekstuelt filter: Felt: Kategorier (er) (field_os2web_kulturnaut_tema) */
   $handler->display->display_options['arguments']['field_os2web_kulturnaut_tema_tid']['id'] = 'field_os2web_kulturnaut_tema_tid';
   $handler->display->display_options['arguments']['field_os2web_kulturnaut_tema_tid']['table'] = 'field_data_field_os2web_kulturnaut_tema';
   $handler->display->display_options['arguments']['field_os2web_kulturnaut_tema_tid']['field'] = 'field_os2web_kulturnaut_tema_tid';
   $handler->display->display_options['arguments']['field_os2web_kulturnaut_tema_tid']['default_action'] = 'not found';
+  $handler->display->display_options['arguments']['field_os2web_kulturnaut_tema_tid']['exception']['title'] = 'Alle';
   $handler->display->display_options['arguments']['field_os2web_kulturnaut_tema_tid']['default_argument_type'] = 'fixed';
   $handler->display->display_options['arguments']['field_os2web_kulturnaut_tema_tid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['field_os2web_kulturnaut_tema_tid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['field_os2web_kulturnaut_tema_tid']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['arguments']['field_os2web_kulturnaut_tema_tid']['break_phrase'] = TRUE;
-  /* Filter criterion: Content: Published */
+  /* Filterkriterie: Indhold: Udgivet */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
+  /* Filterkriterie: Indhold: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'os2web_kulturnaut_knactivity' => 'os2web_kulturnaut_knactivity',
   );
-  /* Filter criterion: Content: Dato -  start date (field_os2web_kulturnaut_date) */
+  /* Filterkriterie: Indhold: Dato -  startdato (field_os2web_kulturnaut_date) */
   $handler->display->display_options['filters']['field_os2web_kulturnaut_date_value']['id'] = 'field_os2web_kulturnaut_date_value';
   $handler->display->display_options['filters']['field_os2web_kulturnaut_date_value']['table'] = 'field_data_field_os2web_kulturnaut_date';
   $handler->display->display_options['filters']['field_os2web_kulturnaut_date_value']['field'] = 'field_os2web_kulturnaut_date_value';
@@ -340,12 +346,12 @@ function kultunaut_import_views_default_views() {
   $translatables['oplevsyddjurs_andre_events'] = array(
     t('Master'),
     t('Andre events'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
+    t('mere'),
+    t('Udfør'),
+    t('Gendan'),
+    t('Sortér efter'),
+    t('Stigende'),
+    t('Faldende'),
     t('Alle'),
     t('Content pane'),
     t('View panes'),
@@ -365,11 +371,24 @@ function kultunaut_import_views_default_views() {
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['use_more_text'] = 'mere';
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Udfør';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Gendan';
+  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sortér efter';
+  $handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Stigende';
+  $handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Faldende';
   $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Antal elementer';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Alle -';
+  $handler->display->display_options['pager']['options']['expose']['offset_label'] = 'Forskydning';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« første';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ forrige';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'næste ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'sidste »';
   $handler->display->display_options['style_plugin'] = 'views_bootstrap_carousel_plugin_style';
   $handler->display->display_options['style_options']['interval'] = 'false';
   $handler->display->display_options['style_options']['navigation'] = 1;
@@ -377,29 +396,28 @@ function kultunaut_import_views_default_views() {
   $handler->display->display_options['style_options']['pause'] = 1;
   $handler->display->display_options['row_plugin'] = 'entity';
   $handler->display->display_options['row_options']['view_mode'] = 'teaser';
-  /* Relationship: Entityqueue: Node Queue */
+  /* Forbindelse: Entityqueue: Indholdselement Queue */
   $handler->display->display_options['relationships']['entityqueue_relationship']['id'] = 'entityqueue_relationship';
   $handler->display->display_options['relationships']['entityqueue_relationship']['table'] = 'node';
   $handler->display->display_options['relationships']['entityqueue_relationship']['field'] = 'entityqueue_relationship';
-  $handler->display->display_options['relationships']['entityqueue_relationship']['label'] = 'Indholdselement Queue';
   $handler->display->display_options['relationships']['entityqueue_relationship']['required'] = TRUE;
   $handler->display->display_options['relationships']['entityqueue_relationship']['limit'] = 1;
   $handler->display->display_options['relationships']['entityqueue_relationship']['queues'] = array(
     'forsidebanner' => 'forsidebanner',
     'fremh_vede_arrangementer' => 0,
   );
-  /* Field: Content: Title */
+  /* Felt: Indhold: Titel */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Sort criterion: Entityqueue: Node Queue Position */
+  /* Sorteringskriterie: Entityqueue: Indholdselement Queue Position */
   $handler->display->display_options['sorts']['entityqueue_relationship']['id'] = 'entityqueue_relationship';
   $handler->display->display_options['sorts']['entityqueue_relationship']['table'] = 'node';
   $handler->display->display_options['sorts']['entityqueue_relationship']['field'] = 'entityqueue_relationship';
-  /* Filter criterion: Content: Published */
+  /* Filterkriterie: Indhold: Udgivet */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -411,19 +429,19 @@ function kultunaut_import_views_default_views() {
   $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
   $translatables['oplevsyddjurs_forside_banner'] = array(
     t('Master'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('Items per page'),
-    t('- All -'),
-    t('Offset'),
-    t('« first'),
-    t('‹ previous'),
-    t('next ›'),
-    t('last »'),
+    t('mere'),
+    t('Udfør'),
+    t('Gendan'),
+    t('Sortér efter'),
+    t('Stigende'),
+    t('Faldende'),
+    t('Antal elementer'),
+    t('- Alle -'),
+    t('Forskydning'),
+    t('« første'),
+    t('‹ forrige'),
+    t('næste ›'),
+    t('sidste »'),
     t('Indholdselement Queue'),
     t('Content pane'),
     t('View panes'),
@@ -445,6 +463,7 @@ function kultunaut_import_views_default_views() {
   $handler->display->display_options['css_class'] = 'row row--equal-height-columns';
   $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['use_more_text'] = 'mere';
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
@@ -524,7 +543,7 @@ function kultunaut_import_views_default_views() {
   $handler->display->display_options['style_options']['default_row_class'] = FALSE;
   $handler->display->display_options['style_options']['row_class_special'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'node';
-  /* No results behavior: Global: Text area */
+  /* Opførsel ved ingen resultater: Global: Tekstområde */
   $handler->display->display_options['empty']['area']['id'] = 'area';
   $handler->display->display_options['empty']['area']['table'] = 'views';
   $handler->display->display_options['empty']['area']['field'] = 'area';
@@ -533,14 +552,14 @@ function kultunaut_import_views_default_views() {
   <p>Der er ingen aktiviteter i listen for den pågældende periode</p>
 </div>';
   $handler->display->display_options['empty']['area']['format'] = 'full_html';
-  /* Field: Content: Title */
+  /* Felt: Indhold: Titel */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Sort criterion: Content: Post date */
+  /* Sorteringskriterie: Indhold: Oprettelsesdato */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
@@ -549,14 +568,14 @@ function kultunaut_import_views_default_views() {
     1 => 'AND',
     2 => 'OR',
   );
-  /* Filter criterion: Content: Published */
+  /* Filterkriterie: Indhold: Udgivet */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
+  /* Filterkriterie: Indhold: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -564,7 +583,7 @@ function kultunaut_import_views_default_views() {
     'os2web_kulturnaut_knactivity' => 'os2web_kulturnaut_knactivity',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filter criterion: Date: Date (node) */
+  /* Filterkriterie: Dato: Dato (node) */
   $handler->display->display_options['filters']['date_filter']['id'] = 'date_filter';
   $handler->display->display_options['filters']['date_filter']['table'] = 'node';
   $handler->display->display_options['filters']['date_filter']['field'] = 'date_filter';
@@ -589,7 +608,7 @@ function kultunaut_import_views_default_views() {
   $handler->display->display_options['filters']['date_filter']['date_fields'] = array(
     'field_data_field_os2web_kulturnaut_date.field_os2web_kulturnaut_date_value' => 'field_data_field_os2web_kulturnaut_date.field_os2web_kulturnaut_date_value',
   );
-  /* Filter criterion: Content: Has taxonomy terms (with depth) */
+  /* Filterkriterie: Indhold: Har taksonomitermer (med dybde) */
   $handler->display->display_options['filters']['term_node_tid_depth']['id'] = 'term_node_tid_depth';
   $handler->display->display_options['filters']['term_node_tid_depth']['table'] = 'node';
   $handler->display->display_options['filters']['term_node_tid_depth']['field'] = 'term_node_tid_depth';
@@ -618,7 +637,7 @@ function kultunaut_import_views_default_views() {
   $handler->display->display_options['filters']['term_node_tid_depth']['vocabulary'] = 'os2web_taxonomies_tax_places';
   $handler->display->display_options['filters']['term_node_tid_depth']['error_message'] = FALSE;
   $handler->display->display_options['filters']['term_node_tid_depth']['depth'] = '4';
-  /* Filter criterion: Content: Has taxonomy terms (with depth) */
+  /* Filterkriterie: Indhold: Har taksonomitermer (med dybde) */
   $handler->display->display_options['filters']['term_node_tid_depth_1']['id'] = 'term_node_tid_depth_1';
   $handler->display->display_options['filters']['term_node_tid_depth_1']['table'] = 'node';
   $handler->display->display_options['filters']['term_node_tid_depth_1']['field'] = 'term_node_tid_depth';
@@ -640,7 +659,7 @@ function kultunaut_import_views_default_views() {
   $handler->display->display_options['filters']['term_node_tid_depth_1']['vocabulary'] = 'os2web_kulturnaut_tema';
   $handler->display->display_options['filters']['term_node_tid_depth_1']['error_message'] = FALSE;
   $handler->display->display_options['filters']['term_node_tid_depth_1']['depth'] = '4';
-  /* Filter criterion: Content: Has taxonomy terms (with depth) */
+  /* Filterkriterie: Indhold: Har taksonomitermer (med dybde) */
   $handler->display->display_options['filters']['term_node_tid_depth_2']['id'] = 'term_node_tid_depth_2';
   $handler->display->display_options['filters']['term_node_tid_depth_2']['table'] = 'node';
   $handler->display->display_options['filters']['term_node_tid_depth_2']['field'] = 'term_node_tid_depth';
@@ -667,7 +686,7 @@ function kultunaut_import_views_default_views() {
   $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
   $handler->display->display_options['exposed_block'] = TRUE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sort criterion: Content: Dato -  start date (field_os2web_kulturnaut_date) */
+  /* Sorteringskriterie: Indhold: Dato -  startdato (field_os2web_kulturnaut_date) */
   $handler->display->display_options['sorts']['field_os2web_kulturnaut_date_value']['id'] = 'field_os2web_kulturnaut_date_value';
   $handler->display->display_options['sorts']['field_os2web_kulturnaut_date_value']['table'] = 'field_data_field_os2web_kulturnaut_date';
   $handler->display->display_options['sorts']['field_os2web_kulturnaut_date_value']['field'] = 'field_os2web_kulturnaut_date_value';
@@ -682,7 +701,7 @@ function kultunaut_import_views_default_views() {
   $handler->display->display_options['allow']['fields_override'] = 0;
   $translatables['oplevsyddjurs_forside_kalender'] = array(
     t('Master'),
-    t('more'),
+    t('mere'),
     t('Vis'),
     t('Gendan'),
     t('Sortér efter'),
@@ -718,11 +737,24 @@ function kultunaut_import_views_default_views() {
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['use_more_text'] = 'mere';
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Udfør';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Gendan';
+  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sortér efter';
+  $handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Stigende';
+  $handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Faldende';
   $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Antal elementer';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Alle -';
+  $handler->display->display_options['pager']['options']['expose']['offset_label'] = 'Forskydning';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« første';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ forrige';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'næste ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'sidste »';
   $handler->display->display_options['style_plugin'] = 'views_bootstrap_carousel_plugin_style';
   $handler->display->display_options['style_options']['interval'] = '5000';
   $handler->display->display_options['style_options']['navigation'] = 1;
@@ -732,18 +764,16 @@ function kultunaut_import_views_default_views() {
   $handler->display->display_options['row_options']['image'] = 'field_os2web_base_field_banner';
   $handler->display->display_options['row_options']['title'] = 'field_banner_headline';
   $handler->display->display_options['row_options']['description'] = 'field_banner_text';
-  /* Relationship: Content: Sted (field_os2web_kulturnaut_venue) */
+  /* Forbindelse: Indhold: Sted (field_os2web_kulturnaut_venue) */
   $handler->display->display_options['relationships']['field_os2web_kulturnaut_venue_tid']['id'] = 'field_os2web_kulturnaut_venue_tid';
   $handler->display->display_options['relationships']['field_os2web_kulturnaut_venue_tid']['table'] = 'field_data_field_os2web_kulturnaut_venue';
   $handler->display->display_options['relationships']['field_os2web_kulturnaut_venue_tid']['field'] = 'field_os2web_kulturnaut_venue_tid';
-  $handler->display->display_options['relationships']['field_os2web_kulturnaut_venue_tid']['label'] = 'term fra field_os2web_kulturnaut_venue';
-  /* Relationship: Taxonomy term: Parent term */
+  /* Forbindelse: Ord i ordforråd: Overordnet ord */
   $handler->display->display_options['relationships']['parent']['id'] = 'parent';
   $handler->display->display_options['relationships']['parent']['table'] = 'taxonomy_term_hierarchy';
   $handler->display->display_options['relationships']['parent']['field'] = 'parent';
   $handler->display->display_options['relationships']['parent']['relationship'] = 'field_os2web_kulturnaut_venue_tid';
-  $handler->display->display_options['relationships']['parent']['label'] = 'Overordnet element';
-  /* Field: Taxonomy term: Banner */
+  /* Felt: Ord i ordforråd: Banner */
   $handler->display->display_options['fields']['field_os2web_base_field_banner_1']['id'] = 'field_os2web_base_field_banner_1';
   $handler->display->display_options['fields']['field_os2web_base_field_banner_1']['table'] = 'field_data_field_os2web_base_field_banner';
   $handler->display->display_options['fields']['field_os2web_base_field_banner_1']['field'] = 'field_os2web_base_field_banner';
@@ -762,7 +792,7 @@ function kultunaut_import_views_default_views() {
   $handler->display->display_options['fields']['field_os2web_base_field_banner_1']['delta_limit'] = '1';
   $handler->display->display_options['fields']['field_os2web_base_field_banner_1']['delta_offset'] = '0';
   $handler->display->display_options['fields']['field_os2web_base_field_banner_1']['separator'] = ' ';
-  /* Field: Taxonomy term: Banner */
+  /* Felt: Ord i ordforråd: Banner */
   $handler->display->display_options['fields']['field_os2web_base_field_banner']['id'] = 'field_os2web_base_field_banner';
   $handler->display->display_options['fields']['field_os2web_base_field_banner']['table'] = 'field_data_field_os2web_base_field_banner';
   $handler->display->display_options['fields']['field_os2web_base_field_banner']['field'] = 'field_os2web_base_field_banner';
@@ -780,7 +810,7 @@ function kultunaut_import_views_default_views() {
   $handler->display->display_options['fields']['field_os2web_base_field_banner']['delta_limit'] = '1';
   $handler->display->display_options['fields']['field_os2web_base_field_banner']['delta_offset'] = '0';
   $handler->display->display_options['fields']['field_os2web_base_field_banner']['separator'] = '';
-  /* Field: Field: Banner overskrift */
+  /* Felt: Felt: Banner overskrift */
   $handler->display->display_options['fields']['field_banner_headline']['id'] = 'field_banner_headline';
   $handler->display->display_options['fields']['field_banner_headline']['table'] = 'field_data_field_banner_headline';
   $handler->display->display_options['fields']['field_banner_headline']['field'] = 'field_banner_headline';
@@ -791,7 +821,7 @@ function kultunaut_import_views_default_views() {
   $handler->display->display_options['fields']['field_banner_headline']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_banner_headline']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_banner_headline']['hide_empty'] = TRUE;
-  /* Field: Field: Banner text */
+  /* Felt: Felt: Banner text */
   $handler->display->display_options['fields']['field_banner_text']['id'] = 'field_banner_text';
   $handler->display->display_options['fields']['field_banner_text']['table'] = 'field_data_field_banner_text';
   $handler->display->display_options['fields']['field_banner_text']['field'] = 'field_banner_text';
@@ -802,12 +832,12 @@ function kultunaut_import_views_default_views() {
   $handler->display->display_options['fields']['field_banner_text']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_banner_text']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_banner_text']['hide_empty'] = TRUE;
-  /* Sort criterion: Content: Post date */
+  /* Sorteringskriterie: Indhold: Oprettelsesdato */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Contextual filter: Content: Nid */
+  /* Kontekstuelt filter: Indhold: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
   $handler->display->display_options['arguments']['nid']['table'] = 'node';
   $handler->display->display_options['arguments']['nid']['field'] = 'nid';
@@ -817,7 +847,7 @@ function kultunaut_import_views_default_views() {
   $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
-  /* Filter criterion: Content: Type */
+  /* Filterkriterie: Indhold: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -839,22 +869,21 @@ function kultunaut_import_views_default_views() {
   );
   $translatables['oplevsyddjurs_node_banner'] = array(
     t('Master'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('Items per page'),
-    t('- All -'),
-    t('Offset'),
-    t('« first'),
-    t('‹ previous'),
-    t('next ›'),
-    t('last »'),
+    t('mere'),
+    t('Udfør'),
+    t('Gendan'),
+    t('Sortér efter'),
+    t('Stigende'),
+    t('Faldende'),
+    t('Antal elementer'),
+    t('- Alle -'),
+    t('Forskydning'),
+    t('« første'),
+    t('‹ forrige'),
+    t('næste ›'),
+    t('sidste »'),
     t('term fra field_os2web_kulturnaut_venue'),
     t('Overordnet element'),
-    t('[field_os2web_base_field_banner_1]'),
     t('Alle'),
     t('Content pane'),
     t('View panes'),
@@ -875,6 +904,7 @@ function kultunaut_import_views_default_views() {
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['css_class'] = 'row';
   $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['use_more_text'] = 'mere';
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
@@ -905,17 +935,16 @@ function kultunaut_import_views_default_views() {
   $handler->display->display_options['style_options']['row_class_special'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'entity';
   $handler->display->display_options['row_options']['view_mode'] = 'teaser';
-  /* Relationship: Entityqueue: Taxonomy term Queue */
+  /* Forbindelse: Entityqueue: Ord i ordforråd Queue */
   $handler->display->display_options['relationships']['entityqueue_relationship']['id'] = 'entityqueue_relationship';
   $handler->display->display_options['relationships']['entityqueue_relationship']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['relationships']['entityqueue_relationship']['field'] = 'entityqueue_relationship';
-  $handler->display->display_options['relationships']['entityqueue_relationship']['label'] = 'Ord i ordforråd Queue';
   $handler->display->display_options['relationships']['entityqueue_relationship']['required'] = TRUE;
   $handler->display->display_options['relationships']['entityqueue_relationship']['limit'] = 1;
   $handler->display->display_options['relationships']['entityqueue_relationship']['queues'] = array(
     'promoted_venues' => 'promoted_venues',
   );
-  /* Field: Taxonomy term: Name */
+  /* Felt: Ord i ordforråd: Navn */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -923,11 +952,11 @@ function kultunaut_import_views_default_views() {
   $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['name']['link_to_taxonomy'] = TRUE;
-  /* Sort criterion: Global: Random */
+  /* Sorteringskriterie: Global: Tilfældig */
   $handler->display->display_options['sorts']['random']['id'] = 'random';
   $handler->display->display_options['sorts']['random']['table'] = 'views';
   $handler->display->display_options['sorts']['random']['field'] = 'random';
-  /* Filter criterion: Taxonomy vocabulary: Machine name */
+  /* Filterkriterie: Ordforråd: Internt navn */
   $handler->display->display_options['filters']['machine_name']['id'] = 'machine_name';
   $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
   $handler->display->display_options['filters']['machine_name']['field'] = 'machine_name';
@@ -958,7 +987,7 @@ function kultunaut_import_views_default_views() {
   );
   $translatables['oplevsyddjurs_promoted_frontpage'] = array(
     t('Master'),
-    t('more'),
+    t('mere'),
     t('Udfør'),
     t('Gendan'),
     t('Sortér efter'),
@@ -985,11 +1014,24 @@ function kultunaut_import_views_default_views() {
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['use_more_text'] = 'mere';
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Udfør';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Gendan';
+  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sortér efter';
+  $handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Stigende';
+  $handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Faldende';
   $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Antal elementer';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Alle -';
+  $handler->display->display_options['pager']['options']['expose']['offset_label'] = 'Forskydning';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« første';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ forrige';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'næste ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'sidste »';
   $handler->display->display_options['style_plugin'] = 'views_bootstrap_carousel_plugin_style';
   $handler->display->display_options['style_options']['interval'] = '5000';
   $handler->display->display_options['style_options']['navigation'] = 1;
@@ -999,7 +1041,7 @@ function kultunaut_import_views_default_views() {
   $handler->display->display_options['row_options']['image'] = 'field_os2web_base_field_banner';
   $handler->display->display_options['row_options']['title'] = 'field_banner_headline';
   $handler->display->display_options['row_options']['description'] = 'field_banner_text';
-  /* Field: Taxonomy term: Name */
+  /* Felt: Ord i ordforråd: Navn */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -1008,20 +1050,20 @@ function kultunaut_import_views_default_views() {
   $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
-  /* Field: Field: Banner overskrift */
+  /* Felt: Felt: Banner overskrift */
   $handler->display->display_options['fields']['field_banner_headline']['id'] = 'field_banner_headline';
   $handler->display->display_options['fields']['field_banner_headline']['table'] = 'field_data_field_banner_headline';
   $handler->display->display_options['fields']['field_banner_headline']['field'] = 'field_banner_headline';
   $handler->display->display_options['fields']['field_banner_headline']['label'] = '';
   $handler->display->display_options['fields']['field_banner_headline']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_banner_headline']['empty'] = '[name]';
-  /* Field: Field: Banner text */
+  /* Felt: Felt: Banner text */
   $handler->display->display_options['fields']['field_banner_text']['id'] = 'field_banner_text';
   $handler->display->display_options['fields']['field_banner_text']['table'] = 'field_data_field_banner_text';
   $handler->display->display_options['fields']['field_banner_text']['field'] = 'field_banner_text';
   $handler->display->display_options['fields']['field_banner_text']['label'] = '';
   $handler->display->display_options['fields']['field_banner_text']['element_label_colon'] = FALSE;
-  /* Field: Taxonomy term: Banner */
+  /* Felt: Ord i ordforråd: Banner */
   $handler->display->display_options['fields']['field_os2web_base_field_banner']['id'] = 'field_os2web_base_field_banner';
   $handler->display->display_options['fields']['field_os2web_base_field_banner']['table'] = 'field_data_field_os2web_base_field_banner';
   $handler->display->display_options['fields']['field_os2web_base_field_banner']['field'] = 'field_os2web_base_field_banner';
@@ -1033,7 +1075,7 @@ function kultunaut_import_views_default_views() {
     'image_link' => '',
   );
   $handler->display->display_options['fields']['field_os2web_base_field_banner']['delta_offset'] = '0';
-  /* Contextual filter: Taxonomy term: Term ID */
+  /* Kontekstuelt filter: Ord i ordforråd: Term ID */
   $handler->display->display_options['arguments']['tid']['id'] = 'tid';
   $handler->display->display_options['arguments']['tid']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['arguments']['tid']['field'] = 'tid';
@@ -1043,7 +1085,7 @@ function kultunaut_import_views_default_views() {
   $handler->display->display_options['arguments']['tid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['tid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['tid']['summary_options']['items_per_page'] = '25';
-  /* Filter criterion: Taxonomy vocabulary: Machine name */
+  /* Filterkriterie: Ordforråd: Internt navn */
   $handler->display->display_options['filters']['machine_name']['id'] = 'machine_name';
   $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
   $handler->display->display_options['filters']['machine_name']['field'] = 'machine_name';
@@ -1065,19 +1107,19 @@ function kultunaut_import_views_default_views() {
   );
   $translatables['oplevsyddjurs_term_banner'] = array(
     t('Master'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('Items per page'),
-    t('- All -'),
-    t('Offset'),
-    t('« first'),
-    t('‹ previous'),
-    t('next ›'),
-    t('last »'),
+    t('mere'),
+    t('Udfør'),
+    t('Gendan'),
+    t('Sortér efter'),
+    t('Stigende'),
+    t('Faldende'),
+    t('Antal elementer'),
+    t('- Alle -'),
+    t('Forskydning'),
+    t('« første'),
+    t('‹ forrige'),
+    t('næste ›'),
+    t('sidste »'),
     t('[name]'),
     t('Alle'),
     t('Content pane'),
@@ -1098,6 +1140,7 @@ function kultunaut_import_views_default_views() {
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['use_more_text'] = 'mere';
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
@@ -1109,23 +1152,30 @@ function kultunaut_import_views_default_views() {
   $handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Stigende';
   $handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Faldende';
   $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Antal elementer';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Alle -';
+  $handler->display->display_options['pager']['options']['expose']['offset_label'] = 'Forskydning';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« første';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ forrige';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'næste ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'sidste »';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['style_options']['default_row_class'] = FALSE;
   $handler->display->display_options['style_options']['row_class_special'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'entity';
   $handler->display->display_options['row_options']['view_mode'] = 'teaser';
-  /* Field: Content: Title */
+  /* Felt: Indhold: Titel */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Sort criterion: Content: Dato -  start date (field_os2web_kulturnaut_date) */
+  /* Sorteringskriterie: Indhold: Dato -  startdato (field_os2web_kulturnaut_date) */
   $handler->display->display_options['sorts']['field_os2web_kulturnaut_date_value']['id'] = 'field_os2web_kulturnaut_date_value';
   $handler->display->display_options['sorts']['field_os2web_kulturnaut_date_value']['table'] = 'field_data_field_os2web_kulturnaut_date';
   $handler->display->display_options['sorts']['field_os2web_kulturnaut_date_value']['field'] = 'field_os2web_kulturnaut_date_value';
-  /* Contextual filter: Content: Has taxonomy term ID (with depth) */
+  /* Kontekstuelt filter: Indhold: Har taksonomiterm ID (med dybde) */
   $handler->display->display_options['arguments']['term_node_tid_depth']['id'] = 'term_node_tid_depth';
   $handler->display->display_options['arguments']['term_node_tid_depth']['table'] = 'node';
   $handler->display->display_options['arguments']['term_node_tid_depth']['field'] = 'term_node_tid_depth';
@@ -1141,21 +1191,21 @@ function kultunaut_import_views_default_views() {
     'os2web_taxonomies_tax_places' => 'os2web_taxonomies_tax_places',
   );
   $handler->display->display_options['arguments']['term_node_tid_depth']['depth'] = '5';
-  /* Filter criterion: Content: Published */
+  /* Filterkriterie: Indhold: Udgivet */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
+  /* Filterkriterie: Indhold: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'os2web_kulturnaut_knactivity' => 'os2web_kulturnaut_knactivity',
   );
-  /* Filter criterion: Date: Date (node) */
+  /* Filterkriterie: Dato: Dato (node) */
   $handler->display->display_options['filters']['date_filter']['id'] = 'date_filter';
   $handler->display->display_options['filters']['date_filter']['table'] = 'node';
   $handler->display->display_options['filters']['date_filter']['field'] = 'date_filter';
@@ -1216,21 +1266,21 @@ function kultunaut_import_views_default_views() {
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filterkriterie: Indhold: Udgivet */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
+  /* Filterkriterie: Indhold: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'os2web_kulturnaut_knactivity' => 'os2web_kulturnaut_knactivity',
   );
-  /* Filter criterion: Date: Date (node) */
+  /* Filterkriterie: Dato: Dato (node) */
   $handler->display->display_options['filters']['date_filter']['id'] = 'date_filter';
   $handler->display->display_options['filters']['date_filter']['table'] = 'node';
   $handler->display->display_options['filters']['date_filter']['field'] = 'date_filter';
@@ -1273,19 +1323,19 @@ function kultunaut_import_views_default_views() {
   );
   $translatables['oplevsyddjurs_term_nodes'] = array(
     t('Master'),
-    t('more'),
+    t('mere'),
     t('Vælg'),
     t('Gendan'),
     t('Sortér efter'),
     t('Stigende'),
     t('Faldende'),
-    t('Items per page'),
-    t('- All -'),
-    t('Offset'),
-    t('« first'),
-    t('‹ previous'),
-    t('next ›'),
-    t('last »'),
+    t('Antal elementer'),
+    t('- Alle -'),
+    t('Forskydning'),
+    t('« første'),
+    t('‹ forrige'),
+    t('næste ›'),
+    t('sidste »'),
     t('Alle'),
     t('Teasers'),
     t('View panes'),
@@ -1307,6 +1357,7 @@ function kultunaut_import_views_default_views() {
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['css_class'] = 'row row--equal-height-columns';
   $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['use_more_text'] = 'mere';
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
@@ -1349,13 +1400,20 @@ function kultunaut_import_views_default_views() {
     ),
   );
   $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Antal elementer';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Alle -';
+  $handler->display->display_options['pager']['options']['expose']['offset_label'] = 'Forskydning';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« første';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ forrige';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'næste ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'sidste »';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['style_options']['row_class'] = 'col-xs-12 col-sm-6 col-md-4';
   $handler->display->display_options['style_options']['default_row_class'] = FALSE;
   $handler->display->display_options['style_options']['row_class_special'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'entity';
   $handler->display->display_options['row_options']['view_mode'] = 'teaser';
-  /* No results behavior: Global: Text area */
+  /* Opførsel ved ingen resultater: Global: Tekstområde */
   $handler->display->display_options['empty']['area']['id'] = 'area';
   $handler->display->display_options['empty']['area']['table'] = 'views';
   $handler->display->display_options['empty']['area']['field'] = 'area';
@@ -1366,18 +1424,18 @@ function kultunaut_import_views_default_views() {
   </div>
 </div>';
   $handler->display->display_options['empty']['area']['format'] = 'full_html';
-  /* Field: Content: Title */
+  /* Felt: Indhold: Titel */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Sort criterion: Content: Dato -  start date (field_os2web_kulturnaut_date) */
+  /* Sorteringskriterie: Indhold: Dato -  startdato (field_os2web_kulturnaut_date) */
   $handler->display->display_options['sorts']['field_os2web_kulturnaut_date_value']['id'] = 'field_os2web_kulturnaut_date_value';
   $handler->display->display_options['sorts']['field_os2web_kulturnaut_date_value']['table'] = 'field_data_field_os2web_kulturnaut_date';
   $handler->display->display_options['sorts']['field_os2web_kulturnaut_date_value']['field'] = 'field_os2web_kulturnaut_date_value';
-  /* Contextual filter: Content: Has taxonomy term ID (with depth) */
+  /* Kontekstuelt filter: Indhold: Har taksonomiterm ID (med dybde) */
   $handler->display->display_options['arguments']['term_node_tid_depth']['id'] = 'term_node_tid_depth';
   $handler->display->display_options['arguments']['term_node_tid_depth']['table'] = 'node';
   $handler->display->display_options['arguments']['term_node_tid_depth']['field'] = 'term_node_tid_depth';
@@ -1388,28 +1446,28 @@ function kultunaut_import_views_default_views() {
   $handler->display->display_options['arguments']['term_node_tid_depth']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['term_node_tid_depth']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['arguments']['term_node_tid_depth']['depth'] = '10';
-  /* Filter criterion: Content: Published */
+  /* Filterkriterie: Indhold: Udgivet */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
+  /* Filterkriterie: Indhold: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'os2web_kulturnaut_knactivity' => 'os2web_kulturnaut_knactivity',
   );
-  /* Filter criterion: Content: Dato - end date (field_os2web_kulturnaut_date:value2) */
+  /* Filterkriterie: Indhold: Dato - slutdato (field_os2web_kulturnaut_date:value2) */
   $handler->display->display_options['filters']['field_os2web_kulturnaut_date_value2']['id'] = 'field_os2web_kulturnaut_date_value2';
   $handler->display->display_options['filters']['field_os2web_kulturnaut_date_value2']['table'] = 'field_data_field_os2web_kulturnaut_date';
   $handler->display->display_options['filters']['field_os2web_kulturnaut_date_value2']['field'] = 'field_os2web_kulturnaut_date_value2';
   $handler->display->display_options['filters']['field_os2web_kulturnaut_date_value2']['operator'] = '>=';
   $handler->display->display_options['filters']['field_os2web_kulturnaut_date_value2']['default_date'] = 'today -1 day';
   $handler->display->display_options['filters']['field_os2web_kulturnaut_date_value2']['year_range'] = '-0:+10';
-  /* Filter criterion: Date: Date (node) */
+  /* Filterkriterie: Dato: Dato (node) */
   $handler->display->display_options['filters']['date_filter']['id'] = 'date_filter';
   $handler->display->display_options['filters']['date_filter']['table'] = 'node';
   $handler->display->display_options['filters']['date_filter']['field'] = 'date_filter';
@@ -1452,7 +1510,7 @@ function kultunaut_import_views_default_views() {
   $handler->display->display_options['inherit_panels_path'] = '1';
   $translatables['oplevsyddjurs_term_nodes_filtered'] = array(
     t('Master'),
-    t('more'),
+    t('mere'),
     t('Vis'),
     t('Gendan'),
     t('Sortér efter'),
@@ -1460,13 +1518,13 @@ function kultunaut_import_views_default_views() {
     t('Faldende'),
     t('Vælg et filter og klik på Anvend for at se resultater'),
     t('Avancerede indstillinger'),
-    t('Items per page'),
-    t('- All -'),
-    t('Offset'),
-    t('« first'),
-    t('‹ previous'),
-    t('next ›'),
-    t('last »'),
+    t('Antal elementer'),
+    t('- Alle -'),
+    t('Forskydning'),
+    t('« første'),
+    t('‹ forrige'),
+    t('næste ›'),
+    t('sidste »'),
     t('<div class="boxy">
   <div class="boxy__body">
     <strong>Der er ingen planlagte begivenheder i perioden</strong>
@@ -1492,10 +1550,16 @@ function kultunaut_import_views_default_views() {
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['css_class'] = 'row row--equal-height-columns';
   $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['use_more_text'] = 'mere';
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Udfør';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Gendan';
+  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sortér efter';
+  $handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Stigende';
+  $handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Faldende';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '120';
   $handler->display->display_options['pager']['options']['offset'] = '0';
@@ -1514,12 +1578,11 @@ function kultunaut_import_views_default_views() {
   $handler->display->display_options['style_options']['row_class_special'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'entity';
   $handler->display->display_options['row_options']['view_mode'] = 'teaser';
-  /* Relationship: Taxonomy term: Parent term */
+  /* Forbindelse: Ord i ordforråd: Overordnet ord */
   $handler->display->display_options['relationships']['parent']['id'] = 'parent';
   $handler->display->display_options['relationships']['parent']['table'] = 'taxonomy_term_hierarchy';
   $handler->display->display_options['relationships']['parent']['field'] = 'parent';
-  $handler->display->display_options['relationships']['parent']['label'] = 'Overordnet element';
-  /* Field: Taxonomy term: Name */
+  /* Felt: Ord i ordforråd: Navn */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -1527,7 +1590,7 @@ function kultunaut_import_views_default_views() {
   $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['name']['link_to_taxonomy'] = TRUE;
-  /* Field: Field: Billede */
+  /* Felt: Felt: Billede */
   $handler->display->display_options['fields']['field_os2web_base_field_image']['id'] = 'field_os2web_base_field_image';
   $handler->display->display_options['fields']['field_os2web_base_field_image']['table'] = 'field_data_field_os2web_base_field_image';
   $handler->display->display_options['fields']['field_os2web_base_field_image']['field'] = 'field_os2web_base_field_image';
@@ -1538,11 +1601,11 @@ function kultunaut_import_views_default_views() {
     'image_style' => 'os2sub_small_imagesize',
     'image_link' => '',
   );
-  /* Sort criterion: Taxonomy term: Weight */
+  /* Sorteringskriterie: Ord i ordforråd: Vægt */
   $handler->display->display_options['sorts']['weight']['id'] = 'weight';
   $handler->display->display_options['sorts']['weight']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['sorts']['weight']['field'] = 'weight';
-  /* Contextual filter: Taxonomy term: Term ID */
+  /* Kontekstuelt filter: Ord i ordforråd: Term ID */
   $handler->display->display_options['arguments']['tid']['id'] = 'tid';
   $handler->display->display_options['arguments']['tid']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['arguments']['tid']['field'] = 'tid';
@@ -1569,12 +1632,12 @@ function kultunaut_import_views_default_views() {
   );
   $translatables['oplevsyddjurs_term_subterms'] = array(
     t('Master'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
+    t('mere'),
+    t('Udfør'),
+    t('Gendan'),
+    t('Sortér efter'),
+    t('Stigende'),
+    t('Faldende'),
     t('Antal elementer'),
     t('- Alle -'),
     t('Forskydning'),
@@ -1603,10 +1666,16 @@ function kultunaut_import_views_default_views() {
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'os2web_taxonomies_tax_places_data';
   $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['use_more_text'] = 'mere';
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Udfør';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Gendan';
+  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sortér efter';
+  $handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Stigende';
+  $handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Faldende';
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '0';
   $handler->display->display_options['pager']['options']['offset'] = '0';
@@ -1624,19 +1693,18 @@ function kultunaut_import_views_default_views() {
   $handler->display->display_options['style_options']['unescaped_slashes'] = 0;
   $handler->display->display_options['style_options']['unescaped_unicode'] = 0;
   $handler->display->display_options['style_options']['char_encoding'] = array();
-  /* Relationship: Taxonomy term: Parent term */
+  /* Forbindelse: Ord i ordforråd: Overordnet ord */
   $handler->display->display_options['relationships']['parent']['id'] = 'parent';
   $handler->display->display_options['relationships']['parent']['table'] = 'taxonomy_term_hierarchy';
   $handler->display->display_options['relationships']['parent']['field'] = 'parent';
-  $handler->display->display_options['relationships']['parent']['label'] = 'Overordnet element';
-  /* Field: Taxonomy term: Name */
+  /* Felt: Ord i ordforråd: Navn */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['name']['field'] = 'name';
   $handler->display->display_options['fields']['name']['label'] = 'Term title';
   $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
-  /* Field: Field: Billede */
+  /* Felt: Felt: Billede */
   $handler->display->display_options['fields']['field_os2web_base_field_image']['id'] = 'field_os2web_base_field_image';
   $handler->display->display_options['fields']['field_os2web_base_field_image']['table'] = 'field_data_field_os2web_base_field_image';
   $handler->display->display_options['fields']['field_os2web_base_field_image']['field'] = 'field_os2web_base_field_image';
@@ -1646,7 +1714,7 @@ function kultunaut_import_views_default_views() {
     'image_style' => '',
     'image_link' => '',
   );
-  /* Field: Taxonomy term: Banner */
+  /* Felt: Ord i ordforråd: Banner */
   $handler->display->display_options['fields']['field_os2web_base_field_banner']['id'] = 'field_os2web_base_field_banner';
   $handler->display->display_options['fields']['field_os2web_base_field_banner']['table'] = 'field_data_field_os2web_base_field_banner';
   $handler->display->display_options['fields']['field_os2web_base_field_banner']['field'] = 'field_os2web_base_field_banner';
@@ -1657,19 +1725,19 @@ function kultunaut_import_views_default_views() {
     'image_link' => '',
   );
   $handler->display->display_options['fields']['field_os2web_base_field_banner']['delta_offset'] = '0';
-  /* Field: Taxonomy term: GIS navn */
+  /* Felt: Ord i ordforråd: GIS navn */
   $handler->display->display_options['fields']['field_os2web_taxonomies_name']['id'] = 'field_os2web_taxonomies_name';
   $handler->display->display_options['fields']['field_os2web_taxonomies_name']['table'] = 'field_data_field_os2web_taxonomies_name';
   $handler->display->display_options['fields']['field_os2web_taxonomies_name']['field'] = 'field_os2web_taxonomies_name';
-  /* Field: Taxonomy term: GIS postby */
+  /* Felt: Ord i ordforråd: GIS postby */
   $handler->display->display_options['fields']['field_os2web_taxonomies_city']['id'] = 'field_os2web_taxonomies_city';
   $handler->display->display_options['fields']['field_os2web_taxonomies_city']['table'] = 'field_data_field_os2web_taxonomies_city';
   $handler->display->display_options['fields']['field_os2web_taxonomies_city']['field'] = 'field_os2web_taxonomies_city';
-  /* Field: Taxonomy term: GIS type */
+  /* Felt: Ord i ordforråd: GIS type */
   $handler->display->display_options['fields']['field_os2web_taxonomies_type']['id'] = 'field_os2web_taxonomies_type';
   $handler->display->display_options['fields']['field_os2web_taxonomies_type']['table'] = 'field_data_field_os2web_taxonomies_type';
   $handler->display->display_options['fields']['field_os2web_taxonomies_type']['field'] = 'field_os2web_taxonomies_type';
-  /* Field: Taxonomy term: Systemid */
+  /* Felt: Ord i ordforråd: Systemid */
   $handler->display->display_options['fields']['field_os2web_taxonomies_sys_id']['id'] = 'field_os2web_taxonomies_sys_id';
   $handler->display->display_options['fields']['field_os2web_taxonomies_sys_id']['table'] = 'field_data_field_os2web_taxonomies_sys_id';
   $handler->display->display_options['fields']['field_os2web_taxonomies_sys_id']['field'] = 'field_os2web_taxonomies_sys_id';
@@ -1677,83 +1745,82 @@ function kultunaut_import_views_default_views() {
     'thousand_separator' => '',
     'prefix_suffix' => 1,
   );
-  /* Field: Taxonomy term: GIS uid */
+  /* Felt: Ord i ordforråd: GIS uid */
   $handler->display->display_options['fields']['field_os2web_taxonomies_sys_uid']['id'] = 'field_os2web_taxonomies_sys_uid';
   $handler->display->display_options['fields']['field_os2web_taxonomies_sys_uid']['table'] = 'field_data_field_os2web_taxonomies_sys_uid';
   $handler->display->display_options['fields']['field_os2web_taxonomies_sys_uid']['field'] = 'field_os2web_taxonomies_sys_uid';
-  /* Field: Taxonomy term: Term ID */
+  /* Felt: Ord i ordforråd: Term ID */
   $handler->display->display_options['fields']['tid']['id'] = 'tid';
   $handler->display->display_options['fields']['tid']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['tid']['field'] = 'tid';
   $handler->display->display_options['fields']['tid']['separator'] = '';
-  /* Field: Taxonomy term: Weight */
+  /* Felt: Ord i ordforråd: Vægt */
   $handler->display->display_options['fields']['weight']['id'] = 'weight';
   $handler->display->display_options['fields']['weight']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['weight']['field'] = 'weight';
   $handler->display->display_options['fields']['weight']['label'] = 'Term Weight';
   $handler->display->display_options['fields']['weight']['separator'] = '';
-  /* Field: Taxonomy term: Indholdstekst */
+  /* Felt: Ord i ordforråd: Indholdstekst */
   $handler->display->display_options['fields']['field_termtekst']['id'] = 'field_termtekst';
   $handler->display->display_options['fields']['field_termtekst']['table'] = 'field_data_field_termtekst';
   $handler->display->display_options['fields']['field_termtekst']['field'] = 'field_termtekst';
   $handler->display->display_options['fields']['field_termtekst']['label'] = '';
   $handler->display->display_options['fields']['field_termtekst']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_termtekst']['element_label_colon'] = FALSE;
-  /* Field: Taxonomy term: Term description */
+  /* Felt: Ord i ordforråd: Beskrivelse af term */
   $handler->display->display_options['fields']['description']['id'] = 'description';
   $handler->display->display_options['fields']['description']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['description']['field'] = 'description';
-  $handler->display->display_options['fields']['description']['label'] = 'Beskrivelse af term';
   $handler->display->display_options['fields']['description']['empty'] = '[field_termtekst]';
   $handler->display->display_options['fields']['description']['empty_zero'] = TRUE;
-  /* Field: Taxonomy term: Term ID */
+  /* Felt: Ord i ordforråd: Term ID */
   $handler->display->display_options['fields']['tid_1']['id'] = 'tid_1';
   $handler->display->display_options['fields']['tid_1']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['tid_1']['field'] = 'tid';
   $handler->display->display_options['fields']['tid_1']['relationship'] = 'parent';
   $handler->display->display_options['fields']['tid_1']['label'] = 'Parrent Term ID';
   $handler->display->display_options['fields']['tid_1']['separator'] = '';
-  /* Field: Taxonomy term: Name */
+  /* Felt: Ord i ordforråd: Navn */
   $handler->display->display_options['fields']['name_1']['id'] = 'name_1';
   $handler->display->display_options['fields']['name_1']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['name_1']['field'] = 'name';
   $handler->display->display_options['fields']['name_1']['relationship'] = 'parent';
   $handler->display->display_options['fields']['name_1']['label'] = 'Parrent Term Name';
-  /* Field: Taxonomy term: GIS maplink */
+  /* Felt: Ord i ordforråd: GIS maplink */
   $handler->display->display_options['fields']['field_os2web_taxonomies_maplink']['id'] = 'field_os2web_taxonomies_maplink';
   $handler->display->display_options['fields']['field_os2web_taxonomies_maplink']['table'] = 'field_data_field_os2web_taxonomies_maplink';
   $handler->display->display_options['fields']['field_os2web_taxonomies_maplink']['field'] = 'field_os2web_taxonomies_maplink';
   $handler->display->display_options['fields']['field_os2web_taxonomies_maplink']['click_sort_column'] = 'url';
   $handler->display->display_options['fields']['field_os2web_taxonomies_maplink']['type'] = 'link_absolute';
-  /* Sort criterion: Taxonomy term: Weight */
+  /* Sorteringskriterie: Ord i ordforråd: Vægt */
   $handler->display->display_options['sorts']['weight']['id'] = 'weight';
   $handler->display->display_options['sorts']['weight']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['sorts']['weight']['field'] = 'weight';
   $handler->display->display_options['sorts']['weight']['relationship'] = 'parent';
-  /* Sort criterion: Taxonomy term: Weight */
+  /* Sorteringskriterie: Ord i ordforråd: Vægt */
   $handler->display->display_options['sorts']['weight_1']['id'] = 'weight_1';
   $handler->display->display_options['sorts']['weight_1']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['sorts']['weight_1']['field'] = 'weight';
-  /* Filter criterion: Taxonomy vocabulary: Machine name */
+  /* Filterkriterie: Ordforråd: Internt navn */
   $handler->display->display_options['filters']['machine_name']['id'] = 'machine_name';
   $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
   $handler->display->display_options['filters']['machine_name']['field'] = 'machine_name';
   $handler->display->display_options['filters']['machine_name']['value'] = array(
     'os2web_taxonomies_tax_places' => 'os2web_taxonomies_tax_places',
   );
-  /* Filter criterion: Taxonomy term: Parent term */
+  /* Filterkriterie: Ord i ordforråd: Overordnet ord */
   $handler->display->display_options['filters']['parent']['id'] = 'parent';
   $handler->display->display_options['filters']['parent']['table'] = 'taxonomy_term_hierarchy';
   $handler->display->display_options['filters']['parent']['field'] = 'parent';
   $handler->display->display_options['filters']['parent']['operator'] = '!=';
   $handler->display->display_options['filters']['parent']['value']['value'] = '125';
-  /* Filter criterion: Taxonomy term: Term ID */
+  /* Filterkriterie: Ord i ordforråd: Term ID */
   $handler->display->display_options['filters']['tid_raw']['id'] = 'tid_raw';
   $handler->display->display_options['filters']['tid_raw']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['filters']['tid_raw']['field'] = 'tid_raw';
   $handler->display->display_options['filters']['tid_raw']['operator'] = '!=';
   $handler->display->display_options['filters']['tid_raw']['value']['value'] = '125';
-  /* Filter criterion: Taxonomy term: Term ID */
+  /* Filterkriterie: Ord i ordforråd: Term ID */
   $handler->display->display_options['filters']['tid_raw_1']['id'] = 'tid_raw_1';
   $handler->display->display_options['filters']['tid_raw_1']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['filters']['tid_raw_1']['field'] = 'tid_raw';
@@ -1766,12 +1833,12 @@ function kultunaut_import_views_default_views() {
   $translatables['os2web_taxonomies_tax_places_data'] = array(
     t('Master'),
     t('os2web_taxonomies_tax_places_data'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
+    t('mere'),
+    t('Udfør'),
+    t('Gendan'),
+    t('Sortér efter'),
+    t('Stigende'),
+    t('Faldende'),
     t('Overordnet element'),
     t('Term title'),
     t('Term image'),
