@@ -1,0 +1,8 @@
+<?php
+
+/**
+ * @file
+ * Code for the Syddjurs EU cookie compliance feature.
+ */
+
+include_once 'syddjurs_eu_cookie_compliance.features.inc';

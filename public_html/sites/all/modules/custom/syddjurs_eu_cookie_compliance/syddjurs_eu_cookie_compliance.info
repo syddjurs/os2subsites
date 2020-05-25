@@ -1,0 +1,16 @@
+name = Syddjurs EU cookie compliance
+core = 7.x
+package = Syddjurs
+dependencies[] = ctools
+dependencies[] = eu_cookie_compliance
+dependencies[] = features
+dependencies[] = strongarm
+stylesheets[all][] = syddjurs_eu_cookie_compliance.css
+features[ctools][] = strongarm:strongarm:1
+features[features_api][] = api:2
+features[user_permission][] = administer EU Cookie Compliance popup
+features[user_permission][] = display EU Cookie Compliance popup
+features[variable][] = eu_cookie_compliance
+features[variable][] = eu_cookie_compliance_cookie_lifetime
+features[variable][] = eu_cookie_compliance_domain
+features[variable][] = eu_cookie_compliance_domain_all_sites
