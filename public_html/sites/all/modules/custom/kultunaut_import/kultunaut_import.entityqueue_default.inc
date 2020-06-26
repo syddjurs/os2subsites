@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * kultunaut_import.entityqueue_default.inc

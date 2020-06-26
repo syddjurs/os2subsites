@@ -79,6 +79,7 @@ features[views_view][] = oplevsyddjurs_forside_banner
 features[views_view][] = oplevsyddjurs_forside_kalender
 features[views_view][] = oplevsyddjurs_node_banner
 features[views_view][] = oplevsyddjurs_promoted_frontpage
+features[views_view][] = oplevsyddjurs_term_all_nodes_filtered
 features[views_view][] = oplevsyddjurs_term_banner
 features[views_view][] = oplevsyddjurs_term_nodes
 features[views_view][] = oplevsyddjurs_term_nodes_filtered
