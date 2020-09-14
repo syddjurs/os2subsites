@@ -355,16 +355,30 @@
           </div>
         </div>
       </div>
+      </div>
     </div>
-  </div>
-  <!-- End - sitemap -->
+<!-- End - sitemap -->
 
+  <?php if (!empty(variable_get('os2sub_frontpage_accessibility_link', ''))) : ?>
+<div class="sectioned sectioned--sitemap">
+    <div class="sectioned__inner">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="flexy-list flexy-list--centered">
+              <a href="<?php print variable_get('os2sub_frontpage_accessibility_link', ''); ?>" a>Tilgængelighedserklæring</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+ <?php endif; ?>
   <!-- Begin - footer -->
   <footer class="layout__footer">
     <div class="layout__footer--inner">
       <div class="container">
-
-        <div class="flexy-list flexy-list--centered">
+            <div class="flexy-list flexy-list--centered">
 
           <?php if (!empty($theme_settings['contact_information']['address'])) : ?>
             <div>
