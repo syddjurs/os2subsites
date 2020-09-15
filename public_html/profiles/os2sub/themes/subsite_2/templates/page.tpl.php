@@ -249,8 +249,12 @@
       <footer class="footer">
         <div class="footer-inner">
 
-	        <?php print render($page['footer']); ?>
-
+	    <?php print render($page['footer']); ?>
+            <?php if (!empty(variable_get('os2sub_frontpage_accessibility_link', ''))) : ?>
+                <div class="accessibility-link text-center-xs">
+                    <a href="<?php print variable_get('os2sub_frontpage_accessibility_link', ''); ?>" a>Tilgængelighedserklæring</a>
+                </div>
+            <?php endif; ?>
 	        <?php if (!empty($theme_settings['contact_information'])): ?>
 
           <div class="contact-information">

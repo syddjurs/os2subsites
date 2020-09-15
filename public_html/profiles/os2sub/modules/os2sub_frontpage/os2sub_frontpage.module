@@ -40,6 +40,11 @@ function os2sub_frontpage_settings() {
     '#format' => $var['format'],
     '#default_value' => $var['value'],
   );
+   $form['os2sub_frontpage_accessibility_link'] = array(
+    '#type' => 'textfield',
+    '#title' => 'Tilgængelighedserklæring',
+    '#default_value' => variable_get('os2sub_frontpage_accessibility_link', ''),
+  );
   return system_settings_form($form);
 }
 
@@ -51,4 +56,13 @@ function os2sub_frontpage_preprocess_page(&$variables) {
   $variables['footer_blocks']['block_1'] = $var['value'];
   $var = variable_get('os2sub_frontpage_footer_block_2', array('value' => '', 'format' => 'full_html'));
   $variables['footer_blocks']['block_2'] = $var['value'];
+}
+
+/**
+ * Implements hook_init().
+ */
+function os2sub_frontpage_init() {
+  if (!empty(variable_get('os2sub_frontpage_accessibility_link', '')) && arg(0) == 'was') {
+    drupal_goto(variable_get('os2sub_frontpage_accessibility_link', ''));
+  }
 }
