@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * os2web_kulturnaut_events.strongarm.inc
@@ -135,9 +136,7 @@ function os2web_kulturnaut_events_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'node_options_os2web_kulturnaut_knactivity';
-  $strongarm->value = array(
-    0 => 'status',
-  );
+  $strongarm->value = array();
   $export['node_options_os2web_kulturnaut_knactivity'] = $strongarm;
 
   $strongarm = new stdClass();

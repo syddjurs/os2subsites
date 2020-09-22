@@ -176,7 +176,7 @@ function os2web_kulturnaut_events_form_alter(&$form, &$form_state, $form_id) {
       $kategori_arr = array();
       if (isset($egennavne_stednavne_terms)) {
         foreach ($egennavne_stednavne_terms as $egennavne_stednavne_term) {
-          // 'For Børn' from egennavne_stednavne vocabulary is a signal to search by 'Børn' term from 'target_group' vocabulary. 
+          // 'For Børn' from egennavne_stednavne vocabulary is a signal to search by 'Børn' term from 'target_group' vocabulary.
           if($egennavne_stednavne_term->name == 'For Børn'){
             $target_group_term = taxonomy_get_term_by_name('Børn', 'target_group');
             $form['target_group']['#value'] = array(array_shift($target_group_term)->tid);
@@ -222,6 +222,10 @@ function os2web_kulturnaut_events_form_alter(&$form, &$form_state, $form_id) {
       }
     }
   }
+
+  if ($form_id == 'os2web_kulturnaut_knactivity_node_form' && !$form['nid']['#value']) {
+    drupal_set_message(t('Indhold til kultunaut kan også oprettes via gosyddjurs.dk - oprettes de begge stedder kommer de dobbelt ind i kultunaut'), 'warning');
+  }
 }
 
 /**
@@ -234,9 +238,9 @@ function os2web_kulturnaut_events_views_pre_view(&$view, &$display_id, &$args) {
     if ($node = menu_get_object()) {
       foreach($node->field_os2web_kulturnaut_tema['und'] as $term_id){
         $args[] =  $term_id['tid'];
-      } 
+      }
     }
-  $args = implode('+' , $args);  
+  $args = implode('+' , $args);
   $args = array($args);
   }
 }
