@@ -16,6 +16,13 @@
     <?php print render($sidebar_primary_navigation); ?>
     <!-- End - navigation -->
 
+    <br />
+
+    <div class="text-center">
+      <a href="/opret-event" class="btn btn-primary">
+        Opret begivenhed
+      </a>
+    </div>
   </aside>
   <!-- End - sidr source provider -->
 

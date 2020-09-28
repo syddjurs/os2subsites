@@ -33,7 +33,7 @@
     <?php if ($content['sidebar-left'] && $content['sidebar-right']): ?>
 
       <!-- Begin - content -->
-      <div class="col-sm-4">
+      <div class="col-sm-4 col-sm-push-4">
         <div class="panels-pane-region panels-pane-region--content-first">
           <?php print $content['content']; ?>
         </div>
@@ -48,10 +48,28 @@
       </div>
       <!-- End - content -->
 
-    <?php elseif ($content['sidebar-left'] OR $content['sidebar-right']): ?>
+    <?php elseif ($content['sidebar-left']): ?>
 
       <!-- Begin - content -->
       <div class="col-sm-8">
+        <div class="panels-pane-region panels-pane-region--content-first">
+          <?php print $content['content']; ?>
+        </div>
+
+        <div class="panels-pane-region panels-pane-region--content-secondary">
+          <?php print $content['content-secondary']; ?>
+        </div>
+
+        <div class="panels-pane-region panels-pane-region--content-tertiary">
+          <?php print $content['content-tertiary']; ?>
+        </div>
+      </div>
+      <!-- End - content -->
+
+    <?php elseif ($content['sidebar-right']): ?>
+
+      <!-- Begin - content -->
+      <div class="col-sm-8 col-sm-push-4">
         <div class="panels-pane-region panels-pane-region--content-first">
           <?php print $content['content']; ?>
         </div>
@@ -86,10 +104,19 @@
 
     <?php endif ?>
 
-
     <?php if ($content['sidebar-right']): ?>
       <!-- Begin - right sidebar -->
-      <div class="col-sm-4">
+      <div class="col-sm-4 col-sm-pull-8">
+        <div class="panels-pane-region panels-pane-region--sidebar-right">
+          <?php print $content['sidebar-right']; ?>
+        </div>
+      </div>
+      <!-- End - right sidebar -->
+    <?php endif; ?>
+
+    <?php if ($content['sidebar-left'] && $content['sidebar-right']): ?>
+      <!-- Begin - right sidebar -->
+      <div class="col-sm-4 col-sm-pull-4">
         <div class="panels-pane-region panels-pane-region--sidebar-right">
           <?php print $content['sidebar-right']; ?>
         </div>
