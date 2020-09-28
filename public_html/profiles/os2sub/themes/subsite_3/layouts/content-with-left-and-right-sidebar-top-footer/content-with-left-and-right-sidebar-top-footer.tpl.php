@@ -29,6 +29,25 @@
       <!-- End - left sidebar -->
     <?php endif ?>
 
+    <?php if ($content['sidebar-right']): ?>
+      <!-- Begin - right sidebar -->
+      <div class="col-sm-4 col-sm-pull-8">
+        <div class="panels-pane-region panels-pane-region--sidebar-right">
+          <?php print $content['sidebar-right']; ?>
+        </div>
+      </div>
+      <!-- End - right sidebar -->
+    <?php endif; ?>
+
+    <?php if ($content['sidebar-left'] && $content['sidebar-right']): ?>
+      <!-- Begin - right sidebar -->
+      <div class="col-sm-4 col-sm-pull-4">
+        <div class="panels-pane-region panels-pane-region--sidebar-right">
+          <?php print $content['sidebar-right']; ?>
+        </div>
+      </div>
+      <!-- End - right sidebar -->
+    <?php endif; ?>
 
     <?php if ($content['sidebar-left'] && $content['sidebar-right']): ?>
 
@@ -103,26 +122,6 @@
       <!-- End - content -->
 
     <?php endif ?>
-
-    <?php if ($content['sidebar-right']): ?>
-      <!-- Begin - right sidebar -->
-      <div class="col-sm-4 col-sm-pull-8">
-        <div class="panels-pane-region panels-pane-region--sidebar-right">
-          <?php print $content['sidebar-right']; ?>
-        </div>
-      </div>
-      <!-- End - right sidebar -->
-    <?php endif; ?>
-
-    <?php if ($content['sidebar-left'] && $content['sidebar-right']): ?>
-      <!-- Begin - right sidebar -->
-      <div class="col-sm-4 col-sm-pull-4">
-        <div class="panels-pane-region panels-pane-region--sidebar-right">
-          <?php print $content['sidebar-right']; ?>
-        </div>
-      </div>
-      <!-- End - right sidebar -->
-    <?php endif; ?>
 
   </div>
 </div>
