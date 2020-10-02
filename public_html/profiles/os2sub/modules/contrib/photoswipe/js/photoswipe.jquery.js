@@ -20,7 +20,7 @@
         $galleries.each( function (index) {
           var $gallery = $(this);
           $gallery.attr('data-pswp-uid', index + 1);
-          $gallery.on('click', Drupal.behaviors.photoswipe.onThumbnailsClick);
+          $gallery.once('photoswipe').on('click', Drupal.behaviors.photoswipe.onThumbnailsClick);
         });
       }
       var $imagesWithoutGalleries = $('a.photoswipe', context).filter( function(elem) {
@@ -30,10 +30,10 @@
         // We have no galleries just individual images.
         $imagesWithoutGalleries.each(function (index) {
           $imageLink = $(this);
-          $imageLink.wrap('<span class="photoswipe-gallery"></span>');
+          $imageLink.wrap('<div class="photoswipe-gallery"></div>');
           var $gallery = $imageLink.parent();
           $gallery.attr('data-pswp-uid', index + 1);
-          $gallery.on('click', Drupal.behaviors.photoswipe.onThumbnailsClick);
+          $gallery.once('photoswipe').on('click', Drupal.behaviors.photoswipe.onThumbnailsClick);
           $galleries.push($gallery);
         });
       }
@@ -52,7 +52,6 @@
      */
     onThumbnailsClick: function (e) {
       e = e || window.event;
-      e.preventDefault ? e.preventDefault() : e.returnValue = false;
 
       var $clickedGallery = $(this);
 
@@ -63,7 +62,7 @@
       var clickedListItem = $eTarget.closest('.photoswipe');
 
       if (!clickedListItem) {
-        return;
+        return true;
       }
 
       // Get the index of the clicked element.
@@ -71,8 +70,12 @@
       if (index >= 0) {
         // Open PhotoSwipe if a valid index was found.
         Drupal.behaviors.photoswipe.openPhotoSwipe(index, $clickedGallery);
+
+        // Prevent default:
+        e.preventDefault ? e.preventDefault() : e.returnValue = false;
+        return false;
       }
-      return false;
+      return true;
     },
     /**
      * Code taken from http://photoswipe.com/documentation/getting-started.html

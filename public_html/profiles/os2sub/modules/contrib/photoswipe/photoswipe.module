@@ -286,10 +286,6 @@ function photoswipe_field_formatter_view($entity_type, $entity, $field, $instanc
 
   if (!empty($items)) {
     photoswipe_load_assets();
-    $element = array(
-      '#type' => 'container',
-      '#attributes' => array('class' => array('photoswipe-gallery')),
-    );
   }
 
   foreach ($items as $delta => $item) {

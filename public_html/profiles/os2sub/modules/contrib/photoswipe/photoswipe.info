@@ -5,8 +5,8 @@ dependencies[] = libraries
 dependencies[] = jquery_update(>2.2)
 configure = admin/config/media/photoswipe
 
-; Information added by Drupal.org packaging script on 2019-04-10
-version = "7.x-2.0-beta5"
+; Information added by Drupal.org packaging script on 2020-09-25
+version = "7.x-2.0-beta6"
 core = "7.x"
 project = "photoswipe"
-datestamp = "1554916689"
+datestamp = "1601041191"
