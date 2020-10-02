@@ -24,57 +24,10 @@ class FeedsJSONPathParserTestCase extends FeedsWebTestCase {
   /**
    * Set up test.
    */
-  public function setUp() {
-    parent::setUp(array('feeds_jsonpath_parser'));
-    $this->downloadJsonPath();
-  }
-
-  /**
-   * Downloads JSONPath.
-   */
-  protected function downloadJsonPath() {
-    // We don't use a variable_set() here since we want this to be a unit test.
-    if (variable_get('feeds_jsonpath_library_dir')) {
-      return;
-    }
-    $url = 'https://jsonpath.googlecode.com/svn/trunk/src/php/jsonpath.php';
-    $filename = 'jsonpath.php';
-
-    // Avoid downloading the file dozens of times.
-    $library_dir = $this->originalFileDirectory . '/simpletest/feeds_jsonpath_parser';
-    $jsonpath_library_dir = DRUPAL_ROOT . '/' . $library_dir . '/jsonpath';
-
-    if (!file_exists(DRUPAL_ROOT . '/' . $library_dir)) {
-      drupal_mkdir(DRUPAL_ROOT . '/' . $library_dir);
-    }
-
-    if (!file_exists($jsonpath_library_dir)) {
-      drupal_mkdir($jsonpath_library_dir);
-    }
-
-    // Local file name.
-    $local_file = $jsonpath_library_dir . '/' . $filename;
-
-    // Begin single threaded code.
-    if (function_exists('sem_get')) {
-      $semaphore = sem_get(ftok(__FILE__, 1));
-      sem_acquire($semaphore);
-    }
-
-    // Download and extact the archive, but only in one thread.
-    if (!file_exists($local_file)) {
-      $local_file = system_retrieve_file($url, $local_file, FALSE, FILE_EXISTS_REPLACE);
-    }
-
-    if (function_exists('sem_get')) {
-      sem_release($semaphore);
-    }
-
-    // Verify that the file was successfully downloaded.
-    $this->assertTrue(file_exists($local_file), format_string('@file found.', array('@file' => $local_file)));
-
-    // Set the library directory.
-    variable_set('feeds_jsonpath_library_dir', $jsonpath_library_dir);
+  public function setUp(array $modules = array()) {
+    $modules[] = 'libraries';
+    $modules[] = 'feeds_jsonpath_parser';
+    parent::setUp($modules);
   }
 
   /**
@@ -129,14 +82,14 @@ class FeedsJSONPathParserTestCase extends FeedsWebTestCase {
 
     // Test that overriding default settings works.
     $edit = array(
-      'feeds[FeedsJSONPathParser][jsonpath][context]' => '/foo',
+      'feeds[FeedsJSONPathParser][jsonpath][context]' => '$.foo',
       'feeds[FeedsJSONPathParser][jsonpath][sources][jsonpath_parser:0]' => 'bar',
       'feeds[FeedsJSONPathParser][jsonpath][sources][jsonpath_parser:1]' => 'baz',
     );
     $this->postAndCheck('node/' . $nid . '/edit', $edit, 'Save', $node_save_text);
 
-    // Assert the we don't create an empty node when JSONPath values don't return anything.
-    // That happened at one point.
+    // Assert the we don't create an empty node when JSONPath values don't
+    // return anything. That happened at one point.
     $this->drupalPost('node/' . $nid . '/import', array(), 'Import');
     $this->assertText('There are no new nodes');
 
@@ -177,10 +130,25 @@ class FeedsJSONPathParserTestCase extends FeedsWebTestCase {
     $this->assertEqual('ࡇ abc ʦ ', FeedsJSONPathParser::stripFourBytes('ࡇ abc ʦ 𡃁'));
   }
 
+  /**
+   * Submit a form and confirm the expected fields are present.
+   */
   public function postAndCheck($url, $edit, $button, $saved_text) {
-    $this->drupalPost($url, $edit, $button);
-    $this->assertText($saved_text);
+    // Request the page and confirm it loads correctly.
     $this->drupalGet($url);
+    $this->assertResponse(200);
+
+    // Submit data to the form.
+    $this->drupalPost(NULL, $edit, $button);
+
+    // Confirm the expected string was found on the form.
+    $this->assertText($saved_text);
+
+    // Reload the form.
+    $this->drupalGet($url);
+
+    // Confirm each of the fields is present on the form and has the expected
+    // values.
     foreach ($edit as $key => $value) {
       $this->assertFieldByName($key, $value);
     }

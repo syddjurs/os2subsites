@@ -5,6 +5,8 @@
  * Contains FeedsJSONPathParser.
  */
 
+use Flow\JSONPath\JSONPath;
+
 /**
  * Parses JSON using JSONPath.
  */
@@ -25,9 +27,31 @@ class FeedsJSONPathParser extends FeedsParser {
   protected $debug = array();
 
   /**
+   * Loads the necessary library.
+   *
+   * @throws RuntimeException
+   *   Thrown if the library does not exist.
+   */
+  protected function loadLibrary() {
+    if (!feeds_jsonpath_parser_load_library()) {
+      if (user_access('administer site configuration')) {
+        $link = l(t('status report'), 'admin/reports/status');
+      }
+      else {
+        $link = t('status report');
+      }
+      throw new RuntimeException(t('The JSONPath library is not installed. Check the !status_report_link for more info.', array(
+        '!status_report_link' => $link,
+      )));
+    }
+  }
+
+  /**
    * Implements FeedsParser::parse().
    */
   public function parse(FeedsSource $source, FeedsFetcherResult $fetcher_result) {
+    $this->loadLibrary();
+
     $mappings = $this->getOwnMappings();
     $source_config = $source->getConfigFor($this);
     // Allow config inheritance.
@@ -54,7 +78,6 @@ class FeedsJSONPathParser extends FeedsParser {
     if (!is_array($array)) {
       throw new Exception(t('There was an error decoding the JSON document.'));
     }
-    require_once feeds_jsonpath_parser_library_path();
 
     $all_items = $this->jsonPath($array, $source_config['context']);
     unset($array);
@@ -102,10 +125,7 @@ class FeedsJSONPathParser extends FeedsParser {
   }
 
   /**
-   * Utilizes the jsonPath function from jsonpath-0.8.1.php.
-   *
-   * jsonPath returns false if the expression returns zero results and that will
-   * mess up our for loops, so return an empty array instead.
+   * Searches an array via JSONPath.
    *
    * @param array $array
    *   The input array to parse.
@@ -113,14 +133,25 @@ class FeedsJSONPathParser extends FeedsParser {
    *   The JSONPath expression.
    *
    * @return array
-   *   Returns an array that is the output of jsonPath.
+   *   Returns the parsed jsonpath expression.
    *
-   * @todo
-   *   Firgure out error handling.
+   * @throws RuntimeException
+   *   In case the parsed json is not an array.
    */
   protected function jsonPath($array, $expression) {
-    $result = jsonPath($array, $expression);
-    return ($result === FALSE) ? array() : $result;
+    $result = (new JSONPath($array))->find($expression)->data();
+
+    // If the returned result is empty, just return an empty array.
+    if (empty($result)) {
+      return array();
+    }
+
+    // If the parsed json is not an array, throw an exception.
+    if (!is_array($result)) {
+      throw new RuntimeException(t('The parsed json must return an array.'));
+    }
+
+    return $result;
   }
 
   /**
@@ -427,6 +458,7 @@ class FeedsJSONPathParser extends FeedsParser {
    *   The item to alter.
    * @param FeedsSource $source
    *   The feed source.
+   *
    * @return true|null
    *   Returns true if the item should be skipped.
    */
