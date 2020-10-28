@@ -14,6 +14,13 @@ function os2web_kulturnaut_events_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'date_format_kulturnaut_date_short';
+  $strongarm->value = 'D. d. M.';
+  $export['date_format_kulturnaut_date_short'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'diff_enable_revisions_page_node_os2web_kulturnaut_knactivity';
   $strongarm->value = 1;
   $export['diff_enable_revisions_page_node_os2web_kulturnaut_knactivity'] = $strongarm;

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * os2web_kulturnaut_events.features.field_instance.inc
@@ -306,8 +307,8 @@ function os2web_kulturnaut_events_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'date',
         'settings' => array(
-          'format_type' => 'day_and_month',
-          'fromto' => 'value',
+          'format_type' => 'kulturnaut_date_short',
+          'fromto' => 'both',
           'multiple_from' => '',
           'multiple_number' => '',
           'multiple_to' => '',
