@@ -128,6 +128,11 @@ function os2web_kulturnaut_events_feeds_presave(FeedsSource $source, $entity, $i
     $entity->field_os2web_kulturnaut_date['und'][0]['value'] = trim(substr_replace($entity->field_os2web_kulturnaut_date['und'][0]['value'], '00:00:00', -8));
     drupal_set_message(t("Non standart starttime on event '%title', use '00:00:00' instead", array('%title' => $item['jsonpath_parser:0'])), 'warning');
   }
+  $event_end_date = DateTime::createFromFormat('Y-m-d H:i:s', $entity->field_os2web_kulturnaut_date['und'][0]['value2']);
+  $current_date = new DateTime('now');
+  if($current_date < $event_end_date) {
+    $entity->status = 1;
+  }
   drupal_set_message(t("Startdate: '%start_v', Enddate: '%end_v', Title: '%title'", array('%title' => $item['jsonpath_parser:0'], '%end_v' => $entity->field_os2web_kulturnaut_date['und'][0]['value2'], '%start_v' => $entity->field_os2web_kulturnaut_date['und'][0]['value'])), 'warning');
 }
 
