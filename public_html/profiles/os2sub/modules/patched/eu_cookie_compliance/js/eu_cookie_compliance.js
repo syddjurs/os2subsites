@@ -685,6 +685,11 @@
     // Store consent if applicable.
     if (Drupal.settings.eu_cookie_compliance.store_consent && ((status === 1 && Drupal.settings.eu_cookie_compliance.popup_agreed_enabled) || (status === 2  && !Drupal.settings.eu_cookie_compliance.popup_agreed_enabled))) {
       var url = Drupal.settings.basePath + Drupal.settings.pathPrefix + 'eu-cookie-compliance/store_consent/banner';
+      // Adding categories information to consent storage.
+      var categories = Drupal.eu_cookie_compliance.getAcceptedCategories();
+      if (categories.length) {
+        url += ';categories:' + categories.join(',');
+      }
       $.post(url, {}, function (data) { });
     }
 

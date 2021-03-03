@@ -1,0 +1,16 @@
+diff --git a/public_html/profiles/os2sub/modules/patched/eu_cookie_compliance/js/eu_cookie_compliance.js b/public_html/profiles/os2sub/modules/patched/eu_cookie_compliance/js/eu_cookie_compliance.js
+index 9a88c5b..f099c93 100644
+--- a/public_html/profiles/os2sub/modules/patched/eu_cookie_compliance/js/eu_cookie_compliance.js
++++ b/public_html/profiles/os2sub/modules/patched/eu_cookie_compliance/js/eu_cookie_compliance.js
+@@ -686,6 +686,11 @@
+     // Store consent if applicable.
+     if (Drupal.settings.eu_cookie_compliance.store_consent && ((status === 1 && Drupal.settings.eu_cookie_compliance.popup_agreed_enabled) || (status === 2  && !Drupal.settings.eu_cookie_compliance.popup_agreed_enabled))) {
+       var url = Drupal.settings.basePath + Drupal.settings.pathPrefix + 'eu-cookie-compliance/store_consent/banner';
++      // Adding categories information to consent storage.
++      var categories = Drupal.eu_cookie_compliance.getAcceptedCategories();
++      if (categories.length) {
++        url += ';categories:' + categories.join(',');
++      }
+       $.post(url, {}, function (data) { });
+     }
+
