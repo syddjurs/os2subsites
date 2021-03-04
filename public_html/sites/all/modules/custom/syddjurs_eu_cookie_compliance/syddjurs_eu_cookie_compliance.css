@@ -66,4 +66,5 @@
 
 .eu-cookie-compliance-popup-closed #sliding-popup.sliding-popup-popup .eu-cookie-withdraw-tab {
   transition: none;
+  background: #ffffff;
 }
