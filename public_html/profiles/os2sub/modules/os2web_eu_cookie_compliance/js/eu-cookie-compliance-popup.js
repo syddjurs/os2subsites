@@ -123,3 +123,45 @@
     }
   }
 })(jQuery);
+
+(function() {
+  function getCookie(name) {
+    var v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+
+    return v ? v[2] : null;
+  }
+
+  function hasAgreed() {
+    var cookie = getCookie('cookie-agreed');
+
+    // Cookie doesnt exist.
+    if (cookie === null) {
+      return false;
+    }
+
+    // Cookie exists, but the user didnt agree.
+    if (cookie === 0 || cookie === '0' || cookie === '') {
+      return false;
+    }
+
+    return true;
+  }
+
+  function deleteAllCookies() {
+    var cookies = document.cookie.split(";");
+
+    for (var i = 0; i < cookies.length; i++) {
+      var cookie = cookies[i];
+      var eqPos = cookie.indexOf("=");
+      var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+
+      document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+    }
+  }
+
+  window.setInterval(function() {
+    if (!hasAgreed()) {
+      deleteAllCookies();
+    }
+  }, 5000);
+})();
