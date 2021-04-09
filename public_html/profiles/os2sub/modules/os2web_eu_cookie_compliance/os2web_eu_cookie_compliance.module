@@ -364,6 +364,27 @@ function os2web_eu_cookie_compliance_js_alter(&$javascript) {
       variable_set('os2web_eu_cookie_compliance_notification_unhandled_js', array_merge($notification_unhandled_js, $diff));
     }
   }
+
+  // If GDPR Consent is not given we should no set statistic cookies.
+  if (empty($_COOKIE['cookie-agreed'])) {
+    $javascript = array_filter($javascript, function($script, $key) {
+      if (empty($script['data']) || !is_string($script['data'])) {
+        return TRUE;
+      }
+
+      if (
+        strpos($script['data'], 'piwik') !== FALSE
+        || strpos($script['data'], 'siteimprove') !== FALSE
+        // Adding keywords to remove GA scripts
+        || strpos($script['data'], 'googleanalytics') !== FALSE
+        || strpos($script['data'], 'nalytics') !== FALSE
+      ) {
+        return FALSE;
+      }
+
+      return TRUE;
+    }, ARRAY_FILTER_USE_BOTH);
+  }
 }
 
 /**
