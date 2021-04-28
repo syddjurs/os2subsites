@@ -1,0 +1,3 @@
+[submodule "public_html/profiles/os2sub/modules/os2web_eu_cookie_compliance"]
+	path = public_html/profiles/os2sub/modules/os2web_eu_cookie_compliance
+	url = git@github.com:bellcom/os2web_eu_cookie_compliance.git
