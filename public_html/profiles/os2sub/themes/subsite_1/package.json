@@ -9,7 +9,7 @@
     "author": "Morten Nissen <mn@bellcom.dk>",
     "license": "MIT",
     "dependencies": {
-        "grunt": "^0.4.5",
+        "grunt": "^1.3.0",
         "grunt-autoprefixer": "~3.0.3",
         "grunt-jscs": "~1.8.0",
         "grunt-modernizr": "metaloha/grunt-modernizr#d6657bf302bd9288e25a513197fb0e30c64ce677",
