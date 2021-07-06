@@ -38,6 +38,11 @@
 <?php print $scripts; ?>
 <!-- End - load javascript files -->
 
+<!-- Begin - podcast -->
+<div id='buzzsprout-large-player-1810404'></div>
+<script type='text/javascript' charset='utf-8' src='https://www.buzzsprout.com/1810404.js?container_id=buzzsprout-large-player-1810404&player=large'></script>
+<!-- End - podcast -->
+
 <?php print $page_bottom; ?>
 
 </body>
