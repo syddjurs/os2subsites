@@ -34,11 +34,15 @@ function os2web_kulturnaut_events_cron() {
       if ($current_date > $node_end_date) {
         $i++;
         $deleted_nodes[] = $node->nid;
-        watchdog('cron', 'Node ' . $node->nid . ' deleted');
-        node_delete($node->nid);
+        //@JUULIA Temporary changes for testing import
+        //watchdog('cron', 'Node ' . $node->nid . ' deleted');
+        //node_delete($node->nid);
+        $node->status = 0;
+        node_save($node);
+        watchdog('cron', 'Node ' . $node->nid . ' unpublished');
       }
     }
-    watchdog('cron', 'Nodes deleted: '. $i . ' ('. implode(',', $deleted_nodes) . ')');
+    watchdog('cron', 'Nodes unpublished: '. $i . ' ('. implode(',', $deleted_nodes) . ')');
   }
   else{
     watchdog('cron', 'No publeshed nodes found');
