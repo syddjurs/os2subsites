@@ -63,6 +63,9 @@ function print_pdf_wkhtmltopdf_print_pdf_generate($html, $meta, $paper_size = NU
     $wkhtmltopdf_options .= ' --username ' . escapeshellarg($_SERVER['PHP_AUTH_USER']) . ' --password ' . escapeshellarg($_SERVER['PHP_AUTH_PW']);
   }
 
+  // hook_print_pdf_wkhtmltopdf_alter().
+  drupal_alter('print_pdf_wkhtmltopdf', $wkhtmltopdf_options, $html, $meta);
+
   $use_input_file = variable_get('print_pdf_wkhtmltopdf_use_input_file', PRINT_PDF_WKHTMLTOPDF_USE_INPUT_FILE_DEFAULT);
   if ($use_input_file) {
     $temp_html = file_unmanaged_save_data($html, drupal_tempnam('temporary://', 'c_html_') . '.html', FILE_EXISTS_RENAME);
@@ -81,7 +84,7 @@ function print_pdf_wkhtmltopdf_print_pdf_generate($html, $meta, $paper_size = NU
   $descriptor = array(
     0 => array('pipe', 'r'),
     1 => array('pipe', 'w'),
-    2 => array('pipe', 'a'),
+    2 => array('pipe', 'w'),
   );
   $cmd = '"' . realpath($pdf_tool[1]) . "\" -q --page-size $paper_size --orientation $page_orientation --dpi $dpi $wkhtmltopdf_options $html_input_parameter -";
 
